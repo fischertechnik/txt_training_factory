@@ -1,6 +1,0 @@
-<map id="ft::TxtSimulationModel" name="ft::TxtSimulationModel">
-<area shape="rect" id="node2" href="$classft_1_1_subject_observer.html" title="ft::SubjectObserver" alt="" coords="5,185,140,212"/>
-<area shape="rect" id="node3" href="$classft_1_1_txt_mqtt_factory_client.html" title="ft::TxtMqttFactoryClient" alt="" coords="164,185,325,212"/>
-<area shape="rect" id="node4" href="$classft_1_1action__listener__publish.html" title="ft::action_listener\l_publish" alt="" coords="102,81,225,123"/>
-<area shape="rect" id="node6" href="$classft_1_1action__listener__subscribe.html" title="ft::action_listener\l_subscribe" alt="" coords="250,81,373,123"/>
-</map>
