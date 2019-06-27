@@ -1,0 +1,8 @@
+<map id="TxtSimulationModel.h" name="TxtSimulationModel.h">
+<area shape="rect" id="node2" href="$_txt_delivery_pickup_station_8h.html" title="TxtDeliveryPickupStation.h" alt="" coords="5,80,187,107"/>
+<area shape="rect" id="node3" href="$_txt_vacuum_gripper_robot_8h.html" title="TxtVacuumGripperRobot.h" alt="" coords="71,155,249,181"/>
+<area shape="rect" id="node5" href="$_txt_high_bay_warehouse_8h.html" title="TxtHighBayWarehouse.h" alt="" coords="261,80,429,107"/>
+<area shape="rect" id="node6" href="$_txt_multi_processing_station_8h.html" title="TxtMultiProcessingStation.h" alt="" coords="453,80,640,107"/>
+<area shape="rect" id="node7" href="$_txt_sorting_line_8h.html" title="TxtSortingLine.h" alt="" coords="664,80,781,107"/>
+<area shape="rect" id="node4" href="$_txt_joystick_x_y_b_controller_8h.html" title="TxtJoystickXYBController.h" alt="" coords="68,229,252,256"/>
+</map>

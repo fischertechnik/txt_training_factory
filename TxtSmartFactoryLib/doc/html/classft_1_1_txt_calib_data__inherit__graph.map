@@ -1,0 +1,7 @@
+<map id="ft::TxtCalibData" name="ft::TxtCalibData">
+<area shape="rect" id="node2" href="$classft_1_1_txt_delivery_pickup_station_calib_data.html" title="ft::TxtDeliveryPickupStation\lCalibData" alt="" coords="190,5,377,47"/>
+<area shape="rect" id="node3" href="$classft_1_1_txt_high_bay_warehouse_calib_data.html" title="ft::TxtHighBayWarehouseCalibData" alt="" coords="168,71,399,98"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_pan_tilt_unit_calib_data.html" title="ft::TxtPanTiltUnitCalibData" alt="" coords="193,122,373,149"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_sorting_line_calib_data.html" title="ft::TxtSortingLineCalibData" alt="" coords="193,173,373,199"/>
+<area shape="rect" id="node6" href="$classft_1_1_txt_vacuum_gripper_robot_calib_data.html" title="ft::TxtVacuumGripperRobot\lCalibData" alt="" coords="192,224,375,265"/>
+</map>

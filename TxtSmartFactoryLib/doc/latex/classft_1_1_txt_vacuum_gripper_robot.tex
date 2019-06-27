@@ -1,0 +1,820 @@
+\hypertarget{classft_1_1_txt_vacuum_gripper_robot}{}\section{ft\+:\+:Txt\+Vacuum\+Gripper\+Robot Class Reference}
+\label{classft_1_1_txt_vacuum_gripper_robot}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+
+
+{\ttfamily \#include $<$Txt\+Vacuum\+Gripper\+Robot.\+h$>$}
+
+
+
+Inheritance diagram for ft\+:\+:Txt\+Vacuum\+Gripper\+Robot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classft_1_1_txt_vacuum_gripper_robot__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for ft\+:\+:Txt\+Vacuum\+Gripper\+Robot\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classft_1_1_txt_vacuum_gripper_robot__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} \{ \\*
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aacd72366a8741ee286d9678937a40b99}{\+\_\+\+\_\+\+N\+O\+\_\+\+S\+T\+A\+TE}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a4769770d5974b89eb08c2ff6ebd8d23a}{F\+A\+U\+LT}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a6bd1ab9616842872ffaa3b9b4865e06c}{I\+N\+IT}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ab113561a2f5149ba870ce8425753ad4f}{I\+D\+LE}, 
+\\*
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a788a041b1d34ca4e3dc7827ed745a971}{F\+E\+T\+C\+H\+\_\+\+W\+P\+\_\+\+V\+GR}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a7e8cf95b40bcf61839482218958eca8d}{V\+G\+R\+\_\+\+W\+A\+I\+T\+\_\+\+F\+E\+T\+C\+H\+ED}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a418d493bdfabfbb19b6f47f2b5404eef}{M\+O\+V\+E\+\_\+\+V\+G\+R2\+M\+PO}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a500041a873dacde58aa75996a6b0ce69}{S\+T\+A\+R\+T\+\_\+\+P\+R\+O\+D\+U\+CE}, 
+\\*
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a96b4c37d0938a3ba9b81fa778730ee09}{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+U\+P\+\_\+\+W\+A\+IT}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aa56eccb533061910042e2bb588b86a0c}{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+UP}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a5e09dd6146c4465a3c4e9a95d5485ff7}{S\+T\+A\+R\+T\+\_\+\+D\+E\+L\+I\+V\+E\+RY}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211abb563f155e21fa44a73985855735bf1f}{C\+O\+L\+O\+R\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON}, 
+\\*
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ae5b1ba06583c171edbf25b8b483efb00}{W\+R\+O\+N\+G\+\_\+\+C\+O\+L\+OR}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a2080b4e77e4c9cddd331f2dee9008e0d}{N\+F\+C\+\_\+\+R\+AW}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ae4472bd84db0dfb2d02cb782fe1126e4}{N\+F\+C\+\_\+\+P\+R\+O\+D\+U\+C\+ED}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aff56d9b518f2192d099a0de9f043e5fb}{N\+F\+C\+\_\+\+R\+E\+J\+E\+C\+T\+ED}, 
+\\*
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ac32af23c843e61c3fe24f1cc77c44a8b}{S\+T\+O\+R\+E\+\_\+\+W\+P\+\_\+\+V\+GR}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a9edc15fc78156db52d9a63aa6c791fb1}{S\+T\+O\+R\+E\+\_\+\+WP}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aaf2bc6b98f493c5cd852a2db9c9959c7}{C\+A\+L\+I\+B\+\_\+\+H\+BW}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a21d7897f6fe2a80de432bd6b743ff0b6}{C\+A\+L\+I\+B\+\_\+\+V\+GR}, 
+\\*
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ad917c89a6ea41a076cde45bca660393f}{C\+A\+L\+I\+B\+\_\+\+N\+AV}, 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a1def7e324367ef32c721e56097f3b239}{C\+A\+L\+I\+B\+\_\+\+M\+O\+VE}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{classft_1_1_txt_vacuum_gripper_robot_acfdbf8ef23222b97fab8e712e69eb186}{to\+String} (\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} state)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1342208c4d081f3977edc7588761a08a}{print\+State} (\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} state)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_af251097dd5c111e90c51bfef9813afe7}{print\+Entry\+State} (\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} state)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1aa567d609b0576f2858877331b3c304}{print\+Exit\+State} (\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} state)
+\item 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a5f66324b385d19e91bfd7499a09ae324}{Txt\+Vacuum\+Gripper\+Robot} (F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+ER $\ast$\hyperlink{classft_1_1_txt_simulation_model_a9facd66a0dbecd676ae7b72c37a0b300}{p\+T\+Area}, \hyperlink{classft_1_1_txt_mqtt_factory_client}{ft\+::\+Txt\+Mqtt\+Factory\+Client} $\ast$\hyperlink{classft_1_1_txt_simulation_model_a6a92fdef8619b9b1636c7c464091ea3a}{mqttclient})
+\item 
+virtual \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a2df0a8b0b187be91d7da8650ab8d8283}{$\sim$\+Txt\+Vacuum\+Gripper\+Robot} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aeccf0b1fc210d8d866da8fbf790bbc93}{request\+Quit} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a009cde0e105a105b2e9d67c38a39e865}{request\+Order} (\hyperlink{namespaceft_a2d5bf01b2da29de3c061682f3195b5b2}{Txt\+W\+P\+Type\+\_\+t} type)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ac52e075633605da3c6e4f2bcbb0f823c}{request\+Nfc\+Read} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a3fc5ddb2d9a4d4556dbd7f3f43021d9b}{request\+Nfc\+Delete} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a9d9c74f1002ca322497746eac5bff815}{request\+Joy\+But} (\hyperlink{classft_1_1_txt_joysticks_data}{Txt\+Joysticks\+Data} jd)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aacae7f2a11ed3a4ef96f207cba15611d}{request\+M\+P\+Ostarted} (\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$wp)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a40b931eb82ba86eebc24895893ab830d}{request\+H\+B\+Wcalib\+\_\+nav} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_af64652e126d1962840bf0e6b0fab0a1e}{request\+H\+B\+Wcalib\+\_\+end} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a70fa9e4c6503155756f59d376d923579}{request\+H\+B\+Wstored} (\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$wp)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ad0f221936fc34767074f64754d6275fa}{request\+H\+B\+Wfetched} (\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$wp)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_accc6662e0903c6d9f91c47a9256719e2}{request\+S\+L\+Dsorted} (\hyperlink{namespaceft_a2d5bf01b2da29de3c061682f3195b5b2}{Txt\+W\+P\+Type\+\_\+t} type)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a465c53278509691530582333e61f10b6}{stop} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_acd85e14b26413c3f83c8e8eba9e6a792}{move\+Ref} ()
+\item 
+\hyperlink{classft_1_1_enc_pos3}{Enc\+Pos3} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a506a7956f8d6ba21b0addfd7f86da0e3}{get\+Pos3} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_adcea35ee8edfa1caa161f0daa09622ab}{move\+Joystick} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a7db008747bb8e51e287ebbd9bb115e5d}{move\+X\+Ref} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a5250c3ebeb2b627063cd1005fd81808b}{move\+Y\+Ref} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aa092966a5cb72f21682d1d8f0cd3343e}{move\+Z\+Ref} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1c0f103a3ba54956d0be3b554687fe5b}{move\+X\+End} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a2294a0fbd841b3ab0355a5ab4d2955b6}{move\+Y\+End} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a74e0827b551f9d40b0c508e8f0d40ba0}{move\+Z\+End} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a7b261972e7b7c8bc9a9f57399b16ad0b}{grip} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_af7565ff7a32d4967d3ec2aeac5c4fdc1}{release} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_af8f27ff7ab32d50fe58ab1476392ab35}{move\+Delivery\+In\+And\+Grip} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aa60e08d7b10802cbfd1170c3cdb768d9}{move\+Delivery\+Out\+And\+Release} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ae3b7369fd88461e9e4003386664f3d43}{move\+Color\+Sensor} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a82cf9dd24902a3e3dff07548b39a1623}{move\+Ref\+Y\+N\+FC} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ac96887c8baeeb28f2928ab1e928b1e92}{move\+N\+FC} ()
+\item 
+std\+::string \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1978708ca213ed92e2033ce4b09579dd}{nfc\+Device\+Delete\+Write\+Raw\+Read} (std\+::vector$<$ int64\+\_\+t $>$ vts, uint8\+\_\+t mask\+\_\+ts)
+\item 
+std\+::string \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a853a6ea40836bd2f2433a050e75cacc2}{nfc\+Device\+Write\+Produced\+Read} (std\+::vector$<$ int64\+\_\+t $>$ vts, uint8\+\_\+t mask\+\_\+ts)
+\item 
+std\+::string \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aeb0103b0fb8a3f5557401a6c47e38ca3}{nfc\+Device\+Write\+Rejected\+Read} (std\+::vector$<$ int64\+\_\+t $>$ vts, uint8\+\_\+t mask\+\_\+ts)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a807828a888c228bff9d33d399c37a288}{move\+Wrong\+Release} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_abd051a440570bc90759479aaeaa82fa5}{move\+To\+H\+BW} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a227472fcd152eed2388e3c3dff9cdff0}{move\+From\+H\+B\+W1} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a5d8f92545343281dfc0e443000a66aed}{move\+From\+H\+B\+W2} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a576647eda0f34a754b67196b76b1922f}{move\+M\+PO} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a4b33d1b5ddaece2aa685fe2fe4f2c174}{move\+S\+S\+D1} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a799ca9961fdeecaf7f77145d43520943}{move\+S\+S\+D2} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a49ab5533a1ebe109c6fa0d453f97ab31}{move\+S\+S\+D3} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_afc2799a77d1b409aabfd76b7fa3dd7e7}{set\+Speed} (int16\+\_\+t s)
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a6e9ffb15327bd1b83a21abd427962dde}{set\+Target} (std\+::string t)
+\item 
+std\+::string \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a0f9f115f6c2b92a1d2678cbd1a10da64}{get\+Target} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a74c5b29678f0594cdfbde1637a2a9ae7}{ydelta} = 50
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a3a6f3a994787f7585fa4beb75420b75a}{config\+Inputs} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aa8842cda5ccb7bf866ab882b8e35bbb9}{move} (const std\+::string pos3name, \hyperlink{namespaceft_a467718790e157f00aca02ebada647f18}{Txt\+Vgr\+Pos\+Order\+\_\+t} order=\hyperlink{namespaceft_a467718790e157f00aca02ebada647f18a65d7c52d2590f4289203dad3994147fd}{V\+G\+R\+M\+O\+V\+\_\+\+P\+TP})
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ae6ec4b662ea64e352ecade1200eb578d}{move} (\hyperlink{classft_1_1_enc_pos3}{Enc\+Pos3} p3, \hyperlink{namespaceft_a467718790e157f00aca02ebada647f18}{Txt\+Vgr\+Pos\+Order\+\_\+t} order=\hyperlink{namespaceft_a467718790e157f00aca02ebada647f18a65d7c52d2590f4289203dad3994147fd}{V\+G\+R\+M\+O\+V\+\_\+\+P\+TP})
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a98e245d1dd1386564a775ca0a07fbe6d}{move} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t z, \hyperlink{namespaceft_a467718790e157f00aca02ebada647f18}{Txt\+Vgr\+Pos\+Order\+\_\+t} order=\hyperlink{namespaceft_a467718790e157f00aca02ebada647f18a65d7c52d2590f4289203dad3994147fd}{V\+G\+R\+M\+O\+V\+\_\+\+P\+TP})
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_af13df23d8bb1e20214dc2bc6bc96249d}{move\+Calib\+Pos} ()
+\item 
+void \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ade97c48921d05c3ba6ee5feb5268e457}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a521c5c6261040a62ce153f138739f3e8}{current\+State}
+\item 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{State\+\_\+t} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a9ec07699b78bd3f5413378c4ff6cd05c}{new\+State}
+\item 
+\hyperlink{namespaceft_aee2adb2339d398fc7ed033c80030e685}{Txt\+Vgr\+Calib\+Pos\+\_\+t} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aeebcec5e3d4bb15ac86bb7ff3f1ac96e}{calib\+Pos}
+\item 
+\hyperlink{classft_1_1_enc_pos3}{Enc\+Pos3} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1e2b42d76cec76bd1339aa54b85c5a0f}{last\+Pos3}
+\item 
+\hyperlink{classft_1_1_txt_axis1_ref_switch}{Txt\+Axis1\+Ref\+Switch} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1588685e15a03b16b07686e2e4c3f746}{axisX}
+\item 
+\hyperlink{classft_1_1_txt_axis1_ref_switch}{Txt\+Axis1\+Ref\+Switch} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a4e847424958606a0c0f8eea691ffca3a}{axisY}
+\item 
+\hyperlink{classft_1_1_txt_axis1_ref_switch}{Txt\+Axis1\+Ref\+Switch} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a185a2e7cb044495f936bd34e1077ab1a}{axisZ}
+\item 
+\hyperlink{classft_1_1_txt_vacuum_gripper}{Txt\+Vacuum\+Gripper} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a70ee7a25a6cd4a3d108fa044e483f464}{vgripper}
+\item 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_calib_data}{Txt\+Vacuum\+Gripper\+Robot\+Calib\+Data} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ad9e8506065dc76e5bf2c84cbe4b616be}{calib\+Data}
+\item 
+std\+::string \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a9ded37d075da735719cc8ee655a69047}{target}
+\item 
+\hyperlink{classft_1_1_txt_delivery_pickup_station}{Txt\+Delivery\+Pickup\+Station} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a4b09d876d25c12acd8cb60d36f397886}{dps}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1d0957107dc1a4ec13b268668d750a03}{req\+Quit}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a99d822613ac69cf4c46d209241790c5d}{req\+Order}
+\item 
+\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a3508707afd4a863dd441656d19c98ff3}{req\+W\+P\+\_\+order}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ac60d86a7baeba2e8382289ec30df282c}{req\+Nfc\+Read}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a28742374c8647f51bc58e51bc8902d7b}{req\+Nfc\+Delete}
+\item 
+\hyperlink{structft_1_1_txt_order_state}{Txt\+Order\+State} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ae08a9b2ddbac6dc0310df391ecde6ba2}{ord\+\_\+state}
+\item 
+\hyperlink{classft_1_1_txt_joysticks_data}{Txt\+Joysticks\+Data} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ae5c42b3e36085efdada4b80af166d961}{joy\+Data}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a2adead238804ada52cca87289556897b}{req\+Joy\+Data}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a7d29a10f0418356f732e429eb12ff9f4}{req\+M\+P\+Ostarted}
+\item 
+\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$ \hyperlink{classft_1_1_txt_vacuum_gripper_robot_add6f0424c5e959d70941152687dc9dbd}{req\+W\+P\+\_\+\+M\+PO}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a5ad685c9df951eeb23c1a4aaed8a5da9}{req\+H\+B\+Wstored}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ac10363d74173bc2ff8338187079ad1b6}{req\+H\+B\+Wfetched}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a29cb3124d7e95fda8dddef0ab485af71}{req\+H\+B\+Wcalib\+\_\+nav}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a1a69482a35c4a0911fe675b7a30641d6}{req\+H\+B\+Wcalib\+\_\+end}
+\item 
+\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$ \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ac968fa69403dd05dc7cf3e0ec3bf07b4}{req\+W\+P\+\_\+\+H\+BW}
+\item 
+bool \hyperlink{classft_1_1_txt_vacuum_gripper_robot_abf93cd1bdac879e296b0ccf4417792d2}{req\+S\+L\+Dsorted}
+\item 
+\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ada2de53763edfcfa88e373f22107dce3}{req\+W\+P\+\_\+\+S\+LD}
+\item 
+\hyperlink{classft_1_1_txt_factory_process_storage}{Txt\+Factory\+Process\+Storage} \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a7c31313dda4d0afd1b2419796cc1355b}{pro\+Storage}
+\item 
+\hyperlink{classft_1_1_txt_vacuum_gripper_robot_observer}{Txt\+Vacuum\+Gripper\+Robot\+Observer} $\ast$ \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a402021c1d365f1814532d0b723ae80cc}{obs\+\_\+vgr}
+\item 
+\hyperlink{classft_1_1_txt_nfc_device_observer}{Txt\+Nfc\+Device\+Observer} $\ast$ \hyperlink{classft_1_1_txt_vacuum_gripper_robot_aa665dee69141ec5bb70bc542858f3a1c}{obs\+\_\+nfc}
+\item 
+\hyperlink{classft_1_1_txt_delivery_pickup_station_observer}{Txt\+Delivery\+Pickup\+Station\+Observer} $\ast$ \hyperlink{classft_1_1_txt_vacuum_gripper_robot_ae46228a9937f65dd44075200736230ec}{obs\+\_\+dps}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classft_1_1_txt_vacuum_gripper_robot_a23c350af40fe2a0866b409315c4dfe1a}{Txt\+Joystick\+X\+Y\+B\+Controller}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Enumeration Documentation}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!State\+\_\+t@{State\+\_\+t}}
+\index{State\+\_\+t@{State\+\_\+t}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{State\+\_\+t}{State_t}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::\+State\+\_\+t}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{\+\_\+\+\_\+\+N\+O\+\_\+\+S\+T\+A\+TE@{\+\_\+\+\_\+\+N\+O\+\_\+\+S\+T\+A\+TE}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!\+\_\+\+\_\+\+N\+O\+\_\+\+S\+T\+A\+TE@{\+\_\+\+\_\+\+N\+O\+\_\+\+S\+T\+A\+TE}}\item[{\em 
+\+\_\+\+\_\+\+N\+O\+\_\+\+S\+T\+A\+TE\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aacd72366a8741ee286d9678937a40b99}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aacd72366a8741ee286d9678937a40b99}
+}]\index{F\+A\+U\+LT@{F\+A\+U\+LT}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!F\+A\+U\+LT@{F\+A\+U\+LT}}\item[{\em 
+F\+A\+U\+LT\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a4769770d5974b89eb08c2ff6ebd8d23a}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a4769770d5974b89eb08c2ff6ebd8d23a}
+}]\index{I\+N\+IT@{I\+N\+IT}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!I\+N\+IT@{I\+N\+IT}}\item[{\em 
+I\+N\+IT\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a6bd1ab9616842872ffaa3b9b4865e06c}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a6bd1ab9616842872ffaa3b9b4865e06c}
+}]\index{I\+D\+LE@{I\+D\+LE}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!I\+D\+LE@{I\+D\+LE}}\item[{\em 
+I\+D\+LE\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ab113561a2f5149ba870ce8425753ad4f}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ab113561a2f5149ba870ce8425753ad4f}
+}]\index{F\+E\+T\+C\+H\+\_\+\+W\+P\+\_\+\+V\+GR@{F\+E\+T\+C\+H\+\_\+\+W\+P\+\_\+\+V\+GR}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!F\+E\+T\+C\+H\+\_\+\+W\+P\+\_\+\+V\+GR@{F\+E\+T\+C\+H\+\_\+\+W\+P\+\_\+\+V\+GR}}\item[{\em 
+F\+E\+T\+C\+H\+\_\+\+W\+P\+\_\+\+V\+GR\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a788a041b1d34ca4e3dc7827ed745a971}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a788a041b1d34ca4e3dc7827ed745a971}
+}]\index{V\+G\+R\+\_\+\+W\+A\+I\+T\+\_\+\+F\+E\+T\+C\+H\+ED@{V\+G\+R\+\_\+\+W\+A\+I\+T\+\_\+\+F\+E\+T\+C\+H\+ED}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!V\+G\+R\+\_\+\+W\+A\+I\+T\+\_\+\+F\+E\+T\+C\+H\+ED@{V\+G\+R\+\_\+\+W\+A\+I\+T\+\_\+\+F\+E\+T\+C\+H\+ED}}\item[{\em 
+V\+G\+R\+\_\+\+W\+A\+I\+T\+\_\+\+F\+E\+T\+C\+H\+ED\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a7e8cf95b40bcf61839482218958eca8d}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a7e8cf95b40bcf61839482218958eca8d}
+}]\index{M\+O\+V\+E\+\_\+\+V\+G\+R2\+M\+PO@{M\+O\+V\+E\+\_\+\+V\+G\+R2\+M\+PO}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!M\+O\+V\+E\+\_\+\+V\+G\+R2\+M\+PO@{M\+O\+V\+E\+\_\+\+V\+G\+R2\+M\+PO}}\item[{\em 
+M\+O\+V\+E\+\_\+\+V\+G\+R2\+M\+PO\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a418d493bdfabfbb19b6f47f2b5404eef}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a418d493bdfabfbb19b6f47f2b5404eef}
+}]\index{S\+T\+A\+R\+T\+\_\+\+P\+R\+O\+D\+U\+CE@{S\+T\+A\+R\+T\+\_\+\+P\+R\+O\+D\+U\+CE}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!S\+T\+A\+R\+T\+\_\+\+P\+R\+O\+D\+U\+CE@{S\+T\+A\+R\+T\+\_\+\+P\+R\+O\+D\+U\+CE}}\item[{\em 
+S\+T\+A\+R\+T\+\_\+\+P\+R\+O\+D\+U\+CE\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a500041a873dacde58aa75996a6b0ce69}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a500041a873dacde58aa75996a6b0ce69}
+}]\index{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+U\+P\+\_\+\+W\+A\+IT@{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+U\+P\+\_\+\+W\+A\+IT}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+U\+P\+\_\+\+W\+A\+IT@{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+U\+P\+\_\+\+W\+A\+IT}}\item[{\em 
+M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+U\+P\+\_\+\+W\+A\+IT\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a96b4c37d0938a3ba9b81fa778730ee09}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a96b4c37d0938a3ba9b81fa778730ee09}
+}]\index{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+UP@{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+UP}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+UP@{M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+UP}}\item[{\em 
+M\+O\+V\+E\+\_\+\+P\+I\+C\+K\+UP\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aa56eccb533061910042e2bb588b86a0c}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aa56eccb533061910042e2bb588b86a0c}
+}]\index{S\+T\+A\+R\+T\+\_\+\+D\+E\+L\+I\+V\+E\+RY@{S\+T\+A\+R\+T\+\_\+\+D\+E\+L\+I\+V\+E\+RY}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!S\+T\+A\+R\+T\+\_\+\+D\+E\+L\+I\+V\+E\+RY@{S\+T\+A\+R\+T\+\_\+\+D\+E\+L\+I\+V\+E\+RY}}\item[{\em 
+S\+T\+A\+R\+T\+\_\+\+D\+E\+L\+I\+V\+E\+RY\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a5e09dd6146c4465a3c4e9a95d5485ff7}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a5e09dd6146c4465a3c4e9a95d5485ff7}
+}]\index{C\+O\+L\+O\+R\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON@{C\+O\+L\+O\+R\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!C\+O\+L\+O\+R\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON@{C\+O\+L\+O\+R\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON}}\item[{\em 
+C\+O\+L\+O\+R\+\_\+\+D\+E\+T\+E\+C\+T\+I\+ON\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211abb563f155e21fa44a73985855735bf1f}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211abb563f155e21fa44a73985855735bf1f}
+}]\index{W\+R\+O\+N\+G\+\_\+\+C\+O\+L\+OR@{W\+R\+O\+N\+G\+\_\+\+C\+O\+L\+OR}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!W\+R\+O\+N\+G\+\_\+\+C\+O\+L\+OR@{W\+R\+O\+N\+G\+\_\+\+C\+O\+L\+OR}}\item[{\em 
+W\+R\+O\+N\+G\+\_\+\+C\+O\+L\+OR\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ae5b1ba06583c171edbf25b8b483efb00}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ae5b1ba06583c171edbf25b8b483efb00}
+}]\index{N\+F\+C\+\_\+\+R\+AW@{N\+F\+C\+\_\+\+R\+AW}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!N\+F\+C\+\_\+\+R\+AW@{N\+F\+C\+\_\+\+R\+AW}}\item[{\em 
+N\+F\+C\+\_\+\+R\+AW\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a2080b4e77e4c9cddd331f2dee9008e0d}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a2080b4e77e4c9cddd331f2dee9008e0d}
+}]\index{N\+F\+C\+\_\+\+P\+R\+O\+D\+U\+C\+ED@{N\+F\+C\+\_\+\+P\+R\+O\+D\+U\+C\+ED}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!N\+F\+C\+\_\+\+P\+R\+O\+D\+U\+C\+ED@{N\+F\+C\+\_\+\+P\+R\+O\+D\+U\+C\+ED}}\item[{\em 
+N\+F\+C\+\_\+\+P\+R\+O\+D\+U\+C\+ED\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ae4472bd84db0dfb2d02cb782fe1126e4}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ae4472bd84db0dfb2d02cb782fe1126e4}
+}]\index{N\+F\+C\+\_\+\+R\+E\+J\+E\+C\+T\+ED@{N\+F\+C\+\_\+\+R\+E\+J\+E\+C\+T\+ED}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!N\+F\+C\+\_\+\+R\+E\+J\+E\+C\+T\+ED@{N\+F\+C\+\_\+\+R\+E\+J\+E\+C\+T\+ED}}\item[{\em 
+N\+F\+C\+\_\+\+R\+E\+J\+E\+C\+T\+ED\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aff56d9b518f2192d099a0de9f043e5fb}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aff56d9b518f2192d099a0de9f043e5fb}
+}]\index{S\+T\+O\+R\+E\+\_\+\+W\+P\+\_\+\+V\+GR@{S\+T\+O\+R\+E\+\_\+\+W\+P\+\_\+\+V\+GR}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!S\+T\+O\+R\+E\+\_\+\+W\+P\+\_\+\+V\+GR@{S\+T\+O\+R\+E\+\_\+\+W\+P\+\_\+\+V\+GR}}\item[{\em 
+S\+T\+O\+R\+E\+\_\+\+W\+P\+\_\+\+V\+GR\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ac32af23c843e61c3fe24f1cc77c44a8b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ac32af23c843e61c3fe24f1cc77c44a8b}
+}]\index{S\+T\+O\+R\+E\+\_\+\+WP@{S\+T\+O\+R\+E\+\_\+\+WP}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!S\+T\+O\+R\+E\+\_\+\+WP@{S\+T\+O\+R\+E\+\_\+\+WP}}\item[{\em 
+S\+T\+O\+R\+E\+\_\+\+WP\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a9edc15fc78156db52d9a63aa6c791fb1}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a9edc15fc78156db52d9a63aa6c791fb1}
+}]\index{C\+A\+L\+I\+B\+\_\+\+H\+BW@{C\+A\+L\+I\+B\+\_\+\+H\+BW}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!C\+A\+L\+I\+B\+\_\+\+H\+BW@{C\+A\+L\+I\+B\+\_\+\+H\+BW}}\item[{\em 
+C\+A\+L\+I\+B\+\_\+\+H\+BW\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aaf2bc6b98f493c5cd852a2db9c9959c7}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211aaf2bc6b98f493c5cd852a2db9c9959c7}
+}]\index{C\+A\+L\+I\+B\+\_\+\+V\+GR@{C\+A\+L\+I\+B\+\_\+\+V\+GR}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!C\+A\+L\+I\+B\+\_\+\+V\+GR@{C\+A\+L\+I\+B\+\_\+\+V\+GR}}\item[{\em 
+C\+A\+L\+I\+B\+\_\+\+V\+GR\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a21d7897f6fe2a80de432bd6b743ff0b6}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a21d7897f6fe2a80de432bd6b743ff0b6}
+}]\index{C\+A\+L\+I\+B\+\_\+\+N\+AV@{C\+A\+L\+I\+B\+\_\+\+N\+AV}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!C\+A\+L\+I\+B\+\_\+\+N\+AV@{C\+A\+L\+I\+B\+\_\+\+N\+AV}}\item[{\em 
+C\+A\+L\+I\+B\+\_\+\+N\+AV\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ad917c89a6ea41a076cde45bca660393f}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211ad917c89a6ea41a076cde45bca660393f}
+}]\index{C\+A\+L\+I\+B\+\_\+\+M\+O\+VE@{C\+A\+L\+I\+B\+\_\+\+M\+O\+VE}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!C\+A\+L\+I\+B\+\_\+\+M\+O\+VE@{C\+A\+L\+I\+B\+\_\+\+M\+O\+VE}}\item[{\em 
+C\+A\+L\+I\+B\+\_\+\+M\+O\+VE\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a1def7e324367ef32c721e56097f3b239}{}\label{classft_1_1_txt_vacuum_gripper_robot_a44b86628599c6f40dd9f709fef647211a1def7e324367ef32c721e56097f3b239}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!Txt\+Vacuum\+Gripper\+Robot@{Txt\+Vacuum\+Gripper\+Robot}}
+\index{Txt\+Vacuum\+Gripper\+Robot@{Txt\+Vacuum\+Gripper\+Robot}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{Txt\+Vacuum\+Gripper\+Robot(\+F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R $\ast$p\+T\+Area, ft\+::\+Txt\+Mqtt\+Factory\+Client $\ast$mqttclient)}{TxtVacuumGripperRobot(FISH_X1_TRANSFER *pTArea, ft::TxtMqttFactoryClient *mqttclient)}}]{\setlength{\rightskip}{0pt plus 5cm}ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::\+Txt\+Vacuum\+Gripper\+Robot (
+\begin{DoxyParamCaption}
+\item[{F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+ER $\ast$}]{p\+T\+Area, }
+\item[{{\bf ft\+::\+Txt\+Mqtt\+Factory\+Client} $\ast$}]{mqttclient}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a5f66324b385d19e91bfd7499a09ae324}{}\label{classft_1_1_txt_vacuum_gripper_robot_a5f66324b385d19e91bfd7499a09ae324}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!````~Txt\+Vacuum\+Gripper\+Robot@{$\sim$\+Txt\+Vacuum\+Gripper\+Robot}}
+\index{````~Txt\+Vacuum\+Gripper\+Robot@{$\sim$\+Txt\+Vacuum\+Gripper\+Robot}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{$\sim$\+Txt\+Vacuum\+Gripper\+Robot()}{~TxtVacuumGripperRobot()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::$\sim$\+Txt\+Vacuum\+Gripper\+Robot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a2df0a8b0b187be91d7da8650ab8d8283}{}\label{classft_1_1_txt_vacuum_gripper_robot_a2df0a8b0b187be91d7da8650ab8d8283}
+
+
+\subsection{Member Function Documentation}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!config\+Inputs@{config\+Inputs}}
+\index{config\+Inputs@{config\+Inputs}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{config\+Inputs()}{configInputs()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::config\+Inputs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a3a6f3a994787f7585fa4beb75420b75a}{}\label{classft_1_1_txt_vacuum_gripper_robot_a3a6f3a994787f7585fa4beb75420b75a}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!get\+Pos3@{get\+Pos3}}
+\index{get\+Pos3@{get\+Pos3}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{get\+Pos3()}{getPos3()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Enc\+Pos3} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::get\+Pos3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a506a7956f8d6ba21b0addfd7f86da0e3}{}\label{classft_1_1_txt_vacuum_gripper_robot_a506a7956f8d6ba21b0addfd7f86da0e3}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!get\+Target@{get\+Target}}
+\index{get\+Target@{get\+Target}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{get\+Target()}{getTarget()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::get\+Target (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a0f9f115f6c2b92a1d2678cbd1a10da64}{}\label{classft_1_1_txt_vacuum_gripper_robot_a0f9f115f6c2b92a1d2678cbd1a10da64}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!grip@{grip}}
+\index{grip@{grip}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{grip()}{grip()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::grip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a7b261972e7b7c8bc9a9f57399b16ad0b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a7b261972e7b7c8bc9a9f57399b16ad0b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move@{move}}
+\index{move@{move}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move(const std\+::string pos3name, Txt\+Vgr\+Pos\+Order\+\_\+t order=\+V\+G\+R\+M\+O\+V\+\_\+\+P\+T\+P)}{move(const std::string pos3name, TxtVgrPosOrder_t order=VGRMOV_PTP)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{pos3name, }
+\item[{{\bf Txt\+Vgr\+Pos\+Order\+\_\+t}}]{order = {\ttfamily {\bf V\+G\+R\+M\+O\+V\+\_\+\+P\+TP}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aa8842cda5ccb7bf866ab882b8e35bbb9}{}\label{classft_1_1_txt_vacuum_gripper_robot_aa8842cda5ccb7bf866ab882b8e35bbb9}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move@{move}}
+\index{move@{move}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move(\+Enc\+Pos3 p3, Txt\+Vgr\+Pos\+Order\+\_\+t order=\+V\+G\+R\+M\+O\+V\+\_\+\+P\+T\+P)}{move(EncPos3 p3, TxtVgrPosOrder_t order=VGRMOV_PTP)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move (
+\begin{DoxyParamCaption}
+\item[{{\bf Enc\+Pos3}}]{p3, }
+\item[{{\bf Txt\+Vgr\+Pos\+Order\+\_\+t}}]{order = {\ttfamily {\bf V\+G\+R\+M\+O\+V\+\_\+\+P\+TP}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ae6ec4b662ea64e352ecade1200eb578d}{}\label{classft_1_1_txt_vacuum_gripper_robot_ae6ec4b662ea64e352ecade1200eb578d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move@{move}}
+\index{move@{move}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move(uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t z, Txt\+Vgr\+Pos\+Order\+\_\+t order=\+V\+G\+R\+M\+O\+V\+\_\+\+P\+T\+P)}{move(uint16_t x, uint16_t y, uint16_t z, TxtVgrPosOrder_t order=VGRMOV_PTP)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{x, }
+\item[{uint16\+\_\+t}]{y, }
+\item[{uint16\+\_\+t}]{z, }
+\item[{{\bf Txt\+Vgr\+Pos\+Order\+\_\+t}}]{order = {\ttfamily {\bf V\+G\+R\+M\+O\+V\+\_\+\+P\+TP}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a98e245d1dd1386564a775ca0a07fbe6d}{}\label{classft_1_1_txt_vacuum_gripper_robot_a98e245d1dd1386564a775ca0a07fbe6d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Calib\+Pos@{move\+Calib\+Pos}}
+\index{move\+Calib\+Pos@{move\+Calib\+Pos}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Calib\+Pos()}{moveCalibPos()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Calib\+Pos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_af13df23d8bb1e20214dc2bc6bc96249d}{}\label{classft_1_1_txt_vacuum_gripper_robot_af13df23d8bb1e20214dc2bc6bc96249d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Color\+Sensor@{move\+Color\+Sensor}}
+\index{move\+Color\+Sensor@{move\+Color\+Sensor}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Color\+Sensor()}{moveColorSensor()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Color\+Sensor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ae3b7369fd88461e9e4003386664f3d43}{}\label{classft_1_1_txt_vacuum_gripper_robot_ae3b7369fd88461e9e4003386664f3d43}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Delivery\+In\+And\+Grip@{move\+Delivery\+In\+And\+Grip}}
+\index{move\+Delivery\+In\+And\+Grip@{move\+Delivery\+In\+And\+Grip}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Delivery\+In\+And\+Grip()}{moveDeliveryInAndGrip()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Delivery\+In\+And\+Grip (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_af8f27ff7ab32d50fe58ab1476392ab35}{}\label{classft_1_1_txt_vacuum_gripper_robot_af8f27ff7ab32d50fe58ab1476392ab35}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Delivery\+Out\+And\+Release@{move\+Delivery\+Out\+And\+Release}}
+\index{move\+Delivery\+Out\+And\+Release@{move\+Delivery\+Out\+And\+Release}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Delivery\+Out\+And\+Release()}{moveDeliveryOutAndRelease()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Delivery\+Out\+And\+Release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aa60e08d7b10802cbfd1170c3cdb768d9}{}\label{classft_1_1_txt_vacuum_gripper_robot_aa60e08d7b10802cbfd1170c3cdb768d9}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+From\+H\+B\+W1@{move\+From\+H\+B\+W1}}
+\index{move\+From\+H\+B\+W1@{move\+From\+H\+B\+W1}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+From\+H\+B\+W1()}{moveFromHBW1()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+From\+H\+B\+W1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a227472fcd152eed2388e3c3dff9cdff0}{}\label{classft_1_1_txt_vacuum_gripper_robot_a227472fcd152eed2388e3c3dff9cdff0}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+From\+H\+B\+W2@{move\+From\+H\+B\+W2}}
+\index{move\+From\+H\+B\+W2@{move\+From\+H\+B\+W2}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+From\+H\+B\+W2()}{moveFromHBW2()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+From\+H\+B\+W2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a5d8f92545343281dfc0e443000a66aed}{}\label{classft_1_1_txt_vacuum_gripper_robot_a5d8f92545343281dfc0e443000a66aed}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Joystick@{move\+Joystick}}
+\index{move\+Joystick@{move\+Joystick}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Joystick()}{moveJoystick()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Joystick (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_adcea35ee8edfa1caa161f0daa09622ab}{}\label{classft_1_1_txt_vacuum_gripper_robot_adcea35ee8edfa1caa161f0daa09622ab}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+M\+PO@{move\+M\+PO}}
+\index{move\+M\+PO@{move\+M\+PO}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+M\+P\+O()}{moveMPO()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+M\+PO (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a576647eda0f34a754b67196b76b1922f}{}\label{classft_1_1_txt_vacuum_gripper_robot_a576647eda0f34a754b67196b76b1922f}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+N\+FC@{move\+N\+FC}}
+\index{move\+N\+FC@{move\+N\+FC}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+N\+F\+C()}{moveNFC()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+N\+FC (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ac96887c8baeeb28f2928ab1e928b1e92}{}\label{classft_1_1_txt_vacuum_gripper_robot_ac96887c8baeeb28f2928ab1e928b1e92}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Ref@{move\+Ref}}
+\index{move\+Ref@{move\+Ref}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Ref()}{moveRef()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Ref (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_acd85e14b26413c3f83c8e8eba9e6a792}{}\label{classft_1_1_txt_vacuum_gripper_robot_acd85e14b26413c3f83c8e8eba9e6a792}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Ref\+Y\+N\+FC@{move\+Ref\+Y\+N\+FC}}
+\index{move\+Ref\+Y\+N\+FC@{move\+Ref\+Y\+N\+FC}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Ref\+Y\+N\+F\+C()}{moveRefYNFC()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Ref\+Y\+N\+FC (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a82cf9dd24902a3e3dff07548b39a1623}{}\label{classft_1_1_txt_vacuum_gripper_robot_a82cf9dd24902a3e3dff07548b39a1623}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+S\+S\+D1@{move\+S\+S\+D1}}
+\index{move\+S\+S\+D1@{move\+S\+S\+D1}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+S\+S\+D1()}{moveSSD1()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+S\+S\+D1 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a4b33d1b5ddaece2aa685fe2fe4f2c174}{}\label{classft_1_1_txt_vacuum_gripper_robot_a4b33d1b5ddaece2aa685fe2fe4f2c174}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+S\+S\+D2@{move\+S\+S\+D2}}
+\index{move\+S\+S\+D2@{move\+S\+S\+D2}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+S\+S\+D2()}{moveSSD2()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+S\+S\+D2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a799ca9961fdeecaf7f77145d43520943}{}\label{classft_1_1_txt_vacuum_gripper_robot_a799ca9961fdeecaf7f77145d43520943}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+S\+S\+D3@{move\+S\+S\+D3}}
+\index{move\+S\+S\+D3@{move\+S\+S\+D3}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+S\+S\+D3()}{moveSSD3()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+S\+S\+D3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a49ab5533a1ebe109c6fa0d453f97ab31}{}\label{classft_1_1_txt_vacuum_gripper_robot_a49ab5533a1ebe109c6fa0d453f97ab31}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+To\+H\+BW@{move\+To\+H\+BW}}
+\index{move\+To\+H\+BW@{move\+To\+H\+BW}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+To\+H\+B\+W()}{moveToHBW()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+To\+H\+BW (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_abd051a440570bc90759479aaeaa82fa5}{}\label{classft_1_1_txt_vacuum_gripper_robot_abd051a440570bc90759479aaeaa82fa5}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Wrong\+Release@{move\+Wrong\+Release}}
+\index{move\+Wrong\+Release@{move\+Wrong\+Release}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Wrong\+Release()}{moveWrongRelease()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Wrong\+Release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a807828a888c228bff9d33d399c37a288}{}\label{classft_1_1_txt_vacuum_gripper_robot_a807828a888c228bff9d33d399c37a288}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+X\+End@{move\+X\+End}}
+\index{move\+X\+End@{move\+X\+End}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+X\+End()}{moveXEnd()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+X\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1c0f103a3ba54956d0be3b554687fe5b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1c0f103a3ba54956d0be3b554687fe5b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+X\+Ref@{move\+X\+Ref}}
+\index{move\+X\+Ref@{move\+X\+Ref}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+X\+Ref()}{moveXRef()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+X\+Ref (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a7db008747bb8e51e287ebbd9bb115e5d}{}\label{classft_1_1_txt_vacuum_gripper_robot_a7db008747bb8e51e287ebbd9bb115e5d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Y\+End@{move\+Y\+End}}
+\index{move\+Y\+End@{move\+Y\+End}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Y\+End()}{moveYEnd()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Y\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a2294a0fbd841b3ab0355a5ab4d2955b6}{}\label{classft_1_1_txt_vacuum_gripper_robot_a2294a0fbd841b3ab0355a5ab4d2955b6}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Y\+Ref@{move\+Y\+Ref}}
+\index{move\+Y\+Ref@{move\+Y\+Ref}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Y\+Ref()}{moveYRef()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Y\+Ref (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a5250c3ebeb2b627063cd1005fd81808b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a5250c3ebeb2b627063cd1005fd81808b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Z\+End@{move\+Z\+End}}
+\index{move\+Z\+End@{move\+Z\+End}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Z\+End()}{moveZEnd()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Z\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a74e0827b551f9d40b0c508e8f0d40ba0}{}\label{classft_1_1_txt_vacuum_gripper_robot_a74e0827b551f9d40b0c508e8f0d40ba0}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!move\+Z\+Ref@{move\+Z\+Ref}}
+\index{move\+Z\+Ref@{move\+Z\+Ref}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{move\+Z\+Ref()}{moveZRef()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::move\+Z\+Ref (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aa092966a5cb72f21682d1d8f0cd3343e}{}\label{classft_1_1_txt_vacuum_gripper_robot_aa092966a5cb72f21682d1d8f0cd3343e}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!nfc\+Device\+Delete\+Write\+Raw\+Read@{nfc\+Device\+Delete\+Write\+Raw\+Read}}
+\index{nfc\+Device\+Delete\+Write\+Raw\+Read@{nfc\+Device\+Delete\+Write\+Raw\+Read}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{nfc\+Device\+Delete\+Write\+Raw\+Read(std\+::vector$<$ int64\+\_\+t $>$ vts, uint8\+\_\+t mask\+\_\+ts)}{nfcDeviceDeleteWriteRawRead(std::vector< int64_t > vts, uint8_t mask_ts)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::nfc\+Device\+Delete\+Write\+Raw\+Read (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int64\+\_\+t $>$}]{vts, }
+\item[{uint8\+\_\+t}]{mask\+\_\+ts}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1978708ca213ed92e2033ce4b09579dd}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1978708ca213ed92e2033ce4b09579dd}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!nfc\+Device\+Write\+Produced\+Read@{nfc\+Device\+Write\+Produced\+Read}}
+\index{nfc\+Device\+Write\+Produced\+Read@{nfc\+Device\+Write\+Produced\+Read}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{nfc\+Device\+Write\+Produced\+Read(std\+::vector$<$ int64\+\_\+t $>$ vts, uint8\+\_\+t mask\+\_\+ts)}{nfcDeviceWriteProducedRead(std::vector< int64_t > vts, uint8_t mask_ts)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::nfc\+Device\+Write\+Produced\+Read (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int64\+\_\+t $>$}]{vts, }
+\item[{uint8\+\_\+t}]{mask\+\_\+ts}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a853a6ea40836bd2f2433a050e75cacc2}{}\label{classft_1_1_txt_vacuum_gripper_robot_a853a6ea40836bd2f2433a050e75cacc2}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!nfc\+Device\+Write\+Rejected\+Read@{nfc\+Device\+Write\+Rejected\+Read}}
+\index{nfc\+Device\+Write\+Rejected\+Read@{nfc\+Device\+Write\+Rejected\+Read}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{nfc\+Device\+Write\+Rejected\+Read(std\+::vector$<$ int64\+\_\+t $>$ vts, uint8\+\_\+t mask\+\_\+ts)}{nfcDeviceWriteRejectedRead(std::vector< int64_t > vts, uint8_t mask_ts)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::nfc\+Device\+Write\+Rejected\+Read (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ int64\+\_\+t $>$}]{vts, }
+\item[{uint8\+\_\+t}]{mask\+\_\+ts}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aeb0103b0fb8a3f5557401a6c47e38ca3}{}\label{classft_1_1_txt_vacuum_gripper_robot_aeb0103b0fb8a3f5557401a6c47e38ca3}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!print\+Entry\+State@{print\+Entry\+State}}
+\index{print\+Entry\+State@{print\+Entry\+State}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{print\+Entry\+State(\+State\+\_\+t state)}{printEntryState(State_t state)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::print\+Entry\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+\_\+t}}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_af251097dd5c111e90c51bfef9813afe7}{}\label{classft_1_1_txt_vacuum_gripper_robot_af251097dd5c111e90c51bfef9813afe7}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!print\+Exit\+State@{print\+Exit\+State}}
+\index{print\+Exit\+State@{print\+Exit\+State}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{print\+Exit\+State(\+State\+\_\+t state)}{printExitState(State_t state)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::print\+Exit\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+\_\+t}}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1aa567d609b0576f2858877331b3c304}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1aa567d609b0576f2858877331b3c304}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!print\+State@{print\+State}}
+\index{print\+State@{print\+State}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{print\+State(\+State\+\_\+t state)}{printState(State_t state)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::print\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+\_\+t}}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1342208c4d081f3977edc7588761a08a}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1342208c4d081f3977edc7588761a08a}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!release@{release}}
+\index{release@{release}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{release()}{release()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::release (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_af7565ff7a32d4967d3ec2aeac5c4fdc1}{}\label{classft_1_1_txt_vacuum_gripper_robot_af7565ff7a32d4967d3ec2aeac5c4fdc1}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+H\+B\+Wcalib\+\_\+end@{request\+H\+B\+Wcalib\+\_\+end}}
+\index{request\+H\+B\+Wcalib\+\_\+end@{request\+H\+B\+Wcalib\+\_\+end}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+H\+B\+Wcalib\+\_\+end()}{requestHBWcalib_end()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+H\+B\+Wcalib\+\_\+end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_af64652e126d1962840bf0e6b0fab0a1e}{}\label{classft_1_1_txt_vacuum_gripper_robot_af64652e126d1962840bf0e6b0fab0a1e}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+H\+B\+Wcalib\+\_\+nav@{request\+H\+B\+Wcalib\+\_\+nav}}
+\index{request\+H\+B\+Wcalib\+\_\+nav@{request\+H\+B\+Wcalib\+\_\+nav}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+H\+B\+Wcalib\+\_\+nav()}{requestHBWcalib_nav()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+H\+B\+Wcalib\+\_\+nav (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a40b931eb82ba86eebc24895893ab830d}{}\label{classft_1_1_txt_vacuum_gripper_robot_a40b931eb82ba86eebc24895893ab830d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+H\+B\+Wfetched@{request\+H\+B\+Wfetched}}
+\index{request\+H\+B\+Wfetched@{request\+H\+B\+Wfetched}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+H\+B\+Wfetched(\+Txt\+Workpiece $\ast$wp)}{requestHBWfetched(TxtWorkpiece *wp)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+H\+B\+Wfetched (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Workpiece} $\ast$}]{wp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ad0f221936fc34767074f64754d6275fa}{}\label{classft_1_1_txt_vacuum_gripper_robot_ad0f221936fc34767074f64754d6275fa}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+H\+B\+Wstored@{request\+H\+B\+Wstored}}
+\index{request\+H\+B\+Wstored@{request\+H\+B\+Wstored}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+H\+B\+Wstored(\+Txt\+Workpiece $\ast$wp)}{requestHBWstored(TxtWorkpiece *wp)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+H\+B\+Wstored (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Workpiece} $\ast$}]{wp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a70fa9e4c6503155756f59d376d923579}{}\label{classft_1_1_txt_vacuum_gripper_robot_a70fa9e4c6503155756f59d376d923579}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+Joy\+But@{request\+Joy\+But}}
+\index{request\+Joy\+But@{request\+Joy\+But}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+Joy\+But(\+Txt\+Joysticks\+Data jd)}{requestJoyBut(TxtJoysticksData jd)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+Joy\+But (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Joysticks\+Data}}]{jd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a9d9c74f1002ca322497746eac5bff815}{}\label{classft_1_1_txt_vacuum_gripper_robot_a9d9c74f1002ca322497746eac5bff815}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+M\+P\+Ostarted@{request\+M\+P\+Ostarted}}
+\index{request\+M\+P\+Ostarted@{request\+M\+P\+Ostarted}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+M\+P\+Ostarted(\+Txt\+Workpiece $\ast$wp)}{requestMPOstarted(TxtWorkpiece *wp)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+M\+P\+Ostarted (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Workpiece} $\ast$}]{wp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aacae7f2a11ed3a4ef96f207cba15611d}{}\label{classft_1_1_txt_vacuum_gripper_robot_aacae7f2a11ed3a4ef96f207cba15611d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+Nfc\+Delete@{request\+Nfc\+Delete}}
+\index{request\+Nfc\+Delete@{request\+Nfc\+Delete}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+Nfc\+Delete()}{requestNfcDelete()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+Nfc\+Delete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a3fc5ddb2d9a4d4556dbd7f3f43021d9b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a3fc5ddb2d9a4d4556dbd7f3f43021d9b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+Nfc\+Read@{request\+Nfc\+Read}}
+\index{request\+Nfc\+Read@{request\+Nfc\+Read}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+Nfc\+Read()}{requestNfcRead()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+Nfc\+Read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ac52e075633605da3c6e4f2bcbb0f823c}{}\label{classft_1_1_txt_vacuum_gripper_robot_ac52e075633605da3c6e4f2bcbb0f823c}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+Order@{request\+Order}}
+\index{request\+Order@{request\+Order}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+Order(\+Txt\+W\+P\+Type\+\_\+t type)}{requestOrder(TxtWPType_t type)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+Order (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+W\+P\+Type\+\_\+t}}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a009cde0e105a105b2e9d67c38a39e865}{}\label{classft_1_1_txt_vacuum_gripper_robot_a009cde0e105a105b2e9d67c38a39e865}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+Quit@{request\+Quit}}
+\index{request\+Quit@{request\+Quit}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+Quit()}{requestQuit()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+Quit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aeccf0b1fc210d8d866da8fbf790bbc93}{}\label{classft_1_1_txt_vacuum_gripper_robot_aeccf0b1fc210d8d866da8fbf790bbc93}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!request\+S\+L\+Dsorted@{request\+S\+L\+Dsorted}}
+\index{request\+S\+L\+Dsorted@{request\+S\+L\+Dsorted}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{request\+S\+L\+Dsorted(\+Txt\+W\+P\+Type\+\_\+t type)}{requestSLDsorted(TxtWPType_t type)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::request\+S\+L\+Dsorted (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+W\+P\+Type\+\_\+t}}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_accc6662e0903c6d9f91c47a9256719e2}{}\label{classft_1_1_txt_vacuum_gripper_robot_accc6662e0903c6d9f91c47a9256719e2}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!run@{run}}
+\index{run@{run}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ade97c48921d05c3ba6ee5feb5268e457}{}\label{classft_1_1_txt_vacuum_gripper_robot_ade97c48921d05c3ba6ee5feb5268e457}
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_TxtVacuumGripperRobotRun}}
+\end{DoxyImageNoCaption}
+ 
+
+Implements \hyperlink{classft_1_1_txt_simulation_model_a91595c8fc91104e98d2ea13fe349b777}{ft\+::\+Txt\+Simulation\+Model}.
+
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!set\+Speed@{set\+Speed}}
+\index{set\+Speed@{set\+Speed}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{set\+Speed(int16\+\_\+t s)}{setSpeed(int16_t s)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::set\+Speed (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_afc2799a77d1b409aabfd76b7fa3dd7e7}{}\label{classft_1_1_txt_vacuum_gripper_robot_afc2799a77d1b409aabfd76b7fa3dd7e7}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!set\+Target@{set\+Target}}
+\index{set\+Target@{set\+Target}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{set\+Target(std\+::string t)}{setTarget(std::string t)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::set\+Target (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a6e9ffb15327bd1b83a21abd427962dde}{}\label{classft_1_1_txt_vacuum_gripper_robot_a6e9ffb15327bd1b83a21abd427962dde}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!stop@{stop}}
+\index{stop@{stop}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{stop()}{stop()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a465c53278509691530582333e61f10b6}{}\label{classft_1_1_txt_vacuum_gripper_robot_a465c53278509691530582333e61f10b6}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!to\+String@{to\+String}}
+\index{to\+String@{to\+String}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{to\+String(\+State\+\_\+t state)}{toString(State_t state)}}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::to\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf State\+\_\+t}}]{state}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_acfdbf8ef23222b97fab8e712e69eb186}{}\label{classft_1_1_txt_vacuum_gripper_robot_acfdbf8ef23222b97fab8e712e69eb186}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!Txt\+Joystick\+X\+Y\+B\+Controller@{Txt\+Joystick\+X\+Y\+B\+Controller}}
+\index{Txt\+Joystick\+X\+Y\+B\+Controller@{Txt\+Joystick\+X\+Y\+B\+Controller}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{Txt\+Joystick\+X\+Y\+B\+Controller}{TxtJoystickXYBController}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Txt\+Joystick\+X\+Y\+B\+Controller}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a23c350af40fe2a0866b409315c4dfe1a}{}\label{classft_1_1_txt_vacuum_gripper_robot_a23c350af40fe2a0866b409315c4dfe1a}
+
+
+\subsection{Member Data Documentation}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!axisX@{axisX}}
+\index{axisX@{axisX}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{axisX}{axisX}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Axis1\+Ref\+Switch} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::axisX\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1588685e15a03b16b07686e2e4c3f746}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1588685e15a03b16b07686e2e4c3f746}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!axisY@{axisY}}
+\index{axisY@{axisY}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{axisY}{axisY}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Axis1\+Ref\+Switch} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::axisY\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a4e847424958606a0c0f8eea691ffca3a}{}\label{classft_1_1_txt_vacuum_gripper_robot_a4e847424958606a0c0f8eea691ffca3a}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!axisZ@{axisZ}}
+\index{axisZ@{axisZ}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{axisZ}{axisZ}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Axis1\+Ref\+Switch} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::axisZ\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a185a2e7cb044495f936bd34e1077ab1a}{}\label{classft_1_1_txt_vacuum_gripper_robot_a185a2e7cb044495f936bd34e1077ab1a}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!calib\+Data@{calib\+Data}}
+\index{calib\+Data@{calib\+Data}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{calib\+Data}{calibData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Vacuum\+Gripper\+Robot\+Calib\+Data} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::calib\+Data\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ad9e8506065dc76e5bf2c84cbe4b616be}{}\label{classft_1_1_txt_vacuum_gripper_robot_ad9e8506065dc76e5bf2c84cbe4b616be}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!calib\+Pos@{calib\+Pos}}
+\index{calib\+Pos@{calib\+Pos}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{calib\+Pos}{calibPos}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Vgr\+Calib\+Pos\+\_\+t} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::calib\+Pos\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aeebcec5e3d4bb15ac86bb7ff3f1ac96e}{}\label{classft_1_1_txt_vacuum_gripper_robot_aeebcec5e3d4bb15ac86bb7ff3f1ac96e}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!current\+State@{current\+State}}
+\index{current\+State@{current\+State}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{current\+State}{currentState}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+\_\+t} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::current\+State\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a521c5c6261040a62ce153f138739f3e8}{}\label{classft_1_1_txt_vacuum_gripper_robot_a521c5c6261040a62ce153f138739f3e8}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!dps@{dps}}
+\index{dps@{dps}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{dps}{dps}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Delivery\+Pickup\+Station} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::dps\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a4b09d876d25c12acd8cb60d36f397886}{}\label{classft_1_1_txt_vacuum_gripper_robot_a4b09d876d25c12acd8cb60d36f397886}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!joy\+Data@{joy\+Data}}
+\index{joy\+Data@{joy\+Data}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{joy\+Data}{joyData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Joysticks\+Data} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::joy\+Data\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ae5c42b3e36085efdada4b80af166d961}{}\label{classft_1_1_txt_vacuum_gripper_robot_ae5c42b3e36085efdada4b80af166d961}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!last\+Pos3@{last\+Pos3}}
+\index{last\+Pos3@{last\+Pos3}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{last\+Pos3}{lastPos3}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Enc\+Pos3} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::last\+Pos3\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1e2b42d76cec76bd1339aa54b85c5a0f}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1e2b42d76cec76bd1339aa54b85c5a0f}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!new\+State@{new\+State}}
+\index{new\+State@{new\+State}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{new\+State}{newState}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf State\+\_\+t} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::new\+State\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a9ec07699b78bd3f5413378c4ff6cd05c}{}\label{classft_1_1_txt_vacuum_gripper_robot_a9ec07699b78bd3f5413378c4ff6cd05c}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!obs\+\_\+dps@{obs\+\_\+dps}}
+\index{obs\+\_\+dps@{obs\+\_\+dps}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{obs\+\_\+dps}{obs_dps}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Delivery\+Pickup\+Station\+Observer}$\ast$ ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::obs\+\_\+dps\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ae46228a9937f65dd44075200736230ec}{}\label{classft_1_1_txt_vacuum_gripper_robot_ae46228a9937f65dd44075200736230ec}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!obs\+\_\+nfc@{obs\+\_\+nfc}}
+\index{obs\+\_\+nfc@{obs\+\_\+nfc}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{obs\+\_\+nfc}{obs_nfc}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Nfc\+Device\+Observer}$\ast$ ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::obs\+\_\+nfc\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_aa665dee69141ec5bb70bc542858f3a1c}{}\label{classft_1_1_txt_vacuum_gripper_robot_aa665dee69141ec5bb70bc542858f3a1c}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!obs\+\_\+vgr@{obs\+\_\+vgr}}
+\index{obs\+\_\+vgr@{obs\+\_\+vgr}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{obs\+\_\+vgr}{obs_vgr}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Vacuum\+Gripper\+Robot\+Observer}$\ast$ ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::obs\+\_\+vgr\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a402021c1d365f1814532d0b723ae80cc}{}\label{classft_1_1_txt_vacuum_gripper_robot_a402021c1d365f1814532d0b723ae80cc}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!ord\+\_\+state@{ord\+\_\+state}}
+\index{ord\+\_\+state@{ord\+\_\+state}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{ord\+\_\+state}{ord_state}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Order\+State} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::ord\+\_\+state\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ae08a9b2ddbac6dc0310df391ecde6ba2}{}\label{classft_1_1_txt_vacuum_gripper_robot_ae08a9b2ddbac6dc0310df391ecde6ba2}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!pro\+Storage@{pro\+Storage}}
+\index{pro\+Storage@{pro\+Storage}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{pro\+Storage}{proStorage}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Factory\+Process\+Storage} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::pro\+Storage\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a7c31313dda4d0afd1b2419796cc1355b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a7c31313dda4d0afd1b2419796cc1355b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+H\+B\+Wcalib\+\_\+end@{req\+H\+B\+Wcalib\+\_\+end}}
+\index{req\+H\+B\+Wcalib\+\_\+end@{req\+H\+B\+Wcalib\+\_\+end}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+H\+B\+Wcalib\+\_\+end}{reqHBWcalib_end}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+H\+B\+Wcalib\+\_\+end\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1a69482a35c4a0911fe675b7a30641d6}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1a69482a35c4a0911fe675b7a30641d6}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+H\+B\+Wcalib\+\_\+nav@{req\+H\+B\+Wcalib\+\_\+nav}}
+\index{req\+H\+B\+Wcalib\+\_\+nav@{req\+H\+B\+Wcalib\+\_\+nav}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+H\+B\+Wcalib\+\_\+nav}{reqHBWcalib_nav}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+H\+B\+Wcalib\+\_\+nav\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a29cb3124d7e95fda8dddef0ab485af71}{}\label{classft_1_1_txt_vacuum_gripper_robot_a29cb3124d7e95fda8dddef0ab485af71}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+H\+B\+Wfetched@{req\+H\+B\+Wfetched}}
+\index{req\+H\+B\+Wfetched@{req\+H\+B\+Wfetched}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+H\+B\+Wfetched}{reqHBWfetched}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+H\+B\+Wfetched\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ac10363d74173bc2ff8338187079ad1b6}{}\label{classft_1_1_txt_vacuum_gripper_robot_ac10363d74173bc2ff8338187079ad1b6}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+H\+B\+Wstored@{req\+H\+B\+Wstored}}
+\index{req\+H\+B\+Wstored@{req\+H\+B\+Wstored}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+H\+B\+Wstored}{reqHBWstored}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+H\+B\+Wstored\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a5ad685c9df951eeb23c1a4aaed8a5da9}{}\label{classft_1_1_txt_vacuum_gripper_robot_a5ad685c9df951eeb23c1a4aaed8a5da9}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+Joy\+Data@{req\+Joy\+Data}}
+\index{req\+Joy\+Data@{req\+Joy\+Data}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+Joy\+Data}{reqJoyData}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+Joy\+Data\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a2adead238804ada52cca87289556897b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a2adead238804ada52cca87289556897b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+M\+P\+Ostarted@{req\+M\+P\+Ostarted}}
+\index{req\+M\+P\+Ostarted@{req\+M\+P\+Ostarted}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+M\+P\+Ostarted}{reqMPOstarted}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+M\+P\+Ostarted\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a7d29a10f0418356f732e429eb12ff9f4}{}\label{classft_1_1_txt_vacuum_gripper_robot_a7d29a10f0418356f732e429eb12ff9f4}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+Nfc\+Delete@{req\+Nfc\+Delete}}
+\index{req\+Nfc\+Delete@{req\+Nfc\+Delete}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+Nfc\+Delete}{reqNfcDelete}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+Nfc\+Delete\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a28742374c8647f51bc58e51bc8902d7b}{}\label{classft_1_1_txt_vacuum_gripper_robot_a28742374c8647f51bc58e51bc8902d7b}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+Nfc\+Read@{req\+Nfc\+Read}}
+\index{req\+Nfc\+Read@{req\+Nfc\+Read}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+Nfc\+Read}{reqNfcRead}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+Nfc\+Read\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ac60d86a7baeba2e8382289ec30df282c}{}\label{classft_1_1_txt_vacuum_gripper_robot_ac60d86a7baeba2e8382289ec30df282c}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+Order@{req\+Order}}
+\index{req\+Order@{req\+Order}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+Order}{reqOrder}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+Order\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a99d822613ac69cf4c46d209241790c5d}{}\label{classft_1_1_txt_vacuum_gripper_robot_a99d822613ac69cf4c46d209241790c5d}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+Quit@{req\+Quit}}
+\index{req\+Quit@{req\+Quit}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+Quit}{reqQuit}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+Quit\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a1d0957107dc1a4ec13b268668d750a03}{}\label{classft_1_1_txt_vacuum_gripper_robot_a1d0957107dc1a4ec13b268668d750a03}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+S\+L\+Dsorted@{req\+S\+L\+Dsorted}}
+\index{req\+S\+L\+Dsorted@{req\+S\+L\+Dsorted}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+S\+L\+Dsorted}{reqSLDsorted}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+S\+L\+Dsorted\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_abf93cd1bdac879e296b0ccf4417792d2}{}\label{classft_1_1_txt_vacuum_gripper_robot_abf93cd1bdac879e296b0ccf4417792d2}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+W\+P\+\_\+\+H\+BW@{req\+W\+P\+\_\+\+H\+BW}}
+\index{req\+W\+P\+\_\+\+H\+BW@{req\+W\+P\+\_\+\+H\+BW}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+W\+P\+\_\+\+H\+BW}{reqWP_HBW}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Workpiece}$\ast$ ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+W\+P\+\_\+\+H\+BW\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ac968fa69403dd05dc7cf3e0ec3bf07b4}{}\label{classft_1_1_txt_vacuum_gripper_robot_ac968fa69403dd05dc7cf3e0ec3bf07b4}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+W\+P\+\_\+\+M\+PO@{req\+W\+P\+\_\+\+M\+PO}}
+\index{req\+W\+P\+\_\+\+M\+PO@{req\+W\+P\+\_\+\+M\+PO}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+W\+P\+\_\+\+M\+PO}{reqWP_MPO}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Workpiece}$\ast$ ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+W\+P\+\_\+\+M\+PO\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_add6f0424c5e959d70941152687dc9dbd}{}\label{classft_1_1_txt_vacuum_gripper_robot_add6f0424c5e959d70941152687dc9dbd}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+W\+P\+\_\+order@{req\+W\+P\+\_\+order}}
+\index{req\+W\+P\+\_\+order@{req\+W\+P\+\_\+order}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+W\+P\+\_\+order}{reqWP_order}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Workpiece} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+W\+P\+\_\+order\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a3508707afd4a863dd441656d19c98ff3}{}\label{classft_1_1_txt_vacuum_gripper_robot_a3508707afd4a863dd441656d19c98ff3}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!req\+W\+P\+\_\+\+S\+LD@{req\+W\+P\+\_\+\+S\+LD}}
+\index{req\+W\+P\+\_\+\+S\+LD@{req\+W\+P\+\_\+\+S\+LD}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{req\+W\+P\+\_\+\+S\+LD}{reqWP_SLD}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Workpiece} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::req\+W\+P\+\_\+\+S\+LD\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_ada2de53763edfcfa88e373f22107dce3}{}\label{classft_1_1_txt_vacuum_gripper_robot_ada2de53763edfcfa88e373f22107dce3}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!target@{target}}
+\index{target@{target}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{target}{target}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::target\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a9ded37d075da735719cc8ee655a69047}{}\label{classft_1_1_txt_vacuum_gripper_robot_a9ded37d075da735719cc8ee655a69047}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!vgripper@{vgripper}}
+\index{vgripper@{vgripper}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{vgripper}{vgripper}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Txt\+Vacuum\+Gripper} ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::vgripper\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a70ee7a25a6cd4a3d108fa044e483f464}{}\label{classft_1_1_txt_vacuum_gripper_robot_a70ee7a25a6cd4a3d108fa044e483f464}
+\index{ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}!ydelta@{ydelta}}
+\index{ydelta@{ydelta}!ft\+::\+Txt\+Vacuum\+Gripper\+Robot@{ft\+::\+Txt\+Vacuum\+Gripper\+Robot}}
+\subsubsection[{\texorpdfstring{ydelta}{ydelta}}]{\setlength{\rightskip}{0pt plus 5cm}const int ft\+::\+Txt\+Vacuum\+Gripper\+Robot\+::ydelta = 50}\hypertarget{classft_1_1_txt_vacuum_gripper_robot_a74c5b29678f0594cdfbde1637a2a9ae7}{}\label{classft_1_1_txt_vacuum_gripper_robot_a74c5b29678f0594cdfbde1637a2a9ae7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_txt_vacuum_gripper_robot_8h}{Txt\+Vacuum\+Gripper\+Robot.\+h}\end{DoxyCompactItemize}

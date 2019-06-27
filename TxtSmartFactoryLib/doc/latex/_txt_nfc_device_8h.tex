@@ -1,0 +1,73 @@
+\hypertarget{_txt_nfc_device_8h}{}\section{Txt\+Nfc\+Device.\+h File Reference}
+\label{_txt_nfc_device_8h}\index{Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}}
+{\ttfamily \#include $<$err.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$nfc/nfc.\+h$>$}\\*
+{\ttfamily \#include $<$freefare.\+h$>$}\\*
+{\ttfamily \#include $<$map$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include \char`\"{}spdlog/spdlog.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}spdlog/sinks/stdout\+\_\+color\+\_\+sinks.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Observer.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Txt\+Mqtt\+Factory\+Client.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Txt\+Factory\+Types.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}nfc-\/utils.\+h\char`\"{}}\\*
+Include dependency graph for Txt\+Nfc\+Device.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_txt_nfc_device_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{_txt_nfc_device_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionft_1_1ts__u}{ft\+::ts\+\_\+u}
+\item 
+class \hyperlink{classft_1_1_txt_nfc_data}{ft\+::\+Txt\+Nfc\+Data}
+\item 
+class \hyperlink{classft_1_1_txt_nfc_device}{ft\+::\+Txt\+Nfc\+Device}
+\item 
+class \hyperlink{classft_1_1_txt_nfc_device_observer}{ft\+::\+Txt\+Nfc\+Device\+Observer}
+\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceft}{ft}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_txt_nfc_device_8h_a70ca23c85c6385ea64dfa919547104f2}{M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT}~16
+\item 
+\#define \hyperlink{_txt_nfc_device_8h_aaf6243138b6a0d3e95f9fbd9d099bb35}{M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT}~16
+\item 
+\#define \hyperlink{_txt_nfc_device_8h_a4b7859088776a46f4866a6dc71689e6a}{N\+\_\+\+M\+A\+X\+\_\+\+TS}~8
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \hyperlink{unionft_1_1ts__u}{ft\+::ts\+\_\+u} \hyperlink{namespaceft_a6b29d191a4ff3cd5738bcb38e4392811}{ft\+::u\+TS}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}!M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT}}
+\index{M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT}!Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT}{MAX_DEVICE_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+O\+U\+NT~16}\hypertarget{_txt_nfc_device_8h_a70ca23c85c6385ea64dfa919547104f2}{}\label{_txt_nfc_device_8h_a70ca23c85c6385ea64dfa919547104f2}
+\index{Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}!M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT}}
+\index{M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT@{M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT}!Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}}
+\subsubsection[{\texorpdfstring{M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT}{MAX_TARGET_COUNT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+T\+A\+R\+G\+E\+T\+\_\+\+C\+O\+U\+NT~16}\hypertarget{_txt_nfc_device_8h_aaf6243138b6a0d3e95f9fbd9d099bb35}{}\label{_txt_nfc_device_8h_aaf6243138b6a0d3e95f9fbd9d099bb35}
+\index{Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}!N\+\_\+\+M\+A\+X\+\_\+\+TS@{N\+\_\+\+M\+A\+X\+\_\+\+TS}}
+\index{N\+\_\+\+M\+A\+X\+\_\+\+TS@{N\+\_\+\+M\+A\+X\+\_\+\+TS}!Txt\+Nfc\+Device.\+h@{Txt\+Nfc\+Device.\+h}}
+\subsubsection[{\texorpdfstring{N\+\_\+\+M\+A\+X\+\_\+\+TS}{N_MAX_TS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+\_\+\+M\+A\+X\+\_\+\+TS~8}\hypertarget{_txt_nfc_device_8h_a4b7859088776a46f4866a6dc71689e6a}{}\label{_txt_nfc_device_8h_a4b7859088776a46f4866a6dc71689e6a}

@@ -1,0 +1,183 @@
+\hypertarget{classft_1_1_txt_axis_n_ref_switch}{}\section{ft\+:\+:Txt\+Axis\+N\+Ref\+Switch Class Reference}
+\label{classft_1_1_txt_axis_n_ref_switch}\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+
+
+{\ttfamily \#include $<$Txt\+Axis\+N\+Ref\+Switch.\+h$>$}
+
+
+
+Inheritance diagram for ft\+:\+:Txt\+Axis\+N\+Ref\+Switch\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classft_1_1_txt_axis_n_ref_switch__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for ft\+:\+:Txt\+Axis\+N\+Ref\+Switch\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=196pt]{classft_1_1_txt_axis_n_ref_switch__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classft_1_1_txt_axis_n_ref_switch_a614a6e2df3c9e575faedd582321e08d2}{Txt\+Axis\+N\+Ref\+Switch} (std\+::string \hyperlink{classft_1_1_txt_axis_a358af2b2ed1709b40ab6c9768c2795ef}{name}, F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+ER $\ast$\hyperlink{classft_1_1_txt_axis_ae5521c2eda7b80599ed6340f6a8192f2}{p\+T\+Area}, uint8\+\_\+t \hyperlink{classft_1_1_txt_axis_a3a8988acb2f578fe96312221205c50c4}{chM}, uint8\+\_\+t \hyperlink{classft_1_1_txt_axis_a9b155580a8dcc876c8e0c4b9c92041e7}{ch\+S1}, uint8\+\_\+t ch\+S2)
+\item 
+\hyperlink{classft_1_1_txt_axis_n_ref_switch_ab27b2a2b57e61bd9e5f85e3b4d31d74e}{Txt\+Axis\+N\+Ref\+Switch} (std\+::string \hyperlink{classft_1_1_txt_axis_a358af2b2ed1709b40ab6c9768c2795ef}{name}, F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+ER $\ast$\hyperlink{classft_1_1_txt_axis_ae5521c2eda7b80599ed6340f6a8192f2}{p\+T\+Area}, uint8\+\_\+t \hyperlink{classft_1_1_txt_axis_a3a8988acb2f578fe96312221205c50c4}{chM}, uint8\+\_\+t \hyperlink{classft_1_1_txt_axis_a9b155580a8dcc876c8e0c4b9c92041e7}{ch\+S1}, uint8\+\_\+t ch\+S2, uint8\+\_\+t ch\+S3)
+\item 
+virtual \hyperlink{classft_1_1_txt_axis_n_ref_switch_a559cde62e5b9192fd634216ec1921801}{$\sim$\+Txt\+Axis\+N\+Ref\+Switch} ()
+\item 
+void \hyperlink{classft_1_1_txt_axis_n_ref_switch_aa663559c3da6e40a21185cfc4e6c573c}{move\+S2X} (int idx)
+\item 
+void \hyperlink{classft_1_1_txt_axis_n_ref_switch_aaee4c0ac6d1379639c40588ac3d58c63}{move\+S2} ()
+\item 
+std\+::thread \hyperlink{classft_1_1_txt_axis_n_ref_switch_a9152452c5b6f75b293ad83510e537cf4}{move\+S2\+Thread} ()
+\item 
+void \hyperlink{classft_1_1_txt_axis_n_ref_switch_a91a91446c84f2e6be47394ada3c3de0c}{move\+S3} ()
+\item 
+std\+::thread \hyperlink{classft_1_1_txt_axis_n_ref_switch_a6abe7590af5db9c355fe7a263f5a787b}{move\+S3\+Thread} ()
+\item 
+bool \hyperlink{classft_1_1_txt_axis_n_ref_switch_abc4e26eee2563496af18d107aef1b38d}{is\+S2\+X\+Valid} (int idx)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \hyperlink{classft_1_1_txt_axis_n_ref_switch_ae4938459dbc75af81d58aa3a2075baf4}{set\+Motor\+Right} ()
+\item 
+virtual void \hyperlink{classft_1_1_txt_axis_n_ref_switch_ae8bf5d862cabf4598371ebbbaa67a4f0}{move\+Right} (uint16\+\_\+t steps, uint16\+\_\+t $\ast$p\+Pos)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint8\+\_\+t $>$ \hyperlink{classft_1_1_txt_axis_n_ref_switch_a36c2c99525ecda394e43472cb9bfd4a7}{ch\+S2X}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classft_1_1_txt_axis_n_ref_switch_aea03938f89578033a66fa5dba1f9fe09}{Txt\+Vacuum\+Gripper\+Robot}
+\item 
+class \hyperlink{classft_1_1_txt_axis_n_ref_switch_ae0c44dc668d7ae80ecedb8484adf9fdf}{Txt\+High\+Bay\+Warehouse}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!Txt\+Axis\+N\+Ref\+Switch@{Txt\+Axis\+N\+Ref\+Switch}}
+\index{Txt\+Axis\+N\+Ref\+Switch@{Txt\+Axis\+N\+Ref\+Switch}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{Txt\+Axis\+N\+Ref\+Switch(std\+::string name, F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R $\ast$p\+T\+Area, uint8\+\_\+t ch\+M, uint8\+\_\+t ch\+S1, uint8\+\_\+t ch\+S2)}{TxtAxisNRefSwitch(std::string name, FISH_X1_TRANSFER *pTArea, uint8_t chM, uint8_t chS1, uint8_t chS2)}}]{\setlength{\rightskip}{0pt plus 5cm}ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::\+Txt\+Axis\+N\+Ref\+Switch (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+ER $\ast$}]{p\+T\+Area, }
+\item[{uint8\+\_\+t}]{chM, }
+\item[{uint8\+\_\+t}]{ch\+S1, }
+\item[{uint8\+\_\+t}]{ch\+S2}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_axis_n_ref_switch_a614a6e2df3c9e575faedd582321e08d2}{}\label{classft_1_1_txt_axis_n_ref_switch_a614a6e2df3c9e575faedd582321e08d2}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!Txt\+Axis\+N\+Ref\+Switch@{Txt\+Axis\+N\+Ref\+Switch}}
+\index{Txt\+Axis\+N\+Ref\+Switch@{Txt\+Axis\+N\+Ref\+Switch}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{Txt\+Axis\+N\+Ref\+Switch(std\+::string name, F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+E\+R $\ast$p\+T\+Area, uint8\+\_\+t ch\+M, uint8\+\_\+t ch\+S1, uint8\+\_\+t ch\+S2, uint8\+\_\+t ch\+S3)}{TxtAxisNRefSwitch(std::string name, FISH_X1_TRANSFER *pTArea, uint8_t chM, uint8_t chS1, uint8_t chS2, uint8_t chS3)}}]{\setlength{\rightskip}{0pt plus 5cm}ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::\+Txt\+Axis\+N\+Ref\+Switch (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{name, }
+\item[{F\+I\+S\+H\+\_\+\+X1\+\_\+\+T\+R\+A\+N\+S\+F\+ER $\ast$}]{p\+T\+Area, }
+\item[{uint8\+\_\+t}]{chM, }
+\item[{uint8\+\_\+t}]{ch\+S1, }
+\item[{uint8\+\_\+t}]{ch\+S2, }
+\item[{uint8\+\_\+t}]{ch\+S3}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_axis_n_ref_switch_ab27b2a2b57e61bd9e5f85e3b4d31d74e}{}\label{classft_1_1_txt_axis_n_ref_switch_ab27b2a2b57e61bd9e5f85e3b4d31d74e}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!````~Txt\+Axis\+N\+Ref\+Switch@{$\sim$\+Txt\+Axis\+N\+Ref\+Switch}}
+\index{````~Txt\+Axis\+N\+Ref\+Switch@{$\sim$\+Txt\+Axis\+N\+Ref\+Switch}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{$\sim$\+Txt\+Axis\+N\+Ref\+Switch()}{~TxtAxisNRefSwitch()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::$\sim$\+Txt\+Axis\+N\+Ref\+Switch (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_a559cde62e5b9192fd634216ec1921801}{}\label{classft_1_1_txt_axis_n_ref_switch_a559cde62e5b9192fd634216ec1921801}
+
+
+\subsection{Member Function Documentation}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!is\+S2\+X\+Valid@{is\+S2\+X\+Valid}}
+\index{is\+S2\+X\+Valid@{is\+S2\+X\+Valid}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{is\+S2\+X\+Valid(int idx)}{isS2XValid(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::is\+S2\+X\+Valid (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_abc4e26eee2563496af18d107aef1b38d}{}\label{classft_1_1_txt_axis_n_ref_switch_abc4e26eee2563496af18d107aef1b38d}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!move\+Right@{move\+Right}}
+\index{move\+Right@{move\+Right}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{move\+Right(uint16\+\_\+t steps, uint16\+\_\+t $\ast$p\+Pos)}{moveRight(uint16_t steps, uint16_t *pPos)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::move\+Right (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t}]{steps, }
+\item[{uint16\+\_\+t $\ast$}]{p\+Pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_ae8bf5d862cabf4598371ebbbaa67a4f0}{}\label{classft_1_1_txt_axis_n_ref_switch_ae8bf5d862cabf4598371ebbbaa67a4f0}
+
+
+Implements \hyperlink{classft_1_1_txt_axis_aac0aaaa04969160f42542e76057ccb75}{ft\+::\+Txt\+Axis}.
+
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!move\+S2@{move\+S2}}
+\index{move\+S2@{move\+S2}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{move\+S2()}{moveS2()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::move\+S2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_aaee4c0ac6d1379639c40588ac3d58c63}{}\label{classft_1_1_txt_axis_n_ref_switch_aaee4c0ac6d1379639c40588ac3d58c63}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!move\+S2\+Thread@{move\+S2\+Thread}}
+\index{move\+S2\+Thread@{move\+S2\+Thread}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{move\+S2\+Thread()}{moveS2Thread()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::thread ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::move\+S2\+Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_a9152452c5b6f75b293ad83510e537cf4}{}\label{classft_1_1_txt_axis_n_ref_switch_a9152452c5b6f75b293ad83510e537cf4}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!move\+S2X@{move\+S2X}}
+\index{move\+S2X@{move\+S2X}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{move\+S2\+X(int idx)}{moveS2X(int idx)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::move\+S2X (
+\begin{DoxyParamCaption}
+\item[{int}]{idx}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_axis_n_ref_switch_aa663559c3da6e40a21185cfc4e6c573c}{}\label{classft_1_1_txt_axis_n_ref_switch_aa663559c3da6e40a21185cfc4e6c573c}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!move\+S3@{move\+S3}}
+\index{move\+S3@{move\+S3}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{move\+S3()}{moveS3()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::move\+S3 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_a91a91446c84f2e6be47394ada3c3de0c}{}\label{classft_1_1_txt_axis_n_ref_switch_a91a91446c84f2e6be47394ada3c3de0c}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!move\+S3\+Thread@{move\+S3\+Thread}}
+\index{move\+S3\+Thread@{move\+S3\+Thread}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{move\+S3\+Thread()}{moveS3Thread()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::thread ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::move\+S3\+Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_a6abe7590af5db9c355fe7a263f5a787b}{}\label{classft_1_1_txt_axis_n_ref_switch_a6abe7590af5db9c355fe7a263f5a787b}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!set\+Motor\+Right@{set\+Motor\+Right}}
+\index{set\+Motor\+Right@{set\+Motor\+Right}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{set\+Motor\+Right()}{setMotorRight()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::set\+Motor\+Right (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_ae4938459dbc75af81d58aa3a2075baf4}{}\label{classft_1_1_txt_axis_n_ref_switch_ae4938459dbc75af81d58aa3a2075baf4}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!Txt\+High\+Bay\+Warehouse@{Txt\+High\+Bay\+Warehouse}}
+\index{Txt\+High\+Bay\+Warehouse@{Txt\+High\+Bay\+Warehouse}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{Txt\+High\+Bay\+Warehouse}{TxtHighBayWarehouse}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Txt\+High\+Bay\+Warehouse}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_ae0c44dc668d7ae80ecedb8484adf9fdf}{}\label{classft_1_1_txt_axis_n_ref_switch_ae0c44dc668d7ae80ecedb8484adf9fdf}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!Txt\+Vacuum\+Gripper\+Robot@{Txt\+Vacuum\+Gripper\+Robot}}
+\index{Txt\+Vacuum\+Gripper\+Robot@{Txt\+Vacuum\+Gripper\+Robot}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{Txt\+Vacuum\+Gripper\+Robot}{TxtVacuumGripperRobot}}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Txt\+Vacuum\+Gripper\+Robot}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_aea03938f89578033a66fa5dba1f9fe09}{}\label{classft_1_1_txt_axis_n_ref_switch_aea03938f89578033a66fa5dba1f9fe09}
+
+
+\subsection{Member Data Documentation}
+\index{ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}!ch\+S2X@{ch\+S2X}}
+\index{ch\+S2X@{ch\+S2X}!ft\+::\+Txt\+Axis\+N\+Ref\+Switch@{ft\+::\+Txt\+Axis\+N\+Ref\+Switch}}
+\subsubsection[{\texorpdfstring{ch\+S2X}{chS2X}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$uint8\+\_\+t$>$ ft\+::\+Txt\+Axis\+N\+Ref\+Switch\+::ch\+S2X\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_axis_n_ref_switch_a36c2c99525ecda394e43472cb9bfd4a7}{}\label{classft_1_1_txt_axis_n_ref_switch_a36c2c99525ecda394e43472cb9bfd4a7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_txt_axis_n_ref_switch_8h}{Txt\+Axis\+N\+Ref\+Switch.\+h}\end{DoxyCompactItemize}

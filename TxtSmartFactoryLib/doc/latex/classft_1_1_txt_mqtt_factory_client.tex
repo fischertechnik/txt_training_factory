@@ -1,0 +1,441 @@
+\hypertarget{classft_1_1_txt_mqtt_factory_client}{}\section{ft\+:\+:Txt\+Mqtt\+Factory\+Client Class Reference}
+\label{classft_1_1_txt_mqtt_factory_client}\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+
+
+{\ttfamily \#include $<$Txt\+Mqtt\+Factory\+Client.\+h$>$}
+
+
+
+Collaboration diagram for ft\+:\+:Txt\+Mqtt\+Factory\+Client\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{classft_1_1_txt_mqtt_factory_client__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classft_1_1_txt_mqtt_factory_client_a31996ffdaa56d4faf1e4e3af3ff13579}{Txt\+Mqtt\+Factory\+Client} (std\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_a22be9e9d3b627a159aced6ae6bdffcc2}{clientname}, std\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_aa927ee53f42359598d014b334c064d83}{host}, std\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_af60c5887f1eae5dc4039fa284eb2b0b6}{port}, std\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_ab4c4b9312d3df970892ae26c143eb5ff}{mqtt\+\_\+user}, mqtt\+::binary\+\_\+ref \hyperlink{classft_1_1_txt_mqtt_factory_client_abb1d5f2fd93c87710ad4ea57d3d6702b}{mqtt\+\_\+pass}, bool \hyperlink{classft_1_1_txt_mqtt_factory_client_a057a4b3e05359993f4e591dfac65e56a}{bretained}=false, int \hyperlink{classft_1_1_txt_mqtt_factory_client_a63fa34c118f67674e0afb96ca3af1408}{iqos}=1)
+\item 
+virtual \hyperlink{classft_1_1_txt_mqtt_factory_client_a819f30cbefa3ddd5547e8c88aa78dde3}{$\sim$\+Txt\+Mqtt\+Factory\+Client} ()
+\item 
+bool \hyperlink{classft_1_1_txt_mqtt_factory_client_ac63f2c42da427fb8d2607f861981fcc1}{is\+\_\+connected} ()
+\item 
+bool \hyperlink{classft_1_1_txt_mqtt_factory_client_aa0626009466c14b2f7c3b2da276a3c87}{connect} (long int timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a7e77bcf793eaee53762244b21b9b4b97}{disconnect} (long int timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_af31825b5b21a4bab5742eb59407305e7}{set\+\_\+callback} (mqtt\+::callback \&cb)
+\item 
+bool \hyperlink{classft_1_1_txt_mqtt_factory_client_a6501429911b63950cea973b001f24cf8}{start\+\_\+consume} (long int timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_ac56473bd135be28aac2caeeff0dd06eb}{publish\+L\+DR} (double timestamp\+\_\+s, int16\+\_\+t ldr, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_ad58fa45acba2c4b7ee208a4efdbf2140}{publish\+Ptu\+Pos} (float pan, float tilt, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a4a442350cebe528f0fc90dbb2f67c1de}{publish\+Cam} (const std\+::string sdata, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a225a231a4ec63ef047625e5cd2ec33a2}{publish\+Bme680} (int64\+\_\+t timestamp, float iaq, uint8\+\_\+t iaq\+\_\+accuracy, float temperature, float humidity, float pressure, float raw\+\_\+temperature, float raw\+\_\+humidity, float gas, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_aad1434a675a1ad95bc526747bae82865}{publish\+Alert} (bool st, const std\+::string id, const std\+::string sdata, int code, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_afc7d9b8edcead431fb67c732152b55a1}{publish\+Broadcast} (double timestamp\+\_\+s, const std\+::string sw, const std\+::string ver, const std\+::string message, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_ab53fbf613676b49e98352a6b226ab3d0}{publish\+State\+S\+LD} (\hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a856c542e74f14e6a12cca62dd3566401}{publish\+State\+V\+GR} (\hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_ae68fac9f8874b963b2cf1a4ee9756211}{publish\+State\+D\+SI} (\hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a0c083001539aba0ec4cfbe5d98974d8f}{publish\+State\+D\+SO} (\hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_adc12b60d1c0e4a7fc342a215bb055779}{publish\+State\+M\+PO} (\hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a1f3c9b6117088049610042682bc21daa}{publish\+State\+H\+BW} (\hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_aa379fdca720ae6e258fdab746f22b5f2}{publish\+Stock} (\hyperlink{namespaceft_a3d5e802a7d78dac37b288630c9b21e64}{Stock\+\_\+map\+\_\+t} map\+\_\+wps, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a10294cf5b852e5d6e24d7456853a3266}{publish\+State\+Order} (\hyperlink{structft_1_1_txt_order_state}{Txt\+Order\+State} ord\+\_\+state, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a2fdd6b38c083c41c2da9f748a35b24c9}{publish\+Nfc\+DS} (\hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} wp, \hyperlink{namespaceft_aa7740d5a5a633c96d2063e7fd135cf89}{History\+\_\+map\+\_\+t} map\+\_\+hist, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a1cdb5649368d07e48b05892ea54b812c}{publish\+S\+S\+C\+\_\+\+Joy} (\hyperlink{classft_1_1_txt_joysticks_data}{Txt\+Joysticks\+Data} jd, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_aae063650cf96166e8e7f468dc94af57c}{publish\+M\+P\+O\+\_\+\+Ack} (\hyperlink{namespaceft_a368e4d4d861f00b9f4faa23c052bdb46}{Txt\+Mpo\+Ack\+Code\+\_\+t} code, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a337e7510ee005d530e78719c167a3f6a}{publish\+V\+G\+R\+\_\+\+Do} (\hyperlink{namespaceft_a91a43ab1445a680e5e113eec631eb030}{Txt\+Vgr\+Do\+Code\+\_\+t} code, \hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$wp, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_ab984a39ea8b1145a8e9b0fd2c1061f3b}{publish\+H\+B\+W\+\_\+\+Ack} (\hyperlink{namespaceft_a79f8dea1d67f613a9366fec07e43e2ff}{Txt\+Hbw\+Ack\+Code\+\_\+t} code, \hyperlink{classft_1_1_txt_workpiece}{Txt\+Workpiece} $\ast$wp, long timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a39939c7d24103887e27e26256703abd9}{publish\+S\+L\+D\+\_\+\+Ack} (\hyperlink{namespaceft_aee05f9d6ddbc6bb6add8c06f3e4067a0}{Txt\+Sld\+Ack\+Code\+\_\+t} code, \hyperlink{namespaceft_a2d5bf01b2da29de3c061682f3195b5b2}{Txt\+W\+P\+Type\+\_\+t} type, int value, long timeout)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_ad3915dae96da31b0b5abd1446cc899cf}{publish\+State\+Station} (const std\+::string station, \hyperlink{namespaceft_a14147563037506fac6464a9f6bcbad40}{Txt\+L\+E\+D\+S\+Code\+\_\+t} code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_a10e4e06910bca4e44656d178d3b01080}{sub\+Topic} (const std\+::string \&topic\+Filter, long int timeout)
+\item 
+void \hyperlink{classft_1_1_txt_mqtt_factory_client_abfd1407dd236dee490108671bb370d8d}{unsub\+Topic} (const std\+::string \&topic\+Filter, long int timeout)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_a22be9e9d3b627a159aced6ae6bdffcc2}{clientname}
+\item 
+mqtt\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_aa927ee53f42359598d014b334c064d83}{host}
+\item 
+mqtt\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_af60c5887f1eae5dc4039fa284eb2b0b6}{port}
+\item 
+mqtt\+::string \hyperlink{classft_1_1_txt_mqtt_factory_client_ab4c4b9312d3df970892ae26c143eb5ff}{mqtt\+\_\+user}
+\item 
+mqtt\+::binary\+\_\+ref \hyperlink{classft_1_1_txt_mqtt_factory_client_abb1d5f2fd93c87710ad4ea57d3d6702b}{mqtt\+\_\+pass}
+\item 
+bool \hyperlink{classft_1_1_txt_mqtt_factory_client_a057a4b3e05359993f4e591dfac65e56a}{bretained}
+\item 
+int \hyperlink{classft_1_1_txt_mqtt_factory_client_a63fa34c118f67674e0afb96ca3af1408}{iqos}
+\item 
+mqtt\+::async\+\_\+client \hyperlink{classft_1_1_txt_mqtt_factory_client_a39b8ca61026e78a31ea72c82964fd2ad}{cli}
+\item 
+mqtt\+::connect\+\_\+options \hyperlink{classft_1_1_txt_mqtt_factory_client_a39f8ad4996bb34b7acbfd063f8f68a91}{conn\+Opts}
+\item 
+pthread\+\_\+mutex\+\_\+t \hyperlink{classft_1_1_txt_mqtt_factory_client_adb54c5156c67a8caec9e482e2d1c6e70}{m\+\_\+mutex}
+\item 
+\hyperlink{classft_1_1action__listener__subscribe}{action\+\_\+listener\+\_\+subscribe} \hyperlink{classft_1_1_txt_mqtt_factory_client_a881a48419f359ee94ee6731e742ffb66}{a\+List\+Sub}
+\item 
+\hyperlink{classft_1_1action__listener__publish}{action\+\_\+listener\+\_\+publish} \hyperlink{classft_1_1_txt_mqtt_factory_client_ad384e6f4dd23d4470bbf47d2ade13195}{a\+List\+Pub}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!Txt\+Mqtt\+Factory\+Client@{Txt\+Mqtt\+Factory\+Client}}
+\index{Txt\+Mqtt\+Factory\+Client@{Txt\+Mqtt\+Factory\+Client}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{Txt\+Mqtt\+Factory\+Client(std\+::string clientname, std\+::string host, std\+::string port, std\+::string mqtt\+\_\+user, mqtt\+::binary\+\_\+ref mqtt\+\_\+pass, bool bretained=false, int iqos=1)}{TxtMqttFactoryClient(std::string clientname, std::string host, std::string port, std::string mqtt_user, mqtt::binary_ref mqtt_pass, bool bretained=false, int iqos=1)}}]{\setlength{\rightskip}{0pt plus 5cm}ft\+::\+Txt\+Mqtt\+Factory\+Client\+::\+Txt\+Mqtt\+Factory\+Client (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{clientname, }
+\item[{std\+::string}]{host, }
+\item[{std\+::string}]{port, }
+\item[{std\+::string}]{mqtt\+\_\+user, }
+\item[{mqtt\+::binary\+\_\+ref}]{mqtt\+\_\+pass, }
+\item[{bool}]{bretained = {\ttfamily false}, }
+\item[{int}]{iqos = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a31996ffdaa56d4faf1e4e3af3ff13579}{}\label{classft_1_1_txt_mqtt_factory_client_a31996ffdaa56d4faf1e4e3af3ff13579}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!````~Txt\+Mqtt\+Factory\+Client@{$\sim$\+Txt\+Mqtt\+Factory\+Client}}
+\index{````~Txt\+Mqtt\+Factory\+Client@{$\sim$\+Txt\+Mqtt\+Factory\+Client}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{$\sim$\+Txt\+Mqtt\+Factory\+Client()}{~TxtMqttFactoryClient()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual ft\+::\+Txt\+Mqtt\+Factory\+Client\+::$\sim$\+Txt\+Mqtt\+Factory\+Client (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a819f30cbefa3ddd5547e8c88aa78dde3}{}\label{classft_1_1_txt_mqtt_factory_client_a819f30cbefa3ddd5547e8c88aa78dde3}
+
+
+\subsection{Member Function Documentation}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!connect@{connect}}
+\index{connect@{connect}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{connect(long int timeout)}{connect(long int timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Mqtt\+Factory\+Client\+::connect (
+\begin{DoxyParamCaption}
+\item[{long int}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_aa0626009466c14b2f7c3b2da276a3c87}{}\label{classft_1_1_txt_mqtt_factory_client_aa0626009466c14b2f7c3b2da276a3c87}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!disconnect@{disconnect}}
+\index{disconnect@{disconnect}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{disconnect(long int timeout)}{disconnect(long int timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::disconnect (
+\begin{DoxyParamCaption}
+\item[{long int}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a7e77bcf793eaee53762244b21b9b4b97}{}\label{classft_1_1_txt_mqtt_factory_client_a7e77bcf793eaee53762244b21b9b4b97}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!is\+\_\+connected@{is\+\_\+connected}}
+\index{is\+\_\+connected@{is\+\_\+connected}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{is\+\_\+connected()}{is_connected()}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Mqtt\+Factory\+Client\+::is\+\_\+connected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_ac63f2c42da427fb8d2607f861981fcc1}{}\label{classft_1_1_txt_mqtt_factory_client_ac63f2c42da427fb8d2607f861981fcc1}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Alert@{publish\+Alert}}
+\index{publish\+Alert@{publish\+Alert}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Alert(bool st, const std\+::string id, const std\+::string sdata, int code, long timeout)}{publishAlert(bool st, const std::string id, const std::string sdata, int code, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Alert (
+\begin{DoxyParamCaption}
+\item[{bool}]{st, }
+\item[{const std\+::string}]{id, }
+\item[{const std\+::string}]{sdata, }
+\item[{int}]{code, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_aad1434a675a1ad95bc526747bae82865}{}\label{classft_1_1_txt_mqtt_factory_client_aad1434a675a1ad95bc526747bae82865}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Bme680@{publish\+Bme680}}
+\index{publish\+Bme680@{publish\+Bme680}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Bme680(int64\+\_\+t timestamp, float iaq, uint8\+\_\+t iaq\+\_\+accuracy, float temperature, float humidity, float pressure, float raw\+\_\+temperature, float raw\+\_\+humidity, float gas, long timeout)}{publishBme680(int64_t timestamp, float iaq, uint8_t iaq_accuracy, float temperature, float humidity, float pressure, float raw_temperature, float raw_humidity, float gas, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Bme680 (
+\begin{DoxyParamCaption}
+\item[{int64\+\_\+t}]{timestamp, }
+\item[{float}]{iaq, }
+\item[{uint8\+\_\+t}]{iaq\+\_\+accuracy, }
+\item[{float}]{temperature, }
+\item[{float}]{humidity, }
+\item[{float}]{pressure, }
+\item[{float}]{raw\+\_\+temperature, }
+\item[{float}]{raw\+\_\+humidity, }
+\item[{float}]{gas, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a225a231a4ec63ef047625e5cd2ec33a2}{}\label{classft_1_1_txt_mqtt_factory_client_a225a231a4ec63ef047625e5cd2ec33a2}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Broadcast@{publish\+Broadcast}}
+\index{publish\+Broadcast@{publish\+Broadcast}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Broadcast(double timestamp\+\_\+s, const std\+::string sw, const std\+::string ver, const std\+::string message, long timeout)}{publishBroadcast(double timestamp_s, const std::string sw, const std::string ver, const std::string message, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Broadcast (
+\begin{DoxyParamCaption}
+\item[{double}]{timestamp\+\_\+s, }
+\item[{const std\+::string}]{sw, }
+\item[{const std\+::string}]{ver, }
+\item[{const std\+::string}]{message, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_afc7d9b8edcead431fb67c732152b55a1}{}\label{classft_1_1_txt_mqtt_factory_client_afc7d9b8edcead431fb67c732152b55a1}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Cam@{publish\+Cam}}
+\index{publish\+Cam@{publish\+Cam}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Cam(const std\+::string sdata, long timeout)}{publishCam(const std::string sdata, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Cam (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{sdata, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a4a442350cebe528f0fc90dbb2f67c1de}{}\label{classft_1_1_txt_mqtt_factory_client_a4a442350cebe528f0fc90dbb2f67c1de}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+H\+B\+W\+\_\+\+Ack@{publish\+H\+B\+W\+\_\+\+Ack}}
+\index{publish\+H\+B\+W\+\_\+\+Ack@{publish\+H\+B\+W\+\_\+\+Ack}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+H\+B\+W\+\_\+\+Ack(\+Txt\+Hbw\+Ack\+Code\+\_\+t code, Txt\+Workpiece $\ast$wp, long timeout)}{publishHBW_Ack(TxtHbwAckCode_t code, TxtWorkpiece *wp, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+H\+B\+W\+\_\+\+Ack (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Hbw\+Ack\+Code\+\_\+t}}]{code, }
+\item[{{\bf Txt\+Workpiece} $\ast$}]{wp, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_ab984a39ea8b1145a8e9b0fd2c1061f3b}{}\label{classft_1_1_txt_mqtt_factory_client_ab984a39ea8b1145a8e9b0fd2c1061f3b}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+L\+DR@{publish\+L\+DR}}
+\index{publish\+L\+DR@{publish\+L\+DR}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+L\+D\+R(double timestamp\+\_\+s, int16\+\_\+t ldr, long timeout)}{publishLDR(double timestamp_s, int16_t ldr, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+L\+DR (
+\begin{DoxyParamCaption}
+\item[{double}]{timestamp\+\_\+s, }
+\item[{int16\+\_\+t}]{ldr, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_ac56473bd135be28aac2caeeff0dd06eb}{}\label{classft_1_1_txt_mqtt_factory_client_ac56473bd135be28aac2caeeff0dd06eb}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+M\+P\+O\+\_\+\+Ack@{publish\+M\+P\+O\+\_\+\+Ack}}
+\index{publish\+M\+P\+O\+\_\+\+Ack@{publish\+M\+P\+O\+\_\+\+Ack}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+M\+P\+O\+\_\+\+Ack(\+Txt\+Mpo\+Ack\+Code\+\_\+t code, long timeout)}{publishMPO_Ack(TxtMpoAckCode_t code, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+M\+P\+O\+\_\+\+Ack (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Mpo\+Ack\+Code\+\_\+t}}]{code, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_aae063650cf96166e8e7f468dc94af57c}{}\label{classft_1_1_txt_mqtt_factory_client_aae063650cf96166e8e7f468dc94af57c}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Nfc\+DS@{publish\+Nfc\+DS}}
+\index{publish\+Nfc\+DS@{publish\+Nfc\+DS}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Nfc\+D\+S(\+Txt\+Workpiece wp, History\+\_\+map\+\_\+t map\+\_\+hist, long timeout)}{publishNfcDS(TxtWorkpiece wp, History_map_t map_hist, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Nfc\+DS (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Workpiece}}]{wp, }
+\item[{{\bf History\+\_\+map\+\_\+t}}]{map\+\_\+hist, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a2fdd6b38c083c41c2da9f748a35b24c9}{}\label{classft_1_1_txt_mqtt_factory_client_a2fdd6b38c083c41c2da9f748a35b24c9}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Ptu\+Pos@{publish\+Ptu\+Pos}}
+\index{publish\+Ptu\+Pos@{publish\+Ptu\+Pos}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Ptu\+Pos(float pan, float tilt, long timeout)}{publishPtuPos(float pan, float tilt, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Ptu\+Pos (
+\begin{DoxyParamCaption}
+\item[{float}]{pan, }
+\item[{float}]{tilt, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_ad58fa45acba2c4b7ee208a4efdbf2140}{}\label{classft_1_1_txt_mqtt_factory_client_ad58fa45acba2c4b7ee208a4efdbf2140}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+S\+L\+D\+\_\+\+Ack@{publish\+S\+L\+D\+\_\+\+Ack}}
+\index{publish\+S\+L\+D\+\_\+\+Ack@{publish\+S\+L\+D\+\_\+\+Ack}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+S\+L\+D\+\_\+\+Ack(\+Txt\+Sld\+Ack\+Code\+\_\+t code, Txt\+W\+P\+Type\+\_\+t type, int value, long timeout)}{publishSLD_Ack(TxtSldAckCode_t code, TxtWPType_t type, int value, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+S\+L\+D\+\_\+\+Ack (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Sld\+Ack\+Code\+\_\+t}}]{code, }
+\item[{{\bf Txt\+W\+P\+Type\+\_\+t}}]{type, }
+\item[{int}]{value, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a39939c7d24103887e27e26256703abd9}{}\label{classft_1_1_txt_mqtt_factory_client_a39939c7d24103887e27e26256703abd9}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+S\+S\+C\+\_\+\+Joy@{publish\+S\+S\+C\+\_\+\+Joy}}
+\index{publish\+S\+S\+C\+\_\+\+Joy@{publish\+S\+S\+C\+\_\+\+Joy}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+S\+S\+C\+\_\+\+Joy(\+Txt\+Joysticks\+Data jd, long timeout)}{publishSSC_Joy(TxtJoysticksData jd, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+S\+S\+C\+\_\+\+Joy (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Joysticks\+Data}}]{jd, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a1cdb5649368d07e48b05892ea54b812c}{}\label{classft_1_1_txt_mqtt_factory_client_a1cdb5649368d07e48b05892ea54b812c}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+D\+SI@{publish\+State\+D\+SI}}
+\index{publish\+State\+D\+SI@{publish\+State\+D\+SI}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+D\+S\+I(\+Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateDSI(TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+D\+SI (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_ae68fac9f8874b963b2cf1a4ee9756211}{}\label{classft_1_1_txt_mqtt_factory_client_ae68fac9f8874b963b2cf1a4ee9756211}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+D\+SO@{publish\+State\+D\+SO}}
+\index{publish\+State\+D\+SO@{publish\+State\+D\+SO}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+D\+S\+O(\+Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateDSO(TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+D\+SO (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a0c083001539aba0ec4cfbe5d98974d8f}{}\label{classft_1_1_txt_mqtt_factory_client_a0c083001539aba0ec4cfbe5d98974d8f}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+H\+BW@{publish\+State\+H\+BW}}
+\index{publish\+State\+H\+BW@{publish\+State\+H\+BW}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+H\+B\+W(\+Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateHBW(TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+H\+BW (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a1f3c9b6117088049610042682bc21daa}{}\label{classft_1_1_txt_mqtt_factory_client_a1f3c9b6117088049610042682bc21daa}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+M\+PO@{publish\+State\+M\+PO}}
+\index{publish\+State\+M\+PO@{publish\+State\+M\+PO}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+M\+P\+O(\+Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateMPO(TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+M\+PO (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_adc12b60d1c0e4a7fc342a215bb055779}{}\label{classft_1_1_txt_mqtt_factory_client_adc12b60d1c0e4a7fc342a215bb055779}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+Order@{publish\+State\+Order}}
+\index{publish\+State\+Order@{publish\+State\+Order}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+Order(\+Txt\+Order\+State ord\+\_\+state, long timeout)}{publishStateOrder(TxtOrderState ord_state, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+Order (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Order\+State}}]{ord\+\_\+state, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a10294cf5b852e5d6e24d7456853a3266}{}\label{classft_1_1_txt_mqtt_factory_client_a10294cf5b852e5d6e24d7456853a3266}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+S\+LD@{publish\+State\+S\+LD}}
+\index{publish\+State\+S\+LD@{publish\+State\+S\+LD}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+S\+L\+D(\+Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateSLD(TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+S\+LD (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_ab53fbf613676b49e98352a6b226ab3d0}{}\label{classft_1_1_txt_mqtt_factory_client_ab53fbf613676b49e98352a6b226ab3d0}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+Station@{publish\+State\+Station}}
+\index{publish\+State\+Station@{publish\+State\+Station}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+Station(const std\+::string station, Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateStation(const std::string station, TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+Station (
+\begin{DoxyParamCaption}
+\item[{const std\+::string}]{station, }
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_ad3915dae96da31b0b5abd1446cc899cf}{}\label{classft_1_1_txt_mqtt_factory_client_ad3915dae96da31b0b5abd1446cc899cf}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+State\+V\+GR@{publish\+State\+V\+GR}}
+\index{publish\+State\+V\+GR@{publish\+State\+V\+GR}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+State\+V\+G\+R(\+Txt\+L\+E\+D\+S\+Code\+\_\+t code, const std\+::string desc, long timeout, int active=-\/1, const std\+::string target="""")}{publishStateVGR(TxtLEDSCode_t code, const std::string desc, long timeout, int active=-1, const std::string target="")}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+State\+V\+GR (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+L\+E\+D\+S\+Code\+\_\+t}}]{code, }
+\item[{const std\+::string}]{desc, }
+\item[{long}]{timeout, }
+\item[{int}]{active = {\ttfamily -\/1}, }
+\item[{const std\+::string}]{target = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a856c542e74f14e6a12cca62dd3566401}{}\label{classft_1_1_txt_mqtt_factory_client_a856c542e74f14e6a12cca62dd3566401}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+Stock@{publish\+Stock}}
+\index{publish\+Stock@{publish\+Stock}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+Stock(\+Stock\+\_\+map\+\_\+t map\+\_\+wps, long timeout)}{publishStock(Stock_map_t map_wps, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+Stock (
+\begin{DoxyParamCaption}
+\item[{{\bf Stock\+\_\+map\+\_\+t}}]{map\+\_\+wps, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_aa379fdca720ae6e258fdab746f22b5f2}{}\label{classft_1_1_txt_mqtt_factory_client_aa379fdca720ae6e258fdab746f22b5f2}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!publish\+V\+G\+R\+\_\+\+Do@{publish\+V\+G\+R\+\_\+\+Do}}
+\index{publish\+V\+G\+R\+\_\+\+Do@{publish\+V\+G\+R\+\_\+\+Do}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{publish\+V\+G\+R\+\_\+\+Do(\+Txt\+Vgr\+Do\+Code\+\_\+t code, Txt\+Workpiece $\ast$wp, long timeout)}{publishVGR_Do(TxtVgrDoCode_t code, TxtWorkpiece *wp, long timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::publish\+V\+G\+R\+\_\+\+Do (
+\begin{DoxyParamCaption}
+\item[{{\bf Txt\+Vgr\+Do\+Code\+\_\+t}}]{code, }
+\item[{{\bf Txt\+Workpiece} $\ast$}]{wp, }
+\item[{long}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a337e7510ee005d530e78719c167a3f6a}{}\label{classft_1_1_txt_mqtt_factory_client_a337e7510ee005d530e78719c167a3f6a}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!set\+\_\+callback@{set\+\_\+callback}}
+\index{set\+\_\+callback@{set\+\_\+callback}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{set\+\_\+callback(mqtt\+::callback \&cb)}{set_callback(mqtt::callback &cb)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::set\+\_\+callback (
+\begin{DoxyParamCaption}
+\item[{mqtt\+::callback \&}]{cb}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_af31825b5b21a4bab5742eb59407305e7}{}\label{classft_1_1_txt_mqtt_factory_client_af31825b5b21a4bab5742eb59407305e7}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!start\+\_\+consume@{start\+\_\+consume}}
+\index{start\+\_\+consume@{start\+\_\+consume}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{start\+\_\+consume(long int timeout)}{start_consume(long int timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Mqtt\+Factory\+Client\+::start\+\_\+consume (
+\begin{DoxyParamCaption}
+\item[{long int}]{timeout}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_mqtt_factory_client_a6501429911b63950cea973b001f24cf8}{}\label{classft_1_1_txt_mqtt_factory_client_a6501429911b63950cea973b001f24cf8}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!sub\+Topic@{sub\+Topic}}
+\index{sub\+Topic@{sub\+Topic}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{sub\+Topic(const std\+::string \&topic\+Filter, long int timeout)}{subTopic(const std::string &topicFilter, long int timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::sub\+Topic (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{topic\+Filter, }
+\item[{long int}]{timeout}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a10e4e06910bca4e44656d178d3b01080}{}\label{classft_1_1_txt_mqtt_factory_client_a10e4e06910bca4e44656d178d3b01080}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!unsub\+Topic@{unsub\+Topic}}
+\index{unsub\+Topic@{unsub\+Topic}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{unsub\+Topic(const std\+::string \&topic\+Filter, long int timeout)}{unsubTopic(const std::string &topicFilter, long int timeout)}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Mqtt\+Factory\+Client\+::unsub\+Topic (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{topic\+Filter, }
+\item[{long int}]{timeout}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_abfd1407dd236dee490108671bb370d8d}{}\label{classft_1_1_txt_mqtt_factory_client_abfd1407dd236dee490108671bb370d8d}
+
+
+\subsection{Member Data Documentation}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!a\+List\+Pub@{a\+List\+Pub}}
+\index{a\+List\+Pub@{a\+List\+Pub}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{a\+List\+Pub}{aListPub}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf action\+\_\+listener\+\_\+publish} ft\+::\+Txt\+Mqtt\+Factory\+Client\+::a\+List\+Pub\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_ad384e6f4dd23d4470bbf47d2ade13195}{}\label{classft_1_1_txt_mqtt_factory_client_ad384e6f4dd23d4470bbf47d2ade13195}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!a\+List\+Sub@{a\+List\+Sub}}
+\index{a\+List\+Sub@{a\+List\+Sub}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{a\+List\+Sub}{aListSub}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf action\+\_\+listener\+\_\+subscribe} ft\+::\+Txt\+Mqtt\+Factory\+Client\+::a\+List\+Sub\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a881a48419f359ee94ee6731e742ffb66}{}\label{classft_1_1_txt_mqtt_factory_client_a881a48419f359ee94ee6731e742ffb66}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!bretained@{bretained}}
+\index{bretained@{bretained}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{bretained}{bretained}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Mqtt\+Factory\+Client\+::bretained\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a057a4b3e05359993f4e591dfac65e56a}{}\label{classft_1_1_txt_mqtt_factory_client_a057a4b3e05359993f4e591dfac65e56a}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!cli@{cli}}
+\index{cli@{cli}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{cli}{cli}}]{\setlength{\rightskip}{0pt plus 5cm}mqtt\+::async\+\_\+client ft\+::\+Txt\+Mqtt\+Factory\+Client\+::cli\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a39b8ca61026e78a31ea72c82964fd2ad}{}\label{classft_1_1_txt_mqtt_factory_client_a39b8ca61026e78a31ea72c82964fd2ad}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!clientname@{clientname}}
+\index{clientname@{clientname}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{clientname}{clientname}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Mqtt\+Factory\+Client\+::clientname\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a22be9e9d3b627a159aced6ae6bdffcc2}{}\label{classft_1_1_txt_mqtt_factory_client_a22be9e9d3b627a159aced6ae6bdffcc2}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!conn\+Opts@{conn\+Opts}}
+\index{conn\+Opts@{conn\+Opts}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{conn\+Opts}{connOpts}}]{\setlength{\rightskip}{0pt plus 5cm}mqtt\+::connect\+\_\+options ft\+::\+Txt\+Mqtt\+Factory\+Client\+::conn\+Opts\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a39f8ad4996bb34b7acbfd063f8f68a91}{}\label{classft_1_1_txt_mqtt_factory_client_a39f8ad4996bb34b7acbfd063f8f68a91}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!host@{host}}
+\index{host@{host}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{host}{host}}]{\setlength{\rightskip}{0pt plus 5cm}mqtt\+::string ft\+::\+Txt\+Mqtt\+Factory\+Client\+::host\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_aa927ee53f42359598d014b334c064d83}{}\label{classft_1_1_txt_mqtt_factory_client_aa927ee53f42359598d014b334c064d83}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!iqos@{iqos}}
+\index{iqos@{iqos}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{iqos}{iqos}}]{\setlength{\rightskip}{0pt plus 5cm}int ft\+::\+Txt\+Mqtt\+Factory\+Client\+::iqos\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_a63fa34c118f67674e0afb96ca3af1408}{}\label{classft_1_1_txt_mqtt_factory_client_a63fa34c118f67674e0afb96ca3af1408}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!m\+\_\+mutex@{m\+\_\+mutex}}
+\index{m\+\_\+mutex@{m\+\_\+mutex}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{m\+\_\+mutex}{m_mutex}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t ft\+::\+Txt\+Mqtt\+Factory\+Client\+::m\+\_\+mutex\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_adb54c5156c67a8caec9e482e2d1c6e70}{}\label{classft_1_1_txt_mqtt_factory_client_adb54c5156c67a8caec9e482e2d1c6e70}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!mqtt\+\_\+pass@{mqtt\+\_\+pass}}
+\index{mqtt\+\_\+pass@{mqtt\+\_\+pass}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{mqtt\+\_\+pass}{mqtt_pass}}]{\setlength{\rightskip}{0pt plus 5cm}mqtt\+::binary\+\_\+ref ft\+::\+Txt\+Mqtt\+Factory\+Client\+::mqtt\+\_\+pass\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_abb1d5f2fd93c87710ad4ea57d3d6702b}{}\label{classft_1_1_txt_mqtt_factory_client_abb1d5f2fd93c87710ad4ea57d3d6702b}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!mqtt\+\_\+user@{mqtt\+\_\+user}}
+\index{mqtt\+\_\+user@{mqtt\+\_\+user}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{mqtt\+\_\+user}{mqtt_user}}]{\setlength{\rightskip}{0pt plus 5cm}mqtt\+::string ft\+::\+Txt\+Mqtt\+Factory\+Client\+::mqtt\+\_\+user\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_ab4c4b9312d3df970892ae26c143eb5ff}{}\label{classft_1_1_txt_mqtt_factory_client_ab4c4b9312d3df970892ae26c143eb5ff}
+\index{ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}!port@{port}}
+\index{port@{port}!ft\+::\+Txt\+Mqtt\+Factory\+Client@{ft\+::\+Txt\+Mqtt\+Factory\+Client}}
+\subsubsection[{\texorpdfstring{port}{port}}]{\setlength{\rightskip}{0pt plus 5cm}mqtt\+::string ft\+::\+Txt\+Mqtt\+Factory\+Client\+::port\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_mqtt_factory_client_af60c5887f1eae5dc4039fa284eb2b0b6}{}\label{classft_1_1_txt_mqtt_factory_client_af60c5887f1eae5dc4039fa284eb2b0b6}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_txt_mqtt_factory_client_8h}{Txt\+Mqtt\+Factory\+Client.\+h}\end{DoxyCompactItemize}

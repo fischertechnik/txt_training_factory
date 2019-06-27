@@ -1,0 +1,8 @@
+<map id="ft::TxtSimulationModel" name="ft::TxtSimulationModel">
+<area shape="rect" id="node3" href="$classft_1_1_txt_delivery_pickup_station.html" title="ft::TxtDeliveryPickupStation" alt="" coords="391,5,578,32"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_high_bay_warehouse.html" title="ft::TxtHighBayWarehouse" alt="" coords="398,56,571,83"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_multi_processing_station.html" title="ft::TxtMultiProcessingStation" alt="" coords="389,107,580,133"/>
+<area shape="rect" id="node6" href="$classft_1_1_txt_sorting_line.html" title="ft::TxtSortingLine" alt="" coords="423,157,546,184"/>
+<area shape="rect" id="node7" href="$classft_1_1_txt_vacuum_gripper_robot.html" title="ft::TxtVacuumGripperRobot" alt="" coords="393,208,576,235"/>
+<area shape="rect" id="node2" href="$classft_1_1_subject_observer.html" title="ft::SubjectObserver" alt="" coords="5,107,140,133"/>
+</map>

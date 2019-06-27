@@ -1,0 +1,165 @@
+\hypertarget{classft_1_1_txt_motion_detection}{}\section{ft\+:\+:Txt\+Motion\+Detection Class Reference}
+\label{classft_1_1_txt_motion_detection}\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+
+
+{\ttfamily \#include $<$Txt\+Motion\+Detection.\+h$>$}
+
+
+
+Inheritance diagram for ft\+:\+:Txt\+Motion\+Detection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{classft_1_1_txt_motion_detection__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for ft\+:\+:Txt\+Motion\+Detection\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{classft_1_1_txt_motion_detection__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classft_1_1_txt_motion_detection_a25f406788eeb041eeec88a058185062d}{Txt\+Motion\+Detection} (\hyperlink{classft_1_1_txt_camera}{ft\+::\+Txt\+Camera} $\ast$\hyperlink{classft_1_1_txt_motion_detection_a0fcc4c62dbeb1839d705045e1a8473ad}{cam}, double \hyperlink{classft_1_1_txt_motion_detection_a6f681c16ea2ae02579eddaa0046662c6}{max\+\_\+limit\+\_\+\+Area})
+\item 
+virtual \hyperlink{classft_1_1_txt_motion_detection_a78177169e6e08606337ee5714ab73daa}{$\sim$\+Txt\+Motion\+Detection} ()
+\item 
+bool \hyperlink{classft_1_1_txt_motion_detection_ac1fa56ffd0e8ff3d6b55c128b4c2f7a7}{init} ()
+\item 
+bool \hyperlink{classft_1_1_txt_motion_detection_aff17b71df6cb5d0f7b213100bb4f4ac3}{start\+Thread} ()
+\item 
+bool \hyperlink{classft_1_1_txt_motion_detection_a1fbb361b7a5872ab28a96c7eaf4d7d13}{stop\+Thread} ()
+\item 
+std\+::string \hyperlink{classft_1_1_txt_motion_detection_a36924977e1c1f056508659b9f276cea1}{get\+Data\+String} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classft_1_1_txt_motion_detection_a5cde1079735e8da9986f50bb6a32fec9}{run} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void $\ast$ \hyperlink{classft_1_1_txt_motion_detection_a032ad6f0adedc9921843585dc211b52e}{start\+\_\+thread} (void $\ast$obj)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classft_1_1_txt_camera}{ft\+::\+Txt\+Camera} $\ast$ \hyperlink{classft_1_1_txt_motion_detection_a0fcc4c62dbeb1839d705045e1a8473ad}{cam}
+\item 
+cv\+::\+Mat \hyperlink{classft_1_1_txt_motion_detection_a60bf3703bf1a9d4d2c748504ac5330f3}{gray\+\_\+last}
+\item 
+std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point \hyperlink{classft_1_1_txt_motion_detection_a5df0ee20308db61c230e17582f3e56bf}{ts\+Last\+Detected}
+\item 
+double \hyperlink{classft_1_1_txt_motion_detection_a6f681c16ea2ae02579eddaa0046662c6}{max\+\_\+limit\+\_\+\+Area}
+\item 
+volatile bool \hyperlink{classft_1_1_txt_motion_detection_a8d8e0b1cbdc411fb804be5bce190d8ec}{m\+\_\+stoprequested}
+\item 
+volatile bool \hyperlink{classft_1_1_txt_motion_detection_a29ef96c1c37ecb15234e5eb2b2d4fe97}{m\+\_\+running}
+\item 
+pthread\+\_\+mutex\+\_\+t \hyperlink{classft_1_1_txt_motion_detection_a5376f343930aa6553381fbb4faeac32f}{m\+\_\+mutex}
+\item 
+pthread\+\_\+t \hyperlink{classft_1_1_txt_motion_detection_a4675c4835955d3ee2cbe0f79f7ef5ead}{m\+\_\+thread}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!Txt\+Motion\+Detection@{Txt\+Motion\+Detection}}
+\index{Txt\+Motion\+Detection@{Txt\+Motion\+Detection}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{Txt\+Motion\+Detection(ft\+::\+Txt\+Camera $\ast$cam, double max\+\_\+limit\+\_\+\+Area)}{TxtMotionDetection(ft::TxtCamera *cam, double max_limit_Area)}}]{\setlength{\rightskip}{0pt plus 5cm}ft\+::\+Txt\+Motion\+Detection\+::\+Txt\+Motion\+Detection (
+\begin{DoxyParamCaption}
+\item[{{\bf ft\+::\+Txt\+Camera} $\ast$}]{cam, }
+\item[{double}]{max\+\_\+limit\+\_\+\+Area}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_motion_detection_a25f406788eeb041eeec88a058185062d}{}\label{classft_1_1_txt_motion_detection_a25f406788eeb041eeec88a058185062d}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!````~Txt\+Motion\+Detection@{$\sim$\+Txt\+Motion\+Detection}}
+\index{````~Txt\+Motion\+Detection@{$\sim$\+Txt\+Motion\+Detection}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{$\sim$\+Txt\+Motion\+Detection()}{~TxtMotionDetection()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual ft\+::\+Txt\+Motion\+Detection\+::$\sim$\+Txt\+Motion\+Detection (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classft_1_1_txt_motion_detection_a78177169e6e08606337ee5714ab73daa}{}\label{classft_1_1_txt_motion_detection_a78177169e6e08606337ee5714ab73daa}
+
+
+\subsection{Member Function Documentation}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!get\+Data\+String@{get\+Data\+String}}
+\index{get\+Data\+String@{get\+Data\+String}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{get\+Data\+String()}{getDataString()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string ft\+::\+Txt\+Motion\+Detection\+::get\+Data\+String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_motion_detection_a36924977e1c1f056508659b9f276cea1}{}\label{classft_1_1_txt_motion_detection_a36924977e1c1f056508659b9f276cea1}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!init@{init}}
+\index{init@{init}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{init()}{init()}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Motion\+Detection\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_motion_detection_ac1fa56ffd0e8ff3d6b55c128b4c2f7a7}{}\label{classft_1_1_txt_motion_detection_ac1fa56ffd0e8ff3d6b55c128b4c2f7a7}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!run@{run}}
+\index{run@{run}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{run()}{run()}}]{\setlength{\rightskip}{0pt plus 5cm}void ft\+::\+Txt\+Motion\+Detection\+::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a5cde1079735e8da9986f50bb6a32fec9}{}\label{classft_1_1_txt_motion_detection_a5cde1079735e8da9986f50bb6a32fec9}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!start\+\_\+thread@{start\+\_\+thread}}
+\index{start\+\_\+thread@{start\+\_\+thread}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{start\+\_\+thread(void $\ast$obj)}{start_thread(void *obj)}}]{\setlength{\rightskip}{0pt plus 5cm}static void$\ast$ ft\+::\+Txt\+Motion\+Detection\+::start\+\_\+thread (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{obj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a032ad6f0adedc9921843585dc211b52e}{}\label{classft_1_1_txt_motion_detection_a032ad6f0adedc9921843585dc211b52e}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!start\+Thread@{start\+Thread}}
+\index{start\+Thread@{start\+Thread}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{start\+Thread()}{startThread()}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Motion\+Detection\+::start\+Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_motion_detection_aff17b71df6cb5d0f7b213100bb4f4ac3}{}\label{classft_1_1_txt_motion_detection_aff17b71df6cb5d0f7b213100bb4f4ac3}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!stop\+Thread@{stop\+Thread}}
+\index{stop\+Thread@{stop\+Thread}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{stop\+Thread()}{stopThread()}}]{\setlength{\rightskip}{0pt plus 5cm}bool ft\+::\+Txt\+Motion\+Detection\+::stop\+Thread (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classft_1_1_txt_motion_detection_a1fbb361b7a5872ab28a96c7eaf4d7d13}{}\label{classft_1_1_txt_motion_detection_a1fbb361b7a5872ab28a96c7eaf4d7d13}
+
+
+\subsection{Member Data Documentation}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!cam@{cam}}
+\index{cam@{cam}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{cam}{cam}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ft\+::\+Txt\+Camera}$\ast$ ft\+::\+Txt\+Motion\+Detection\+::cam\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a0fcc4c62dbeb1839d705045e1a8473ad}{}\label{classft_1_1_txt_motion_detection_a0fcc4c62dbeb1839d705045e1a8473ad}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!gray\+\_\+last@{gray\+\_\+last}}
+\index{gray\+\_\+last@{gray\+\_\+last}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{gray\+\_\+last}{gray_last}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat ft\+::\+Txt\+Motion\+Detection\+::gray\+\_\+last\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a60bf3703bf1a9d4d2c748504ac5330f3}{}\label{classft_1_1_txt_motion_detection_a60bf3703bf1a9d4d2c748504ac5330f3}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!m\+\_\+mutex@{m\+\_\+mutex}}
+\index{m\+\_\+mutex@{m\+\_\+mutex}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{m\+\_\+mutex}{m_mutex}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t ft\+::\+Txt\+Motion\+Detection\+::m\+\_\+mutex\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a5376f343930aa6553381fbb4faeac32f}{}\label{classft_1_1_txt_motion_detection_a5376f343930aa6553381fbb4faeac32f}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!m\+\_\+running@{m\+\_\+running}}
+\index{m\+\_\+running@{m\+\_\+running}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{m\+\_\+running}{m_running}}]{\setlength{\rightskip}{0pt plus 5cm}volatile bool ft\+::\+Txt\+Motion\+Detection\+::m\+\_\+running\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a29ef96c1c37ecb15234e5eb2b2d4fe97}{}\label{classft_1_1_txt_motion_detection_a29ef96c1c37ecb15234e5eb2b2d4fe97}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!m\+\_\+stoprequested@{m\+\_\+stoprequested}}
+\index{m\+\_\+stoprequested@{m\+\_\+stoprequested}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{m\+\_\+stoprequested}{m_stoprequested}}]{\setlength{\rightskip}{0pt plus 5cm}volatile bool ft\+::\+Txt\+Motion\+Detection\+::m\+\_\+stoprequested\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a8d8e0b1cbdc411fb804be5bce190d8ec}{}\label{classft_1_1_txt_motion_detection_a8d8e0b1cbdc411fb804be5bce190d8ec}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!m\+\_\+thread@{m\+\_\+thread}}
+\index{m\+\_\+thread@{m\+\_\+thread}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{m\+\_\+thread}{m_thread}}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+t ft\+::\+Txt\+Motion\+Detection\+::m\+\_\+thread\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a4675c4835955d3ee2cbe0f79f7ef5ead}{}\label{classft_1_1_txt_motion_detection_a4675c4835955d3ee2cbe0f79f7ef5ead}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!max\+\_\+limit\+\_\+\+Area@{max\+\_\+limit\+\_\+\+Area}}
+\index{max\+\_\+limit\+\_\+\+Area@{max\+\_\+limit\+\_\+\+Area}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{max\+\_\+limit\+\_\+\+Area}{max_limit_Area}}]{\setlength{\rightskip}{0pt plus 5cm}double ft\+::\+Txt\+Motion\+Detection\+::max\+\_\+limit\+\_\+\+Area\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a6f681c16ea2ae02579eddaa0046662c6}{}\label{classft_1_1_txt_motion_detection_a6f681c16ea2ae02579eddaa0046662c6}
+\index{ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}!ts\+Last\+Detected@{ts\+Last\+Detected}}
+\index{ts\+Last\+Detected@{ts\+Last\+Detected}!ft\+::\+Txt\+Motion\+Detection@{ft\+::\+Txt\+Motion\+Detection}}
+\subsubsection[{\texorpdfstring{ts\+Last\+Detected}{tsLastDetected}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::chrono\+::system\+\_\+clock\+::time\+\_\+point ft\+::\+Txt\+Motion\+Detection\+::ts\+Last\+Detected\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classft_1_1_txt_motion_detection_a5df0ee20308db61c230e17582f3e56bf}{}\label{classft_1_1_txt_motion_detection_a5df0ee20308db61c230e17582f3e56bf}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_txt_motion_detection_8h}{Txt\+Motion\+Detection.\+h}\end{DoxyCompactItemize}

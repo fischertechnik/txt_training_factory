@@ -1,0 +1,107 @@
+\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h}{}\section{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h File Reference}
+\label{_txt_b_m_e680_b_s_e_c_lib_8h}\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$unistd.\+h$>$}\\*
+{\ttfamily \#include $<$cmath$>$}\\*
+{\ttfamily \#include \char`\"{}Ke\+Lib\+Txt\+Dl.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Ft\+Shmem.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$sys/time.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$thread$>$}\\*
+{\ttfamily \#include \char`\"{}bsec\+\_\+integration.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bsec\+\_\+serialized\+\_\+configurations\+\_\+iaq.\+h\char`\"{}}\\*
+Include dependency graph for Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_txt_b_m_e680_b_s_e_c_lib_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=197pt]{_txt_b_m_e680_b_s_e_c_lib_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_a734ed6280eabc98c82a97ba502c3bf4a}{bus\+\_\+write} (uint8\+\_\+t dev\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data\+\_\+ptr, uint16\+\_\+t data\+\_\+len)
+\item 
+int8\+\_\+t \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_abdb7857c2fd7a3216e7aefa3185215bc}{bus\+\_\+read} (uint8\+\_\+t dev\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data\+\_\+ptr, uint16\+\_\+t data\+\_\+len)
+\item 
+void \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_a3e1a392416fbaf26e28d8f67da9b5e5c}{bsecsleep} (uint32\+\_\+t t\+\_\+ms)
+\item 
+int64\+\_\+t \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_ae665bcfebae523a410d3c5283622209f}{get\+\_\+timestamp\+\_\+us} ()
+\item 
+uint32\+\_\+t \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_a9f05a02b4e206c8950fb7a28009a333c}{state\+\_\+load} (uint8\+\_\+t $\ast$state\+\_\+buffer, uint32\+\_\+t n\+\_\+buffer)
+\item 
+void \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_a59fcc47fb7905eb4d06bbb0e11da5f4d}{state\+\_\+save} (const uint8\+\_\+t $\ast$state\+\_\+buffer, uint32\+\_\+t length)
+\item 
+uint32\+\_\+t \hyperlink{_txt_b_m_e680_b_s_e_c_lib_8h_aa7342d0105670ad4c7ad7773457b24ab}{config\+\_\+load} (uint8\+\_\+t $\ast$config\+\_\+buffer, uint32\+\_\+t n\+\_\+buffer)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!bsecsleep@{bsecsleep}}
+\index{bsecsleep@{bsecsleep}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{bsecsleep(uint32\+\_\+t t\+\_\+ms)}{bsecsleep(uint32_t t_ms)}}]{\setlength{\rightskip}{0pt plus 5cm}void bsecsleep (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t}]{t\+\_\+ms}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_a3e1a392416fbaf26e28d8f67da9b5e5c}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_a3e1a392416fbaf26e28d8f67da9b5e5c}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!bus\+\_\+read@{bus\+\_\+read}}
+\index{bus\+\_\+read@{bus\+\_\+read}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{bus\+\_\+read(uint8\+\_\+t dev\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data\+\_\+ptr, uint16\+\_\+t data\+\_\+len)}{bus_read(uint8_t dev_addr, uint8_t reg_addr, uint8_t *reg_data_ptr, uint16_t data_len)}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t bus\+\_\+read (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{dev\+\_\+addr, }
+\item[{uint8\+\_\+t}]{reg\+\_\+addr, }
+\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data\+\_\+ptr, }
+\item[{uint16\+\_\+t}]{data\+\_\+len}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_abdb7857c2fd7a3216e7aefa3185215bc}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_abdb7857c2fd7a3216e7aefa3185215bc}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!bus\+\_\+write@{bus\+\_\+write}}
+\index{bus\+\_\+write@{bus\+\_\+write}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{bus\+\_\+write(uint8\+\_\+t dev\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data\+\_\+ptr, uint16\+\_\+t data\+\_\+len)}{bus_write(uint8_t dev_addr, uint8_t reg_addr, uint8_t *reg_data_ptr, uint16_t data_len)}}]{\setlength{\rightskip}{0pt plus 5cm}int8\+\_\+t bus\+\_\+write (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{dev\+\_\+addr, }
+\item[{uint8\+\_\+t}]{reg\+\_\+addr, }
+\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data\+\_\+ptr, }
+\item[{uint16\+\_\+t}]{data\+\_\+len}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_a734ed6280eabc98c82a97ba502c3bf4a}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_a734ed6280eabc98c82a97ba502c3bf4a}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!config\+\_\+load@{config\+\_\+load}}
+\index{config\+\_\+load@{config\+\_\+load}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{config\+\_\+load(uint8\+\_\+t $\ast$config\+\_\+buffer, uint32\+\_\+t n\+\_\+buffer)}{config_load(uint8_t *config_buffer, uint32_t n_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t config\+\_\+load (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{config\+\_\+buffer, }
+\item[{uint32\+\_\+t}]{n\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_aa7342d0105670ad4c7ad7773457b24ab}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_aa7342d0105670ad4c7ad7773457b24ab}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!get\+\_\+timestamp\+\_\+us@{get\+\_\+timestamp\+\_\+us}}
+\index{get\+\_\+timestamp\+\_\+us@{get\+\_\+timestamp\+\_\+us}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{get\+\_\+timestamp\+\_\+us()}{get_timestamp_us()}}]{\setlength{\rightskip}{0pt plus 5cm}int64\+\_\+t get\+\_\+timestamp\+\_\+us (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_ae665bcfebae523a410d3c5283622209f}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_ae665bcfebae523a410d3c5283622209f}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!state\+\_\+load@{state\+\_\+load}}
+\index{state\+\_\+load@{state\+\_\+load}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{state\+\_\+load(uint8\+\_\+t $\ast$state\+\_\+buffer, uint32\+\_\+t n\+\_\+buffer)}{state_load(uint8_t *state_buffer, uint32_t n_buffer)}}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t state\+\_\+load (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{state\+\_\+buffer, }
+\item[{uint32\+\_\+t}]{n\+\_\+buffer}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_a9f05a02b4e206c8950fb7a28009a333c}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_a9f05a02b4e206c8950fb7a28009a333c}
+\index{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}!state\+\_\+save@{state\+\_\+save}}
+\index{state\+\_\+save@{state\+\_\+save}!Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h@{Txt\+B\+M\+E680\+B\+S\+E\+C\+Lib.\+h}}
+\subsubsection[{\texorpdfstring{state\+\_\+save(const uint8\+\_\+t $\ast$state\+\_\+buffer, uint32\+\_\+t length)}{state_save(const uint8_t *state_buffer, uint32_t length)}}]{\setlength{\rightskip}{0pt plus 5cm}void state\+\_\+save (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$}]{state\+\_\+buffer, }
+\item[{uint32\+\_\+t}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{_txt_b_m_e680_b_s_e_c_lib_8h_a59fcc47fb7905eb4d06bbb0e11da5f4d}{}\label{_txt_b_m_e680_b_s_e_c_lib_8h_a59fcc47fb7905eb4d06bbb0e11da5f4d}

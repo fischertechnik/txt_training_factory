@@ -1,0 +1,217 @@
+/*
+ * TxtSortingLine.h
+ *
+ *  Created on: 03.04.2019
+ *      Author: steiger-a
+ */
+
+#ifndef TXTSORTINGLINE_H_
+#define TXTSORTINGLINE_H_
+
+#ifndef __DOCFSM__
+#include "KeLibTxtDl.h"     // TXT Lib
+#include "FtShmem.h"        // TXT Transfer Area
+
+#include "TxtCalibData.h"
+#include "TxtSimulationModel.h"
+#include "TxtConveyorBelt.h"
+#include "TxtFactoryTypes.h"
+#include "TxtMqttFactoryClient.h"
+
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
+#endif
+
+
+#ifdef FSM_DECLARE_STATE_XE
+ #undef FSM_DECLARE_STATE_XE
+#endif
+#define FSM_DECLARE_STATE_XE( stateName, attr... ) stateName
+
+
+namespace ft {
+
+
+class TxtSortingLineObserver;
+
+extern uint16_t u16Counter;
+
+
+class TxtSortingLineCalibData : public ft::TxtCalibData {
+public:
+	TxtSortingLineCalibData()
+		: TxtCalibData(("Data/Calib.SLD.json")) {};
+	virtual ~TxtSortingLineCalibData() {}
+
+	bool load();
+	bool saveDefault();
+	bool save();
+
+	int color_th[2];
+};
+
+
+class TxtSortingLine : public ft::TxtSimulationModel {
+public:
+	const uint16_t COUNT_WHITE = 5;
+	const uint16_t COUNT_RED = 15;
+	const uint16_t COUNT_BLUE = 26;
+	const uint16_t COUNT_WRONG = 29;
+
+	enum State_t
+	{
+		__NO_STATE,
+		FSM_DECLARE_STATE_XE( FAULT, color=red ),
+		FSM_DECLARE_STATE_XE( INIT, color=blue ),
+		FSM_DECLARE_STATE_XE( IDLE, color=green ),
+		FSM_DECLARE_STATE_XE( START, color=blue ),
+		FSM_DECLARE_STATE_XE( COLOR_DETECTION, color=blue ),
+		FSM_DECLARE_STATE_XE( START_COUNT, color=blue ),
+		FSM_DECLARE_STATE_XE( CHECK_COUNT, color=blue ),
+		FSM_DECLARE_STATE_XE( EJECTION_WHITE, color=blue ),
+		FSM_DECLARE_STATE_XE( EJECTION_RED, color=blue ),
+		FSM_DECLARE_STATE_XE( EJECTION_BLUE, color=blue ),
+		FSM_DECLARE_STATE_XE( SORTED, color=blue )
+	};
+
+	inline const char * toString(State_t state)
+	{
+		#define _CASE_ITEM( _state ) case _state: return #_state;
+		switch( state )
+		{
+		   _CASE_ITEM( FAULT )
+		   _CASE_ITEM( INIT )
+		   _CASE_ITEM( IDLE )
+		   _CASE_ITEM( START )
+		   _CASE_ITEM( COLOR_DETECTION )
+		   _CASE_ITEM( START_COUNT )
+		   _CASE_ITEM( CHECK_COUNT )
+		   _CASE_ITEM( EJECTION_WHITE )
+		   _CASE_ITEM( EJECTION_RED )
+		   _CASE_ITEM( EJECTION_BLUE )
+		   _CASE_ITEM( SORTED )
+		   default: break;
+		}
+		return "[TxtSortingLine::State_t] Unknown State";
+		#undef _CASE_ITEM
+	}
+
+	inline void printState(State_t state)
+	{
+		std::cout << toString(state) << std::endl;
+	}
+	inline void printEntryState(State_t state)
+	{
+		std::cout << "entry " << toString(state) << std::endl;
+	}
+
+	inline void printExitState(State_t state)
+	{
+		std::cout << "exit " << toString(state) << std::endl;
+	}
+
+	TxtSortingLine(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	virtual ~TxtSortingLine();
+
+	/* remote */
+	void requestQuit() {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestQuit",0);
+		reqQuit= true;
+	}
+	/* local */
+	void requestMPOproduced() {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestMPOproduced",0);
+		reqMPOproduced= true;
+	}
+	void requestVGRstart() {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestVGRstart",0);
+		reqVGRstart= true;
+	}
+
+	bool isColorSensorTriggered();
+	bool isEjectionTriggered();
+	bool isWhite();
+	bool isRed();
+	bool isBlue();
+
+	void ejectWhite();
+	void ejectRed();
+	void ejectBlue();
+	void setCompressor(bool on);
+
+	int readColorValue();
+	ft::TxtWPType_t getLastColor();
+	ft::TxtWPType_t getDetectedColor();
+
+protected:
+	State_t currentState;
+	State_t newState;
+
+    void configInputs();
+
+    /*!
+     * @dotfile TxtSortingLineRun.gv
+     */
+	void run();
+
+	TxtConveyorBelt convBelt;
+	uint8_t chEW;
+	uint8_t chER;
+	uint8_t chEB;
+	uint8_t chComp;
+	int lastColorValue;
+	int detectedColorValue;
+	TxtSortingLineCalibData calibData;
+
+	bool reqQuit;
+	bool reqMPOproduced;
+	bool reqVGRstart;
+
+	TxtSortingLineObserver* obs_sld;
+
+private:
+   void fsmStep();
+};
+
+
+class TxtSortingLineObserver : public ft::Observer {
+public:
+	TxtSortingLineObserver(ft::TxtSortingLine* s, ft::TxtMqttFactoryClient* mqttclient)
+		: _subject(s), _mqttclient(mqttclient)
+	{
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtSortingLineObserver",0);
+		_subject->Attach(this);
+	}
+	virtual ~TxtSortingLineObserver() {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"), "~TxtSortingLineObserver",0);
+		_subject->Detach(this);
+	}
+	void Update(ft::SubjectObserver* theChangedSubject) {
+		if(theChangedSubject == _subject) {
+			//SPDLOG_LOGGER_TRACE(spdlog::get("console"), "Update 1",0);
+
+			ft::TxtSimulationModel_status_t st = _subject->getStatus();
+			assert(_mqttclient);
+			int code = 0;
+			if (st == SM_READY) {
+				code = 1;
+			} else if (st == SM_BUSY) {
+				code = 2;
+			} else if (st == SM_ERROR) {
+				code = 4;
+			}
+			_mqttclient->publishStateSLD((ft::TxtLEDSCode_t)code,"",TIMEOUT_MS_PUBLISH,_subject->isActive()?1:0,"");
+
+			//SPDLOG_LOGGER_TRACE(spdlog::get("console"), "Update 2",0);
+		}
+	}
+private:
+	ft::TxtSortingLine *_subject;
+	ft::TxtMqttFactoryClient* _mqttclient;
+};
+
+
+} /* namespace ft */
+
+
+#endif /* TXTSORTINGLINE_H_ */
