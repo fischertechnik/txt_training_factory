@@ -1,5 +1,5 @@
 # fischertechnik Training Factory Industry 4.0
-This project contains C/C++ the library *TxtSmartFactoryLib* and the main (*TxtFactoryMain*) and client (*TxtFactoryClient*) programs
+This project contains the C/C++ library *TxtSmartFactoryLib* and the main (*TxtFactoryMain*) and client (*TxtFactoryClient*) programs
 for the fischertechnik [**Training Factory Industry 4.0**](https://www.fischertechnik.de/en/service/elearning/teaching/lernfabrik-4).
 
 The factory consists of the following stations:
