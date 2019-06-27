@@ -10,7 +10,7 @@ The factory consists of the following stations:
 * MPO: Multi-Processing Station with Oven
 * SLD: Sorting Line with Color Detection
 
-## fischertechnik Lernfabrik 4.0 (Deutsch)
+# fischertechnik Lernfabrik 4.0 (Deutsch)
 Dieses Projekt enthält die C/C++ Bibliothek *TxtSmartFactoryLib* und die Haupt- (*TxtFactoryMain*) und Client- (*TxtFactoryClient*) Programme,
 mit denen die fischertechnik [**Lernfabrik 4.0**](https://www.fischertechnik.de/en/service/elearning/teaching/lernfabrik-4) gesteuert werden kann.
 
