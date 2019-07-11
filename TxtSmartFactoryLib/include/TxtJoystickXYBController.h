@@ -30,7 +30,7 @@ public:
 	const int center0 = 4100;
 	const int delta0 = 1500;
 
-	TxtJoystickXYBController(FISH_X1_TRANSFER* pTArea, uint8_t chX1, uint8_t chY1, uint8_t chB1, uint8_t chX2, uint8_t chY2, uint8_t chB2);
+	TxtJoystickXYBController(TxtTransfer* pT, uint8_t chX1, uint8_t chY1, uint8_t chB1, uint8_t chX2, uint8_t chY2, uint8_t chB2);
 	virtual ~TxtJoystickXYBController();
 
 	TxtJoysticksData getData() { return jd; }
@@ -40,7 +40,9 @@ public:
 	bool isThreadRunning() { return m_running; }
 
 private:
-	FISH_X1_TRANSFER* pTArea;
+	void configInputs();
+
+	TxtTransfer* pT;
 	uint8_t chX1;
 	uint8_t chY1;
 	uint8_t chB1;

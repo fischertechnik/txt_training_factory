@@ -13,6 +13,7 @@
 #include <iostream>
 #include <thread>
 
+#include "TxtAxis.h"
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
 
@@ -25,7 +26,7 @@ namespace ft {
 
 class TxtConveyorBelt {
 public:
-	TxtConveyorBelt(FISH_X1_TRANSFER* pTArea, uint8_t chM);
+	TxtConveyorBelt(TxtTransfer* pT, uint8_t chM);
 	virtual ~TxtConveyorBelt();
 
 	void setSpeed(int16_t s);
@@ -36,7 +37,7 @@ public:
 	void stop();
 
 protected:
-	FISH_X1_TRANSFER* pTArea;
+	TxtTransfer* pT;
 	uint8_t chM;
 	int16_t speed;
 };
@@ -44,7 +45,7 @@ protected:
 
 class TxtConveyorBeltLightBarriers : public TxtConveyorBelt {
 public:
-	TxtConveyorBeltLightBarriers(FISH_X1_TRANSFER* pTArea, uint8_t chM, int chL1, int chL2);
+	TxtConveyorBeltLightBarriers(TxtTransfer* pT, uint8_t chM, int chL1, int chL2);
 	virtual ~TxtConveyorBeltLightBarriers();
 
 	void moveIn();

@@ -52,6 +52,13 @@ void TxtSortingLine::fsmStep()
 		switch( newState )
 		{
 		//-------------------------------------------------------------
+		case FAULT:
+		{
+			printEntryState(FAULT);
+			setStatus(SM_ERROR);
+			break;
+		}
+		//-------------------------------------------------------------
 		case IDLE:
 		{
 			printEntryState(IDLE);
@@ -71,7 +78,6 @@ void TxtSortingLine::fsmStep()
 	case FAULT:
 	{
 		printState(FAULT);
-		setStatus(SM_ERROR);
 		if (reqQuit)
 		{
 			setStatus(SM_READY);
@@ -264,22 +270,37 @@ void TxtSortingLine::fsmStep()
 
 		if (isWhite())
 		{
-			assert(mqttclient);
-			mqttclient->publishSLD_Ack(SLD_SORTED, ft::WP_TYPE_WHITE, lastColorValue, TIMEOUT_MS_PUBLISH);
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			if (getDetectedColor() != ft::WP_TYPE_WHITE)
+			{
+				FSM_TRANSITION( FAULT, color=red, label='color\nwrong W' );
+				break;
+			}
 		}
 		else if (isRed())
 		{
-			assert(mqttclient);
-			mqttclient->publishSLD_Ack(SLD_SORTED, ft::WP_TYPE_RED, lastColorValue, TIMEOUT_MS_PUBLISH);
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			if (getDetectedColor() != ft::WP_TYPE_RED)
+			{
+				FSM_TRANSITION( FAULT, color=red, label='color\nwrong R' );
+				break;
+			}
 		}
 		else if (isBlue())
 		{
-			assert(mqttclient);
-			mqttclient->publishSLD_Ack(SLD_SORTED, ft::WP_TYPE_BLUE, lastColorValue, TIMEOUT_MS_PUBLISH);
-			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+			if (getDetectedColor() != ft::WP_TYPE_BLUE)
+			{
+				FSM_TRANSITION( FAULT, color=red, label='color\nwrong B' );
+				break;
+			}
 		}
+		else
+		{
+			FSM_TRANSITION( FAULT, color=red, label='color\nwrong' );
+			break;
+		}
+
+		assert(mqttclient);
+		mqttclient->publishSLD_Ack(SLD_SORTED, getDetectedColor(), lastColorValue, TIMEOUT_MS_PUBLISH);
+		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
 		FSM_TRANSITION( IDLE, color=green, label='next' );
 		break;
@@ -313,6 +334,9 @@ void TxtSortingLine::run()
 		fsmStep();
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
+
+	assert(mqttclient);
+	mqttclient->publishSLD_Ack(SLD_EXIT, ft::WP_TYPE_NONE, 0, TIMEOUT_MS_PUBLISH);
 }
 
 

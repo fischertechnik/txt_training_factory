@@ -14,8 +14,8 @@
 namespace ft {
 
 
-TxtVacuumGripper::TxtVacuumGripper(FISH_X1_TRANSFER* pTArea, uint8_t chComp, uint8_t chValve)
-	: pTArea(pTArea), chComp(chComp), chValve(chValve)
+TxtVacuumGripper::TxtVacuumGripper(TxtTransfer* pT, uint8_t chComp, uint8_t chValve)
+	: pT(pT), chComp(chComp), chValve(chValve)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtVacuumGripper chComp:{} chValve:{}",  chComp, chValve);
 }
@@ -30,47 +30,53 @@ void TxtVacuumGripper::grip()
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "grip", 0);
 	setCompressor(true);
 	std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+	pT->lock();
 	if (chValve < 8)
 	{
-		assert(pTArea);
-		pTArea->ftX1out.duty[chValve] = 512; // Switch on with PWM Value 512 (= max speed)
+		assert(pT->pTArea);
+		pT->pTArea->ftX1out.duty[chValve] = 512; // Switch on with PWM Value 512 (= max speed)
 	}
 	else
 	{
-		assert(pTArea+1);
-		(pTArea+1)->ftX1out.duty[chValve-8] = 512; // Switch on with PWM Value 512 (= max speed)
+		assert(pT->pTArea+1);
+		(pT->pTArea+1)->ftX1out.duty[chValve-8] = 512; // Switch on with PWM Value 512 (= max speed)
 	}
+	pT->unlock();
 }
 
 void TxtVacuumGripper::release()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "release", 0);
+	pT->lock();
 	if (chValve < 8)
 	{
-		assert(pTArea);
-		pTArea->ftX1out.duty[chValve] = 0; // Switch on with PWM Value 512 (= max speed)
+		assert(pT->pTArea);
+		pT->pTArea->ftX1out.duty[chValve] = 0; // Switch on with PWM Value 512 (= max speed)
 	}
 	else
 	{
-		assert(pTArea+1);
-		(pTArea+1)->ftX1out.duty[chValve-8] = 0; // Switch on with PWM Value 512 (= max speed)
+		assert(pT->pTArea+1);
+		(pT->pTArea+1)->ftX1out.duty[chValve-8] = 0; // Switch on with PWM Value 512 (= max speed)
 	}
+	pT->unlock();
 	setCompressor(false);
 }
 
 void TxtVacuumGripper::setCompressor(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setCompressor {}", on);
+	pT->lock();
 	if (chComp < 8)
 	{
-		assert(pTArea);
-		pTArea->ftX1out.duty[chComp] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
+		assert(pT->pTArea);
+		pT->pTArea->ftX1out.duty[chComp] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
 	}
 	else
 	{
-		assert(pTArea+1);
-		(pTArea+1)->ftX1out.duty[chComp-8] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
+		assert(pT->pTArea+1);
+		(pT->pTArea+1)->ftX1out.duty[chComp-8] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
 	}
+	pT->unlock();
 }
 
 

@@ -12,6 +12,7 @@
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
 
+#include "TxtAxis.h"
 #include "TxtCalibData.h"
 #include "TxtSimulationModel.h"
 #include "TxtConveyorBelt.h"
@@ -110,7 +111,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtSortingLine(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	TxtSortingLine(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtSortingLine();
 
 	/* remote */
@@ -119,6 +120,10 @@ public:
 		reqQuit= true;
 	}
 	/* local */
+	void requestExit(const std::string name) {
+		std::cout << "program terminated by " << name << std::endl;
+		exit(1);
+	}
 	void requestMPOproduced() {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestMPOproduced",0);
 		reqMPOproduced= true;

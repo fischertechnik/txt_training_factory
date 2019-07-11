@@ -11,8 +11,8 @@
 namespace ft {
 
 
-TxtJoystickXYBController::TxtJoystickXYBController(FISH_X1_TRANSFER* pTArea, uint8_t chX1, uint8_t chY1, uint8_t chB1, uint8_t chX2, uint8_t chY2, uint8_t chB2)
-	: SubjectObserver(), pTArea(pTArea),
+TxtJoystickXYBController::TxtJoystickXYBController(TxtTransfer* pT, uint8_t chX1, uint8_t chY1, uint8_t chB1, uint8_t chX2, uint8_t chY2, uint8_t chB2)
+	: SubjectObserver(), pT(pT),
 	chX1(chX1), chY1(chY1), chB1(chB1), chX2(chX2), chY2(chY2), chB2(chB2),
 	offx1(center0), offy1(center0), offx2(center0), offy2(center0),
 	jd(), m_stoprequested(false), m_running(false), m_mutex(), m_thread()
@@ -48,6 +48,35 @@ bool TxtJoystickXYBController::stopThread() {
 	return pthread_join(m_thread, 0) == 0;
 }
 
+void TxtJoystickXYBController::configInputs()
+{
+	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "configInputs", 0);
+	assert(pT->pTArea);
+	pT->pTArea->ftX1config.uni[chX1].mode = MODE_U;
+	pT->pTArea->ftX1config.uni[chX1].digital = 0;
+	pT->pTArea->ftX1config.uni[chY1].mode = MODE_U;
+	pT->pTArea->ftX1config.uni[chY1].digital = 0;
+	if (chB1 > 7)
+	{
+		pT->pTArea->ftX1config.cnt[chB1-8].mode = MODE_R; // CX
+	} else {
+		pT->pTArea->ftX1config.uni[chB1].mode = MODE_R;   // IX
+		pT->pTArea->ftX1config.uni[chB1].digital = 1;
+	}
+	pT->pTArea->ftX1config.uni[chX2].mode = MODE_U;
+	pT->pTArea->ftX1config.uni[chX2].digital = 0;
+	pT->pTArea->ftX1config.uni[chY2].mode = MODE_U;
+	pT->pTArea->ftX1config.uni[chY2].digital = 0;
+	if (chB2 > 7)
+	{
+		pT->pTArea->ftX1config.cnt[chB2-8].mode = MODE_R; // CX
+	} else {
+		pT->pTArea->ftX1config.uni[chB2].mode = MODE_R;   // IX
+		pT->pTArea->ftX1config.uni[chB2].digital = 1;
+	}
+	pT->pTArea->ftX1state.config_id ++; // Save the new Setup
+}
+
 //TODO
 /*
 double curve_func(double x) {
@@ -65,46 +94,23 @@ double curve_func(double x) {
 
 void TxtJoystickXYBController::run() {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "run",0);
-	assert(pTArea);
-	pTArea->ftX1config.uni[chX1].mode = MODE_U;
-	pTArea->ftX1config.uni[chX1].digital = 0;
-	pTArea->ftX1config.uni[chY1].mode = MODE_U;
-	pTArea->ftX1config.uni[chY1].digital = 0;
-	if (chB1 > 7)
-	{
-		pTArea->ftX1config.cnt[chB1-8].mode = MODE_R; // CX
-	} else {
-		pTArea->ftX1config.uni[chB1].mode = MODE_R;   // IX
-		pTArea->ftX1config.uni[chB1].digital = 1;
-	}
-	pTArea->ftX1config.uni[chX2].mode = MODE_U;
-	pTArea->ftX1config.uni[chX2].digital = 0;
-	pTArea->ftX1config.uni[chY2].mode = MODE_U;
-	pTArea->ftX1config.uni[chY2].digital = 0;
-	if (chB2 > 7)
-	{
-		pTArea->ftX1config.cnt[chB2-8].mode = MODE_R; // CX
-	} else {
-		pTArea->ftX1config.uni[chB2].mode = MODE_R;   // IX
-		pTArea->ftX1config.uni[chB2].digital = 1;
-	}
-	pTArea->ftX1state.config_id ++; // Save the new Setup
+	configInputs();
 
 	const int min_u = center0-delta0;
 	const int max_u = center0+delta0;
 	//calib zero pos, wait
 	for(unsigned int i=0; i<5; i++)
 	{
-		uint16_t rx10 = pTArea->ftX1in.uni[chX1];
-		uint16_t ry10 = pTArea->ftX1in.uni[chY1];
+		uint16_t rx10 = pT->pTArea->ftX1in.uni[chX1];
+		uint16_t ry10 = pT->pTArea->ftX1in.uni[chY1];
 		if ((rx10>=min_u)&&(rx10<=max_u)) {
 			offx1 = rx10;
 		}
 		if ((ry10>=min_u)&&(ry10<=max_u)) {
 			offy1 = ry10;
 		}
-		uint16_t rx20 = pTArea->ftX1in.uni[chX2];
-		uint16_t ry20 = pTArea->ftX1in.uni[chY2];
+		uint16_t rx20 = pT->pTArea->ftX1in.uni[chX2];
+		uint16_t ry20 = pT->pTArea->ftX1in.uni[chY2];
 		if ((rx20>=min_u)&&(rx20<=max_u)) {
 			offx2 = rx20;
 		}
@@ -118,20 +124,20 @@ void TxtJoystickXYBController::run() {
 	TxtJoysticksData jdLast;
 	while (!m_stoprequested)
 	{
-		uint16_t rx1 = pTArea->ftX1in.uni[chX1];
-		uint16_t ry1 = pTArea->ftX1in.uni[chY1];
+		uint16_t rx1 = pT->pTArea->ftX1in.uni[chX1];
+		uint16_t ry1 = pT->pTArea->ftX1in.uni[chY1];
 		//jd.aX1 = curve_func((double)(rx1*512/offx1-512)/512)*512;
 		//jd.aY1 = curve_func((double)(ry1*512/offy1-512)/512)*512;
 		jd.aX1 = rx1*512/offx1-512;
 		jd.aY1 = ry1*512/offy1-512;
-		jd.b1 = (chB1>7 ? pTArea->ftX1in.cnt_in[chB1-8] : pTArea->ftX1in.uni[chB1]) == 1;
-		uint16_t rx2 = pTArea->ftX1in.uni[chX2];
-		uint16_t ry2 = pTArea->ftX1in.uni[chY2];
+		jd.b1 = (chB1>7 ? pT->pTArea->ftX1in.cnt_in[chB1-8] : pT->pTArea->ftX1in.uni[chB1]) == 1;
+		uint16_t rx2 = pT->pTArea->ftX1in.uni[chX2];
+		uint16_t ry2 = pT->pTArea->ftX1in.uni[chY2];
 		//jd.aX2 = curve_func((double)(rx2*512/offx2-512)/512)*512;
 		//jd.aY2 = curve_func((double)(ry2*512/offy2-512)/512)*512;
 		jd.aX2 = rx2*512/offx2-512;
 		jd.aY2 = ry2*512/offy2-512;
-		jd.b2 = (chB2>7 ? pTArea->ftX1in.cnt_in[chB2-8] : pTArea->ftX1in.uni[chB2]) == 1;
+		jd.b2 = (chB2>7 ? pT->pTArea->ftX1in.cnt_in[chB2-8] : pT->pTArea->ftX1in.uni[chB2]) == 1;
 
 		if ((jd.aX1>jdLast.aX1?(jd.aX1-jdLast.aX1>JOY_MIN_TH):(jdLast.aX1-jd.aX1>JOY_MIN_TH))||
 			(jd.aY1>jdLast.aY1?(jd.aY1-jdLast.aY1>JOY_MIN_TH):(jdLast.aY1-jd.aY1>JOY_MIN_TH))||

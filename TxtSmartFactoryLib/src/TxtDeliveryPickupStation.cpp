@@ -46,8 +46,8 @@ bool DPSTransferAreaCallbackFunction(FISH_X1_TRANSFER *pTArea, int i32NrAreas)
 	return true; // if you return FALSE, then the hardware update is stopped !!!
 }
 
-TxtDeliveryPickupStation::TxtDeliveryPickupStation(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient)
-	: TxtSimulationModel(pTArea, mqttclient),
+TxtDeliveryPickupStation::TxtDeliveryPickupStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient)
+	: TxtSimulationModel(pT, mqttclient),
 	lastColorValue(0), activeDSI(false), activeDSO(false), errorDSI(false), errorDSO(false)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtDeliveryPickupStation",0);
@@ -62,28 +62,28 @@ TxtDeliveryPickupStation::~TxtDeliveryPickupStation()
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "~TxtDeliveryPickupStation",0);
 }
 
-std::string TxtDeliveryPickupStation::nfcDeviceDeleteWriteRawRead(std::vector<int64_t> vts, uint8_t mask_ts)
+std::string TxtDeliveryPickupStation::nfcDeviceDeleteWriteRawRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveNFCDeviceDeleteWriteRawRead", 0);
 	nfcDelete();
-	TxtWorkpiece wp("", getLastColor(), WP_STATE_RAW);
+	TxtWorkpiece wp("", c, WP_STATE_RAW);
 	nfcWrite(wp, vts, mask_ts);
 	return nfcRead();
 }
 
-std::string TxtDeliveryPickupStation::nfcDeviceWriteProducedRead(std::vector<int64_t> vts, uint8_t mask_ts)
+std::string TxtDeliveryPickupStation::nfcDeviceWriteProducedRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveNFCDeviceWriteProducedRead", 0);
-	TxtWorkpiece wp("", getLastColor(), WP_STATE_PROCESSED);
+	TxtWorkpiece wp("", c, WP_STATE_PROCESSED);
 	nfcWrite(wp, vts, mask_ts);
 	return nfcRead();
 }
 
-std::string TxtDeliveryPickupStation::nfcDeviceWriteRejectedRead(std::vector<int64_t> vts, uint8_t mask_ts)
+std::string TxtDeliveryPickupStation::nfcDeviceWriteRejectedRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveNFCDeviceWriteRejectedRead", 0);
 	nfcDelete();
-	TxtWorkpiece wp("", getLastColor(), WP_STATE_REJECTED);
+	TxtWorkpiece wp("", c, WP_STATE_REJECTED);
 	nfcWrite(wp, vts, mask_ts);
 	return nfcRead();
 }
@@ -91,44 +91,44 @@ std::string TxtDeliveryPickupStation::nfcDeviceWriteRejectedRead(std::vector<int
 void TxtDeliveryPickupStation::configInputs()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "configInputs", 0);
-	assert(pTArea);
+	assert(pT->pTArea);
 	//DIN
-	pTArea->ftX1config.uni[6].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[6].digital = 1;
+	pT->pTArea->ftX1config.uni[6].mode = MODE_R; // Digital Switch with PullUp resistor
+	pT->pTArea->ftX1config.uni[6].digital = 1;
 	//trigger first read (workaround first value is wrong)
-    u16LastStateDIN = pTArea->ftX1in.uni[6];
+    u16LastStateDIN = pT->pTArea->ftX1in.uni[6];
 
 	//DOUT
-	pTArea->ftX1config.cnt[3].mode = MODE_R; // C4 = Digital Switch with PullUp resistor
+	pT->pTArea->ftX1config.cnt[3].mode = MODE_R; // C4 = Digital Switch with PullUp resistor
 	//trigger first read (workaround first value is wrong)
-    u16LastStateDOUT = pTArea->ftX1in.cnt_in[3];
+    u16LastStateDOUT = pT->pTArea->ftX1in.cnt_in[3];
 
     //ColorSensor
-	pTArea->ftX1config.uni[7].mode = MODE_U; // Analog Voltage
-	pTArea->ftX1config.uni[7].digital = 0;
+	pT->pTArea->ftX1config.uni[7].mode = MODE_U; // Analog Voltage
+	pT->pTArea->ftX1config.uni[7].digital = 0;
 	//save
-	pTArea->ftX1state.config_id ++; // Save the new Setup
+	pT->pTArea->ftX1state.config_id ++; // Save the new Setup
 }
 
 bool TxtDeliveryPickupStation::is_DIN()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "is_DIN", 0);
-	assert(pTArea);
-	return (pTArea->ftX1in.uni[6] == 1);
+	assert(pT->pTArea);
+	return (pT->pTArea->ftX1in.uni[6] == 1);
 }
 
 bool TxtDeliveryPickupStation::is_DOUT()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "is_DOUT", 0);
-	assert(pTArea);
-	return (pTArea->ftX1in.cnt_in[3] == 1);
+	assert(pT->pTArea);
+	return (pT->pTArea->ftX1in.cnt_in[3] == 1);
 }
 
 int TxtDeliveryPickupStation::readColorValue()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "getColorValue", 0);
-	assert(pTArea);
-	lastColorValue = pTArea->ftX1in.uni[7];
+	assert(pT->pTArea);
+	lastColorValue = pT->pTArea->ftX1in.uni[7];
 	return lastColorValue;
 }
 

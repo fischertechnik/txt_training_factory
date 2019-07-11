@@ -16,8 +16,8 @@
 namespace ft {
 
 
-TxtSimulationModel::TxtSimulationModel(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient)
-	: mqttclient(mqttclient), status(SM_NONE), active(false), pTArea(pTArea),
+TxtSimulationModel::TxtSimulationModel(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient)
+	: mqttclient(mqttclient), status(SM_NONE), active(false), pT(pT),
 	  m_stoprequested(false), m_running(false), m_mutex(), m_thread()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtSimulationModel",0);

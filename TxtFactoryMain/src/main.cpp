@@ -33,7 +33,7 @@ int dsi_lastCode = -1;
 int dso_lastCode = -1;
 
 // Version info
-#define VERSION_HEX ((0<<16)|(5<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(6<<8)|(0<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;
@@ -469,32 +469,38 @@ class callback : public virtual mqtt::callback
 			} else {
 				std::cout << "PTU not available!" << std::endl;
 			}
-		} else if (msg->get_topic() == TOPIC_INPUT_STATE_HBW)
+		}
+		else if (msg->get_topic() == TOPIC_INPUT_STATE_HBW)
 		{
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED input state HBW: {}", msg->get_topic());
 			updateLEDs(msg, "hbw");
-		} else if (msg->get_topic() == TOPIC_INPUT_STATE_VGR)
+		}
+		else if (msg->get_topic() == TOPIC_INPUT_STATE_VGR)
 		{
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED input state VGR: {}", msg->get_topic());
 			updateLEDs(msg, "vgr");
-		} else if (msg->get_topic() == TOPIC_INPUT_STATE_MPO)
+		}
+		else if (msg->get_topic() == TOPIC_INPUT_STATE_MPO)
 		{
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED input state MPO: {}", msg->get_topic());
 			updateLEDs(msg, "mpo");
-		} else if (msg->get_topic() == TOPIC_INPUT_STATE_SLD)
+		}
+		else if (msg->get_topic() == TOPIC_INPUT_STATE_SLD)
 		{
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED input state SLD: {}", msg->get_topic());
 			updateLEDs(msg, "sld");
-		} else if (msg->get_topic() == TOPIC_INPUT_STATE_DSI)
+		}
+		else if (msg->get_topic() == TOPIC_INPUT_STATE_DSI)
 		{
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED input state DSI: {}", msg->get_topic());
 			updateLEDs(msg, "dsi");
-		} else if (msg->get_topic() == TOPIC_INPUT_STATE_DSO)
+		}
+		else if (msg->get_topic() == TOPIC_INPUT_STATE_DSO)
 		{
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED input state DSO: {}", msg->get_topic());
 			updateLEDs(msg, "dso");
 		} else {
-			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "Unknown topic ???: {}", msg->get_topic());
+			std::cout << "Unknown topic: " << msg->get_topic() << std::endl;
 			exit(1);
 		}
 	}
@@ -603,7 +609,7 @@ int main(int argc, char* argv[])
 	//can be set globaly or per logger(logger->set_error_handler(..))
 	spdlog::set_error_handler([](const std::string& msg)
     {
-		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "err handler spdlog: {}", msg);
+		std::cout << "err handler spdlog:" << msg << std::endl;
 		exit(1);
     });
 #endif
@@ -651,7 +657,6 @@ int main(int argc, char* argv[])
 
         if (pTArea)
         {
-	    	// pArea
             //SetTransferAreaCompleteCallback(JoysticksTransferAreaCallbackFunction);
 
 		    try {
@@ -665,7 +670,8 @@ int main(int argc, char* argv[])
 				mqttclient.set_callback(cb);
 
 				std::cout << "Init TxtPTU" << std::endl;
-				ft::TxtPanTiltUnit ptu(pTArea);
+				ft::TxtTransfer T(pTArea);
+				ft::TxtPanTiltUnit ptu(&T);
 				ft::TxtPanTiltUnitController ptucontrol(&ptu, mcontrol);
 				pPtuControl = &ptucontrol;
 
@@ -732,7 +738,7 @@ int main(int argc, char* argv[])
 
 				//Joystick
 				std::cout << "Init TxtJoystickXYBController" << std::endl;
-				ft::TxtJoystickXYBController joy(pTArea, 4, 5, 10, 6, 7, 11);
+				ft::TxtJoystickXYBController joy(&T, 4, 5, 10, 6, 7, 11);
 				pJoy = &joy;
 
 #ifndef LOCAL
@@ -789,6 +795,12 @@ int main(int argc, char* argv[])
 				}
 
 				bool firstvalue = true;
+
+				//LDR setup
+				pTArea->ftX1config.uni[2].mode = MODE_R;
+				pTArea->ftX1config.uni[2].digital = 0;
+				pTArea->ftX1state.config_id ++; // Save the new Setup
+
 				while(true) {
 					if (pTArea) {
 
@@ -800,10 +812,6 @@ int main(int argc, char* argv[])
 							SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "timestamp_ldr:{} period_ldr:{}", timestamp_ldr, period_ldr);
 							timestamp_ldr = timestamp_s;
 
-							//LDR setup
-							pTArea->ftX1config.uni[2].mode = MODE_R;
-							pTArea->ftX1config.uni[2].digital = 0;
-							pTArea->ftX1state.config_id ++; // Save the new Setup
 							//LDR I3
 							int16_t ldr = pTArea->ftX1in.uni[2];
 							firstvalue = false;

@@ -23,22 +23,50 @@
 namespace ft {
 
 
-class TxtAxis1RefSwitch : public TxtAxis {
+class TxtVacuumGripperRobot;
+class TxtHighBayWarehouse;
+class TxtAxis1RefSwitch : public TxtAxis, public SubjectObserver {
 	friend class TxtVacuumGripperRobot;
 	friend class TxtHighBayWarehouse;
 public:
-	TxtAxis1RefSwitch(std::string name, FISH_X1_TRANSFER* pTArea, uint8_t chM, uint8_t chS1, uint16_t posEnd);
+	TxtAxis1RefSwitch(std::string name, TxtTransfer* pT, uint8_t chM, uint8_t chS1, uint16_t posEnd);
 	virtual ~TxtAxis1RefSwitch();
 
-	bool moveAbs(uint16_t);
+	void moveRef();
+	std::thread moveRefThread() {
+		return std::thread(&TxtAxis1RefSwitch::moveRef, this);
+	}
 
+	bool moveAbs(uint16_t p);
+	std::thread moveAbsThread(uint16_t p) {
+		return std::thread(&TxtAxis1RefSwitch::moveAbs, this, p);
+	}
+
+	bool moveRel(int rp) {
+		if (status == AXIS_READY)
+		{
+			if (((rp>0)&&((int)pos+rp<65535)) || //negative
+				((rp<0)&&(pos>=-rp))) //positive
+			{
+				return moveAbs(pos+rp);
+			}
+		}
+		return false;
+	}
+
+	uint16_t getPosAbs() { return pos; }
 	uint16_t getPosEnd() { return posEnd; }
 
 protected:
-	virtual void setMotorRight();
+	virtual void setMotorRight(); //override and check posEnd
 
-	virtual void moveRight(uint16_t steps, uint16_t* pPos);
+	void reset();
+	void resetCounter();
 
+	void moveLeft(uint16_t steps, uint16_t* pPos);
+	void moveRight(uint16_t steps, uint16_t* pPos);
+
+	uint16_t pos;
 	uint16_t posEnd;
 };
 

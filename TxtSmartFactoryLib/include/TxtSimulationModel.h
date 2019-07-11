@@ -33,6 +33,7 @@
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
 
+#include "TxtAxis.h"
 #include "Observer.h"
 
 #include "spdlog/spdlog.h"
@@ -58,7 +59,7 @@ typedef enum
 
 class TxtSimulationModel : public SubjectObserver {
 public:
-	TxtSimulationModel(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	TxtSimulationModel(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtSimulationModel();
 
 	TxtSimulationModel_status_t getStatus() { return status; }
@@ -75,7 +76,7 @@ protected:
 	ft::TxtMqttFactoryClient* mqttclient;
 	TxtSimulationModel_status_t status;
 	bool active;
-	FISH_X1_TRANSFER* pTArea;
+	TxtTransfer* pT;
 
 	//Thread
 	volatile bool m_stoprequested;

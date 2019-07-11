@@ -166,7 +166,6 @@ void TxtMqttFactoryClient::disconnect(long int timeout) {
 			unsubTopic(TOPIC_CONFIG_LDR, timeout);
 			unsubTopic(TOPIC_CONFIG_CAM, timeout);
 			unsubTopic(TOPIC_OUTPUT_PTU, timeout);
-			unsubTopic(TOPIC_OUTPUT_STATE_ACK, timeout);
 			//local
 			unsubTopic(TOPIC_INPUT_STATE_VGR, timeout);
 			unsubTopic(TOPIC_INPUT_STATE_HBW, timeout);
@@ -268,7 +267,6 @@ bool TxtMqttFactoryClient::start_consume(long int timeout) {
 			subTopic(TOPIC_CONFIG_LDR, timeout);
 			subTopic(TOPIC_CONFIG_CAM, timeout);
 			subTopic(TOPIC_OUTPUT_PTU, timeout);
-			subTopic(TOPIC_OUTPUT_STATE_ACK, timeout);
 			//local
 			subTopic(TOPIC_INPUT_STATE_VGR, timeout);
 			subTopic(TOPIC_INPUT_STATE_HBW, timeout);

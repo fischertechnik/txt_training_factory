@@ -11,6 +11,7 @@
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
 
+#include "TxtAxis.h"
 #include "Observer.h"
 
 #include "spdlog/spdlog.h"
@@ -28,7 +29,7 @@ public:
 	 * @param chComp Channel for compressor. master: 0-7 extension: 8-15
 	 * @param chValve Channel for valve. master: 0-7 extension: 8-15
 	 */
-	TxtVacuumGripper(FISH_X1_TRANSFER* pTArea, uint8_t chComp, uint8_t chValve);
+	TxtVacuumGripper(TxtTransfer* pT, uint8_t chComp, uint8_t chValve);
 	virtual ~TxtVacuumGripper();
 
 	void grip();
@@ -37,7 +38,7 @@ public:
 protected:
 	void setCompressor(bool on);
 
-	FISH_X1_TRANSFER* pTArea;
+	TxtTransfer* pT;
 
 	/* ports */
 	uint8_t chComp;

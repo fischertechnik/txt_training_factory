@@ -40,12 +40,14 @@ namespace ft {
 
 typedef enum
 {
+	MPO_EXIT,
 	MPO_STARTED,
 	MPO_PRODUCED
 } TxtMpoAckCode_t;
 
 typedef enum
 {
+	VGR_EXIT,
 	VGR_HBW_FETCHCONTAINER,
 	VGR_HBW_STORE_WP,
 	VGR_HBW_FETCH_WP,
@@ -58,6 +60,7 @@ typedef enum
 
 typedef enum
 {
+	HBW_EXIT,
 	HBW_FETCHED,
 	HBW_STORED,
 	HBW_CALIB_NAV,
@@ -66,6 +69,7 @@ typedef enum
 
 typedef enum
 {
+	SLD_EXIT,
 	SLD_STARTED,
 	SLD_SORTED
 } TxtSldAckCode_t;

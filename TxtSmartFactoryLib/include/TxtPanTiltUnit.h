@@ -16,6 +16,7 @@
 #include "FtShmem.h"        // TXT Transfer Area
 
 #include "Observer.h"
+#include "TxtAxis.h"
 #include "TxtCalibData.h"
 
 #include "spdlog/spdlog.h"
@@ -66,7 +67,7 @@ public:
 class TxtPanTiltUnit : public SubjectObserver {
 public:
 
-	TxtPanTiltUnit(FISH_X1_TRANSFER* pTArea, uint8_t chPan=0, uint8_t chTilt=1);
+	TxtPanTiltUnit(TxtTransfer* pT, uint8_t chPan=0, uint8_t chTilt=1);
 	virtual ~TxtPanTiltUnit();
 
 	bool init();
@@ -134,6 +135,8 @@ public:
 	void moveStepTiltDown();
 
 protected:
+	void configInputs(uint8_t ch);
+
 	void setMotorsOff();
 	void setMotorPanOff();
 	void setMotorTiltOff();
@@ -149,7 +152,7 @@ protected:
 	bool movePanPos(uint16_t pPan);
 	bool moveTiltPos(uint16_t pTilt);
 
-	FISH_X1_TRANSFER* pTArea;
+	TxtTransfer* pT;
 	bool stopAllReq;
 	/* status */
 	TxtPanTiltUnit_status_t status;

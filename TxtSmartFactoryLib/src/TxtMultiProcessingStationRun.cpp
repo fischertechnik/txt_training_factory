@@ -51,6 +51,13 @@ void TxtMultiProcessingStation::fsmStep()
 		switch( newState )
 		{
 		//-------------------------------------------------------------
+		case FAULT:
+		{
+			printEntryState(FAULT);
+			setStatus(SM_ERROR);
+			break;
+		}
+		//-------------------------------------------------------------
 		case IDLE:
 		{
 			printEntryState(IDLE);
@@ -70,7 +77,6 @@ void TxtMultiProcessingStation::fsmStep()
 	case FAULT:
 	{
 		printState(FAULT);
-		setStatus(SM_ERROR);
 		if (reqQuit)
 		{
 			setStatus(SM_READY);
@@ -94,9 +100,12 @@ void TxtMultiProcessingStation::fsmStep()
 		setValveOvenDoor(true);
 		std::this_thread::sleep_for(std::chrono::milliseconds(300));
 
-		axisGripper.moveRef();
-		axisRotTable.moveRef();
-		axisOvenInOut.moveRef();
+		std::thread tG = axisGripper.moveS1Thread();
+		std::thread tR = axisRotTable.moveS1Thread();
+		std::thread tO = axisOvenInOut.moveS1Thread();
+		tO.join();
+		tR.join();
+		tG.join();
 
 		setCompressor(false);
 		FSM_TRANSITION( IDLE, color=green, label='initialized' );
@@ -138,6 +147,8 @@ void TxtMultiProcessingStation::fsmStep()
 	{
 		printState(BURN);
 
+		setActStatus(true, SM_BUSY);
+
 		//in
 		setCompressor(true);
 		std::this_thread::sleep_for(std::chrono::milliseconds(2500));
@@ -160,7 +171,7 @@ void TxtMultiProcessingStation::fsmStep()
 		//out
 		setCompressor(true);
 		setValveOvenDoor(true);
-		axisOvenInOut.moveRef();
+		axisOvenInOut.moveS1();
 
 		tGripper.join();
 
@@ -171,7 +182,7 @@ void TxtMultiProcessingStation::fsmStep()
 	case VGR_TRANSPORT:
 	{
 		printState(VGR_TRANSPORT);
-		std::thread tRotTable = axisRotTable.moveRefThread();
+		axisRotTable.moveS1();
 
 		//pickup
 		setValveLowering(true);
@@ -181,9 +192,7 @@ void TxtMultiProcessingStation::fsmStep()
 		setValveLowering(false);
 
 		//move
-		axisGripper.moveRef();
-
-		tRotTable.join();
+		axisGripper.moveS1();
 
 		//release
 		setValveLowering(true);
@@ -244,6 +253,7 @@ void TxtMultiProcessingStation::fsmStep()
 	case TRANSPORT:
 	{
 		printState(TRANSPORT);
+		setActStatus(false, SM_READY);
 		/* TODO
 		if (reqSLDstarted)
 		{*/
@@ -300,6 +310,9 @@ void TxtMultiProcessingStation::run()
 		fsmStep();
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
+
+	assert(mqttclient);
+	mqttclient->publishMPO_Ack(MPO_EXIT, TIMEOUT_MS_PUBLISH);
 }
 
 

@@ -11,7 +11,7 @@
 #ifndef __DOCFSM__
 #include "TxtSimulationModel.h"
 #include "TxtVacuumGripper.h"
-#include "TxtAxisNRefSwitch.h"
+#include "TxtAxisNSwitch.h"
 #include "TxtConveyorBelt.h"
 #include "TxtMqttFactoryClient.h"
 
@@ -82,7 +82,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtMultiProcessingStation(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	TxtMultiProcessingStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtMultiProcessingStation();
 
 	/* remote */
@@ -91,6 +91,10 @@ public:
 		reqQuit= true;
 	}
 	/* local */
+	void requestExit(const std::string name) {
+		std::cout << "program terminated by " << name << std::endl;
+		exit(1);
+	}
 	void requestVGRproduce(TxtWorkpiece* wp) {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestVGRproduce",0);
 		reqVGRwp = wp;
@@ -131,9 +135,9 @@ protected:
 
 	uint8_t chMsaw;
 	TxtVacuumGripper vgripper;
-	TxtAxisNRefSwitch axisGripper;
-	TxtAxisNRefSwitch axisOvenInOut;
-	TxtAxisNRefSwitch axisRotTable;
+	TxtAxisNSwitch axisGripper;
+	TxtAxisNSwitch axisOvenInOut;
+	TxtAxisNSwitch axisRotTable;
 	TxtConveyorBelt convBelt;
 
 	bool reqQuit;

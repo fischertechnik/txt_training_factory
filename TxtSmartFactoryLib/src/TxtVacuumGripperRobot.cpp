@@ -13,14 +13,14 @@
 namespace ft {
 
 
-TxtVacuumGripperRobot::TxtVacuumGripperRobot(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient)
-	: TxtSimulationModel(pTArea, mqttclient),
+TxtVacuumGripperRobot::TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient)
+	: TxtSimulationModel(pT, mqttclient),
 	currentState(__NO_STATE), newState(__NO_STATE),
 	calibPos(VGRCALIB_DSI),
-	axisX("VGR_X", pTArea, 0, 0, 1500),
-	axisY("VGR_Y", pTArea, 1, 1, 900),
-	axisZ("VGR_Z", pTArea, 2, 2, 950),
-	vgripper(pTArea, 6, 7), target(""), dps(pTArea, mqttclient),
+	axisX("VGR_X", pT, 0, 0, 1500),
+	axisY("VGR_Y", pT, 1, 1, 900),
+	axisZ("VGR_Z", pT, 2, 2, 950),
+	vgripper(pT, 6, 7), target(""), dps(pT, mqttclient),
 	reqQuit(false),
 	reqOrder(false), reqWP_order(),
 	reqNfcRead(false), reqNfcDelete(false),
@@ -344,6 +344,8 @@ void TxtVacuumGripperRobot::moveMPO()
 	move("MPO0", ft::VGRMOV_PTP);
 	move("MPO", ft::VGRMOV_PTP);
 	vgripper.release();
+	std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+	axisY.moveRef();
 	axisZ.moveRef();
 }
 
@@ -379,19 +381,19 @@ void TxtVacuumGripperRobot::setSpeed(int16_t s)
 void TxtVacuumGripperRobot::configInputs()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "configInputs", 0);
-	assert(pTArea);
+	assert(pT->pTArea);
 	//SSD_1
-	pTArea->ftX1config.uni[3].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[3].digital = 1;
+	pT->pTArea->ftX1config.uni[3].mode = MODE_R; // Digital Switch with PullUp resistor
+	pT->pTArea->ftX1config.uni[3].digital = 1;
 	//SSD_2
-	pTArea->ftX1config.uni[4].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[4].digital = 1;
+	pT->pTArea->ftX1config.uni[4].mode = MODE_R; // Digital Switch with PullUp resistor
+	pT->pTArea->ftX1config.uni[4].digital = 1;
 	//SSD_3
-	pTArea->ftX1config.uni[5].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[5].digital = 1;
+	pT->pTArea->ftX1config.uni[5].mode = MODE_R; // Digital Switch with PullUp resistor
+	pT->pTArea->ftX1config.uni[5].digital = 1;
 
 	//save
-	pTArea->ftX1state.config_id ++; // Save the new Setup
+	pT->pTArea->ftX1state.config_id ++; // Save the new Setup
 }
 
 

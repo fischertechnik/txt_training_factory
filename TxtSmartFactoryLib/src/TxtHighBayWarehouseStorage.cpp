@@ -26,8 +26,8 @@ TxtHighBayWarehouseStorage::TxtHighBayWarehouseStorage()
 	}
 	currentPos.x = -1;
 	currentPos.y = -1;
-	nextStorePos.x = -1;
-	nextStorePos.y = -1;
+	//nextStorePos.x = -1;
+	//nextStorePos.y = -1;
 	nextFetchPos.x = -1;
 	nextFetchPos.y = -1;
 	Notify();
@@ -147,7 +147,7 @@ void TxtHighBayWarehouseStorage::resetStorageState()
 bool TxtHighBayWarehouseStorage::storeContainer()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "storeContainer",0);
-	nextStorePos.x = -1; //set invalid pos
+	/*nextStorePos.x = -1; //set invalid pos
 	nextStorePos.y = -1;
 	bool found = false;
 	for(int i=0;i<3 && !found;i++)
@@ -163,11 +163,11 @@ bool TxtHighBayWarehouseStorage::storeContainer()
 				found = true;
 			}
 		}
-	}
-	if (isValidPos(nextStorePos))
+	}*/
+	if (isValidPos(nextFetchPos)) //nextFetchPos
 	{
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK -> nextStorePos",0);
-		wp[nextStorePos.x][nextStorePos.y] = 0;
+		wp[nextFetchPos.x][nextFetchPos.y] = 0;
 		Notify();
 		print();
 		return true;
@@ -178,7 +178,7 @@ bool TxtHighBayWarehouseStorage::storeContainer()
 bool TxtHighBayWarehouseStorage::store(TxtWorkpiece _wp)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "store wp:{} {} {}",_wp.tag_uid,_wp.type,_wp.state);
-	nextStorePos.x = -1; //set invalid pos
+	/*nextStorePos.x = -1; //set invalid pos
 	nextStorePos.y = -1;
 	if (_wp.type == WP_TYPE_NONE)
 	{
@@ -201,11 +201,11 @@ bool TxtHighBayWarehouseStorage::store(TxtWorkpiece _wp)
 				}
 			}
 		}
-	}
-	if (isValidPos(nextStorePos))
+	}*/
+	if (isValidPos(nextFetchPos))
 	{
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK -> nextStorePos type {} ",_wp.type);
-		wp[nextStorePos.x][nextStorePos.y] = new TxtWorkpiece(_wp);
+		wp[nextFetchPos.x][nextFetchPos.y] = new TxtWorkpiece(_wp);
 		Notify();
 		print();
 		return true;

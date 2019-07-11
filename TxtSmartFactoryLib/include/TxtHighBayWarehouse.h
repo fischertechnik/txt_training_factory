@@ -12,7 +12,7 @@
 #include "TxtSimulationModel.h"
 #include "TxtCalibData.h"
 #include "TxtAxis1RefSwitch.h"
-#include "TxtAxisNRefSwitch.h"
+#include "TxtAxisNSwitch.h"
 #include "TxtConveyorBelt.h"
 #include "TxtHighBayWarehouseStorage.h"
 #include "TxtMqttFactoryClient.h"
@@ -127,7 +127,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtHighBayWarehouse(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	TxtHighBayWarehouse(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtHighBayWarehouse();
 
 	/* remote */
@@ -136,6 +136,10 @@ public:
 		reqQuit= true;
 	}
 	/* local */
+	void requestExit(const std::string name) {
+		std::cout << "program terminated by " << name << std::endl;
+		exit(1);
+	}
 	void requestVGRfetchContainer(TxtWorkpiece* wp) {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"reqVGRfetchContainer",0);
 		reqVGRwp = wp;
@@ -225,7 +229,7 @@ protected:
 
 	TxtAxis1RefSwitch axisX;
 	TxtAxis1RefSwitch axisY;
-	TxtAxisNRefSwitch axisZ;
+	TxtAxisNSwitch axisZ;
 	TxtConveyorBeltLightBarriers convBelt;
 	TxtHighBayWarehouseStorage storage;
 	TxtHighBayWarehouseCalibData calibData;

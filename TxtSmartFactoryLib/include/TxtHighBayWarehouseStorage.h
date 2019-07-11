@@ -45,7 +45,7 @@ public:
 	bool fetch(TxtWPType_t t);
 	bool fetchContainer();
 
-	StoragePos2 getNextStorePos() { return nextStorePos; }
+	StoragePos2 getNextStorePos() { return nextFetchPos; } //nextStorePos; }
 	StoragePos2 getNextFetchPos() { return nextFetchPos; }
 	StoragePos2 getCurrentPos() { return currentPos; }
 
@@ -64,7 +64,7 @@ protected:
 	bool wpc[3][3]; //container
 
 	StoragePos2 currentPos;
-	StoragePos2 nextStorePos;
+	//StoragePos2 nextStorePos;
 	StoragePos2 nextFetchPos;
 };
 

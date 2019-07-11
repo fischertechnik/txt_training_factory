@@ -5,6 +5,7 @@
 #include "TxtMqttFactoryClient.h"
 #include "TxtJoystickXYBController.h"
 #include "Utils.h"
+#include "TxtAxis.h"
 
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
@@ -19,7 +20,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 // Version info
-#define VERSION_HEX ((0<<16)|(5<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(6<<8)|(0<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;
@@ -85,6 +86,7 @@ class callback : public virtual mqtt::callback
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"), "connected: {}", cause);
 		long timeout_ms = TIMEOUT_CONNECTION_MS;
 		std::cout << "Subscribe MQTTClient" << std::endl;
+		assert(pcli);
 		pcli->start_consume(timeout_ms);
 		first_message_subscribe = true;
 	}
@@ -159,6 +161,9 @@ class callback : public virtual mqtt::callback
 
 					switch(code)
 					{
+					case ft::VGR_EXIT:
+						mpo_.requestExit("VGR");
+						break;
 					case ft::VGR_MPO_PRODUCE:
 						mpo_.requestVGRproduce(wp);
 						break;
@@ -184,6 +189,9 @@ class callback : public virtual mqtt::callback
 				{
 					switch (code)
 					{
+					case ft::SLD_EXIT:
+						mpo_.requestExit("SLD");
+						break;
 					case ft::SLD_STARTED:
 						mpo_.requestSLDstarted();
 						break;
@@ -196,7 +204,7 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "Unknown topic ???: {}", msg->get_topic());
+			std::cout << "Unknown topic ???: " << msg->get_topic() << std::endl;
 			exit(1);
 		}
 #elif CLIENT_HBW
@@ -278,6 +286,9 @@ class callback : public virtual mqtt::callback
 
 					switch(code)
 					{
+					case ft::VGR_EXIT:
+						hbw_.requestExit("VGR");
+						break;
 					case ft::VGR_HBW_FETCHCONTAINER:
 						hbw_.requestVGRfetchContainer(wp);
 						break;
@@ -305,7 +316,7 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "Unknown topic ???: {}", msg->get_topic());
+			std::cout << "Unknown topic ???" << msg->get_topic() << std::endl;
 			exit(1);
 		}
 #elif CLIENT_VGR
@@ -437,6 +448,9 @@ class callback : public virtual mqtt::callback
 
 					switch (code)
 					{
+					case ft::MPO_EXIT:
+						vgr_.requestExit("MPO");
+						break;
 					case ft::MPO_STARTED:
 						vgr_.requestMPOstarted(wp);
 						break;
@@ -485,6 +499,9 @@ class callback : public virtual mqtt::callback
 					}
 					switch (code)
 					{
+					case ft::HBW_EXIT:
+						vgr_.requestExit("HBW");
+						break;
 					case ft::HBW_STORED:
 						vgr_.requestHBWstored(wp);
 						break;
@@ -529,6 +546,9 @@ class callback : public virtual mqtt::callback
 					}
 					switch (code)
 					{
+					case ft::SLD_EXIT:
+						vgr_.requestExit("SLD");
+						break;
 					case ft::SLD_SORTED:
 						vgr_.requestSLDsorted(type);
 						break;
@@ -541,7 +561,7 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "Unknown topic ???: {}", msg->get_topic());
+			std::cout << "Unknown topic ???" << msg->get_topic() << std::endl;
 			exit(1);
 		}
 #elif CLIENT_SLD
@@ -598,6 +618,9 @@ class callback : public virtual mqtt::callback
 				{
 					switch(code)
 					{
+					case ft::VGR_EXIT:
+						sld_.requestExit("VGR");
+						break;
 					case ft::VGR_SLD_START:
 						sld_.requestVGRstart();
 						break;
@@ -610,7 +633,7 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "Unknown topic ???: {}", msg->get_topic());
+			std::cout << "Unknown topic ???" << msg->get_topic() << std::endl;
 			exit(1);
 		}
 #else
@@ -666,7 +689,7 @@ int main(int argc, char* argv[])
 	//spdlog::set_formatter();
 	spdlog::set_pattern("[%t][%Y-%m-%d %T.%e][%L] %v");
 	spdlog::set_level(spdlog::level::trace);
-	console_axes->set_level(spdlog::level::off);//trace);
+	console_axes->set_level(spdlog::level::trace);//trace);
 
 #ifdef DEBUG
 	//can be set globaly or per logger(logger->set_error_handler(..))
@@ -714,23 +737,25 @@ int main(int argc, char* argv[])
 				ft::TxtMqttFactoryClient mqttclient(clientName, host, sout_port.str(), mqtt_user, mqtt_pass);
 				pcli = &mqttclient;
 
+				ft::TxtTransfer T(pTArea);
+				ft::TxtTransfer* pT = &T;
 #ifdef CLIENT_MPO
-		    	ft::TxtMultiProcessingStation mpo(pTArea, pcli);
+		    	ft::TxtMultiProcessingStation mpo(pT, pcli);
 		    	pMPO = &mpo;
 				callback cb(mqttclient, mpo);
 				mqttclient.set_callback(cb); //set callback first!
 #elif CLIENT_HBW
-		    	ft::TxtHighBayWarehouse hbw(pTArea, pcli);
+		    	ft::TxtHighBayWarehouse hbw(pT, pcli);
 		    	pHBW = &hbw;
 				callback cb(mqttclient, hbw);
 				mqttclient.set_callback(cb); //set callback first!
 #elif CLIENT_VGR
-		    	ft::TxtVacuumGripperRobot vgr(pTArea, pcli);
+		    	ft::TxtVacuumGripperRobot vgr(pT, pcli);
 		    	pVGR = &vgr;
 				callback cb(mqttclient, vgr);
 				mqttclient.set_callback(cb); //set callback first!
 #elif CLIENT_SLD
-		    	ft::TxtSortingLine sld(pTArea, pcli);
+		    	ft::TxtSortingLine sld(pT, pcli);
 		    	pSLD = &sld;
 				callback cb(mqttclient, sld);
 				mqttclient.set_callback(cb); //set callback first!

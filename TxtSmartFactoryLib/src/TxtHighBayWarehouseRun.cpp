@@ -48,6 +48,13 @@ void TxtHighBayWarehouse::fsmStep()
 	{
 		switch( newState )
 		{
+		//-------------------------------------------------------------
+		case FAULT:
+		{
+			printEntryState(FAULT);
+			setStatus(SM_ERROR);
+			break;
+		}
 		//-----------------------------------------------------------------
 		case IDLE:
 		{
@@ -78,7 +85,6 @@ void TxtHighBayWarehouse::fsmStep()
 	case FAULT:
 	{
 		printState(FAULT);
-		setStatus(SM_ERROR);
 		if (reqQuit)
 		{
 			setStatus(SM_READY);
@@ -316,9 +322,7 @@ void TxtHighBayWarehouse::fsmStep()
 				default:
 					break;
 				}
-				//next pos
-				calibPos=(TxtHbwCalibPos_t)(calibPos+1);
-				std::cout << ft::toString(calibPos) << std::endl;
+				//same pos again
 				break; //-> NAV
 			} else if ((joyData.aX2 > 500)|(joyData.aX2 < -500)) {
 				break; //-> NAV
@@ -370,8 +374,7 @@ void TxtHighBayWarehouse::moveCalibPos()
 		moveCR(2,2);
 		break;
 	default:
-		FSM_TRANSITION( FAULT, color=red, label='error' );
-		exit(1);
+		assert(0);
 		break;
 	}
 }
@@ -389,6 +392,9 @@ void TxtHighBayWarehouse::run()
 		fsmStep();
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
+
+	assert(mqttclient);
+	mqttclient->publishHBW_Ack(HBW_EXIT, 0, TIMEOUT_MS_PUBLISH);
 }
 
 

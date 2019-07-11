@@ -13,19 +13,21 @@
 namespace ft {
 
 
-TxtPanTiltUnit::TxtPanTiltUnit(FISH_X1_TRANSFER* pTArea, uint8_t chPan, uint8_t chTilt)
-: pTArea(pTArea), stopAllReq(false),  status(PTU_NOHOME),
+TxtPanTiltUnit::TxtPanTiltUnit(TxtTransfer* pT, uint8_t chPan, uint8_t chTilt)
+: pT(pT), stopAllReq(false),  status(PTU_NOHOME),
   posPan(0), posTilt(0), speedPan(512), speedTilt(512), stepsPan(1), stepsTilt(1),
   chPan(chPan), chTilt(chTilt)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtPanTiltUnit chPan:{} chTilt:{}",  chPan, chTilt);
 	if (!calibData.existCalibFilename()) calibData.saveDefault();
 	calibData.load();
+	configInputs(chPan);
+	configInputs(chTilt);
 }
 
 TxtPanTiltUnit::~TxtPanTiltUnit() {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "~TxtPanTiltUnit");
-	if (pTArea)
+	if (pT->pTArea)
 	{
 		//switch off Motors
 		setMotorsOff();
@@ -44,6 +46,15 @@ void TxtPanTiltUnit::stop() {
 	stopAllReq = true;
 }
 
+void TxtPanTiltUnit::configInputs(uint8_t chS)
+{
+	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "configInputs chS:{}", chS);
+	assert(pT->pTArea);
+	pT->pTArea->ftX1config.uni[chS].mode = MODE_R; // Digital Switch with PullUp resistor
+	pT->pTArea->ftX1config.uni[chS].digital = 1;
+	pT->pTArea->ftX1state.config_id ++; // Save the new Setup
+}
+
 void TxtPanTiltUnit::setMotorsOff() {
 	//SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setMotorsOff");
 	setMotorPanOff();
@@ -53,16 +64,16 @@ void TxtPanTiltUnit::setMotorsOff() {
 
 void TxtPanTiltUnit::setMotorPanOff() {
 	//SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setMotorPanOff");
-	assert(pTArea);
-	pTArea->ftX1out.duty[chPan*2] = 0;
-	pTArea->ftX1out.duty[chPan*2+1] = 0;
+	assert(pT->pTArea);
+	pT->pTArea->ftX1out.duty[chPan*2] = 0;
+	pT->pTArea->ftX1out.duty[chPan*2+1] = 0;
 }
 
 void TxtPanTiltUnit::setMotorTiltOff() {
 	//SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setMotorTiltOff");
-	assert(pTArea);
-	pTArea->ftX1out.duty[chTilt*2] = 0;
-	pTArea->ftX1out.duty[chTilt*2+1] = 0;
+	assert(pT->pTArea);
+	pT->pTArea->ftX1out.duty[chTilt*2] = 0;
+	pT->pTArea->ftX1out.duty[chTilt*2+1] = 0;
 }
 
 void TxtPanTiltUnit::moveLeft(uint8_t ch, uint16_t steps, int16_t speed, uint16_t* p, uint16_t posEnd) {
@@ -83,29 +94,24 @@ void TxtPanTiltUnit::moveLeft(uint8_t ch, uint16_t steps, int16_t speed, uint16_
 	int16_t posa = *p;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "posa: {}", posa);
 	//int16_t lastCounter = 0;
-	// setup the inputs: Digital Switch
-	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "setup input:{}", ch);
-	assert(pTArea);
-	pTArea->ftX1config.uni[ch].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[ch].digital = 1;
-	pTArea->ftX1state.config_id ++; // Save the new Setup
+
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "setup distance:{}", steps);
-	pTArea->ftX1out.distance[ch] = steps; // Distance to drive Motor 1 [0]
-	pTArea->ftX1out.motor_ex_cmd_id[ch]++; // Set new Distance Value for Motor 1 [0]
-	pTArea->ftX1out.duty[ch*2] = speed; // Switch Motor 1 ( O1 [0] ) on with PWM Value 512 (= max speed)
-	pTArea->ftX1out.duty[ch*2+1] = 0; // Switch Motor 1 ( O2 [1] ) with minus
+	pT->pTArea->ftX1out.distance[ch] = steps; // Distance to drive Motor 1 [0]
+	pT->pTArea->ftX1out.motor_ex_cmd_id[ch]++; // Set new Distance Value for Motor 1 [0]
+	pT->pTArea->ftX1out.duty[ch*2] = speed; // Switch Motor 1 ( O1 [0] ) on with PWM Value 512 (= max speed)
+	pT->pTArea->ftX1out.duty[ch*2+1] = 0; // Switch Motor 1 ( O2 [1] ) with minus
 	status = PTU_MOVING;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "setup duty left");
 
 	auto start = std::chrono::system_clock::now();
-	while (pTArea->ftX1in.motor_ex_cmd_id[ch] < pTArea->ftX1out.motor_ex_cmd_id[ch])
+	while (pT->pTArea->ftX1in.motor_ex_cmd_id[ch] < pT->pTArea->ftX1out.motor_ex_cmd_id[ch])
 	{
 		//check home switch
-		if (pTArea->ftX1in.uni[ch] == 1)
+		if (pT->pTArea->ftX1in.uni[ch] == 1)
 		{   // Input IX on Master Interface is "1"
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "end switch:{} duty 0 0", ch);
-			pTArea->ftX1out.duty[ch*2] = 0;
-			pTArea->ftX1out.duty[ch*2+1] = 0;
+			pT->pTArea->ftX1out.duty[ch*2] = 0;
+			pT->pTArea->ftX1out.duty[ch*2+1] = 0;
 			break;
 		}
 		//check stop req
@@ -128,18 +134,18 @@ void TxtPanTiltUnit::moveLeft(uint8_t ch, uint16_t steps, int16_t speed, uint16_
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OutExCmd:{} InExCmd:{}  Counter:{}",
-			pTArea->ftX1out.motor_ex_cmd_id[ch], pTArea->ftX1in.motor_ex_cmd_id[ch], pTArea->ftX1in.counter[ch]);
+			pT->pTArea->ftX1out.motor_ex_cmd_id[ch], pT->pTArea->ftX1in.motor_ex_cmd_id[ch], pT->pTArea->ftX1in.counter[ch]);
 	//set new pos
-	if (posa >= pTArea->ftX1in.counter[ch]) {
-		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "posa >= pTArea->ftX1in.counter[ch:{}]", ch);
-		*p = posa - pTArea->ftX1in.counter[ch];
+	if (posa >= pT->pTArea->ftX1in.counter[ch]) {
+		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "posa >= pT->pTArea->ftX1in.counter[ch:{}]", ch);
+		*p = posa - pT->pTArea->ftX1in.counter[ch];
 	} else {
 		status = PTU_ERROR;
-		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "status = PTU_ERROR: *p:{} posa:{} pTArea->ftX1in.counter[ch]:{}", *p, posa, pTArea->ftX1in.counter[ch]);
+		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "status = PTU_ERROR: *p:{} posa:{} pT->pTArea->ftX1in.counter[ch]:{}", *p, posa, pT->pTArea->ftX1in.counter[ch]);
 		return;
 	}
 	//reset counter
-	pTArea->ftX1out.cnt_reset_cmd_id[ch]++;
+	pT->pTArea->ftX1out.cnt_reset_cmd_id[ch]++;
 	status = PTU_READY;
 }
 
@@ -161,22 +167,22 @@ void TxtPanTiltUnit::moveRight(uint8_t ch, uint16_t steps, int16_t speed, uint16
 	int16_t posa = *p;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "posa: {}", posa);
 
-	pTArea->ftX1out.distance[ch] = steps; // Distance to go back
-	pTArea->ftX1out.motor_ex_cmd_id[ch]++; // Set new Distance Value for Motor 1 [0]
+	pT->pTArea->ftX1out.distance[ch] = steps; // Distance to go back
+	pT->pTArea->ftX1out.motor_ex_cmd_id[ch]++; // Set new Distance Value for Motor 1 [0]
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "setup distance:{}", steps);
-	pTArea->ftX1out.duty[ch*2] = 0; // Switch Motor 1 ( O1 [0] ) with minus
-	pTArea->ftX1out.duty[ch*2+1] = speed; // Switch Motor 1 ( O2 [1] ) on with PWM Value 512 (max speed)
+	pT->pTArea->ftX1out.duty[ch*2] = 0; // Switch Motor 1 ( O1 [0] ) with minus
+	pT->pTArea->ftX1out.duty[ch*2+1] = speed; // Switch Motor 1 ( O2 [1] ) on with PWM Value 512 (max speed)
 	status = PTU_MOVING;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "setup duty right");
 
 	auto start = std::chrono::system_clock::now();
-	while (pTArea->ftX1in.motor_ex_cmd_id[ch] < pTArea->ftX1out.motor_ex_cmd_id[ch])
+	while (pT->pTArea->ftX1in.motor_ex_cmd_id[ch] < pT->pTArea->ftX1out.motor_ex_cmd_id[ch])
 	{
 		//check end pos
-		if (((posa+pTArea->ftX1in.counter[ch])) >= posEnd) {
-			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "((posa+pTArea->ftX1in.counter[ch:{}])) >= posEnd:{}", ch, posEnd);
-			pTArea->ftX1out.duty[ch*2] = 0; // Switch Motor 1 ( O1 [0] ) with minus
-			pTArea->ftX1out.duty[ch*2+1] = 0; // Switch Motor 1 ( O2 [1] ) on with PWM Value 512 (max speed)
+		if (((posa+pT->pTArea->ftX1in.counter[ch])) >= posEnd) {
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "((posa+pT->pTArea->ftX1in.counter[ch:{}])) >= posEnd:{}", ch, posEnd);
+			pT->pTArea->ftX1out.duty[ch*2] = 0; // Switch Motor 1 ( O1 [0] ) with minus
+			pT->pTArea->ftX1out.duty[ch*2+1] = 0; // Switch Motor 1 ( O2 [1] ) on with PWM Value 512 (max speed)
 			break;
 		}
 		//check stop req
@@ -199,10 +205,10 @@ void TxtPanTiltUnit::moveRight(uint8_t ch, uint16_t steps, int16_t speed, uint16
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OutExCmd:{} InExCmd:{}  Counter:{}",
-			pTArea->ftX1out.motor_ex_cmd_id[ch], pTArea->ftX1in.motor_ex_cmd_id[ch], pTArea->ftX1in.counter[ch]);
+			pT->pTArea->ftX1out.motor_ex_cmd_id[ch], pT->pTArea->ftX1in.motor_ex_cmd_id[ch], pT->pTArea->ftX1in.counter[ch]);
 	//set new pos
-	*p = posa + pTArea->ftX1in.counter[ch];
-	pTArea->ftX1out.cnt_reset_cmd_id[ch]++;
+	*p = posa + pT->pTArea->ftX1in.counter[ch];
+	pT->pTArea->ftX1out.cnt_reset_cmd_id[ch]++;
 	status = PTU_READY;
 }
 
@@ -308,52 +314,42 @@ void TxtPanTiltUnit::moveHome() {
     	return;
     }*/
 
-	assert(pTArea);
-	pTArea->ftX1config.uni[chPan].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[chPan].digital = 1;
-	pTArea->ftX1state.config_id ++; // Save the new Setup
-	//printf("Input%d: %d\n", chPan, pTArea->ftX1in.uni[chPan]);
 	// Switch Motor on
-	//pTArea->ftX1out.distance[chPan] = 1; // Distance
-	pTArea->ftX1out.duty[chPan*2] = speedPan; // Switch Motor 1 ( O1 [0] ) on with PWM Value 512 (= max speed)
-	pTArea->ftX1out.duty[chPan*2+1] = 0; // Switch Motor 1 ( O2 [1] ) with minus
-	pTArea->ftX1out.motor_ex_cmd_id[chPan]++;
+	//pT->pTArea->ftX1out.distance[chPan] = 1; // Distance
+	pT->pTArea->ftX1out.motor_ex_cmd_id[chPan]++;
+	pT->pTArea->ftX1out.duty[chPan*2] = speedPan; // Switch Motor 1 ( O1 [0] ) on with PWM Value 512 (= max speed)
+	pT->pTArea->ftX1out.duty[chPan*2+1] = 0; // Switch Motor 1 ( O2 [1] ) with minus
 
-	pTArea->ftX1config.uni[chTilt].mode = MODE_R; // Digital Switch with PullUp resistor
-	pTArea->ftX1config.uni[chTilt].digital = 1;
-	pTArea->ftX1state.config_id ++; // Save the new Setup
-	//printf("Input%d: %d\n", chTilt, pTArea->ftX1in.uni[chTilt]);
-	// Switch Motor on
-	//pTArea->ftX1out.distance[chTilt] = 1; // Distance
-	pTArea->ftX1out.duty[chTilt*2] = speedTilt; // Switch Motor 1 ( O1 [0] ) on with PWM Value 512 (= max speed)
-	pTArea->ftX1out.duty[chTilt*2+1] = 0; // Switch Motor 1 ( O2 [1] ) with minus
-	pTArea->ftX1out.motor_ex_cmd_id[chTilt]++;
+	//pT->pTArea->ftX1out.distance[chTilt] = 1; // Distance
+	pT->pTArea->ftX1out.motor_ex_cmd_id[chTilt]++;
+	pT->pTArea->ftX1out.duty[chTilt*2] = speedTilt; // Switch Motor 1 ( O1 [0] ) on with PWM Value 512 (= max speed)
+	pT->pTArea->ftX1out.duty[chTilt*2+1] = 0; // Switch Motor 1 ( O2 [1] ) with minus
 
 	status = PTU_MOVING;
 
 	auto start = std::chrono::system_clock::now();
-	while (true) //pTArea->ftX1in.motor_ex_cmd_id[chPan] < pTArea->ftX1out.motor_ex_cmd_id[chPan])
+	while (true) //pT->pTArea->ftX1in.motor_ex_cmd_id[chPan] < pT->pTArea->ftX1out.motor_ex_cmd_id[chPan])
 	{
+		//check switch home pan
+		if (pT->pTArea->ftX1in.uni[chPan] == 1)
+		{
+			setMotorPanOff();
+		}
+		//check switch home tilt
+		if (pT->pTArea->ftX1in.uni[chTilt] == 1)
+		{
+			setMotorTiltOff();
+		}
+		//check both switch
+		if ((pT->pTArea->ftX1in.uni[chPan] == 1)&&(pT->pTArea->ftX1in.uni[chTilt] == 1))
+		{
+			break;
+		}
 		//check stop req
 		if (stopAllReq) {
 			setMotorsOff();
 			status = PTU_NOHOME;
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "stopAllReq: status == PTU_NOHOME");
-			break;
-		}
-		//check switch home pan
-		if (pTArea->ftX1in.uni[chPan] == 1)
-		{
-			setMotorPanOff();
-		}
-		//check switch home tilt
-		if (pTArea->ftX1in.uni[chTilt] == 1)
-		{
-			setMotorTiltOff();
-		}
-		//check both switch
-		if ((pTArea->ftX1in.uni[chPan] == 1)&&(pTArea->ftX1in.uni[chTilt] == 1))
-		{
 			break;
 		}
 		//check timeout
@@ -369,9 +365,9 @@ void TxtPanTiltUnit::moveHome() {
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
 	//reset counter
-	pTArea->ftX1out.cnt_reset_cmd_id[chPan]++;
+	pT->pTArea->ftX1out.cnt_reset_cmd_id[chPan]++;
 	posPan = 0;
-	pTArea->ftX1out.cnt_reset_cmd_id[chTilt]++;
+	pT->pTArea->ftX1out.cnt_reset_cmd_id[chTilt]++;
 	posTilt = 0;
 	status = PTU_READY;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "status == PTU_READY");
@@ -461,7 +457,7 @@ bool TxtPanTiltUnitController::startThread() {
 	assert(m_running == false);
 	m_running = true;
 
-	pthread_attr_t tattr;
+	/*pthread_attr_t tattr;
 	int ret;
 	sched_param param;
 	int newprio = 20;
@@ -471,8 +467,8 @@ bool TxtPanTiltUnitController::startThread() {
 	param.sched_priority = newprio;
 	ret = pthread_attr_setschedparam (&tattr, &param);
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "new priority {}",newprio);
-	return pthread_create(&m_thread, &tattr, start_thread, this) == 0;
-	//return pthread_create(&m_thread, 0, start_thread, this) == 0;
+	return pthread_create(&m_thread, &tattr, start_thread, this) == 0;*/
+	return pthread_create(&m_thread, 0, start_thread, this) == 0;
 }
 
 bool TxtPanTiltUnitController::stopThread() {

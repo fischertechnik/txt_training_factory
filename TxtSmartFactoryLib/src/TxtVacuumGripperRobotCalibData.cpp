@@ -92,7 +92,7 @@ bool TxtVacuumGripperRobotCalibData::saveDefault()
 	setPos3("HBW", EncPos3(1410, 50, 186));
 	setPos3("HBW1", EncPos3(1410, 170, 186));
 
-	setPos3("MPO0", EncPos3(931, 50, 880));
+	setPos3("MPO0", EncPos3(931, 0, 880));
 	setPos3("MPO", EncPos3(931, 490, 934));
 
 	setPos3("SSD10", EncPos3(469, 300, 280));

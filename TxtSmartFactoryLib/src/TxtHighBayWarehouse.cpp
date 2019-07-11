@@ -14,14 +14,14 @@
 namespace ft {
 
 
-TxtHighBayWarehouse::TxtHighBayWarehouse(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient)
-	: TxtSimulationModel(pTArea, mqttclient),
+TxtHighBayWarehouse::TxtHighBayWarehouse(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient)
+	: TxtSimulationModel(pT, mqttclient),
 	currentState(__NO_STATE), newState(__NO_STATE),
 	calibPos(HBWCALIB_CV),
-	axisX("HBW_X", pTArea, 1, 4, 2050),
-	axisY("HBW_Y", pTArea, 3, 7, 1050),
-	axisZ("HBW_Z", pTArea, 2, 5, 6),
-	convBelt(pTArea, 0, 0, 3),
+	axisX("HBW_X", pT, 1, 4, 2050),
+	axisY("HBW_Y", pT, 3, 7, 1050),
+	axisZ("HBW_Z", pT, 2, 5, 6),
+	convBelt(pT, 0, 0, 3),
 	reqQuit(false),
 	reqVGRwp(0), reqVGRfetchContainer(false), reqVGRstore(false),
 	reqVGRfetch(false), reqVGRstoreContainer(false), reqVGRcalib(false), reqVGRresetStorage(false),
@@ -52,7 +52,7 @@ void TxtHighBayWarehouse::moveRef()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveRef",0);
 	setActStatus(true, SM_BUSY);
-	axisZ.moveRef();
+	axisZ.moveS1();
 	std::thread tx = axisX.moveRefThread();
 	std::thread ty = axisY.moveRefThread();
 	tx.join();
@@ -118,7 +118,7 @@ EncPos2 TxtHighBayWarehouse::moveConv(bool stop)
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveConv",0);
 	if (!stop)
 	{
-		axisZ.moveRef();
+		axisZ.moveS1();
 	}
 	EncPos2 pos2 = calibData.conv;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "pos:{} {}", pos2.x, pos2.y);
@@ -132,7 +132,7 @@ EncPos2 TxtHighBayWarehouse::moveConv(bool stop)
 EncPos2 TxtHighBayWarehouse::moveCR(int i, int j)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveCR idx:{} {}", i, j);
-	axisZ.moveRef();
+	axisZ.moveS1();
 	EncPos2 pos2;
 	pos2.x = calibData.hbx[i];
 	pos2.y = calibData.hby[j];
@@ -150,7 +150,7 @@ bool TxtHighBayWarehouse::getCR(int iCol, int iRow)
 	EncPos2 p2 = moveCR(iCol,iRow);
 	axisZ.moveS2();
 	bool r = axisY.moveAbs(p2.y - ydelta);
-	axisZ.moveRef();
+	axisZ.moveS1();
 	return r;
 }
 
@@ -162,7 +162,7 @@ bool TxtHighBayWarehouse::putCR(int iCol, int iRow)
 	axisY.moveAbs(p2.y - ydelta);
 	axisZ.moveS2();
 	bool r = axisY.moveAbs(p2.y + ydelta);
-	axisZ.moveRef();
+	axisZ.moveS1();
 	return r;
 }
 
@@ -175,7 +175,7 @@ bool TxtHighBayWarehouse::getConv(bool stop)
 	bool r = axisY.moveAbs(p2.y - ydelta);
 	if (!stop)
 	{
-		axisZ.moveRef();
+		axisZ.moveS1();
 	}
 	return r;
 }
@@ -189,7 +189,7 @@ bool TxtHighBayWarehouse::putConv(bool stop)
 	convBelt.moveOut();
 	if (!stop)
 	{
-		axisZ.moveRef();
+		axisZ.moveS1();
 	}
 	return r;
 }

@@ -60,71 +60,70 @@ inline const char * toString(TxtAxis_status_t st)
 }
 
 //TODO
-#define TIMEOUT_S_MOVEREF 30.0
-#define TIMEOUT_S_MOVELEFT 30.0
-#define TIMEOUT_S_MOVERIGHT 30.0
+#define TIMEOUT_S_MOVEREF 20.0
+#define TIMEOUT_S_MOVELEFT 20.0
+#define TIMEOUT_S_MOVERIGHT 20.0
 
+#ifdef DEBUG
 #define CYCLE_MS_AXIS 1
+#else
+#define CYCLE_MS_AXIS 10
+#endif
 
-class TxtVacuumGripperRobot;
-class TxtHighBayWarehouse;
-class TxtAxis : public SubjectObserver {
-	friend class TxtVacuumGripperRobot;
-	friend class TxtHighBayWarehouse;
+class TxtTransfer {
 public:
-	TxtAxis(std::string name, FISH_X1_TRANSFER* pTArea, uint8_t chM, uint8_t chS1);
-	virtual ~TxtAxis();
+	FISH_X1_TRANSFER* pTArea;
 
-	bool init();
+	TxtTransfer(FISH_X1_TRANSFER* pTArea)
+		: pTArea(pTArea), m_mutex()
+	{
+		pthread_mutexattr_t attr;
+		pthread_mutexattr_init(&attr);
+		//pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
+		pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_ERRORCHECK);
+		pthread_mutex_init(&m_mutex, &attr);
+	}
+	virtual ~TxtTransfer()
+	{
+		pthread_mutex_destroy(&m_mutex);
+	}
+	void lock() {
+		pthread_mutex_lock(&m_mutex);
+	}
+	void unlock() {
+		pthread_mutex_unlock(&m_mutex);
+	}
+
+private:
+	pthread_mutex_t m_mutex;
+};
+
+
+class TxtAxis {
+public:
+	TxtAxis(std::string name, TxtTransfer* pT, uint8_t chM, uint8_t chS1);
+	virtual ~TxtAxis();
 
 	TxtAxis_status_t getStatus() { return status; }
 
 	void setSpeed(int16_t s);
 	int16_t getSpeed() { return speed; }
 
-	uint16_t getPosAbs() { return pos; }
-
 	/* move commands */
 	void stop();
 
-	virtual bool moveAbs(uint16_t p);
-	std::thread moveAbsThread(uint16_t p) {
-		return std::thread(&TxtAxis::moveAbs, this, p);
-	}
-
-	bool moveRel(int rp) {
-		if (status == AXIS_READY)
-		{
-			if (((rp>0)&&((int)pos+rp<65535)) || //negative
-				((rp<0)&&(pos>=-rp))) //positive
-			{
-				return moveAbs(pos+rp);
-			}
-		}
-		return false;
-	}
-
-	void moveRef();
-	std::thread moveRefThread() {
-		return std::thread(&TxtAxis::moveRef, this);
-	}
-
 protected:
+	void configInputs(uint8_t chS);
+	bool isSwitchPressed(uint8_t chS);
 	void setStatus(TxtAxis_status_t status);
-
-	void reset();
-	void resetCounter();
 
 	virtual void setMotorOff();
 	virtual void setMotorLeft();
-
-	virtual void moveLeft(uint16_t steps, uint16_t* pPos);
-	virtual void moveRight(uint16_t steps, uint16_t* pPos) = 0;
+	virtual void setMotorRight();
 
 	std::string name;
-	FISH_X1_TRANSFER* pTArea;
+	TxtTransfer* pT;
 	TxtAxis_status_t status;
-	uint16_t pos;
 	int16_t speed;
 	bool stopReq;
 

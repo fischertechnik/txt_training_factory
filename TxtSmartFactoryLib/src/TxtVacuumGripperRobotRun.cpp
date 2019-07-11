@@ -45,13 +45,24 @@ void TxtVacuumGripperRobot::fsmStep()
 	// Entry activities ===================================================
 	if( newState != currentState )
 	{
+		//update order view (only if state changed)
+		if (reqOrder)
+		{
+			ord_state.type = reqWP_order.type;
+			ord_state.state = ORDERED;
+			assert(mqttclient);
+			mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+		}
+
 		switch( newState )
 		{
 		//-----------------------------------------------------------------
 		case FAULT:
 		{
 			printEntryState(FAULT);
+			setStatus(SM_ERROR);
 			release();
+			initDashboard();
 			break;
 		}
 		//-----------------------------------------------------------------
@@ -96,7 +107,6 @@ void TxtVacuumGripperRobot::fsmStep()
 	case FAULT:
 	{
 		printState(FAULT);
-		setStatus(SM_ERROR);
 		if (reqQuit)
 		{
 			setStatus(SM_READY);
@@ -160,6 +170,7 @@ void TxtVacuumGripperRobot::fsmStep()
 				moveSSD3();
 			} else {
 				FSM_TRANSITION( FAULT, color=red, label='nfc error' );
+				break;
 			}
 			if (reqWP_SLD.type != WP_TYPE_NONE)
 			{
@@ -173,6 +184,7 @@ void TxtVacuumGripperRobot::fsmStep()
 			ord_state.state = ORDERED;
 			assert(mqttclient);
 			mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+
 			FSM_TRANSITION( FETCH_WP_VGR, color=blue, label='req order' );
 			reqOrder = false;
 		}
@@ -190,6 +202,34 @@ void TxtVacuumGripperRobot::fsmStep()
 			//mqttclient->publishVGR_Do(VGR_SLD_START, 0, TIMEOUT_MS_PUBLISH);
 			//std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 		}
+		else if (joyData.aY2 < -500)
+		{
+			//TODO local demo mode
+		}
+		else if (joyData.aX2 > 500)
+		{
+			if (ord_state.state == WAITING_FOR_ORDER)
+			{
+				reqWP_order.type = WP_TYPE_WHITE;
+				reqOrder = true;
+			}
+		}
+		else if (joyData.aY2 > 500)
+		{
+			if (ord_state.state == WAITING_FOR_ORDER)
+			{
+				reqWP_order.type = WP_TYPE_RED;
+				reqOrder = true;
+			}
+		}
+		else if (joyData.aX2 < -500)
+		{
+			if (ord_state.state == WAITING_FOR_ORDER)
+			{
+				reqWP_order.type = WP_TYPE_BLUE;
+				reqOrder = true;
+			}
+		}
 		else
 		{
 			std::string uid = dps.nfcReadUID();
@@ -198,11 +238,11 @@ void TxtVacuumGripperRobot::fsmStep()
 			{
 				SPDLOG_LOGGER_TRACE(spdlog::get("console"), "tag_uid: {}", uid);
 				//set action uids if calibData is empty
-				if (dps.getUIDResetHBW().empty())
+				if (joyData.aX1 > 500 || dps.getUIDResetHBW().empty())
 				{
 					dps.saveUIDResetHBW(uid);
 				}
-				else if (dps.getUIDCalibMode().empty())
+				else if (((joyData.aX1 < -500) || dps.getUIDResetHBW()!=uid) && (dps.getUIDCalibMode().empty()))
 				{
 					dps.saveUIDCalibMode(uid);
 				}
@@ -219,30 +259,9 @@ void TxtVacuumGripperRobot::fsmStep()
 				{
 					FSM_TRANSITION( CALIB_VGR, color=orange, label='cmd calib' );
 				}
-				/*else if (uid == dps.getUIDOrderWHITE())
-				{
-					if (ord_state.state == WAITING_FOR_ORDER)
-					{
-						reqOrderType = WP_TYPE_WHITE;
-						reqOrder = true;
-					}
-				}
-				else if (uid == dps.getUIDOrderRED())
-				{
-					if (ord_state.state == WAITING_FOR_ORDER)
-					{
-						reqOrderType = WP_TYPE_RED;
-						reqOrder = true;
-					}
-				}
-				else if (uid == dps.getUIDOrderBLUE())
-				{
-					if (ord_state.state == WAITING_FOR_ORDER)
-					{
-						reqOrderType = WP_TYPE_BLUE;
-						reqOrder = true;
-					}
-				}*/
+				/*else if (uid == dps.getUIDOrderWHITE())*/
+				/*else if (uid == dps.getUIDOrderRED())*/
+				/*else if (uid == dps.getUIDOrderBLUE())*/
 			}
 		}
 #ifdef __DOCFSM__
@@ -297,16 +316,19 @@ void TxtVacuumGripperRobot::fsmStep()
 		setTarget("mpo");
 		moveMPO();
 
-		assert(mqttclient);
 		assert(reqWP_MPO);
 		reqWP_MPO->printDebug();
-		mqttclient->publishVGR_Do(VGR_MPO_PRODUCE, reqWP_MPO, TIMEOUT_MS_PUBLISH);
-		proStorage.setTimestampNow(reqWP_MPO->tag_uid, PROCESSING_OVEN_INDEX);
 
 		ord_state.type = reqWP_MPO->type;
 		ord_state.state = IN_PROCESS;
 		assert(mqttclient);
 		mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
+
+		assert(mqttclient);
+		mqttclient->publishVGR_Do(VGR_MPO_PRODUCE, reqWP_MPO, TIMEOUT_MS_PUBLISH);
+		proStorage.setTimestampNow(reqWP_MPO->tag_uid, PROCESSING_OVEN_INDEX);
 
 		moveRef();
 
@@ -319,6 +341,12 @@ void TxtVacuumGripperRobot::fsmStep()
 		printState(START_PRODUCE);
 		if (reqMPOstarted)
 		{
+			//TODO type is null,  repeat publish state
+			//ord_state.type = reqWP_MPO->type;
+			//ord_state.state = IN_PROCESS;
+			//assert(mqttclient);
+			//mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+
 			FSM_TRANSITION( IDLE, color=green, label='transport to MPO' );
 			reqMPOstarted = false;
 		}
@@ -338,8 +366,10 @@ void TxtVacuumGripperRobot::fsmStep()
 		std::string uid = dps.nfcReadUID();
 		if (uid.empty())
 		{
-			FSM_TRANSITION( FAULT, color=red, label='error' );
+			FSM_TRANSITION( WRONG_COLOR, color=red, label='empty tag' );
+			break;
 		} else {
+			proStorage.resetTagUidMaskTs(uid);
 			proStorage.setTimestampNow(uid, DELIVERY_RAW_INDEX);
 			if (reqWP_HBW != 0) {
 				reqWP_HBW->printDebug();
@@ -373,6 +403,7 @@ void TxtVacuumGripperRobot::fsmStep()
 		else
 		{
 			FSM_TRANSITION( NFC_REJECTED, color=blue, label='color wrong' );
+			break;
 		}
 #ifdef __DOCFSM__
 		FSM_TRANSITION( COLOR_DETECTION, color=blue, label='wait' );
@@ -387,14 +418,16 @@ void TxtVacuumGripperRobot::fsmStep()
 		std::string uid = dps.nfcReadUID();
 		if (uid.empty())
 		{
-			FSM_TRANSITION( FAULT, color=red, label='nfc error' );
+			FSM_TRANSITION( WRONG_COLOR, color=red, label='nfc error' );
+			break;
 		}
 		std::vector<int64_t> vts = proStorage.getTagUidVts(uid);
 		uint8_t mask_ts = proStorage.getTagUidMaskTs(uid);
-		std::string tag_uid = dps.nfcDeviceDeleteWriteRawRead(vts,mask_ts);
+		std::string tag_uid = dps.nfcDeviceDeleteWriteRawRead(reqWP_HBW->type, vts, mask_ts);
 		if (tag_uid.empty())
 		{
 			FSM_TRANSITION( FAULT, color=red, label='nfc error' );
+			break;
 		}
 
 		FSM_TRANSITION( STORE_WP_VGR, color=blue, label='nfc write ok' );
@@ -404,21 +437,18 @@ void TxtVacuumGripperRobot::fsmStep()
 	case NFC_REJECTED:
 	{
 		printState(NFC_REJECTED);
-		moveNFC();
-		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+		moveRefYNFC();
 		std::string uid = dps.nfcReadUID();
-		if (uid.empty())
+		if (!uid.empty())
 		{
-			FSM_TRANSITION( FAULT, color=red, label='nfc error' );
-		}
-		proStorage.resetTagUidMaskTs(uid);
-		{
+			proStorage.resetTagUidMaskTs(uid);
 			std::vector<int64_t> vts = proStorage.getTagUidVts(uid);
 			uint8_t mask_ts = proStorage.getTagUidMaskTs(uid);
-			std::string tag_uid = dps.nfcDeviceWriteRejectedRead(vts,mask_ts);
+			std::string tag_uid = dps.nfcDeviceWriteRejectedRead(ft::WP_TYPE_NONE, vts, mask_ts);
 			if (tag_uid.empty())
 			{
 				FSM_TRANSITION( FAULT, color=red, label='nfc error' );
+				break;
 			}
 		}
 		FSM_TRANSITION( WRONG_COLOR, color=blue, label='wrong color');
@@ -445,16 +475,18 @@ void TxtVacuumGripperRobot::fsmStep()
 		if (uid.empty())
 		{
 			FSM_TRANSITION( FAULT, color=red, label='nfc error' );
+			break;
 		}
 		reqWP_SLD.tag_uid = uid;
 		reqWP_SLD.printDebug();
 		proStorage.setTimestampNow(reqWP_SLD.tag_uid, SHIPPING_INDEX);
 		std::vector<int64_t> vts = proStorage.getTagUidVts(reqWP_SLD.tag_uid);
 		uint8_t mask_ts = proStorage.getTagUidMaskTs(reqWP_SLD.tag_uid);
-		std::string tag_uid = dps.nfcDeviceWriteProducedRead(vts,mask_ts);
+		std::string tag_uid = dps.nfcDeviceWriteProducedRead(reqWP_SLD.type, vts,mask_ts);
 		if (tag_uid.empty())
 		{
 			FSM_TRANSITION( FAULT, color=red, label='nfc error' );
+			break;
 		}
 		FSM_TRANSITION( MOVE_PICKUP_WAIT, color=blue, label='nfc ok' );
 		break;
@@ -473,6 +505,7 @@ void TxtVacuumGripperRobot::fsmStep()
 			ord_state.state = SHIPPED;
 			assert(mqttclient);
 			mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+			std::this_thread::sleep_for(std::chrono::milliseconds(2000));
 
 			FSM_TRANSITION( MOVE_PICKUP, color=blue, label='delivered' );
 		}
@@ -510,6 +543,7 @@ void TxtVacuumGripperRobot::fsmStep()
 		{
 			moveWrongRelease();
 			FSM_TRANSITION( FAULT, color=red, label='wrong color' );
+			break;
 		}
 
 		assert(reqWP_HBW);
@@ -649,42 +683,58 @@ void TxtVacuumGripperRobot::fsmStep()
 				{
 				case VGRCALIB_DSI:
 					calibData.setPos3("DIN", p3);
+					calibData.copyPos3X("DIN","DIN0");
+					calibData.copyPos3Z("DIN","DIN0");
 					calibData.save();
 					break;
 				case VGRCALIB_DCS:
 					calibData.setPos3("DCS", p3);
+					calibData.copyPos3X("DCS","DCS0");
+					calibData.copyPos3Z("DCS","DCS0");
 					calibData.save();
 					break;
 				case VGRCALIB_NFC:
 					calibData.setPos3("DNFC", p3);
+					calibData.copyPos3X("DNFC","DNFC0");
+					calibData.copyPos3Z("DNFC","DNFC0");
 					calibData.save();
 					break;
 				case VGRCALIB_WDC:
 					calibData.setPos3("WDC", p3);
+					calibData.copyPos3X("WDC","WDC0");
 					calibData.save();
 					break;
 				case VGRCALIB_DSO:
 					calibData.setPos3("DOUT", p3);
+					calibData.copyPos3X("DOUT","DOUT0");
 					calibData.save();
 					break;
 				case VGRCALIB_HBW:
 					calibData.setPos3("HBW1", p3);
+					calibData.copyPos3X("HBW1","HBW");
+					calibData.copyPos3Z("HBW1","HBW");
+					calibData.copyPos3X("HBW1","HBW0");
 					calibData.save();
 					break;
 				case VGRCALIB_MPO:
 					calibData.setPos3("MPO", p3);
+					calibData.copyPos3X("MPO","MPO0");
+					calibData.copyPos3Z("MPO","MPO0");
 					calibData.save();
 					break;
 				case VGRCALIB_SL1:
 					calibData.setPos3("SSD1", p3);
+					calibData.copyPos3X("SSD1","SSD10");
 					calibData.save();
 					break;
 				case VGRCALIB_SL2:
 					calibData.setPos3("SSD2", p3);
+					calibData.copyPos3X("SSD2","SSD20");
 					calibData.save();
 					break;
 				case VGRCALIB_SL3:
 					calibData.setPos3("SSD3", p3);
+					calibData.copyPos3X("SSD3","SSD30");
 					calibData.save();
 					break;
 				default:
@@ -692,7 +742,7 @@ void TxtVacuumGripperRobot::fsmStep()
 				}
 				//same pos again
 				break; //-> NAV
-			} else if ((joyData.aX2 > 500)|(joyData.aX2 < -500)) {
+			} else if ((joyData.aX2 > 500)||(joyData.aX2 < -500)) {
 				break; //-> NAV
 			}
 			moveJoystick();
@@ -777,16 +827,35 @@ void TxtVacuumGripperRobot::moveCalibPos()
 		move("SSD3");
 		break;
 	default:
-		FSM_TRANSITION( FAULT, color=red, label='error' );
-		exit(1);
+		assert(0);
 		break;
 	}
+}
+
+void TxtVacuumGripperRobot::initDashboard()
+{
+	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "initDashboard", 0);
+	assert(mqttclient);
+	mqttclient->publishStateHBW(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
+	mqttclient->publishStateMPO(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
+	mqttclient->publishStateSLD(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
+	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "hbw");
+	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "mpo");
+	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "dso");
+	mqttclient->publishStateDSI(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
+	mqttclient->publishStateDSO(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
+	ord_state.type = WP_TYPE_NONE;
+	ord_state.state = WAITING_FOR_ORDER;
+	mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+	TxtWorkpiece wp_empty("",WP_TYPE_NONE,WP_STATE_RAW);
+	History_map_t map_hist;
+	mqttclient->publishNfcDS(wp_empty, map_hist, TIMEOUT_MS_PUBLISH);
 }
 
 void TxtVacuumGripperRobot::run()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "run",0);
-	assert(mqttclient);
+
 	TxtNfcDevice* nfc = dps.getNfc();
 	assert(nfc);
 	obs_vgr = new TxtVacuumGripperRobotObserver(this, mqttclient);
@@ -805,23 +874,12 @@ void TxtVacuumGripperRobot::run()
 	//dps update thread
 	dps.startThread();
 
-	//init dashboard
-	std::cout << "init dashboard ... ";
-	mqttclient->publishStateHBW(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
-	mqttclient->publishStateMPO(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
-	mqttclient->publishStateSLD(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
-	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "hbw");
-	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "mpo");
-	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "dso");
-	mqttclient->publishStateDSI(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
-	mqttclient->publishStateDSO(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
-	ord_state.type = WP_TYPE_NONE;
-	ord_state.state = WAITING_FOR_ORDER;
-	mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
-	TxtWorkpiece wp_empty("",WP_TYPE_NONE,WP_STATE_RAW);
-	History_map_t map_hist;
-	mqttclient->publishNfcDS(wp_empty, map_hist, TIMEOUT_MS_PUBLISH);
-	std::cout << "OK" << std::endl;
+	initDashboard();
+
+	//move seq if program started first time
+	moveYRef();
+	moveZRef();
+	moveXRef();
 
 	FSM_INIT_FSM( INIT, color=black, label='init' );
 	while (!m_stoprequested)
@@ -829,6 +887,10 @@ void TxtVacuumGripperRobot::run()
 		fsmStep();
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 	}
+
+	assert(mqttclient);
+	mqttclient->publishVGR_Do(VGR_EXIT, 0, TIMEOUT_MS_PUBLISH);
+	initDashboard();
 }
 
 

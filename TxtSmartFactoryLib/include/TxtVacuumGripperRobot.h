@@ -94,8 +94,30 @@ public:
 	bool saveDefault();
 	bool save();
 
+	void checkKeyExit(const std::string key) {
+		auto search = map_pos3.find(key);
+		if (search == map_pos3.end()) {
+			std::cout << "Error: key unknown " << key << std::endl;
+			exit(1);
+		}
+	}
 	void setPos3(const std::string key, EncPos3 pos3) {
 		map_pos3[key] = pos3;
+	}
+	void copyPos3X(const std::string key_src, const std::string key_dst) {
+		checkKeyExit(key_src);
+		checkKeyExit(key_dst);
+		map_pos3[key_dst].x = map_pos3[key_src].x;
+	}
+	void copyPos3Y(const std::string key_src, const std::string key_dst) {
+		checkKeyExit(key_src);
+		checkKeyExit(key_dst);
+		map_pos3[key_dst].y = map_pos3[key_src].y;
+	}
+	void copyPos3Z(const std::string key_src, const std::string key_dst) {
+		checkKeyExit(key_src);
+		checkKeyExit(key_dst);
+		map_pos3[key_dst].z = map_pos3[key_src].z;
 	}
 
 	std::map<std::string, EncPos3> map_pos3;
@@ -179,7 +201,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtVacuumGripperRobot(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtVacuumGripperRobot();
 
 	/* remote */
@@ -201,6 +223,10 @@ public:
 		reqNfcDelete= true;
 	}
 	/* local */
+	void requestExit(const std::string name) {
+		std::cout << "program terminated by " << name << std::endl;
+		exit(1);
+	}
 	void requestJoyBut(TxtJoysticksData jd) {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestJoyBut",0);
 		joyData = jd;
@@ -238,11 +264,6 @@ public:
 
 	void stop();
 	void moveRef();
-	/*void reset() {
-		axisX.reset();
-		axisY.reset();
-		axisZ.reset();
-	}*/
 	EncPos3 getPos3() {
 		EncPos3 p3;
 		p3.x = axisX.getPosAbs();
@@ -293,6 +314,7 @@ protected:
 	EncPos3 lastPos3;
 
 	void configInputs();
+	void initDashboard();
 	void move(const std::string pos3name, TxtVgrPosOrder_t order = VGRMOV_PTP);
 	void move(EncPos3 p3, TxtVgrPosOrder_t order = VGRMOV_PTP) { move(p3.x,p3.y,p3.z, order); }
 	void move(uint16_t x, uint16_t y, uint16_t z, TxtVgrPosOrder_t order = VGRMOV_PTP);

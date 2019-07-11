@@ -12,6 +12,7 @@
 #include "TxtSimulationModel.h"
 #include "TxtCalibData.h"
 #include "TxtNfcDevice.h"
+#include "TxtAxis.h"
 
 
 namespace ft {
@@ -41,12 +42,12 @@ public:
 
 class TxtDeliveryPickupStation : public ft::TxtSimulationModel {
 public:
-	TxtDeliveryPickupStation(FISH_X1_TRANSFER* pTArea, ft::TxtMqttFactoryClient* mqttclient);
+	TxtDeliveryPickupStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtDeliveryPickupStation();
 
-	std::string nfcDeviceDeleteWriteRawRead(std::vector<int64_t> vts, uint8_t mask_ts);
-	std::string nfcDeviceWriteProducedRead(std::vector<int64_t> vts, uint8_t mask_ts);
-	std::string nfcDeviceWriteRejectedRead(std::vector<int64_t> vts, uint8_t mask_ts);
+	std::string nfcDeviceDeleteWriteRawRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts);
+	std::string nfcDeviceWriteProducedRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts);
+	std::string nfcDeviceWriteRejectedRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts);
 
 	bool is_DIN();
 	bool is_DOUT();
