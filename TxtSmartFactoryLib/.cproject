@@ -135,10 +135,10 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="KeLibTxt_Work;cdt.managedbuild.config.gnu.cross.lib.debug.1902581553" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
+				<externalSettings containerId="KeLibTxt_Work;cdt.managedbuild.config.gnu.cross.lib.release.455464804" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/KeLibTxt_Work"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/KeLibTxt_Work/Debug"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/KeLibTxt_Work/Release"/>
 						<entry flags="RESOLVED" kind="libraryFile" name="KeLibTxt_Work" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>

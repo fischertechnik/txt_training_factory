@@ -20,7 +20,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 // Version info
-#define VERSION_HEX ((0<<16)|(6<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(7<<8)|(0<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;

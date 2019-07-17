@@ -114,7 +114,7 @@ void TxtMultiProcessingStation::fsmStep()
 	//-----------------------------------------------------------------
 	case IDLE:
 	{
-		printState(IDLE);
+		//printState(IDLE);
 		if (reqVGRproduce)
 		{
 			auto start = std::chrono::system_clock::now();

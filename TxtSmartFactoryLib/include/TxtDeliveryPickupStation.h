@@ -42,7 +42,7 @@ public:
 
 class TxtDeliveryPickupStation : public ft::TxtSimulationModel {
 public:
-	TxtDeliveryPickupStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
+	TxtDeliveryPickupStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient = 0);
 	virtual ~TxtDeliveryPickupStation();
 
 	std::string nfcDeviceDeleteWriteRawRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts);

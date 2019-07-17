@@ -133,7 +133,7 @@ void TxtVacuumGripperRobot::fsmStep()
 	//-----------------------------------------------------------------
 	case IDLE:
 	{
-		printState(IDLE);
+		//printState(IDLE);
 
 		//NFC requests
 		if (reqNfcDelete)

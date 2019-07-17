@@ -1,7 +1,7 @@
 MQTT Interface
 ==============
 
-# MQTT Remote (fichertechnik Cloud)
+# MQTT Remote (fischertechnik Cloud)
 
 ## fischertechnik Cloud / Dashboard
 | Component                      | topic SUBSCRIBE    |
@@ -33,7 +33,7 @@ MQTT Interface
 | Order Workpiece Buttons        | **f/o/order**      |
 | Action Buttons NFC Module      | **f/o/nfc/ds**     |
 
-# MQTT Local
+# MQTT Programs
 
 ## TxtFactoryMain
 | Component                      | topic SUBSCRIBE    |
@@ -43,7 +43,6 @@ MQTT Interface
 | Config Rate Brightness Sensor  | **c/ldr**          |
 | Config Rate Camera Picture     | **c/cam**          |
 | Control Buttons Pan-Tilt-Unit  | **o/ptu**          |
-| Quit Button                    | **f/o/state/ack**  |
 | State HBW                      | **f/i/state/hbw**  |
 | State VGR                      | **f/i/state/vgr**  |
 | State MPO                      | **f/i/state/mpo**  | 

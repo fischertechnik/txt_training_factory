@@ -103,7 +103,7 @@ void TxtSortingLine::fsmStep()
 	//-----------------------------------------------------------------
 	case IDLE:
 	{
-		printState(IDLE);
+		//printState(IDLE);
 		/*TODO wait req MPO
 		if (reqMPOproduced)
 		{
@@ -252,8 +252,9 @@ void TxtSortingLine::fsmStep()
 	{
 		printState(SORTED);
 		convBelt.stop();
-		setActStatus(false, SM_BUSY);
+		setActStatus(false, SM_READY);
 
+		/* TODO sorting line should work stand alone!
 		auto start = std::chrono::system_clock::now();
 		while (!isWhite() && !isRed() && !isBlue())
 		{
@@ -296,7 +297,7 @@ void TxtSortingLine::fsmStep()
 		{
 			FSM_TRANSITION( FAULT, color=red, label='color\nwrong' );
 			break;
-		}
+		}*/
 
 		assert(mqttclient);
 		mqttclient->publishSLD_Ack(SLD_SORTED, getDetectedColor(), lastColorValue, TIMEOUT_MS_PUBLISH);

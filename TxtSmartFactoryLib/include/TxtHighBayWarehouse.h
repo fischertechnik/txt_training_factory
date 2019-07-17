@@ -127,7 +127,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtHighBayWarehouse(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
+	TxtHighBayWarehouse(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient = 0);
 	virtual ~TxtHighBayWarehouse();
 
 	/* remote */
@@ -206,6 +206,10 @@ public:
 	TxtHighBayWarehouseStorage* getStorage() { return &storage; }
 	void publishStorage() { storage.Notify(); }
 
+	TxtAxis1RefSwitch axisX;
+	TxtAxis1RefSwitch axisY;
+	TxtAxisNSwitch axisZ;
+
 protected:
 	State_t currentState;
 	State_t newState;
@@ -227,9 +231,6 @@ protected:
      */
 	void run();
 
-	TxtAxis1RefSwitch axisX;
-	TxtAxis1RefSwitch axisY;
-	TxtAxisNSwitch axisZ;
 	TxtConveyorBeltLightBarriers convBelt;
 	TxtHighBayWarehouseStorage storage;
 	TxtHighBayWarehouseCalibData calibData;

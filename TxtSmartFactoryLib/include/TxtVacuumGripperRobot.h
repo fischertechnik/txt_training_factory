@@ -201,7 +201,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
+	TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient = 0);
 	virtual ~TxtVacuumGripperRobot();
 
 	/* remote */
@@ -307,6 +307,10 @@ public:
 	void setTarget(std::string t) { target = t; Notify(); }
 	std::string getTarget() { return target; }
 
+	TxtAxis1RefSwitch axisX;
+	TxtAxis1RefSwitch axisY;
+	TxtAxis1RefSwitch axisZ;
+
 protected:
 	State_t currentState;
 	State_t newState;
@@ -325,10 +329,6 @@ protected:
      * @dotfile TxtVacuumGripperRobotRun.gv
      */
 	void run();
-
-	TxtAxis1RefSwitch axisX;
-	TxtAxis1RefSwitch axisY;
-	TxtAxis1RefSwitch axisZ;
 
 	TxtVacuumGripper vgripper;
 	TxtVacuumGripperRobotCalibData calibData;

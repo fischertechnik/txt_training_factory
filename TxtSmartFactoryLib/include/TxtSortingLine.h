@@ -111,7 +111,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtSortingLine(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
+	TxtSortingLine(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient = 0);
 	virtual ~TxtSortingLine();
 
 	/* remote */

@@ -82,7 +82,7 @@ public:
 		std::cout << "exit " << toString(state) << std::endl;
 	}
 
-	TxtMultiProcessingStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
+	TxtMultiProcessingStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient = 0);
 	virtual ~TxtMultiProcessingStation();
 
 	/* remote */
@@ -122,6 +122,10 @@ public:
     void setValveOvenDoor(bool on);
 	void setLightOven(bool on);
 
+	TxtAxisNSwitch axisGripper;
+	TxtAxisNSwitch axisOvenInOut;
+	TxtAxisNSwitch axisRotTable;
+
 protected:
 	State_t currentState;
 	State_t newState;
@@ -135,9 +139,6 @@ protected:
 
 	uint8_t chMsaw;
 	TxtVacuumGripper vgripper;
-	TxtAxisNSwitch axisGripper;
-	TxtAxisNSwitch axisOvenInOut;
-	TxtAxisNSwitch axisRotTable;
 	TxtConveyorBelt convBelt;
 
 	bool reqQuit;

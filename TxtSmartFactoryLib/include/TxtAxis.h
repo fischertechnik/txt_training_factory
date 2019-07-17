@@ -112,14 +112,14 @@ public:
 	/* move commands */
 	void stop();
 
+	virtual void setMotorOff();
+	virtual void setMotorLeft();
+	virtual void setMotorRight();
+
 protected:
 	void configInputs(uint8_t chS);
 	bool isSwitchPressed(uint8_t chS);
 	void setStatus(TxtAxis_status_t status);
-
-	virtual void setMotorOff();
-	virtual void setMotorLeft();
-	virtual void setMotorRight();
 
 	std::string name;
 	TxtTransfer* pT;

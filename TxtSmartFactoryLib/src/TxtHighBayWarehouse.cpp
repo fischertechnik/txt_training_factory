@@ -246,7 +246,7 @@ bool TxtHighBayWarehouse::fetch(TxtWPType_t t)
 		if (p.x<0 || p.y<0) return false;
 		bool r = getCR(p.x, p.y);
 		if (!r) return false;
-		r = putConv();
+		r = putConv(true);
 		if (!r) return false;
 		setActStatus(false, SM_READY);
 		storage.saveStorageState();

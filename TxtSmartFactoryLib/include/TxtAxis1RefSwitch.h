@@ -57,9 +57,9 @@ public:
 	uint16_t getPosAbs() { return pos; }
 	uint16_t getPosEnd() { return posEnd; }
 
-protected:
 	virtual void setMotorRight(); //override and check posEnd
 
+protected:
 	void reset();
 	void resetCounter();
 
