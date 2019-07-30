@@ -20,7 +20,7 @@ The next picture shows the network overview with the TXT controllers.
 The programs can be copied using the TXT [WEB server](doc/WEBServer.md).
 
 ## API Reference
-The Doxygen documentation of the C / C ++ library classes can be found in the [API Reference](TxtSmartFactoryLib/doc/html/index.html).
+The Doxygen documentation of the C / C ++ library classes can be found in the [API Reference](https://fischertechnik.github.io/txt_training_factory/TxtSmartFactoryLib/doc/html/index.html).
 
 ## MQTT Interface
 The [MQTT Interface](TxtSmartFactoryLib/doc/MqttInterface.md) describes the topics and the payload of the MQTT clients. 
