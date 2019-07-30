@@ -1,0 +1,19 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classft_1_1_subject_observer.html" title="ft::SubjectObserver" alt="" coords="5,208,140,235"/>
+<area shape="rect" id="node2" href="$classft_1_1_txt_axis1_ref_switch.html" title="ft::TxtAxis1RefSwitch" alt="" coords="222,411,373,437"/>
+<area shape="rect" id="node3" href="$classft_1_1_txt_b_m_e680.html" title="ft::TxtBME680" alt="" coords="244,5,351,32"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_camera.html" title="ft::TxtCamera" alt="" coords="246,56,349,83"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_high_bay_warehouse_storage.html" title="ft::TxtHighBayWarehouseStorage" alt="" coords="188,107,407,133"/>
+<area shape="rect" id="node6" href="$classft_1_1_txt_joystick_x_y_b_controller.html" title="ft::TxtJoystickXYBController" alt="" coords="203,157,392,184"/>
+<area shape="rect" id="node7" href="$classft_1_1_txt_motion_detection.html" title="ft::TxtMotionDetection" alt="" coords="221,208,373,235"/>
+<area shape="rect" id="node8" href="$classft_1_1_txt_nfc_device.html" title="ft::TxtNfcDevice" alt="" coords="238,259,357,285"/>
+<area shape="rect" id="node9" href="$classft_1_1_txt_pan_tilt_unit.html" title="ft::TxtPanTiltUnit" alt="" coords="236,309,359,336"/>
+<area shape="rect" id="node10" href="$classft_1_1_txt_simulation_model.html" title="ft::TxtSimulationModel" alt="" coords="221,360,374,387"/>
+<area shape="rect" id="node11" href="$classft_1_1_txt_delivery_pickup_station.html" title="ft::TxtDeliveryPickupStation" alt="" coords="457,259,643,285"/>
+<area shape="rect" id="node12" href="$classft_1_1_txt_high_bay_warehouse.html" title="ft::TxtHighBayWarehouse" alt="" coords="463,309,637,336"/>
+<area shape="rect" id="node13" href="$classft_1_1_txt_multi_processing_station.html" title="ft::TxtMultiProcessingStation" alt="" coords="455,360,645,387"/>
+<area shape="rect" id="node14" href="$classft_1_1_txt_sorting_line.html" title="ft::TxtSortingLine" alt="" coords="489,411,611,437"/>
+<area shape="rect" id="node15" href="$classft_1_1_txt_vacuum_gripper_robot.html" title="ft::TxtVacuumGripperRobot" alt="" coords="459,461,641,488"/>
+<area shape="rect" id="node16" href="$classft_1_1_txt_axis.html" title="ft::TxtAxis" alt="" coords="31,436,114,463"/>
+<area shape="rect" id="node17" href="$classft_1_1_txt_axis_n_switch.html" title="ft::TxtAxisNSwitch" alt="" coords="231,461,364,488"/>
+</map>

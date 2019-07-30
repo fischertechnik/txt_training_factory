@@ -1,0 +1,21 @@
+<map id="Observer.h" name="Observer.h">
+<area shape="rect" id="node2" href="$_txt_alert_8h.html" title="TxtAlert.h" alt="" coords="5,155,84,181"/>
+<area shape="rect" id="node3" href="$_txt_b_m_e680_8h.html" title="TxtBME680.h" alt="" coords="85,80,188,107"/>
+<area shape="rect" id="node4" href="$_txt_axis_8h.html" title="TxtAxis.h" alt="" coords="664,80,743,107"/>
+<area shape="rect" id="node8" href="$_txt_joystick_x_y_b_controller_8h.html" title="TxtJoystickXYBController.h" alt="" coords="1051,379,1235,405"/>
+<area shape="rect" id="node13" href="$_txt_simulation_model_8h.html" title="TxtSimulationModel.h" alt="" coords="211,155,359,181"/>
+<area shape="rect" id="node15" href="$_txt_vacuum_gripper_8h.html" title="TxtVacuumGripper.h" alt="" coords="963,155,1105,181"/>
+<area shape="rect" id="node16" href="$_txt_pan_tilt_unit_8h.html" title="TxtPanTiltUnit.h" alt="" coords="1181,155,1298,181"/>
+<area shape="rect" id="node17" href="$_txt_camera_8h.html" title="TxtCamera.h" alt="" coords="1423,80,1522,107"/>
+<area shape="rect" id="node18" href="$_txt_motion_detection_8h.html" title="TxtMotionDetection.h" alt="" coords="1386,155,1533,181"/>
+<area shape="rect" id="node19" href="$_txt_nfc_device_8h.html" title="TxtNfcDevice.h" alt="" coords="215,80,330,107"/>
+<area shape="rect" id="node20" href="$_txt_high_bay_warehouse_storage_8h.html" title="TxtHighBayWarehouseStorage.h" alt="" coords="413,80,626,107"/>
+<area shape="rect" id="node5" href="$_txt_axis1_ref_switch_8h.html" title="TxtAxis1RefSwitch.h" alt="" coords="791,155,938,181"/>
+<area shape="rect" id="node9" href="$_txt_axis_n_switch_8h.html" title="TxtAxisNSwitch.h" alt="" coords="639,155,767,181"/>
+<area shape="rect" id="node11" href="$_txt_conveyor_belt_8h.html" title="TxtConveyorBelt.h" alt="" coords="485,155,615,181"/>
+<area shape="rect" id="node12" href="$_txt_sorting_line_8h.html" title="TxtSortingLine.h" alt="" coords="325,229,442,256"/>
+<area shape="rect" id="node14" href="$_txt_delivery_pickup_station_8h.html" title="TxtDeliveryPickupStation.h" alt="" coords="69,229,250,256"/>
+<area shape="rect" id="node6" href="$_txt_high_bay_warehouse_8h.html" title="TxtHighBayWarehouse.h" alt="" coords="466,229,634,256"/>
+<area shape="rect" id="node7" href="$_txt_vacuum_gripper_robot_8h.html" title="TxtVacuumGripperRobot.h" alt="" coords="793,304,971,331"/>
+<area shape="rect" id="node10" href="$_txt_multi_processing_station_8h.html" title="TxtMultiProcessingStation.h" alt="" coords="658,229,845,256"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="ft::TxtDeliveryPickupStation" name="ft::TxtDeliveryPickupStation">
+<area shape="rect" id="node2" href="$classft_1_1_txt_simulation_model.html" title="ft::TxtSimulationModel" alt="" coords="711,149,865,176"/>
+<area shape="rect" id="node3" href="$classft_1_1_subject_observer.html" title="ft::SubjectObserver" alt="" coords="437,91,572,117"/>
+<area shape="rect" id="node12" href="$classft_1_1_txt_nfc_device.html" title="ft::TxtNfcDevice" alt="" coords="729,81,847,108"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_transfer.html" title="ft::TxtTransfer" alt="" coords="452,195,557,221"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_mqtt_factory_client.html" title="ft::TxtMqttFactoryClient" alt="" coords="424,144,585,171"/>
+<area shape="rect" id="node6" href="$classft_1_1action__listener__publish.html" title="ft::action_listener\l_publish" alt="" coords="197,117,320,158"/>
+<area shape="rect" id="node8" href="$classft_1_1action__listener__subscribe.html" title="ft::action_listener\l_subscribe" alt="" coords="197,182,320,223"/>
+<area shape="rect" id="node10" href="$classft_1_1_txt_delivery_pickup_station_calib_data.html" title="ft::TxtDeliveryPickupStation\lCalibData" alt="" coords="695,219,881,261"/>
+<area shape="rect" id="node11" href="$classft_1_1_txt_calib_data.html" title="ft::TxtCalibData" alt="" coords="447,245,562,272"/>
+<area shape="rect" id="node13" href="$classft_1_1_txt_nfc_data.html" title="ft::TxtNfcData" alt="" coords="451,37,558,64"/>
+<area shape="rect" id="node14" href="$classft_1_1_txt_workpiece.html" title="ft::TxtWorkpiece" alt="" coords="199,5,318,32"/>
+<area shape="rect" id="node15" href="$unionft_1_1ts__u.html" title="ft::ts_u" alt="" coords="227,56,290,83"/>
+</map>

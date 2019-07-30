@@ -1,0 +1,15 @@
+<map id="TxtJoystickXYBController.h" name="TxtJoystickXYBController.h">
+<area shape="rect" id="node7" href="$_observer_8h.html" title="Observer.h" alt="" coords="1639,379,1726,405"/>
+<area shape="rect" id="node12" href="$_txt_axis_8h.html" title="TxtAxis.h" alt="" coords="702,304,781,331"/>
+<area shape="rect" id="node17" href="$_txt_vacuum_gripper_robot_8h.html" title="TxtVacuumGripperRobot.h" alt="" coords="922,80,1099,107"/>
+<area shape="rect" id="node18" href="$_txt_simulation_model_8h.html" title="TxtSimulationModel.h" alt="" coords="745,229,893,256"/>
+<area shape="rect" id="node19" href="$_txt_calib_data_8h.html" title="TxtCalibData.h" alt="" coords="1958,379,2069,405"/>
+<area shape="rect" id="node21" href="$_txt_axis1_ref_switch_8h.html" title="TxtAxis1RefSwitch.h" alt="" coords="413,229,560,256"/>
+<area shape="rect" id="node22" href="$_txt_delivery_pickup_station_8h.html" title="TxtDeliveryPickupStation.h" alt="" coords="856,155,1037,181"/>
+<area shape="rect" id="node29" href="$_txt_mqtt_factory_client_8h.html" title="TxtMqttFactoryClient.h" alt="" coords="2497,304,2653,331"/>
+<area shape="rect" id="node38" href="$_txt_vacuum_gripper_8h.html" title="TxtVacuumGripper.h" alt="" coords="1155,229,1298,256"/>
+<area shape="rect" id="node39" href="$_txt_factory_process_storage_8h.html" title="TxtFactoryProcessStorage.h" alt="" coords="957,304,1147,331"/>
+<area shape="rect" id="node23" href="$_txt_nfc_device_8h.html" title="TxtNfcDevice.h" alt="" coords="1971,229,2085,256"/>
+<area shape="rect" id="node36" href="$_txt_factory_types_8h.html" title="TxtFactoryTypes.h" alt="" coords="1750,379,1882,405"/>
+<area shape="rect" id="node32" href="$_utils_8h.html" title="Utils.h" alt="" coords="1555,379,1615,405"/>
+</map>

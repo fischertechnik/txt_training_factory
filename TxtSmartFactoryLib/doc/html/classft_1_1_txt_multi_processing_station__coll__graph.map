@@ -1,0 +1,15 @@
+<map id="ft::TxtMultiProcessingStation" name="ft::TxtMultiProcessingStation">
+<area shape="rect" id="node2" href="$classft_1_1_txt_simulation_model.html" title="ft::TxtSimulationModel" alt="" coords="799,185,952,212"/>
+<area shape="rect" id="node3" href="$classft_1_1_subject_observer.html" title="ft::SubjectObserver" alt="" coords="437,225,572,252"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_transfer.html" title="ft::TxtTransfer" alt="" coords="206,84,311,111"/>
+<area shape="rect" id="node13" href="$classft_1_1_txt_axis.html" title="ft::TxtAxis" alt="" coords="463,112,546,139"/>
+<area shape="rect" id="node14" href="$classft_1_1_txt_vacuum_gripper.html" title="ft::TxtVacuumGripper" alt="" coords="609,11,756,37"/>
+<area shape="rect" id="node16" href="$classft_1_1_txt_conveyor_belt.html" title="ft::TxtConveyorBelt" alt="" coords="615,67,751,93"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_mqtt_factory_client.html" title="ft::TxtMqttFactoryClient" alt="" coords="424,276,585,303"/>
+<area shape="rect" id="node6" href="$classft_1_1action__listener__publish.html" title="ft::action_listener\l_publish" alt="" coords="197,245,320,286"/>
+<area shape="rect" id="node8" href="$classft_1_1action__listener__subscribe.html" title="ft::action_listener\l_subscribe" alt="" coords="197,310,320,351"/>
+<area shape="rect" id="node10" href="$classft_1_1_txt_multi_processing_station_observer.html" title="ft::TxtMultiProcessingStation\lObserver" alt="" coords="780,237,971,278"/>
+<area shape="rect" id="node11" href="$classft_1_1_observer.html" title="ft::Observer" alt="" coords="459,327,550,353"/>
+<area shape="rect" id="node12" href="$classft_1_1_txt_axis_n_switch.html" title="ft::TxtAxisNSwitch" alt="" coords="809,135,942,161"/>
+<area shape="rect" id="node15" href="$classft_1_1_txt_workpiece.html" title="ft::TxtWorkpiece" alt="" coords="816,303,935,329"/>
+</map>

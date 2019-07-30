@@ -1,0 +1,9 @@
+<map id="ft::Observer" name="ft::Observer">
+<area shape="rect" id="node2" href="$classft_1_1_txt_delivery_pickup_station_observer.html" title="ft::TxtDeliveryPickupStation\lObserver" alt="" coords="164,5,351,47"/>
+<area shape="rect" id="node3" href="$classft_1_1_txt_high_bay_warehouse_observer.html" title="ft::TxtHighBayWarehouseObserver" alt="" coords="144,71,371,98"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_high_bay_warehouse_storage_observer.html" title="ft::TxtHighBayWarehouseStorage\lObserver" alt="" coords="148,123,367,164"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_multi_processing_station_observer.html" title="ft::TxtMultiProcessingStation\lObserver" alt="" coords="162,188,353,229"/>
+<area shape="rect" id="node6" href="$classft_1_1_txt_nfc_device_observer.html" title="ft::TxtNfcDeviceObserver" alt="" coords="171,254,343,281"/>
+<area shape="rect" id="node7" href="$classft_1_1_txt_sorting_line_observer.html" title="ft::TxtSortingLineObserver" alt="" coords="170,305,345,331"/>
+<area shape="rect" id="node8" href="$classft_1_1_txt_vacuum_gripper_robot_observer.html" title="ft::TxtVacuumGripperRobot\lObserver" alt="" coords="166,356,349,397"/>
+</map>

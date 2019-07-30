@@ -1,0 +1,27 @@
+<map id="ft::TxtVacuumGripperRobot" name="ft::TxtVacuumGripperRobot">
+<area shape="rect" id="node2" href="$classft_1_1_txt_simulation_model.html" title="ft::TxtSimulationModel" alt="" coords="711,147,865,174"/>
+<area shape="rect" id="node12" href="$classft_1_1_txt_delivery_pickup_station.html" title="ft::TxtDeliveryPickupStation" alt="" coords="1116,323,1303,350"/>
+<area shape="rect" id="node3" href="$classft_1_1_subject_observer.html" title="ft::SubjectObserver" alt="" coords="437,147,572,174"/>
+<area shape="rect" id="node15" href="$classft_1_1_txt_nfc_device.html" title="ft::TxtNfcDevice" alt="" coords="729,319,847,346"/>
+<area shape="rect" id="node26" href="$classft_1_1_txt_axis1_ref_switch.html" title="ft::TxtAxis1RefSwitch" alt="" coords="1134,273,1285,299"/>
+<area shape="rect" id="node4" href="$classft_1_1_txt_transfer.html" title="ft::TxtTransfer" alt="" coords="452,269,557,295"/>
+<area shape="rect" id="node20" href="$classft_1_1_txt_vacuum_gripper.html" title="ft::TxtVacuumGripper" alt="" coords="923,373,1070,399"/>
+<area shape="rect" id="node27" href="$classft_1_1_txt_axis.html" title="ft::TxtAxis" alt="" coords="747,269,829,295"/>
+<area shape="rect" id="node5" href="$classft_1_1_txt_mqtt_factory_client.html" title="ft::TxtMqttFactoryClient" alt="" coords="424,45,585,71"/>
+<area shape="rect" id="node6" href="$classft_1_1action__listener__publish.html" title="ft::action_listener\l_publish" alt="" coords="197,71,320,112"/>
+<area shape="rect" id="node8" href="$classft_1_1action__listener__subscribe.html" title="ft::action_listener\l_subscribe" alt="" coords="197,5,320,47"/>
+<area shape="rect" id="node10" href="$classft_1_1_enc_pos3.html" title="ft::EncPos3" alt="" coords="1164,171,1255,198"/>
+<area shape="rect" id="node11" href="$classft_1_1_txt_factory_process_storage.html" title="ft::TxtFactoryProcessStorage" alt="" coords="1112,222,1307,249"/>
+<area shape="rect" id="node13" href="$classft_1_1_txt_delivery_pickup_station_calib_data.html" title="ft::TxtDeliveryPickupStation\lCalibData" alt="" coords="695,424,881,465"/>
+<area shape="rect" id="node14" href="$classft_1_1_txt_calib_data.html" title="ft::TxtCalibData" alt="" coords="447,486,562,513"/>
+<area shape="rect" id="node19" href="$classft_1_1_txt_vacuum_gripper_robot_calib_data.html" title="ft::TxtVacuumGripperRobot\lCalibData" alt="" coords="905,477,1088,519"/>
+<area shape="rect" id="node16" href="$classft_1_1_txt_nfc_data.html" title="ft::TxtNfcData" alt="" coords="451,429,558,455"/>
+<area shape="rect" id="node17" href="$classft_1_1_txt_workpiece.html" title="ft::TxtWorkpiece" alt="" coords="199,631,318,658"/>
+<area shape="rect" id="node18" href="$unionft_1_1ts__u.html" title="ft::ts_u" alt="" coords="227,429,290,455"/>
+<area shape="rect" id="node21" href="$classft_1_1_txt_joysticks_data.html" title="ft::TxtJoysticksData" alt="" coords="1139,499,1280,526"/>
+<area shape="rect" id="node22" href="$classft_1_1_txt_delivery_pickup_station_observer.html" title="ft::TxtDeliveryPickupStation\lObserver" alt="" coords="1116,719,1303,760"/>
+<area shape="rect" id="node23" href="$classft_1_1_observer.html" title="ft::Observer" alt="" coords="743,617,833,643"/>
+<area shape="rect" id="node24" href="$classft_1_1_txt_vacuum_gripper_robot_observer.html" title="ft::TxtVacuumGripperRobot\lObserver" alt="" coords="1118,551,1301,592"/>
+<area shape="rect" id="node28" href="$classft_1_1_txt_nfc_device_observer.html" title="ft::TxtNfcDeviceObserver" alt="" coords="1123,617,1295,643"/>
+<area shape="rect" id="node25" href="$structft_1_1_txt_order_state.html" title="ft::TxtOrderState" alt="" coords="1149,667,1269,694"/>
+</map>

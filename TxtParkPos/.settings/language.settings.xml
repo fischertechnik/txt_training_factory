@@ -33,7 +33,7 @@
 			</provider>
 		</extension>
 	</configuration>
-	<configuration id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.203970726" name="SCC_Posix_Release">
+	<configuration id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.203970726" name="SSC_Posix_Release">
 		<extension point="org.eclipse.cdt.core.LanguageSettingsProvider">
 			<provider copy-of="extension" id="org.eclipse.cdt.ui.UserLanguageSettingsProvider"/>
 			<provider-reference id="org.eclipse.cdt.core.ReferencedProjectsLanguageSettingsProvider" ref="shared-provider"/>
