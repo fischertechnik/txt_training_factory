@@ -20,13 +20,13 @@ The next picture shows the network overview with the TXT controllers.
 The programs can be copied using the TXT [WEB server](doc/WEBServer.md).
 
 ## API Reference
-The Doxygen documentation of the C / C ++ library classes can be found in the [API Reference](https://fischertechnik.github.io/txt_training_factory/TxtSmartFactoryLib/doc/html/index.html).
+The Doxygen documentation of the C / C ++ library classes can be found in the [API Reference](https://fischertechnik.github.io/txt_training_factory_doc/TxtSmartFactoryLib/doc/html/index.html).
 
 ## MQTT Interface
 The [MQTT Interface](TxtSmartFactoryLib/doc/MqttInterface.md) describes the topics and the payload of the MQTT clients. 
 
-Another local MQTT client can be added, taking note of the following parameters.
-* **host** (default): 192.178.0.10
+Another local MQTT client can be added, taking note of the following parameters:
+* **host** (default): 192.168.0.10
 * **port** (default): 1883
 * **user** (default): txt
 * **password** (default): xtx
