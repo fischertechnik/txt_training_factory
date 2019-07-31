@@ -18,7 +18,7 @@ Das nächste Bild zeigt die Netzwerkübersicht mit den TXT Controllern.
 Die Programme können mit dem [WEB server](doc/WEBServer.md) auf den TXT Controller kopiert werden.
 
 ## API Reference
-Die Doxygen-Dokumentation der C/C++ Bibliotheksklassen finden Sie in der [API-Referenz](https://fischertechnik.github.io/txt_training_factory_doc/TxtSmartFactoryLib/doc/html/index.html).
+Die Doxygen-Dokumentation der C/C++ Bibliotheksklassen finden Sie in der [API-Referenz](https://fischertechnik.github.io/txt_training_factory_doc/html/index.html).
 
 ## MQTT Interface
 Die [MQTT Schnittstelle](TxtSmartFactoryLib/doc/MqttInterface.md)  beschreibt die Nutzdaten der MQTT-Clients.
