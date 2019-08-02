@@ -24,25 +24,34 @@ The page of the TXT controller is password protected.
 The following query of the password is displayed in the WEB browser:
 
 ![WEBBrowser Pass](WEBBrowser_Pass.png)
- 
+
 After entering the password, the page of the TXT controller should now be visible.
 
 ![TXT WEB Site](TXT_WEB_Site.png)
 
 To copy C programs to the TXT controller, change to the directory "C-Program" by clicking on it with the mouse. In this directory C programs are stored on the TXT controller.
 
-Files can be deleted using the Recycle Bin icon or added via the (+) icon.
+Files can be deleted using the Recycle Bin icon or added via the **+** icon.
 
-If you click on (+), a dialog box opens in which you can select files on the computer with "Upload files" and add them with "Add Files". If one or more files have been selected, they are uploaded to the TXT Controller with "Finish".
+If you click on **+**, a dialog box opens in which you can select files on the computer with "Upload files" and add them with "Add Files". If one or more files have been selected, they are uploaded to the TXT Controller with "Finish".
 
-## C Programs - Learning Factory 4.0
+## C Programs - Training Factory Industry 4.0
 Current TXT Training Factory Industry 4.0 C programs can be found on [GitHub](https://github.com/fischertechnik/txt_training_factory/tree/master/bin). Save the programs on the computer and download the appropriate C programs to the respective TXT controller as described above. Each TXT controller in TXT Training Factory Industry 4.0 opens its own WEB page. The cloud main application is copied to the "Cloud" folder, the rest of the C programs are copied to the "C-Program" folder.
 
-* **Main**:![TXT Main Prog](TXT_Main_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
-* **MPO**:![TXT MPO Prog](TXT_MPO_Prog.png)
-* **HBW**:![TXT HBW Prog](TXT_HBW_Prog.png)
-* **VGR**:![TXT VGR Prog](TXT_VGR_Prog.png)
-* **SLD**:![TXT SLD Prog](TXT_SLD_Prog.png)
+* **Main**:
+![TXT Main Prog](TXT_Main_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
+
+* **MPO**:
+![TXT MPO Prog](TXT_MPO_Prog.png)
+
+* **HBW**:
+![TXT HBW Prog](TXT_HBW_Prog.png)
+
+* **VGR**:
+![TXT VGR Prog](TXT_VGR_Prog.png)
+
+* **SLD**:
+![TXT SLD Prog](TXT_SLD_Prog.png)
 
 The C program is automatically loaded at power up when "Auto Load" is enabled. The program is loaded with "Load" as usual with the TXT controller and can then be started via the green button. If the program was started, the button will turn red, with which the program can be stopped again.
 
