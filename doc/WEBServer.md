@@ -1,7 +1,7 @@
 # TXT WEB Server
 The TXT controller firmware version> = 4.5.0 contains an integrated WEB server that can be used to upload and download programs and files to the TXT. In this way, e.g. C programs are copied from the computer to the TXT controller and then started via the user interface of the TXT controller.
 
-If the WEB server is not yet switched on, it must first be activated in the TXT menu (* Settings -> (down arrow) -> Security -> WEB Server *). When the WEB server is switched on, a "ws" symbol is displayed in the upper TXT status bar.
+If the WEB server is not yet switched on, it must first be activated in the TXT menu (*Settings* -> *(down arrow)* -> *Security* -> *WEB Server*). When the WEB server is switched on, a "ws" symbol is displayed in the upper TXT status bar.
 
 ![Settings WEBServer](Settings_WEBServer0.png) ![Settings WEBServer](Settings_WEBServer1.png) ![Settings WEBServer](Settings_WEBServer2.png) ![Settings WEBServer](Settings_WEBServer_Off.png) ![Statusbar WS](Settings_WEBServer_On.png)
 
