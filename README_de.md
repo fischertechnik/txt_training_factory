@@ -15,7 +15,7 @@ Das nächste Bild zeigt die Netzwerkübersicht mit den TXT Controllern.
 ![Netzwerkübersicht](doc/Overview_Network.PNG "Netzwerkübersicht")
 
 ## Installation
-Die Programme können mit dem [WEB server](doc/WEBServer.md) auf den TXT Controller kopiert werden.
+Die Programme können mit dem [WEB server](doc/WEBServer_de.md) auf den TXT Controller kopiert werden.
 
 ## API Reference
 Die Doxygen-Dokumentation der C/C++ Bibliotheksklassen finden Sie in der [API-Referenz](https://fischertechnik.github.io/txt_training_factory_doc/html/index.html).
