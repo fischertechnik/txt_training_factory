@@ -5,21 +5,21 @@ If the WEB server is not yet switched on, it must first be activated in the TXT 
 
 ![Settings WEBServer](Settings_WEBServer0.png) ![Settings WEBServer](Settings_WEBServer1.png) ![Settings WEBServer](Settings_WEBServer2.png) ![Settings WEBServer](Settings_WEBServer_Off.png) ![Statusbar WS](Settings_WEBServer_On.png)
 
-The TXT controller can be connected to the computer via * USB / WLAN / Bluetooth *.
+The TXT controller can be connected to the computer via *USB* / *WLAN* / *Bluetooth*.
 
-The WEB page of the TXT controller can be accessed when the IP address is entered in the WEB browser (Chrome or Firefox is recommended). Depending on the interface, a different IP address must be entered.
+The WEB page of the TXT controller can be accessed when the IP address is entered in the WEB browser (*Chrome* or *Firefox* are recommended). Depending on the interface, a different IP address must be entered.
 
-* ** USB **: 192.168.7.2
-* ** WLAN AP **: 192.168.8.2
-* ** Bluetooth **: 192.168.9.2
-* ** WLAN Client **: X.X.X.X
+* **USB**: 192.168.7.2
+* **WLAN AP**: 192.168.8.2
+* **Bluetooth**: 192.168.9.2
+* **WLAN Client**: X.X.X.X
 
 ![WEBBrowser IP] (WEBBrowser_IP.png)
 
 The page of the TXT controller is password protected.
 
-* ** User **: * TXT *
-* ** Password **: Four-digit number of the TXT controller displayed in the upper status bar on the TXT display (e.g. *2427* if "TXT-2427" is displayed)
+* **User**: *TXT*
+* **Password**: Four-digit number of the TXT controller displayed in the upper status bar on the TXT display (e.g. *6892* if "TXT-6892" is displayed)
 
 The following query of the password is displayed in the WEB browser:
 
@@ -38,11 +38,11 @@ If you click on (+), a dialog box opens in which you can select files on the com
 ## C Programs - Learning Factory 4.0
 Current TXT Training Factory Industry 4.0 C programs can be found on [GitHub](https://github.com/fischertechnik/txt_training_factory/tree/master/bin). Save the programs on the computer and download the appropriate C programs to the respective TXT controller as described above. Each TXT controller in TXT Training Factory Industry 4.0 opens its own WEB page. The cloud main application is copied to the "Cloud" folder, the rest of the C programs are copied to the "C-Program" folder.
 
-* ** Main **:![TXT Main Prog] (TXT_Main_Prog.png) ![TXT SSC Prog] (TXT_SSC_Prog.png)
-* ** MPO **:![TXT MPO Prog] (TXT_MPO_Prog.png)
-* ** HBW **:![TXT HBW Prog] (TXT_HBW_Prog.png)
-* ** VGR **:![TXT VGR Prog] (TXT_VGR_Prog.png)
-* ** SLD **:![TXT SLD Prog] (TXT_SLD_Prog.png)
+* **Main**:![TXT Main Prog](TXT_Main_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
+* **MPO**:![TXT MPO Prog](TXT_MPO_Prog.png)
+* **HBW**:![TXT HBW Prog](TXT_HBW_Prog.png)
+* **VGR**:![TXT VGR Prog](TXT_VGR_Prog.png)
+* **SLD**:![TXT SLD Prog](TXT_SLD_Prog.png)
 
 The C program is automatically loaded at power up when "Auto Load" is enabled. The program is loaded with "Load" as usual with the TXT controller and can then be started via the green button. If the program was started, the button will turn red, with which the program can be stopped again.
 
