@@ -3,7 +3,7 @@ The TXT controller firmware version> = 4.5.0 contains an integrated WEB server t
 
 If the WEB server is not yet switched on, it must first be activated in the TXT menu (* Settings -> (down arrow) -> Security -> WEB Server *). When the WEB server is switched on, a "ws" symbol is displayed in the upper TXT status bar.
 
-![Settings WEBServer] (Settings_WEBServer0.png){:width="19%"} ![Settings WEBServer] (Settings_WEBServer1.png){:width="19%"} ![Settings WEBServer] (Settings_WEBServer2.png){:width="19%"} ![Settings WEBServer] (Settings_WEBServer_Off.png){:width="19%"} ![Statusbar WS] (Settings_WEBServer_On.png){:width="19%"}
+![Settings WEBServer](Settings_WEBServer0.png){:width="19%"} ![Settings WEBServer](Settings_WEBServer1.png){:width="19%"} ![Settings WEBServer](Settings_WEBServer2.png){:width="19%"} ![Settings WEBServer](Settings_WEBServer_Off.png){:width="19%"} ![Statusbar WS](Settings_WEBServer_On.png){:width="19%"}
 
 The TXT controller can be connected to the computer via * USB / WLAN / Bluetooth *.
 
@@ -23,11 +23,11 @@ The page of the TXT controller is password protected.
 
 The following query of the password is displayed in the WEB browser:
 
-![WEBBrowser Pass] (WEBBrowser_Pass.png)
+![WEBBrowser Pass](WEBBrowser_Pass.png)
  
 After entering the password, the page of the TXT controller should now be visible.
 
-![TXT WEB Site] (TXT_WEB_Site.png)
+![TXT WEB Site](TXT_WEB_Site.png)
 
 To copy C programs to the TXT controller, change to the directory "C-Program" by clicking on it with the mouse. In this directory C programs are stored on the TXT controller.
 
@@ -46,5 +46,5 @@ Current TXT Training Factory Industry 4.0 C programs can be found on [GitHub](ht
 
 The C program is automatically loaded at power up when "Auto Load" is enabled. The program is loaded with "Load" as usual with the TXT controller and can then be started via the green button. If the program was started, the button will turn red, with which the program can be stopped again.
 
-![TXT Autoload] (TXT_Autoload.png) ![TXT Load] (TXT_Load.png)
-![TXT Start] (TXT_Start.png) ![TXT Stop] (TXT_Stop.png)
+![TXT Autoload](TXT_Autoload.png) ![TXT Load](TXT_Load.png)
+![TXT Start](TXT_Start.png) ![TXT Stop](TXT_Stop.png)
