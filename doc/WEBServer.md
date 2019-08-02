@@ -40,27 +40,31 @@ Current TXT Training Factory Industry 4.0 C programs can be found on [GitHub](ht
 
 * **Main**:
 
-![TXT Main Prog](TXT_Main_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
+![WEBServer Main Prog](WEBServer_Main_Prog.png) ![TXT Main Prog](TXT_Main_Prog.png)
+
+![WEBServer SSC Prog](WEBServer_SSC_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
 
 * **MPO**:
 
-![TXT MPO Prog](TXT_MPO_Prog.png)
+![WEBServer MPO Prog](WEBServer_MPO_Prog.png) ![TXT MPO Prog](TXT_MPO_Prog.png)
 
 * **HBW**:
 
-![TXT HBW Prog](TXT_HBW_Prog.png)
+![WEBServer HBW Prog](WEBServer_HBW_Prog.png) ![TXT HBW Prog](TXT_HBW_Prog.png)
 
 * **VGR**:
 
-![TXT VGR Prog](TXT_VGR_Prog.png)
+![WEBServer VGR Prog](WEBServer_VGR_Prog.png) ![TXT VGR Prog](TXT_VGR_Prog.png)
 
 * **SLD**:
 
-![TXT SLD Prog](TXT_SLD_Prog.png)
+![WEBServer SLD Prog](WEBServer_SLD_Prog.png) ![TXT SLD Prog](TXT_SLD_Prog.png)
 
 The C program is automatically loaded at power up when "Auto Load" is enabled. The program is loaded with "Load" as usual with the TXT controller and can then be started via the green button.
 
-![TXT Autoload](TXT_Autoload.png) ![TXT Load](TXT_Load.png)
+![TXT Autoload](TXT_Autoload0.png)
+![TXT Autoload](TXT_Autoload1.png)
+![TXT Autoload](TXT_Autoload2.png)
 
 If the program was started, the button will turn red, with which the program can be stopped again.
 
