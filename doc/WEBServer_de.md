@@ -3,7 +3,7 @@ Die TXT Controller Firmware Version >=4.5.0 enthält einen integrierten WEB serv
 
 Falls der WEB Server noch nicht eingeschaltet ist, muss dieser zunächst im TXT Menü (*Einstellungen –> (Pfeil nach unten) –> Sicherheit -> WEB Server*) aktiviert werden. Bei eingeschaltetem WEB Server wird in der oberen TXT Statusleiste ein "ws" Symbol angezeigt.
 
-![Settings WEBServer](Settings_WEBServer_Off.png) ![Statusbar WS](Settings_WEBServer_On.png)
+![Settings WEBServer](Settings_WEBServer0.png) ![Settings WEBServer](Settings_WEBServer1.png) ![Settings WEBServer](Settings_WEBServer2.png) ![Settings WEBServer](Settings_WEBServer_Off.png) ![Statusbar WS](Settings_WEBServer_On.png)
 
 Der TXT Controller wird über *USB / WLAN / Bluetooth* mit dem Computer verbunden.
 
@@ -38,13 +38,34 @@ Wenn Sie auf (+) klicken, öffnet sich ein Dialogfenster, in dem Sie mit “Uplo
 ## C-Programme - Lernfabrik 4.0
 Aktuelle C-Programme der Lernfabrik 4.0 finden Sie auf [GitHub](https://github.com/fischertechnik/txt_training_factory/tree/master/bin). Speichern Sie die Programme auf dem Computer und laden Sie die entsprechenden C-Programme wie oben bereits beschrieben auf den jeweiligen TXT Controller herunter. Dabei wird pro TXT Controller in der Lernfabrik 4.0 eine eigene WEB Seite geöffnet. Die Cloud-Hauptanwendung wird in den Ordner "Cloud", die restlichen C-Programme werden in den Ordner "C-Program" kopiert.
 
-* **Main**: ![TXT Main Prog](TXT_Main_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
-* **MPO**: ![TXT MPO Prog](TXT_MPO_Prog.png)
-* **HBW**: ![TXT HBW Prog](TXT_HBW_Prog.png)
-* **VGR**: ![TXT VGR Prog](TXT_VGR_Prog.png)
-* **SLD**: ![TXT SLD Prog](TXT_SLD_Prog.png)
+* **Main**:
 
-Das C-Programm wird beim Einschalten automatisch geladen, wenn "Auto Load" aktiviert ist. Das Programm wird mit "Load" wie beim TXT Controller üblich geladen und kann dann über den grünen Button gestartet werden. Wenn das Programm gestartet wurde, so wird der Button rot, mit dem das Programm wieder gestoppt werden kann. 
+![WEBServer Main Prog](WEBServer_Main_Prog.png) ![TXT Main Prog](TXT_Main_Prog.png)
 
-![TXT Autoload](TXT_Autoload.png) ![TXT Load](TXT_Load.png)
+![WEBServer SSC Prog](WEBServer_SSC_Prog.png) ![TXT SSC Prog](TXT_SSC_Prog.png)
+
+* **MPO**:
+
+![WEBServer MPO Prog](WEBServer_MPO_Prog.png) ![TXT MPO Prog](TXT_MPO_Prog.png)
+
+* **HBW**:
+
+![WEBServer HBW Prog](WEBServer_HBW_Prog.png) ![TXT HBW Prog](TXT_HBW_Prog.png)
+
+* **VGR**:
+
+![WEBServer VGR Prog](WEBServer_VGR_Prog.png) ![TXT VGR Prog](TXT_VGR_Prog.png)
+
+* **SLD**:
+
+![WEBServer SLD Prog](WEBServer_SLD_Prog.png) ![TXT SLD Prog](TXT_SLD_Prog.png)
+
+Das C-Programm wird beim Einschalten automatisch geladen, wenn "Auto Load" aktiviert ist. Das Programm wird mit "Load" wie beim TXT Controller üblich geladen und kann dann über den grünen Button gestartet werden.
+
+![TXT Autoload](TXT_Autoload0.png)
+![TXT Autoload](TXT_Autoload1.png)
+![TXT Autoload](TXT_Autoload2.png)
+
+ Wenn das Programm gestartet wurde, so wird der Button rot, mit dem das Programm wieder gestoppt werden kann.
+ 
 ![TXT Start](TXT_Start.png) ![TXT Stop](TXT_Stop.png)
