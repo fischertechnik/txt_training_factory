@@ -3,7 +3,7 @@ The TXT controller firmware version> = 4.5.0 contains an integrated WEB server t
 
 If the WEB server is not yet switched on, it must first be activated in the TXT menu (* Settings -> (down arrow) -> Security -> WEB Server *). When the WEB server is switched on, a "ws" symbol is displayed in the upper TXT status bar.
 
-![Settings WEBServer](Settings_WEBServer0.png){:width="19%"} ![Settings WEBServer](Settings_WEBServer1.png){:width="19%"} ![Settings WEBServer](Settings_WEBServer2.png){:width="19%"} ![Settings WEBServer](Settings_WEBServer_Off.png){:width="19%"} ![Statusbar WS](Settings_WEBServer_On.png){:width="19%"}
+![Settings WEBServer](Settings_WEBServer0.png) ![Settings WEBServer](Settings_WEBServer1.png) ![Settings WEBServer](Settings_WEBServer2.png) ![Settings WEBServer](Settings_WEBServer_Off.png) ![Statusbar WS](Settings_WEBServer_On.png)
 
 The TXT controller can be connected to the computer via * USB / WLAN / Bluetooth *.
 
