@@ -35,6 +35,8 @@ Files can be deleted using the Recycle Bin icon or added via the **+** icon.
 
 If you click on **+**, a dialog box opens in which you can select files on the computer with "Upload files" and add them with "Add Files". If one or more files have been selected, they are uploaded to the TXT Controller with "Finish".
 
+![WEBBrowser +](WEBBrowser_p.png) ![WEBBrowser Add](WEBBrowser_Add.png) ![WEBBrowser Upload](WEBBrowser_Upload.png) ![WEBBrowser Finish](WEBBrowser_Finish.png)
+
 ## C Programs - Training Factory Industry 4.0
 Current TXT Training Factory Industry 4.0 C programs can be found on [GitHub](https://github.com/fischertechnik/txt_training_factory/tree/master/bin). Save the programs on the computer and download the appropriate C programs to the respective TXT controller as described above. Each TXT controller in TXT Training Factory Industry 4.0 opens its own WEB page. The cloud main application is copied to the "Cloud" folder, the rest of the C programs are copied to the "C-Program" folder.
 

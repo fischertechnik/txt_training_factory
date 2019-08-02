@@ -23,7 +23,7 @@ Die Seite des TXT Controllers ist durch ein Passwort gesichert.
 
 Folgende Abfrage des Passworts wird im WEB Browser angezeigt:
 
-![WEBBrowser Pass](WEBBrowser_Pass.png)
+![WEBBrowser Pass](WEBBrowser_Pass_de.png)
  
 Nach Eingabe des Passworts sollte jetzt die Seite des TXT Controllers sichtbar sein.
 
@@ -31,9 +31,12 @@ Nach Eingabe des Passworts sollte jetzt die Seite des TXT Controllers sichtbar s
 
 Um C-Programme auf den TXT Controller zu kopieren, wechseln Sie in das Verzeichnis “C-Program”, indem Sie dieses mit der Maus anklicken. In diesem Verzeichnis werden C-Programme auf dem TXT Controller gespeichert.
 
-Dateien können über das Symbol Papierkorb gelöscht oder über das Symbol (+) hinzugefügt werden.
+Dateien können über das Symbol Papierkorb gelöscht oder über das Symbol **+** hinzugefügt werden.
 
-Wenn Sie auf (+) klicken, öffnet sich ein Dialogfenster, in dem Sie mit “Upload files” Dateien auf dem Computer auswählen und mit “Add Files” hinzufügen können. Wenn eine oder mehrere Dateien ausgewählt wurden, werden diese mit "Finish" auf den TXT Controller hochgeladen. 
+Wenn Sie auf **+** klicken, öffnet sich ein Dialogfenster, in dem Sie mit “Upload files” Dateien auf dem Computer auswählen und mit “Add Files” hinzufügen können. Wenn eine oder mehrere Dateien ausgewählt wurden, werden diese mit "Finish" auf den TXT Controller hochgeladen. 
+
+
+![WEBBrowser +](WEBBrowser_p.png) ![WEBBrowser Add](WEBBrowser_Add.png) ![WEBBrowser Upload](WEBBrowser_Upload.png) ![WEBBrowser Finish](WEBBrowser_Finish.png)
 
 ## C-Programme - Lernfabrik 4.0
 Aktuelle C-Programme der Lernfabrik 4.0 finden Sie auf [GitHub](https://github.com/fischertechnik/txt_training_factory/tree/master/bin). Speichern Sie die Programme auf dem Computer und laden Sie die entsprechenden C-Programme wie oben bereits beschrieben auf den jeweiligen TXT Controller herunter. Dabei wird pro TXT Controller in der Lernfabrik 4.0 eine eigene WEB Seite geöffnet. Die Cloud-Hauptanwendung wird in den Ordner "Cloud", die restlichen C-Programme werden in den Ordner "C-Program" kopiert.
