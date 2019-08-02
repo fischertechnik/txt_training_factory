@@ -30,3 +30,9 @@ Another local MQTT client can be added, taking note of the following parameters:
 * **port** (default): 1883
 * **user** (default): txt
 * **password** (default): xtx
+
+## Finite State Machines
+* [FSM MPO](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtMultiProcessingStationRun.png)
+* [FSM HBW](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtHighBayWarehouseRun.png)
+* [FSM VGR](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtVacuumGripperRobotRun.png)
+* [FSM SLD](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtSortingLineRun.png)

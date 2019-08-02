@@ -28,3 +28,9 @@ Ein weiterer MQTT Client kann hinzugefügt werden, wobei folgende Parameter beac
 * **Port** (default): 1883
 * **Benutzer** (default): txt
 * **Passwort** (default): xtx
+
+## Zustandsmaschinen
+* [FSM MPO](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtMultiProcessingStationRun.png)
+* [FSM HBW](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtHighBayWarehouseRun.png)
+* [FSM VGR](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtVacuumGripperRobotRun.png)
+* [FSM SLD](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtSortingLineRun.png)
