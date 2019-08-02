@@ -14,7 +14,7 @@ The WEB page of the TXT controller can be accessed when the IP address is entere
 * **Bluetooth**: 192.168.9.2
 * **WLAN Client**: X.X.X.X
 
-![WEBBrowser IP] (WEBBrowser_IP.png)
+![WEBBrowser IP](WEBBrowser_IP.png)
 
 The page of the TXT controller is password protected.
 
