@@ -68,6 +68,6 @@ The C program is automatically loaded at power up when "Auto Load" is enabled. T
 ![TXT Autoload](TXT_Autoload1.png)
 ![TXT Autoload](TXT_Autoload2.png)
 
-If the program was started, the button will turn red, with which the program can be stopped again.
+If the program is started, the button will change to red. The program can be stopped again with the red button.
 
 ![TXT Start](TXT_Start.png) ![TXT Stop](TXT_Stop.png)
