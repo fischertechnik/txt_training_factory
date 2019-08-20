@@ -33,34 +33,34 @@ bridge_attempt_unsubscribe false
 ```
 
 # MQTT Interface Dashboard
-| Component SUBSCRIBE            | topic              | payload                      | description   |
-| ------------------------------:|--------------------|------------------------------|---------------|
-| Environment Sensor             | **i/bme680**       | see *TxtFactoryMain PUBLISH* |               |
-| Brightness Sensor              | **i/ldr**          | see *TxtFactoryMain PUBLISH* |               |
-| Camera Picture                 | **i/cam**          | see *TxtFactoryMain PUBLISH* |               |
-| Pos Pan-Tilt-Unit              | **i/ptu/pos**      | see *TxtFactoryMain PUBLISH* |               |
-| Alert Message                  | **i/alert**        | see *TxtFactoryMain PUBLISH* |               |
-| Broadcast                      | **i/broadcast**    | see *TxtFactoryMain PUBLISH* |               |
-| State HBW                      | **f/i/state/hbw**  | see *TxtFactoryHBW PUBLISH*  |               |
-| State VGR                      | **f/i/state/vgr**  | see *TxtFactoryVGR PUBLISH*  |               |
-| State MPO                      | **f/i/state/mpo**  | see *TxtFactoryMPO PUBLISH*  |               |
-| State SLD                      | **f/i/state/sld**  | see *TxtFactorySLD PUBLISH*  |               | 
-| State DSI (VGR)                | **f/i/state/dsi**  | see *TxtFactoryDSI PUBLISH*  |               | 
-| State DSO (VGR)                | **f/i/state/dso**  | see *TxtFactoryDSO PUBLISH*  |               | 
-| Stock HBW                      | **f/i/stock**      | see *TxtFactoryHBW PUBLISH*  |               | 
-| State Order(VGR)               | **f/i/order**      | see *TxtFactoryVGR PUBLISH*  |               | 
-| State NFC Device (VGR)         | **f/i/nfc/ds**     | see *TxtFactoryVGR PUBLISH*  |               | 
+| Component SUBSCRIBE            | topic              | payload                      |
+| ------------------------------:|--------------------|------------------------------|
+| Environment Sensor             | **i/bme680**       | see *TxtFactoryMain PUBLISH* |               
+| Brightness Sensor              | **i/ldr**          | see *TxtFactoryMain PUBLISH* |               
+| Camera Picture                 | **i/cam**          | see *TxtFactoryMain PUBLISH* |               
+| Pos Pan-Tilt-Unit              | **i/ptu/pos**      | see *TxtFactoryMain PUBLISH* |               
+| Alert Message                  | **i/alert**        | see *TxtFactoryMain PUBLISH* |               
+| Broadcast                      | **i/broadcast**    | see *TxtFactoryMain PUBLISH* |               
+| State HBW                      | **f/i/state/hbw**  | see *TxtFactoryHBW PUBLISH*  |               
+| State VGR                      | **f/i/state/vgr**  | see *TxtFactoryVGR PUBLISH*  |               
+| State MPO                      | **f/i/state/mpo**  | see *TxtFactoryMPO PUBLISH*  |               
+| State SLD                      | **f/i/state/sld**  | see *TxtFactorySLD PUBLISH*  |              
+| State DSI (VGR)                | **f/i/state/dsi**  | see *TxtFactoryDSI PUBLISH*  |               
+| State DSO (VGR)                | **f/i/state/dso**  | see *TxtFactoryDSO PUBLISH*  |               
+| Stock HBW                      | **f/i/stock**      | see *TxtFactoryHBW PUBLISH*  |               
+| State Order(VGR)               | **f/i/order**      | see *TxtFactoryVGR PUBLISH*  |                
+| State NFC Device (VGR)         | **f/i/nfc/ds**     | see *TxtFactoryVGR PUBLISH*  |               
 
-| Component PUBLISH              | topic              | payload                      | description   |
-| ------------------------------:|--------------------|------------------------------|---------------|
-| TXT Pairing Ack                | **c/link**         | internal usage               |               |
-| Config Rate Environment Sensor | **c/bme680**       |                              |               |
-| Config Rate Brightness Sensor  | **c/ldr**          |                              |               |
-| Config Rate Camera Picture     | **c/cam**          |                              |               |
-| Control Buttons Pan-Tilt-Unit  | **o/ptu**          |                              |               |
-| Quit Button                    | **f/o/state/ack**  |                              |               |
-| Order Workpiece Buttons        | **f/o/order**      |                              |               |
-| Action Buttons NFC Module      | **f/o/nfc/ds**     |                              |               |
+| Component PUBLISH              | topic              | payload                        |
+| ------------------------------:|--------------------|--------------------------------|
+| TXT Pairing Ack                | **c/link**         | internal usage                 |               
+| Config Rate Environment Sensor | **c/bme680**       | see *TxtFactoryMain SUBSCRIBE* |               
+| Config Rate Brightness Sensor  | **c/ldr**          | see *TxtFactoryMain SUBSCRIBE* |             
+| Config Rate Camera Picture     | **c/cam**          | see *TxtFactoryMain SUBSCRIBE* |            
+| Control Buttons Pan-Tilt-Unit  | **o/ptu**          | see *TxtFactoryMain SUBSCRIBE* |             
+| Quit Button                    | **f/o/state/ack**  | see *TxtFactoryMain SUBSCRIBE* |              
+| Order Workpiece Buttons        | **f/o/order**      | see *TxtFactoryMain SUBSCRIBE* |              
+| Action Buttons NFC Module      | **f/o/nfc/ds**     | see *TxtFactoryMain SUBSCRIBE* |           
 
 # MQTT Interface Local Clients
 Another local MQTT client can be added, taking note of the following parameters:
