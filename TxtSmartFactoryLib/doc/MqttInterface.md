@@ -3,10 +3,15 @@ MQTT Interface
 
 This document describes the MQTT interface of the local MQTT broker, the MQTT bridge and the remote MQTT broker.
 
-# MQTT Remote (fischertechnik Cloud)
-You can configure the MQTT bridge, if you edit the file `/etc/mosquitto/ft-txt-bridge-cloud.conf`. Attention: You need root access rights!
+# MQTT Bridge / MQTT Remote Broker
 
-Content of `ft-txt-bridge-cloud.conf` (see [https://mosquitto.org/](https://mosquitto.org/)):
+## fischertechnik Cloud
+If you use the fischertechnik Cloud [www.fischertechnik-cloud.com](www.fischertechnik-cloud.com), then you have to pair your TXT controller by executing *Settings* -> *Network* -> *Cloud Setup* -> *Pairing New*
+
+## Other Clouds
+IF you want to connect your own remote MQTT broker, you can configure the MQTT bridge by editing of the file `/etc/mosquitto/ft-txt-bridge-cloud.conf`. Attention: You need root access rights to do that!
+
+Content of `ft-txt-bridge-cloud.conf` (see documentation [https://mosquitto.org/](https://mosquitto.org/)):
 ```
 connection YourOwnCloud
 address www.domain.com:8883
@@ -55,7 +60,7 @@ bridge_attempt_unsubscribe false
 | Order Workpiece Buttons        | **f/o/order**      |                              |               |
 | Action Buttons NFC Module      | **f/o/nfc/ds**     |                              |               |
 
-# MQTT Clients
+# MQTT Local Clients
 Another local MQTT client can be added, taking note of the following parameters:
 * **host** (default): 192.168.0.10
 * **port** (default): 1883
