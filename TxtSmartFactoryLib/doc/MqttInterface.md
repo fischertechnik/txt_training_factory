@@ -15,13 +15,13 @@ If you want to connect your own remote MQTT broker, you can configure the MQTT b
 
 Content of `ft-txt-bridge-cloud.conf` (see documentation [https://mosquitto.org/](https://mosquitto.org/)):
 ```
-connection YourOwnCloud
+connection YourOwnCloudName
 address www.domain.com:8883
 bridge_capath /etc/ssl/certs
 notifications false
 cleansession false #on connection dropping
-remote_username YouYourOwnCloudMQTTUser
-remote_password YouYourOwnCloudMQTTPAssword
+remote_username YourOwnCloudMQTTUser
+remote_password YourOwnCloudMQTTPAssword
 local_username txt
 local_password xtx
 topic i/# both 1 "" prefix_mqtt_remote_broker/
