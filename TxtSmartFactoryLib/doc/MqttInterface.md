@@ -107,7 +107,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State MPO                      | **f/i/state/mpo**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "mpo", "code": 0, "description": "text", "active": 1, "target": ""}` |
+| State MPO                      | **f/i/state/mpo**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"mpo", "code":0, "description":"text", "active":1, "target":""}` |
 | Acknowledgment MPO             | **fl/mpo/ack**     |
 
 ## TxtFactoryHBW
@@ -119,8 +119,8 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State HBW                      | **f/i/state/hbw**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "hbw", "code": 0, "description": "text", "active": 1, "target": ""}` |
-| Stock HBW                      | **f/i/stock**      | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "stockItems": [{ "workpiece": { "id":"123456789ABCDE", "type": "<BLUE/WHITE/RED>", "state": "<RAW/PROCESSED>" }, "location": "A1" },{ ... },{ "workpiece": null, "location": "B3" }] }` |
+| State HBW                      | **f/i/state/hbw**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"hbw", "code":0, "description":"text", "active":1, "target":""}` |
+| Stock HBW                      | **f/i/stock**      | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "stockItems": [{ "workpiece": { "id":"123456789ABCDE", "type":"<BLUE/WHITE/RED>", "state":"<RAW/PROCESSED>" }, "location":"A1" },{ ... },{ "workpiece":null, "location":"B3" }] }` |
 | Acknowledgment HBW             | **fl/hbw/ack**     |
 
 ## TxtFactoryVGR
@@ -136,9 +136,9 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State VGR                      | **f/i/state/vgr**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "vgr", "code": 0, "description": "text", "active": 1, "target": "hbw"}` |
-| State DSI (VGR)                | **f/i/state/dsi**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "dsi", "code": 0, "description": "text", "active": 1}` |
-| State DSO (VGR)                | **f/i/state/dso**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "dso", "code": 0, "description": "text", "active": 1}` |
+| State VGR                      | **f/i/state/vgr**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"vgr", "code":0, "description":"text", "active":1, "target":"hbw"}` |
+| State DSI (VGR)                | **f/i/state/dsi**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dsi", "code":0, "description":"text", "active":1}` |
+| State DSO (VGR)                | **f/i/state/dso**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dso", "code":0, "description":"text", "active":1}` |
 | VGR Trigger                    | **fl/vgr/do**      |
 
 ## TxtFactorySLD
@@ -149,5 +149,5 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State SLD                      | **f/i/state/sld**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "sld", "code": 0, "description": "text", "active": 1, "target": "hbw"}` |
+| State SLD                      | **f/i/state/sld**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"sld", "code":0, "description":"text", "active":1, "target":"hbw"}` |
 | Acknowledgment SLD             | **fl/sld/ack**     |
