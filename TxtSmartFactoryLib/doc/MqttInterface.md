@@ -1,7 +1,7 @@
 MQTT Interface
 ==============
 
-This document decribes the MQTT interface of the local MQTT clients and the MQTT bridge to the remote MQTT broker.
+This document describes the MQTT interface of the local MQTT broker, the MQTT bridge and the remote MQTT broker.
 
 # MQTT Remote (fischertechnik Cloud)
 You can configure the MQTT bridge, if you edit the file `/etc/mosquitto/ft-txt-bridge-cloud.conf`. Attention: You need root access rights!
