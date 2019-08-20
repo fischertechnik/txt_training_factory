@@ -1,10 +1,29 @@
 MQTT Interface
 ==============
-| abbreviation | payload example            | description                    |
-|-------------:|----------------------------|--------------------------------|
-| **ts**       | YYYY-MM-DDThh:mm:ss.fffZ   |time stamp according to ISO8601: year:YYYY, month:MM, day:DD, hour:hh, minute:mm, second:ss, fraction:fff |
+
+This document decribes the MQTT interface of the local MQTT clients and the MQTT bridge to the remote MQTT broker.
 
 # MQTT Remote (fischertechnik Cloud)
+You can configure the MQTT bridge, if you edit the file `/etc/mosquitto/ft-txt-bridge-cloud.conf`. Attention: You need root access rights!
+
+Content of `ft-txt-bridge-cloud.conf` (see [https://mosquitto.org/](https://mosquitto.org/)):
+```
+connection YourOwnCloud
+address www.domain.com:8883
+bridge_capath /etc/ssl/certs
+notifications false
+cleansession false #on connection dropping
+remote_username YouYourOwnCloudMQTTUser
+remote_password YouYourOwnCloudMQTTPAssword
+local_username txt
+local_password xtx
+topic i/# both 1 "" prefix_mqtt_remote_broker/
+topic o/# both 1 "" prefix_mqtt_remote_broker/
+topic c/# both 1 "" prefix_mqtt_remote_broker/
+topic f/# both 1 "" prefix_mqtt_remote_broker/
+try_private false
+bridge_attempt_unsubscribe false
+```
 
 ## fischertechnik Cloud / Dashboard
 | Component SUBSCRIBE            | topic              | payload                      | description   |
@@ -36,7 +55,16 @@ MQTT Interface
 | Order Workpiece Buttons        | **f/o/order**      |                              |               |
 | Action Buttons NFC Module      | **f/o/nfc/ds**     |                              |               |
 
-# MQTT Programs
+# MQTT Clients
+Another local MQTT client can be added, taking note of the following parameters:
+* **host** (default): 192.168.0.10
+* **port** (default): 1883
+* **user** (default): txt
+* **password** (default): xtx
+
+| abbreviation | payload example            | description                    |
+|-------------:|----------------------------|--------------------------------|
+| **ts**       | YYYY-MM-DDThh:mm:ss.fffZ   |time stamp according to ISO8601: year:YYYY, month:MM, day:DD, hour:hh, minute:mm, second:ss, fraction:fff |
 
 ## TxtFactoryMain
 | Component SUBSCRIBE            | topic              | payload  | description   |
