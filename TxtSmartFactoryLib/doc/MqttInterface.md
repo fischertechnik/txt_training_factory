@@ -32,7 +32,7 @@ try_private false
 bridge_attempt_unsubscribe false
 ```
 
-## fischertechnik Cloud / Dashboard
+# MQTT Interface Dashboard
 | Component SUBSCRIBE            | topic              | payload                      | description   |
 | ------------------------------:|--------------------|------------------------------|---------------|
 | Environment Sensor             | **i/bme680**       | see *TxtFactoryMain PUBLISH* |               |
@@ -62,7 +62,7 @@ bridge_attempt_unsubscribe false
 | Order Workpiece Buttons        | **f/o/order**      |                              |               |
 | Action Buttons NFC Module      | **f/o/nfc/ds**     |                              |               |
 
-# MQTT Local Clients
+# MQTT Interface Local Clients
 Another local MQTT client can be added, taking note of the following parameters:
 * **host** (default): 192.168.0.10
 * **port** (default): 1883
