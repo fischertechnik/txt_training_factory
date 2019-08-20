@@ -21,7 +21,7 @@ bridge_capath /etc/ssl/certs
 notifications false
 cleansession false #on connection dropping
 remote_username YourOwnCloudMQTTUser
-remote_password YourOwnCloudMQTTPAssword
+remote_password YourOwnCloudMQTTPassword
 local_username txt
 local_password xtx
 topic i/# both 1 "" prefix_mqtt_remote_broker/
