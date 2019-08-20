@@ -107,7 +107,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State MPO                      | **f/i/state/mpo**  | 
+| State MPO                      | **f/i/state/mpo**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "mpo", "code": 0, "description": "text", "active": 1, "target": ""}` |
 | Acknowledgment MPO             | **fl/mpo/ack**     |
 
 ## TxtFactoryHBW
@@ -119,7 +119,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State HBW                      | **f/i/state/hbw**  | 
+| State HBW                      | **f/i/state/hbw**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "hbw", "code": 0, "description": "text", "active": 1, "target": ""}` |
 | Stock HBW                      | **f/i/stock**      | 
 | Acknowledgment HBW             | **fl/hbw/ack**     |
 
@@ -136,7 +136,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State VGR                      | **f/i/state/vgr**  |
+| State VGR                      | **f/i/state/vgr**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "vgr", "code": 0, "description": "text", "active": 1, "target": "hbw"}` |
 | State DSI (VGR)                | **f/i/state/dsi**  | 
 | State DSO (VGR)                | **f/i/state/dso**  | 
 | VGR Trigger                    | **fl/vgr/do**      |
@@ -149,5 +149,5 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State SLD                      | **f/i/state/sld**  | 
+| State SLD                      | **f/i/state/sld**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station": "sld", "code": 0, "description": "text", "active": 1, "target": "hbw"}` |
 | Acknowledgment SLD             | **fl/sld/ack**     |
