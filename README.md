@@ -6,18 +6,15 @@ for the fischertechnik [**Training Factory Industry 4.0**](https://www.fischerte
 
 ## Overview
 The factory consists of the following stations:
-* **SSC**: Sensor Station with Camera
+* **SSC**: Sensor Station with Camera (Main)
 * **HBW**: High-Bay Warehouse
 * **VGR**: Vacuum Gripper Robot
 * **DPS**: Delivery and Pickup Station
 * **MPO**: Multi-Processing Station with Oven
 * **SLD**: Sorting Line with Color Detection
 
-The next picture shows the network overview with the TXT controllers.
-![Overview Network](doc/Overview_Network.PNG "Overview Network")
-
 ## Installation
-The programs can be copied using the TXT [WEB server](doc/WEBServer.md).
+The programs can be copied using the [WEB server](doc/WEBServer.md) of the TXT controller.
 
 ## User Programs
 The default programs you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
@@ -27,11 +24,15 @@ The default programs you will find in the [bin](https://github.com/fischertechni
 * **TxtFactoryVGR** (main flow control) [[Finite State Machine VGR](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtVacuumGripperRobotRun.png)]
 * **TxtFactorySLD** [[Finite State Machine SLD](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtSortingLineRun.png)]
 
-The programs for parking position you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
+The programs for the parking position you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
 * **TxtParkPosSSC**
 * **TxtParkPosMPO**
 * **TxtParkPosHBW**
 * **TxtParkPosVGR**
+
+## Network
+The next picture shows the network overview with the TXT controllers.
+![Overview Network](doc/Overview_Network.PNG "Overview Network")
 
 ## MQTT Interface
 The [MQTT Interface](TxtSmartFactoryLib/doc/MqttInterface.md) describes the topics and the payload of the MQTT clients and the configuration of the mosquitto MQTT bridge. 
