@@ -1,7 +1,7 @@
 > DEUTSCH: [**fischertechnik Lernfabrik 4.0 (de)**](README_de.md)
 
 # fischertechnik Training Factory Industry 4.0 (en)
-This project contains the C/C++ library *TxtSmartFactoryLib* and the main and client programs for the fischertechnik [**Training Factory Industry 4.0**](https://www.fischertechnik.de/en/service/elearning/teaching/lernfabrik-4). The library requires at least the TXT firmware version 4.5.1.
+This project contains the C/C++ library *TxtSmartFactoryLib* and the main and client programs for the fischertechnik [**Training Factory Industry 4.0**](https://www.fischertechnik.de/en/service/elearning/teaching/lernfabrik-4). The library requires at least the [TXT firmware version 4.5.1](https://github.com/fischertechnik/FT-TXT/releases).
 
 ## Overview
 The factory consists of the following stations:
@@ -12,11 +12,8 @@ The factory consists of the following stations:
 * **MPO**: Multi-Processing Station with Oven
 * **SLD**: Sorting Line with Color Detection
 
-## Installation
-The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
-
-## User Programs
-The default user programs implements the standard demo scenario with the [www.fischertechnik-cloud.com](https://www.fischertechnik-cloud.com). These programs you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
+## Programs
+The default user programs implement the standard demo scenario with the [www.fischertechnik-cloud.com](https://www.fischertechnik-cloud.com). These programs you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
 * **TxtFactoryMain.cloud** (local MQTT broker, MQTT bridge, MQTT client for SSC)
 * **TxtFactoryMPO** [[Finite State Machine MPO](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtMultiProcessingStationRun.png)]
 * **TxtFactoryHBW** [[Finite State Machine HBW](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtHighBayWarehouseRun.png)]
@@ -28,6 +25,8 @@ The programs for the parking position you will find in the [bin](https://github.
 * **TxtParkPosMPO**
 * **TxtParkPosHBW**
 * **TxtParkPosVGR**
+
+The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## Network
 The next picture shows the network overview with the TXT controllers.
