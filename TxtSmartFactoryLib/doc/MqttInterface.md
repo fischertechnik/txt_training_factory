@@ -10,7 +10,7 @@ If you use the fischertechnik Cloud [https://www.fischertechnik-cloud.com](https
 > *Settings* -> *Network* -> *Cloud Setup* -> *Pairing New*.
 
 ## Other Clouds
-If you want to connect your own remote MQTT broker, you can configure the MQTT bridge by editing of the file `/etc/mosquitto/ft-txt-bridge-cloud.conf`.
+If you want to connect your own remote MQTT broker, you can configure the MQTT bridge by creating/editing of the file `/etc/mosquitto/ft-txt-bridge-cloud.conf`.
 > **Attention**: For this you need root access rights!
 
 Content of `ft-txt-bridge-cloud.conf` (see documentation [https://mosquitto.org/](https://mosquitto.org/)):
