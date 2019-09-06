@@ -58,9 +58,9 @@ bridge_attempt_unsubscribe false
 | Config Rate Brightness Sensor  | **c/ldr**          | see *TxtFactoryMain SUBSCRIBE* |             
 | Config Rate Camera Picture     | **c/cam**          | see *TxtFactoryMain SUBSCRIBE* |            
 | Control Buttons Pan-Tilt-Unit  | **o/ptu**          | see *TxtFactoryMain SUBSCRIBE* |             
-| Quit Button                    | **f/o/state/ack**  | see *TxtFactoryMain SUBSCRIBE* |              
-| Order Workpiece Buttons        | **f/o/order**      | see *TxtFactoryMain SUBSCRIBE* |              
-| Action Buttons NFC Module      | **f/o/nfc/ds**     | see *TxtFactoryMain SUBSCRIBE* |           
+| Quit Button                    | **f/o/state/ack**  | see *TxtFactoryVGR SUBSCRIBE* |              
+| Order Workpiece Buttons        | **f/o/order**      | see *TxtFactoryVGR SUBSCRIBE* |              
+| Action Buttons NFC Module      | **f/o/nfc/ds**     | see *TxtFactoryVGR SUBSCRIBE* |           
 
 # MQTT Interface Local Clients
 Another local MQTT client can be added, taking note of the following parameters:
