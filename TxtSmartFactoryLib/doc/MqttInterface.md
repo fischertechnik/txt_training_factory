@@ -124,11 +124,11 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Acknowledgment HBW             | **fl/hbw/ack**     |
 
 ## TxtFactoryVGR
-| Component SUBSCRIBE            | topic              | payload  | description   |
-| ------------------------------:|--------------------|----------|---------------|
-| Quit Button                    | **f/o/state/ack**  |
-| Order Workpiece Buttons        | **f/o/order**      |
-| Action Buttons NFC Module      | **f/o/nfc/ds**     |
+| Component SUBSCRIBE            | topic              | payload  | description               |
+| ------------------------------:|--------------------|----------|---------------------------|
+| Quit Button                    | **f/o/state/ack**  |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ"}` | |
+| Order Workpiece Buttons        | **f/o/order**      |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "type":"<BLUE/WHITE/RED>"}` |
+| Action Buttons NFC Module      | **f/o/nfc/ds**     |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "cmd":"<delete/read>"}` |
 | Joysticks                      | **fl/ssc/joy**     | 
 | Acknowledgment MPO             | **fl/mpo/ack**     |
 | Acknowledgment HBW             | **fl/hbw/ack**     |
@@ -136,9 +136,9 @@ Another local MQTT client can be added, taking note of the following parameters:
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
-| State VGR                      | **f/i/state/vgr**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"vgr", "code":0, "description":"text", "active":1, "target":"hbw"}` |
-| State DSI (VGR)                | **f/i/state/dsi**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dsi", "code":0, "description":"text", "active":1}` |
-| State DSO (VGR)                | **f/i/state/dso**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dso", "code":0, "description":"text", "active":1}` |
+| State VGR                      | **f/i/state/vgr**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"vgr", "code":0, "description":"text", "active":1, "target":"hbw"}` | |
+| State DSI (VGR)                | **f/i/state/dsi**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dsi", "code":0, "description":"text", "active":1}` | |
+| State DSO (VGR)                | **f/i/state/dso**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dso", "code":0, "description":"text", "active":1}` | |
 | VGR Trigger                    | **fl/vgr/do**      |
 
 ## TxtFactorySLD
