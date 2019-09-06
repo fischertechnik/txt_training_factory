@@ -127,8 +127,8 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Component SUBSCRIBE            | topic              | payload  | description               |
 | ------------------------------:|--------------------|----------|---------------------------|
 | Quit Button                    | **f/o/state/ack**  |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ"}` | |
-| Order Workpiece Buttons        | **f/o/order**      |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "type":"<BLUE/WHITE/RED>"}` |
-| Action Buttons NFC Module      | **f/o/nfc/ds**     |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "cmd":"<delete/read>"}` |
+| Order Workpiece Buttons        | **f/o/order**      |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "type":"BLUE"}` | **type**: BLUE, WHITE, RED
+| Action Buttons NFC Module      | **f/o/nfc/ds**     |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "cmd":"read"}` | **cmd**: delete, read |
 | Joysticks                      | **fl/ssc/joy**     | 
 | Acknowledgment MPO             | **fl/mpo/ack**     |
 | Acknowledgment HBW             | **fl/hbw/ack**     |
