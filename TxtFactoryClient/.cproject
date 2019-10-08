@@ -30,18 +30,9 @@
 									<listOptionValue builtIn="false" value="SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1496341605" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.1953105785" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0" valueType="string"/>
 								<option id="gnu.c.compiler.option.dialect.std.641456830" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
@@ -53,18 +44,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.77112162" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1324079182" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.1340527480" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -80,10 +62,6 @@
 							<tool command="g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.972227728" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1930964817" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
@@ -104,10 +82,14 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.492177173" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.55058349" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -116,18 +98,7 @@
 								<option id="gnu.cpp.link.option.nostart.624368832" name="Do not use standard start files (-nostartfiles)" superClass="gnu.cpp.link.option.nostart" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.1316541558" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="/opt/FT/TXT/usr/opt/ext-toolchain/arm-linux-gnueabihf/libc/usr/lib"/>
-									<listOptionValue builtIn="false" value="/opt/FT/TXT/arm-buildroot-linux-gnueabihf/sysroot/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1788135475" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -138,11 +109,7 @@
 							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.tool.gnu.cross.assembler.86681019" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.2070257013" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1545681009" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -233,18 +200,9 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.424560094" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.676797571" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.75635199" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.185342335" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.flags.406365067" name="Other dialect flags" superClass="gnu.c.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -258,19 +216,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.1730213665" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.2050126228" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.127409817" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.dialect.flags.1631545468" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -296,6 +244,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1716226853" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
@@ -339,11 +288,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1217793913" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.488811932" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.669143626" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -434,18 +379,9 @@
 									<listOptionValue builtIn="false" value="SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.108830926" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.1021391256" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0" valueType="string"/>
 								<option id="gnu.c.compiler.option.dialect.std.1040115930" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
@@ -457,18 +393,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.977694400" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.250458784" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.8636729" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -484,10 +411,6 @@
 							<tool command="g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.1168997128" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1837797398" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
@@ -508,10 +431,14 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.11064207" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.1296698125" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -520,18 +447,7 @@
 								<option id="gnu.cpp.link.option.nostart.322961148" name="Do not use standard start files (-nostartfiles)" superClass="gnu.cpp.link.option.nostart" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.549899542" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="/opt/FT/TXT/usr/opt/ext-toolchain/arm-linux-gnueabihf/libc/usr/lib"/>
-									<listOptionValue builtIn="false" value="/opt/FT/TXT/arm-buildroot-linux-gnueabihf/sysroot/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1625717861" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -542,11 +458,7 @@
 							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.tool.gnu.cross.assembler.31063715" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.375842494" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.548990294" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -637,18 +549,9 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.207554753" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.1186306368" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1204835866" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.1275096298" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.flags.1478873697" name="Other dialect flags" superClass="gnu.c.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -662,19 +565,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.702256572" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.244376619" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.536185056" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.dialect.flags.955067071" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -700,6 +593,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.99962305" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
@@ -743,11 +637,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.185775273" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1884981190" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1598548305" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -838,18 +728,9 @@
 									<listOptionValue builtIn="false" value="SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1748910413" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.1100136465" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0" valueType="string"/>
 								<option id="gnu.c.compiler.option.dialect.std.875998338" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
@@ -861,18 +742,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.24169018" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1070294563" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.771754917" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -888,10 +760,6 @@
 							<tool command="g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.298609816" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.2005507603" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
@@ -912,10 +780,14 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.463355905" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.1453968953" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -936,6 +808,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Debug}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.226087119" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -946,11 +819,7 @@
 							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.tool.gnu.cross.assembler.885320099" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.33779875" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.681455651" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -1041,18 +910,9 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.907092537" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.971057604" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.646260455" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.2082885536" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.flags.903935071" name="Other dialect flags" superClass="gnu.c.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -1066,19 +926,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.497204896" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1616577501" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.2109758710" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.dialect.flags.79599971" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -1104,6 +954,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1193255105" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
@@ -1147,11 +998,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1846577529" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.282564274" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1556046594" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -1242,18 +1089,9 @@
 									<listOptionValue builtIn="false" value="SPDLOG_ACTIVE_LEVEL=SPDLOG_LEVEL_TRACE"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1730963904" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.319135967" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0" valueType="string"/>
 								<option id="gnu.c.compiler.option.dialect.std.1583028657" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
@@ -1265,18 +1103,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.1182728459" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.599441482" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.1012771644" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DEBUG"/>
@@ -1292,10 +1121,6 @@
 							<tool command="g++" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GLDErrorParser" id="cdt.managedbuild.tool.gnu.cross.cpp.linker.841925620" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1078072746" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib_Debug"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
@@ -1316,10 +1141,14 @@
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib_Debug"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.188734791" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.1600926222" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -1328,18 +1157,7 @@
 								<option id="gnu.cpp.link.option.nostart.778513842" name="Do not use standard start files (-nostartfiles)" superClass="gnu.cpp.link.option.nostart" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.1871993383" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/lib&quot;"/>
-									<listOptionValue builtIn="false" value="/opt/FT/TXT/usr/opt/ext-toolchain/arm-linux-gnueabihf/libc/usr/lib"/>
-									<listOptionValue builtIn="false" value="/opt/FT/TXT/arm-buildroot-linux-gnueabihf/sysroot/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Debug}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.237749033" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -1350,11 +1168,7 @@
 							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" errorParsers="org.eclipse.cdt.core.GASErrorParser" id="cdt.managedbuild.tool.gnu.cross.assembler.1116120060" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1008484637" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1715750543" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -1445,18 +1259,9 @@
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.610779666" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.2000563902" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.2079762460" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.c.compiler.option.dialect.std.680996818" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.dialect.flags.982270465" name="Other dialect flags" superClass="gnu.c.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -1470,19 +1275,9 @@
 								<option id="gnu.cpp.compiler.option.debugging.level.266148332" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.599252902" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_C}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${PAHO_MQTT_CPP}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${OPENCV_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${JSONCPP_DIR}/include&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/spdlog.git/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
-									<listOptionValue builtIn="false" value="/home/wrk/workspace/Gitlab/TxtLibThirdParty/staging/usr/include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.dialect.std.1688668649" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.default" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.dialect.flags.1113168113" name="Other dialect flags" superClass="gnu.cpp.compiler.option.dialect.flags" useByScannerDiscovery="true" value="-std=gnu++0x -std=c++0x" valueType="string"/>
@@ -1508,6 +1303,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/wrk/Sandbox/buildroot/output/staging/usr/lib32"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.41202551" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
@@ -1551,11 +1347,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.2038566087" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1784856862" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/ROBOProLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtControlLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/MotorIOLib}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/KeLibTxt_Work}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDLWidgetsLib}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1551535634" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
