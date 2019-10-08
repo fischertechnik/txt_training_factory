@@ -21,13 +21,7 @@ Die Programme können mit dem [WEB server](doc/WEBServer_de.md) auf den TXT Cont
 Die Doxygen-Dokumentation der C/C++ Bibliotheksklassen finden Sie in der [API-Referenz](https://fischertechnik.github.io/txt_training_factory_doc/html/index.html).
 
 ## MQTT Interface
-Die [MQTT Schnittstelle](TxtSmartFactoryLib/doc/MqttInterface.md)  beschreibt die Nutzdaten der MQTT-Clients.
-
-Ein weiterer MQTT Client kann hinzugefügt werden, wobei folgende Parameter beachtet werden sollen:
-* **Host** (default): 192.168.0.10
-* **Port** (default): 1883
-* **Benutzer** (default): txt
-* **Passwort** (default): xtx
+Die [MQTT Schnittstelle](TxtSmartFactoryLib/doc/MqttInterface.md)  beschreibt die Nutzdaten der MQTT-Clients und die Konfiguration der mosquitto MQTT Bridge.
 
 ## Zustandsmaschinen
 * [FSM MPO](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtMultiProcessingStationRun.png)
