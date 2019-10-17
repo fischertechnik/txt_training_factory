@@ -29,7 +29,7 @@ The programs for the parking position you will find in the [bin](https://github.
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## Network
-The next picture shows the network overview with the TXT controllers.
+The next picture shows the [network](doc/Network_config.md) overview with the TXT controllers.
 ![Overview Network](doc/Overview_Network.PNG "Overview Network")
 
 ## MQTT Interface
