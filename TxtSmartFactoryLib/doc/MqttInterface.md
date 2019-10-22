@@ -121,7 +121,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 | ------------------------------:|--------------------|----------|---------------|
 | State HBW                      | **f/i/state/hbw**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"hbw", "code":0, "description":"text", "active":1, "target":""}` |
 | Stock HBW                      | **f/i/stock**      | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "stockItems": [{ "workpiece": { "id":"123456789ABCDE", "type":"<BLUE/WHITE/RED>", "state":"<RAW/PROCESSED>" }, "location":"A1" },{ ... },{ "workpiece":null, "location":"B3" }] }` |
-| Acknowledgment HBW             | **fl/hbw/ack**     |
+| Acknowledgment HBW             | **fl/hbw/ack**     | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0, "workpiece":{...} }` | **code**: 0=HBW_EXIT, 1=HBW_FETCHED, 2=HBW_STORED, 3=HBW_CALIB_NAV, 4=HBW_CALIB_END |
 
 ## TxtFactoryVGR
 | Component SUBSCRIBE            | topic              | payload  | description               |
@@ -150,4 +150,4 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
 | State SLD                      | **f/i/state/sld**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"sld", "code":0, "description":"text", "active":1, "target":"hbw"}` |
-| Acknowledgment SLD             | **fl/sld/ack**     |
+| Acknowledgment SLD             | **fl/sld/ack**     | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0, "type":<>, "colorValue":<> }` | **code**: 0=SLD_EXIT, 1=SLD_STARTED, 2=SLD_SORTED |
