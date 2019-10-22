@@ -99,11 +99,11 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Joysticks                      | **fl/ssc/joy**     |                | |
 
 ## TxtFactoryMPO
-| Component SUBSCRIBE            | topic              | payload  | description   |
-| ------------------------------:|--------------------|----------|---------------|
-| Quit Button                    | **f/o/state/ack**  |
-| VGR Trigger                    | **fl/vgr/do**      |
-| Acknowledgment SLD             | **fl/sld/ack**     |
+| Component SUBSCRIBE            | topic              | payload                      | description   |
+| ------------------------------:|--------------------|------------------------------|---------------|
+| Quit Button                    | **f/o/state/ack**  |  |
+| VGR Trigger                    | **fl/vgr/do**      | see *TxtFactoryVGR PUBLISH*  |
+| Acknowledgment SLD             | **fl/sld/ack**     | see *TxtFactorySLD PUBLISH*  |
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
@@ -111,11 +111,11 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Acknowledgment MPO             | **fl/mpo/ack**     | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0 }` | **code**: 0=MPO_EXIT, 1=MPO_STARTED, 2=MPO_PRODUCED |
 
 ## TxtFactoryHBW
-| Component SUBSCRIBE            | topic              | payload  | description   |
-| ------------------------------:|--------------------|----------|---------------|
-| Quit Button                    | **f/o/state/ack**  |
-| Joysticks                      | **fl/ssc/joy**     | 
-| VGR Trigger                    | **fl/vgr/do**      |
+| Component SUBSCRIBE            | topic              | payload                      | description   |
+| ------------------------------:|--------------------|------------------------------|---------------|
+| Quit Button                    | **f/o/state/ack**  | |
+| Joysticks                      | **fl/ssc/joy**     | see *TxtFactoryMain PUBLISH* |
+| VGR Trigger                    | **fl/vgr/do**      | see *TxtFactoryVGR PUBLISH*  |
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
@@ -124,15 +124,15 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Acknowledgment HBW             | **fl/hbw/ack**     | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0, "workpiece":{...} }` | **code**: 0=HBW_EXIT, 1=HBW_FETCHED, 2=HBW_STORED, 3=HBW_CALIB_NAV, 4=HBW_CALIB_END |
 
 ## TxtFactoryVGR
-| Component SUBSCRIBE            | topic              | payload  | description               |
-| ------------------------------:|--------------------|----------|---------------------------|
-| Quit Button                    | **f/o/state/ack**  |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ"}` | |
-| Order Workpiece Buttons        | **f/o/order**      |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "type":"BLUE"}` | **type**: BLUE, WHITE, RED
-| Action Buttons NFC Module      | **f/o/nfc/ds**     |  `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "cmd":"read"}` | **cmd**: delete, read |
-| Joysticks                      | **fl/ssc/joy**     | 
-| Acknowledgment MPO             | **fl/mpo/ack**     |
-| Acknowledgment HBW             | **fl/hbw/ack**     |
-| Acknowledgment SLD             | **fl/sld/ack**     |
+| Component SUBSCRIBE            | topic              | payload                      | description               |
+| ------------------------------:|--------------------|------------------------------|---------------------------|
+| Quit Button                    | **f/o/state/ack**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ"}` | |
+| Order Workpiece Buttons        | **f/o/order**      | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "type":"BLUE"}` | **type**: BLUE, WHITE, RED
+| Action Buttons NFC Module      | **f/o/nfc/ds**     | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "cmd":"read"}` | **cmd**: delete, read |
+| Joysticks                      | **fl/ssc/joy**     | see *TxtFactoryMain PUBLISH* |
+| Acknowledgment MPO             | **fl/mpo/ack**     | see *TxtFactoryMPO PUBLISH*  |
+| Acknowledgment HBW             | **fl/hbw/ack**     | see *TxtFactoryHBW PUBLISH*  |
+| Acknowledgment SLD             | **fl/sld/ack**     | see *TxtFactorySLD PUBLISH*  |
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
@@ -142,10 +142,10 @@ Another local MQTT client can be added, taking note of the following parameters:
 | VGR Trigger                    | **fl/vgr/do**      | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0, "workpiece":{...} }`| 	**code**: 0=VGR_EXIT, 1=VGR_HBW_FETCHCONTAINER, 2=VGR_HBW_STORE_WP, 3=VGR_HBW_FETCH_WP, 4=VGR_HBW_STORECONTAINER, 5=VGR_HBW_RESETSTORAGE, 6=VGR_HBW_CALIB, 7=VGR_MPO_PRODUCE, 8=VGR_SLD_START |
 
 ## TxtFactorySLD
-| Component SUBSCRIBE            | topic              | payload  | description   |
-| ------------------------------:|--------------------|----------|---------------|
+| Component SUBSCRIBE            | topic              | payload                     | description   |
+| ------------------------------:|--------------------|-----------------------------|---------------|
 | Quit Button                    | **f/o/state/ack**  |
-| Acknowledgment MPO             | **fl/mpo/ack**     |
+| Acknowledgment MPO             | **fl/mpo/ack**     | see *TxtFactoryMPO PUBLISH* |
 
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
