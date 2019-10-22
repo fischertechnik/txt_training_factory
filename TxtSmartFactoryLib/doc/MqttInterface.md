@@ -139,7 +139,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 | State VGR                      | **f/i/state/vgr**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"vgr", "code":0, "description":"text", "active":1, "target":"hbw"}` | |
 | State DSI (VGR)                | **f/i/state/dsi**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dsi", "code":0, "description":"text", "active":1}` | |
 | State DSO (VGR)                | **f/i/state/dso**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"dso", "code":0, "description":"text", "active":1}` | |
-| VGR Trigger                    | **fl/vgr/do**      |
+| VGR Trigger                    | **fl/vgr/do**      | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0, "workpiece":{...} }`| 	**code**: 0=VGR_EXIT, 1=VGR_HBW_FETCHCONTAINER, 2=VGR_HBW_STORE_WP, 3=VGR_HBW_FETCH_WP, 4=VGR_HBW_STORECONTAINER, 5=VGR_HBW_RESETSTORAGE, 6=VGR_HBW_CALIB, 7=VGR_MPO_PRODUCE, 8=VGR_SLD_START |
 
 ## TxtFactorySLD
 | Component SUBSCRIBE            | topic              | payload  | description   |
