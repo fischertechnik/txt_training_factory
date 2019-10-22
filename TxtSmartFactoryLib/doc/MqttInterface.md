@@ -108,7 +108,7 @@ Another local MQTT client can be added, taking note of the following parameters:
 | Component PUBLISH              | topic              | payload  | description   |
 | ------------------------------:|--------------------|----------|---------------|
 | State MPO                      | **f/i/state/mpo**  | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "station":"mpo", "code":0, "description":"text", "active":1, "target":""}` |
-| Acknowledgment MPO             | **fl/mpo/ack**     |
+| Acknowledgment MPO             | **fl/mpo/ack**     | `{"ts":"YYYY-MM-DDThh:mm:ss.fffZ", "code":0 }` | **code**: 0=MPO_EXIT, 1=MPO_STARTED, 2=MPO_PRODUCED |
 
 ## TxtFactoryHBW
 | Component SUBSCRIBE            | topic              | payload  | description   |
