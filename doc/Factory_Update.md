@@ -13,7 +13,7 @@ Upgrade the TXT controller firmware of all 5 master TXT controllers **via ROBO P
 Change TXT Settings:
   - **Role**: TXT0: Cloud Device, TXT1,2,3,4: Master, TXT1b: Extension
   - **Security settings**: Enable WEB Server and SSH Daemon
-  - **Network settings**: disable Bluetooth, activate WLAN Client, setup WLAN Settings for the corresponding TXT
+  - **Network settings**: disable Bluetooth, activate WLAN Client, setup [network WLAN settings](doc/Network_Config.md) for the corresponding TXT
   - **Connect Nano Router** to the 5 master TXT controllers TXT0-4
 
 ## 4. Deploy C Programs
