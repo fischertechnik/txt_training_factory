@@ -7,7 +7,7 @@ This How-To describes the steps how to upgrade the software of the fischertechni
 Backup the calibration and configuration files of all 5 master TXT controllers in `/opt/knobloch/Data` directories. You can use the TXT [WEB server](doc/WEBServer.md) to copy the files. *Alternatively*: Copy calibration files from the delivered USB stick.
 
 ## 2. Update TXT Firmware
-Upgrade the TXT controller firmware of all 5 master TXT controllers **via ROBO Pro 4.6.6 software**. Install ROBO Pro and connect each TXT controller with the computer via USB cable. Start ROBO Pro, select TXT controller and USB interface and open the Test-Interface window. Be patient, the TXT firmware update takes about 5-10 minutes per TXT controller. DO NOT interrupt the power supply, because otherwise the controller is defective and needs to be repaired. All the files on the TXT controller will be overwritten after this step.
+Upgrade the TXT controller firmware of all 5 master TXT controllers **via ROBO Pro software**. Install [ROBO Pro 4.6.6](https://github.com/fischertechnik/FT-TXT/releases/download/v4.6.6/ROBOPro466.msi) and connect each TXT controller with the computer via USB cable. Start ROBO Pro, select TXT controller and USB interface and open the Test-Interface window. Be patient, the TXT firmware update takes about 5-10 minutes per TXT controller. DO NOT interrupt the power supply, because otherwise the controller is defective and needs to be repaired. All the files on the TXT controller will be overwritten after this step.
 
 ## 3. TXT Setting for the Factory
 Change TXT Settings:
