@@ -4,7 +4,7 @@ This How-To describes the steps how to upgrade the software of the fischertechni
 > **!!! Caution !!!**: Upgrading the TXT controllers and the C programs of the Training Factory Industry 4.0 model takes about 1-2 hours. Please follow the instructions step by step. If you have any questions, please contact: fischertechnik-technik@fischer.de
 
 ## 1. Backup
-Backup the calibration and configuration files of all 5 master TXT controllers in `/opt/knobloch/Data` directories. You can use the TXT WEB server to copy the files. *Alternatively*: Copy calibration files from the delivered USB stick.
+Backup the calibration and configuration files of all 5 master TXT controllers in `/opt/knobloch/Data` directories. You can use the TXT [WEB server](doc/WEBServer.md) to copy the files. *Alternatively*: Copy calibration files from the delivered USB stick.
 
 ## 2. Update TXT Firmware
 Upgrade the TXT controller firmware of all 5 master TXT controllers **via ROBO Pro 4.6.6 software**. Install ROBO Pro and connect each TXT controller with the computer via USB cable. Start ROBO Pro, select TXT controller and USB interface and open the Test-Interface window. Be patient, the TXT firmware update takes about 5-10 minutes per TXT controller. DO NOT interrupt the power supply, because otherwise the controller is defective and needs to be repaired. All the files on the TXT controller will be overwritten after this step.
@@ -17,10 +17,10 @@ Change TXT Settings:
   - **Connect Nano Router** to the 5 master TXT controllers TXT0-4
 
 ## 4. Deploy C Programs
-Copy C programs via the TXT WEB server and set AutoLoad for the default c program
+Copy C programs via the TXT [WEB server](doc/WEBServer.md) and set *AutoLoad* for the default c program
 
 ## 5. Restore
-Restore calibration and configuration files from step 1.
+Restore calibration and configuration files using the [WEB server](doc/WEBServer.md) from step 1.
 
 ## 6. Power Off and On
 Switch off and on all the TXT controllers in the training model.
