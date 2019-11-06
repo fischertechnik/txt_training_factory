@@ -3,7 +3,6 @@
 	<name>TxtSmartFactoryLib</name>
 	<comment></comment>
 	<projects>
-		<project>KeLibTxt_Work</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

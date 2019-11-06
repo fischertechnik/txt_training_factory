@@ -3,11 +3,6 @@
 	<name>TxtFactoryClient</name>
 	<comment></comment>
 	<projects>
-		<project>KeLibTxt_Work</project>
-		<project>MotorIOLib</project>
-		<project>ROBOProLib</project>
-		<project>SDLWidgetsLib</project>
-		<project>TxtControlLib</project>
 		<project>TxtSmartFactoryLib</project>
 	</projects>
 	<buildSpec>

@@ -7,24 +7,23 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="TxtParkPosVGR" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.345746666" name="VGR_Posix_Release" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=" parent="cdt.managedbuild.config.gnu.cross.exe.release" postannouncebuildStep="copy bin" postbuildStep="cp ./TxtParkPosVGR ../../bin/">
+				<configuration artifactName="TxtParkPosVGR" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.345746666" name="VGR_Posix_Release" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cross.exe.release" postannouncebuildStep="copy bin" postbuildStep="cp ./TxtParkPosVGR ../../bin/">
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.345746666." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1823258274" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
-							<option id="cdt.managedbuild.option.gnu.cross.prefix.882239505" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
-							<option id="cdt.managedbuild.option.gnu.cross.path.926507608" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/opt/FT/TXT/opt/ext-toolchain/bin" valueType="string"/>
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1823258274" name="Cross GCC" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+							<option id="cdt.managedbuild.option.gnu.cross.prefix.882239505" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" useByScannerDiscovery="false" value="arm-linux-gnueabihf-" valueType="string"/>
+							<option id="cdt.managedbuild.option.gnu.cross.path.926507608" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" useByScannerDiscovery="false" value="/opt/FT/TXT/opt/ext-toolchain/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.215071782" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/HelloWorldCross}/Release" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.builder.gnu.cross.2103045728" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/TxtParkPos}/VGR_Posix_Release" cleanBuildTarget="clean" id="org.eclipse.cdt.build.core.internal.builder.1950990609" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="org.eclipse.cdt.build.core.internal.builder"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.2119234827" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.424560094" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.676797571" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.75635199" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
@@ -59,36 +58,36 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/Posix_Release}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/lib}&quot;"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1716226853" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1716226853" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" value="SDLWidgetsLib"/>
+									<listOptionValue builtIn="false" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" value="paho-mqttpp3"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3c"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3a"/>
+									<listOptionValue builtIn="false" value="opencv_core"/>
+									<listOptionValue builtIn="false" value="opencv_videoio"/>
+									<listOptionValue builtIn="false" value="opencv_imgcodecs"/>
+									<listOptionValue builtIn="false" value="opencv_imgproc"/>
+									<listOptionValue builtIn="false" value="jsoncpp"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="SDL"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="SDL_gfx"/>
+									<listOptionValue builtIn="false" value="SDL_ttf"/>
+									<listOptionValue builtIn="false" value="ts"/>
+									<listOptionValue builtIn="false" value="freetype"/>
+									<listOptionValue builtIn="false" value="z"/>
+									<listOptionValue builtIn="false" value="png16"/>
+									<listOptionValue builtIn="false" value="bz2"/>
+									<listOptionValue builtIn="false" value="jpeg"/>
+									<listOptionValue builtIn="false" value="asound"/>
+									<listOptionValue builtIn="false" value="nfc"/>
+									<listOptionValue builtIn="false" value="freefare"/>
+									<listOptionValue builtIn="false" value="crypto"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_videoio"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgcodecs"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgproc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jsoncpp"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="pthread"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_gfx"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_ttf"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ts"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freetype"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="z"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="png16"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="bz2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.913047654" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.2083691968" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -99,7 +98,7 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.742352648" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.1217793913" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.488811932" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.488811932" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
 								</option>
@@ -113,44 +112,6 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="KeLibTxt_Work;cdt.managedbuild.config.gnu.cross.lib.release.455464804" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/KeLibTxt_Work"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/KeLibTxt_Work/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="KeLibTxt_Work" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="MotorIOLib;cdt.managedbuild.config.gnu.cross.so.release.1523283958" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/MotorIOLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="MotorIOLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="SDLWidgetsLib;cdt.managedbuild.config.gnu.cross.so.release.1695679196" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SdlWidgets"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SdlWidgets/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="SdlWidgets" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="TxtControlLib;cdt.managedbuild.config.gnu.cross.exe.release.1947836215" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtControlLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtControlLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtControlLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="ROBOProLib;cdt.managedbuild.config.gnu.cross.exe.release.1911067885" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/ROBOProLib"/>
-						<entry flags="RESOLVED" kind="macro" name="ENDIAN_LITTLE" value=""/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="ROBOProLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
@@ -169,24 +130,23 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="TxtParkPosHBW" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.489247668" name="HBW_Posix_Release" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cross.exe.release" postannouncebuildStep="copy bin" postbuildStep="cp ./TxtParkPosHBW ../../bin/">
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.489247668." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1481838527" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1481838527" name="Cross GCC" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.568888892" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
 							<option id="cdt.managedbuild.option.gnu.cross.path.806814093" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/opt/FT/TXT/opt/ext-toolchain/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.510885651" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/HelloWorldCross}/Release" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.builder.gnu.cross.1287334194" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/TxtParkPos}/HBW_Posix_Release" cleanBuildTarget="clean" id="org.eclipse.cdt.build.core.internal.builder.614048367" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="org.eclipse.cdt.build.core.internal.builder"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.2082733981" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.207554753" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.1186306368" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.1204835866" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
@@ -223,34 +183,34 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.99962305" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" value="paho-mqttpp3"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3c"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3a"/>
+									<listOptionValue builtIn="false" value="opencv_core"/>
+									<listOptionValue builtIn="false" value="opencv_videoio"/>
+									<listOptionValue builtIn="false" value="opencv_imgcodecs"/>
+									<listOptionValue builtIn="false" value="opencv_imgproc"/>
+									<listOptionValue builtIn="false" value="jsoncpp"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="SDL"/>
+									<listOptionValue builtIn="false" value="SDL_gfx"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="SDL_ttf"/>
+									<listOptionValue builtIn="false" value="ts"/>
+									<listOptionValue builtIn="false" value="freetype"/>
+									<listOptionValue builtIn="false" value="z"/>
+									<listOptionValue builtIn="false" value="png16"/>
+									<listOptionValue builtIn="false" value="bz2"/>
+									<listOptionValue builtIn="false" value="jpeg"/>
+									<listOptionValue builtIn="false" value="asound"/>
+									<listOptionValue builtIn="false" value="nfc"/>
+									<listOptionValue builtIn="false" value="freefare"/>
+									<listOptionValue builtIn="false" value="crypto"/>
+									<listOptionValue builtIn="false" value="SDLWidgetsLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_videoio"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgcodecs"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgproc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jsoncpp"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="pthread"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_gfx"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_ttf"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ts"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freetype"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="z"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="png16"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="bz2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.2091681311" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.962982517" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -275,44 +235,6 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="KeLibTxt_Work;cdt.managedbuild.config.gnu.cross.lib.release.455464804" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/KeLibTxt_Work"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/KeLibTxt_Work/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="KeLibTxt_Work" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="MotorIOLib;cdt.managedbuild.config.gnu.cross.so.release.1523283958" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/MotorIOLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="MotorIOLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="SDLWidgetsLib;cdt.managedbuild.config.gnu.cross.so.release.1695679196" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SdlWidgets"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SdlWidgets/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="SdlWidgets" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="TxtControlLib;cdt.managedbuild.config.gnu.cross.exe.release.1947836215" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtControlLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtControlLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtControlLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="ROBOProLib;cdt.managedbuild.config.gnu.cross.exe.release.1911067885" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/ROBOProLib"/>
-						<entry flags="RESOLVED" kind="macro" name="ENDIAN_LITTLE" value=""/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="ROBOProLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
@@ -331,24 +253,23 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="TxtParkPosMPO" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.136449856" name="MPO_Posix_Release" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cross.exe.release" postannouncebuildStep="copy bin" postbuildStep="cp ./TxtParkPosMPO ../../bin/">
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.136449856." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1362263910" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1362263910" name="Cross GCC" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.2081919114" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
 							<option id="cdt.managedbuild.option.gnu.cross.path.492552791" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/opt/FT/TXT/opt/ext-toolchain/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.563998879" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/HelloWorldCross}/Release" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.builder.gnu.cross.780146101" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/TxtParkPos}/MPO_Posix_Release" cleanBuildTarget="clean" id="org.eclipse.cdt.build.core.internal.builder.1688086934" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="org.eclipse.cdt.build.core.internal.builder"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.750135025" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.907092537" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.971057604" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.646260455" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
@@ -385,34 +306,34 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1193255105" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" value="paho-mqttpp3"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3c"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3a"/>
+									<listOptionValue builtIn="false" value="opencv_core"/>
+									<listOptionValue builtIn="false" value="opencv_videoio"/>
+									<listOptionValue builtIn="false" value="opencv_imgcodecs"/>
+									<listOptionValue builtIn="false" value="opencv_imgproc"/>
+									<listOptionValue builtIn="false" value="jsoncpp"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="SDL"/>
+									<listOptionValue builtIn="false" value="SDL_gfx"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="SDL_ttf"/>
+									<listOptionValue builtIn="false" value="ts"/>
+									<listOptionValue builtIn="false" value="freetype"/>
+									<listOptionValue builtIn="false" value="z"/>
+									<listOptionValue builtIn="false" value="png16"/>
+									<listOptionValue builtIn="false" value="bz2"/>
+									<listOptionValue builtIn="false" value="jpeg"/>
+									<listOptionValue builtIn="false" value="asound"/>
+									<listOptionValue builtIn="false" value="nfc"/>
+									<listOptionValue builtIn="false" value="freefare"/>
+									<listOptionValue builtIn="false" value="crypto"/>
+									<listOptionValue builtIn="false" value="SDLWidgetsLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_videoio"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgcodecs"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgproc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jsoncpp"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="pthread"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_gfx"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_ttf"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ts"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freetype"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="z"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="png16"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="bz2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.1987726731" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.4362725" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -437,44 +358,6 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="KeLibTxt_Work;cdt.managedbuild.config.gnu.cross.lib.release.455464804" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/KeLibTxt_Work"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/KeLibTxt_Work/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="KeLibTxt_Work" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="MotorIOLib;cdt.managedbuild.config.gnu.cross.so.release.1523283958" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/MotorIOLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="MotorIOLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="SDLWidgetsLib;cdt.managedbuild.config.gnu.cross.so.release.1695679196" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SdlWidgets"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SdlWidgets/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="SdlWidgets" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="TxtControlLib;cdt.managedbuild.config.gnu.cross.exe.release.1947836215" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtControlLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtControlLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtControlLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="ROBOProLib;cdt.managedbuild.config.gnu.cross.exe.release.1911067885" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/ROBOProLib"/>
-						<entry flags="RESOLVED" kind="macro" name="ENDIAN_LITTLE" value=""/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="ROBOProLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
@@ -493,24 +376,23 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="TxtParkPosSSC" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.203970726" name="SSC_Posix_Release" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cross.exe.release" postannouncebuildStep="copy bin" postbuildStep="cp ./TxtParkPosSSC ../../bin/">
 					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.345746666.203970726." name="/" resourcePath="">
-						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1073406212" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.1073406212" name="Cross GCC" nonInternalBuilderId="cdt.managedbuild.builder.gnu.cross" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
 							<option id="cdt.managedbuild.option.gnu.cross.prefix.123234170" name="Prefix" superClass="cdt.managedbuild.option.gnu.cross.prefix" value="arm-linux-gnueabihf-" valueType="string"/>
 							<option id="cdt.managedbuild.option.gnu.cross.path.595737075" name="Path" superClass="cdt.managedbuild.option.gnu.cross.path" value="/opt/FT/TXT/opt/ext-toolchain/bin" valueType="string"/>
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.588319388" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
-							<builder buildPath="${workspace_loc:/HelloWorldCross}/Release" enableCleanBuild="true" enabledIncrementalBuild="true" id="cdt.managedbuild.builder.gnu.cross.526004363" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/TxtParkPos}/SSC_Posix_Release" cleanBuildTarget="clean" id="org.eclipse.cdt.build.core.internal.builder.1256340429" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="org.eclipse.cdt.build.core.internal.builder"/>
 							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1179805571" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
 								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.1145079353" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
 								<option id="gnu.c.compiler.option.debugging.level.1225057959" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.2080696530" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/TxtSmartFactoryLib/libs}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/deps/include}&quot;"/>
@@ -547,34 +429,34 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1794196381" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtSmartFactoryLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
+									<listOptionValue builtIn="false" value="KeLibTxt"/>
+									<listOptionValue builtIn="false" value="paho-mqttpp3"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3c"/>
+									<listOptionValue builtIn="false" value="paho-mqtt3a"/>
+									<listOptionValue builtIn="false" value="opencv_core"/>
+									<listOptionValue builtIn="false" value="opencv_videoio"/>
+									<listOptionValue builtIn="false" value="opencv_imgcodecs"/>
+									<listOptionValue builtIn="false" value="opencv_imgproc"/>
+									<listOptionValue builtIn="false" value="jsoncpp"/>
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="SDL"/>
+									<listOptionValue builtIn="false" value="SDL_gfx"/>
+									<listOptionValue builtIn="false" value="SDL_image"/>
+									<listOptionValue builtIn="false" value="SDL_ttf"/>
+									<listOptionValue builtIn="false" value="ts"/>
+									<listOptionValue builtIn="false" value="freetype"/>
+									<listOptionValue builtIn="false" value="z"/>
+									<listOptionValue builtIn="false" value="png16"/>
+									<listOptionValue builtIn="false" value="bz2"/>
+									<listOptionValue builtIn="false" value="jpeg"/>
+									<listOptionValue builtIn="false" value="asound"/>
+									<listOptionValue builtIn="false" value="nfc"/>
+									<listOptionValue builtIn="false" value="freefare"/>
+									<listOptionValue builtIn="false" value="crypto"/>
+									<listOptionValue builtIn="false" value="SDLWidgetsLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="TxtControlLib"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="MotorIOLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="KeLibTxt"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3c"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqtt3a"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="paho-mqttpp3"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_core"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_videoio"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgcodecs"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="opencv_imgproc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jsoncpp"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="pthread"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_gfx"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_image"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDL_ttf"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ts"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freetype"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="z"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="png16"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="bz2"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="jpeg"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="asound"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="SDLWidgetsLib"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="nfc"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="freefare"/>
-									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="crypto"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="ROBOProLib"/>
 								</option>
 								<option id="gnu.cpp.link.option.flags.1520556104" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-Wl,-rpath=/opt/knobloch/libs/" valueType="string"/>
 								<option id="gnu.cpp.link.option.other.477516351" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false"/>
@@ -599,44 +481,6 @@
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
-				<externalSettings containerId="KeLibTxt_Work;cdt.managedbuild.config.gnu.cross.lib.release.455464804" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/KeLibTxt_Work"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/KeLibTxt_Work/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="KeLibTxt_Work" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="MotorIOLib;cdt.managedbuild.config.gnu.cross.so.release.1523283958" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/MotorIOLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/MotorIOLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="MotorIOLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="SDLWidgetsLib;cdt.managedbuild.config.gnu.cross.so.release.1695679196" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/SdlWidgets"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/SdlWidgets/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="SdlWidgets" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="TxtControlLib;cdt.managedbuild.config.gnu.cross.exe.release.1947836215" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtControlLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtControlLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtControlLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
-				<externalSettings containerId="ROBOProLib;cdt.managedbuild.config.gnu.cross.exe.release.1911067885" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
-					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/ROBOProLib"/>
-						<entry flags="RESOLVED" kind="macro" name="ENDIAN_LITTLE" value=""/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="libraryPath" name="/ROBOProLib/Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="ROBOProLib" srcPrefixMapping="" srcRootPath=""/>
-					</externalSetting>
-				</externalSettings>
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
