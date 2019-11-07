@@ -14,6 +14,8 @@ The factory consists of the following stations:
 * **MPO**: Multi-Processing Station with Oven
 * **SLD**: Sorting Line with Color Detection
 
+![SW Layer](doc/SW_Layer.PNG "SW Layer")
+
 ## Programs
 The default user programs implement the standard demo scenario with the [www.fischertechnik-cloud.com](https://www.fischertechnik-cloud.com). These programs you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
 * **TxtFactoryMain.cloud** (local MQTT broker, MQTT bridge, MQTT client for SSC)
