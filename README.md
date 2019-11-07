@@ -14,8 +14,6 @@ The factory consists of the following stations:
 * **MPO**: Multi-Processing Station with Oven
 * **SLD**: Sorting Line with Color Detection
 
-![SW Layer](doc/SW_Layer.PNG "SW Layer")
-
 ## Programs
 The default user programs implement the standard demo scenario with the [www.fischertechnik-cloud.com](https://www.fischertechnik-cloud.com). These programs you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
 * **TxtFactoryMain.cloud** (local MQTT broker, MQTT bridge, MQTT client for SSC)
@@ -30,9 +28,21 @@ The programs for the parking position you will find in the [bin](https://github.
 * **TxtParkPosHBW**
 * **TxtParkPosVGR**
 
+![SW Layer](doc/SW_Layer.PNG "SW Layer")
+
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## IDE Setup
+You can import the projects in this workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php). Please read the instructions bellow. 
+
+### Linux
+1. Download the TXT Tool Chain
+
+Coming soon...
+
+### Windows
+1. Download the TXT Tool Chain
+
 Coming soon...
 
 ## Network
