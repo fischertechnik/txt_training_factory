@@ -1,3 +1,5 @@
+> If you have any questions, please contact fischertechnik-technik@fischer.de
+
 > DEUTSCH: [**fischertechnik Lernfabrik 4.0 (de)**](README_de.md)
 
 # fischertechnik Training Factory Industry 4.0 (en)
@@ -27,6 +29,9 @@ The programs for the parking position you will find in the [bin](https://github.
 * **TxtParkPosVGR**
 
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
+
+## IDE Setup
+Coming soon...
 
 ## Network
 The next picture shows the [network](doc/Network_Config.md) overview with the TXT controllers.
