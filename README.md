@@ -28,8 +28,6 @@ The programs for the parking position you will find in the [bin](https://github.
 * **TxtParkPosHBW**
 * **TxtParkPosVGR**
 
-![SW Layer](doc/SW_Layer.PNG "SW Layer")
-
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## IDE Setup
@@ -39,6 +37,9 @@ You can import the projects in this workspace in [eclipse CDT](https://www.eclip
 2. Download [txt_traning_factory](https://github.com/fischertechnik/txt_training_factory/archive/master.zip), extract and import the workspace in eclipse
 3. Change the paths in the project settings to the TXT Tool Chain
 4. Build all projects
+
+The following diagram shows the structure of the eclipse workspace.
+![SW Layer](doc/SW_Layer.PNG "SW Layer")
 
 ## Network
 The next picture shows the [network](doc/Network_Config.md) overview with the TXT controllers.
