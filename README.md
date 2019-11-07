@@ -31,7 +31,7 @@ The programs for the parking position you will find in the [bin](https://github.
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## IDE Setup
-You can import the projects in this workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php). Please read the instructions bellow. 
+You can import the git repository as a workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php). Please read the instructions bellow. 
 
 1. Download and extract the TXT Tool Chain for [Linux](https://github.com/fischertechnik/txt_training_factory/releases/download/v0.7.0/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz) or [Windows](https://github.com/fischertechnik/txt_training_factory/releases/download/v0.7.0/gcc-linaro-7.2.1-2017.11-i686-mingw32_arm-linux-gnueabihf.tar.xz)
 2. Download [txt_traning_factory](https://github.com/fischertechnik/txt_training_factory/archive/master.zip), extract and import the workspace in eclipse
