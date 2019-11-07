@@ -35,6 +35,7 @@
 
 #include "TxtAxis.h"
 #include "Observer.h"
+#include "TxtSound.h"
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
@@ -59,6 +60,8 @@ typedef enum
 
 class TxtSimulationModel : public SubjectObserver {
 public:
+	TxtSound sound;
+
 	TxtSimulationModel(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient);
 	virtual ~TxtSimulationModel();
 

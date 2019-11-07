@@ -167,6 +167,7 @@ void TxtMqttFactoryClient::disconnect(long int timeout) {
 			unsubTopic(TOPIC_CONFIG_CAM, timeout);
 			unsubTopic(TOPIC_OUTPUT_PTU, timeout);
 			//local
+			unsubTopic(TOPIC_LOCAL_BROADCAST, timeout);
 			unsubTopic(TOPIC_INPUT_STATE_VGR, timeout);
 			unsubTopic(TOPIC_INPUT_STATE_HBW, timeout);
 			unsubTopic(TOPIC_INPUT_STATE_MPO, timeout);
@@ -206,6 +207,7 @@ void TxtMqttFactoryClient::disconnect(long int timeout) {
 			//remote
 			unsubTopic(TOPIC_OUTPUT_STATE_ACK, timeout);
 			//local
+			unsubTopic(TOPIC_LOCAL_SSC_JOY, timeout);
 			unsubTopic(TOPIC_LOCAL_MPO_ACK, timeout);
 			unsubTopic(TOPIC_LOCAL_VGR_DO, timeout);
 	}
@@ -268,6 +270,7 @@ bool TxtMqttFactoryClient::start_consume(long int timeout) {
 			subTopic(TOPIC_CONFIG_CAM, timeout);
 			subTopic(TOPIC_OUTPUT_PTU, timeout);
 			//local
+			subTopic(TOPIC_LOCAL_BROADCAST, timeout);
 			subTopic(TOPIC_INPUT_STATE_VGR, timeout);
 			subTopic(TOPIC_INPUT_STATE_HBW, timeout);
 			subTopic(TOPIC_INPUT_STATE_MPO, timeout);
@@ -307,6 +310,7 @@ bool TxtMqttFactoryClient::start_consume(long int timeout) {
 			//remote
 			subTopic(TOPIC_OUTPUT_STATE_ACK, timeout);
 			//local
+			subTopic(TOPIC_LOCAL_SSC_JOY, timeout);
 			subTopic(TOPIC_LOCAL_MPO_ACK, timeout);
 			subTopic(TOPIC_LOCAL_VGR_DO, timeout);
 		}
@@ -783,6 +787,49 @@ void TxtMqttFactoryClient::publishNfcDS(TxtWorkpiece wp, History_map_t map_hist,
 	}
 	pthread_mutex_unlock(&m_mutex);
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "pthread_mutex_unlock publishNfcDS",0);
+}
+
+void TxtMqttFactoryClient::publishStationBroadcast(const std::string station, double timestamp_s, const std::string sw, const std::string ver, const std::string message, long timeout)
+{
+	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "publishStationBroadcast {} {} {} {} timeout:{}",
+			station, timestamp_s, ver, message, timeout);
+	pthread_mutex_lock(&m_mutex);
+	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "pthread_mutex_lock publishStationBroadcast",0);
+	Json::Value js_broadcast;
+	std::ostringstream sout_broadcast;
+	char sts[25];
+	ft::gettimestampstr(timestamp_s*1000000000., sts);
+	try {
+		js_broadcast["ts"] = sts;
+		js_broadcast["station"] = station;
+	    // read device MAC id
+	    std::string macWlan0 = getMAC("wlan0"); //MAC
+		js_broadcast["hardwareId"] = macWlan0;
+		js_broadcast["softwareName"] = sw;
+		js_broadcast["softwareVersion"] = ver;
+		js_broadcast["message"] = message;
+		sout_broadcast << js_broadcast;
+		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "str: {}",sout_broadcast.str());
+		try {
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "topic: {}", TOPIC_LOCAL_BROADCAST);
+			auto msg_broadcast = mqtt::make_message(TOPIC_LOCAL_BROADCAST, sout_broadcast.str());
+			msg_broadcast->set_qos(iqos);
+			msg_broadcast->set_retained(bretained);
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "publish Broadcast: {}", sts);
+			mqtt::token_ptr conntok = cli.publish(msg_broadcast, nullptr, aListPub);
+			bool r = conntok->wait_for(timeout);
+#ifdef FORCE_EXIT_ON_TIMEOUT
+			if (!r) exit(1);
+#endif
+		} catch (const mqtt::exception& exc) {
+			std::cout << "publishStationBroadcast: " << exc.what() << " "
+					<< getMQTTReasonCodeString(exc.get_reason_code()) << std::endl;
+		}
+	} catch (const Json::RuntimeError& exc) {
+		std::cout << "Error: " << exc.what() << std::endl;
+	}
+	pthread_mutex_unlock(&m_mutex);
+	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "pthread_mutex_unlock publishStationBroadcast",0);
 }
 
 void TxtMqttFactoryClient::publishSSC_Joy(TxtJoysticksData jd, long timeout) {

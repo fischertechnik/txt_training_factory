@@ -56,7 +56,7 @@ inline const char * toString(TxtHbwCalibPos_t v)
 class TxtHighBayWarehouseCalibData : public ft::TxtCalibData {
 public:
 	TxtHighBayWarehouseCalibData()
-		: TxtCalibData(("Data/Calib.HBW.json")) {};
+		: TxtCalibData("Data/Calib.HBW.json") {};
 	virtual ~TxtHighBayWarehouseCalibData() {}
 
 	bool load();
@@ -87,8 +87,8 @@ public:
 		FSM_DECLARE_STATE_XE( FETCH_WP_WAIT, color=blue ),
 		FSM_DECLARE_STATE_XE( STORE_CONTAINER, color=blue ),
 		FSM_DECLARE_STATE_XE( CALIB_HBW, color=orange ),
-		FSM_DECLARE_STATE_XE( CALIB_NAV, color=orange ),
-		FSM_DECLARE_STATE_XE( CALIB_MOVE, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_HBW_NAV, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_HBW_MOVE, color=orange ),
 	};
 
 	inline const char * toString(State_t state)
@@ -105,8 +105,8 @@ public:
 		   _CASE_ITEM( FETCH_WP_WAIT )
 		   _CASE_ITEM( STORE_CONTAINER )
 		   _CASE_ITEM( CALIB_HBW )
-		   _CASE_ITEM( CALIB_NAV )
-		   _CASE_ITEM( CALIB_MOVE )
+		   _CASE_ITEM( CALIB_HBW_NAV )
+		   _CASE_ITEM( CALIB_HBW_MOVE )
 		   default: break;
 		}
 		return "[TxtHighBayWarehouse::State_t] Unknown State";
@@ -138,6 +138,7 @@ public:
 	/* local */
 	void requestExit(const std::string name) {
 		std::cout << "program terminated by " << name << std::endl;
+		spdlog::get("file_logger")->error("program terminated by {}",name);
 		exit(1);
 	}
 	void requestVGRfetchContainer(TxtWorkpiece* wp) {

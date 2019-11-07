@@ -63,6 +63,7 @@ bool TxtVacuumGripperRobotCalibData::load()
 			    }
 			}
 		}
+
 		valid = true;
     	return true;
     }
@@ -73,7 +74,7 @@ bool TxtVacuumGripperRobotCalibData::saveDefault()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "saveDefault",0);
 
-	setPos3("DIN0", EncPos3(15, 600, 19));
+	setPos3("DIN0", EncPos3(22, 600, 19));
 	setPos3("DIN", EncPos3(22, 758, 19));
 
 	setPos3("WDC0", EncPos3(300, 400, 0));
@@ -103,6 +104,7 @@ bool TxtVacuumGripperRobotCalibData::saveDefault()
 
 	setPos3("SSD30", EncPos3(316, 300, 280));
 	setPos3("SSD3", EncPos3(316, 845, 588));
+
 	return save();
 }
 

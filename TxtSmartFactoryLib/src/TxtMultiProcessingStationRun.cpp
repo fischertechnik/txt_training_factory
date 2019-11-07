@@ -55,6 +55,7 @@ void TxtMultiProcessingStation::fsmStep()
 		{
 			printEntryState(FAULT);
 			setStatus(SM_ERROR);
+			sound.error();
 			break;
 		}
 		//-------------------------------------------------------------

@@ -53,6 +53,7 @@ void TxtHighBayWarehouse::fsmStep()
 		{
 			printEntryState(FAULT);
 			setStatus(SM_ERROR);
+			sound.error();
 			break;
 		}
 		//-----------------------------------------------------------------
@@ -69,6 +70,7 @@ void TxtHighBayWarehouse::fsmStep()
 		case CALIB_HBW:
 		{
 			printEntryState(CALIB_HBW);
+			sound.info2();
 			moveRef();
 			break;
 		}
@@ -130,6 +132,7 @@ void TxtHighBayWarehouse::fsmStep()
 		else if (reqVGRresetStorage)
 		{
 			storage.resetStorageState();
+			sound.info1();
 			reqVGRresetStorage = false;
 		}
 #ifdef __DOCFSM__
@@ -234,13 +237,13 @@ void TxtHighBayWarehouse::fsmStep()
 		printState(CALIB_HBW);
 		setStatus(SM_CALIB);
 		calibPos = (TxtHbwCalibPos_t)0;
-		FSM_TRANSITION( CALIB_NAV, color=orange, label='init' );
+		FSM_TRANSITION( CALIB_HBW_NAV, color=orange, label='init' );
 		break;
 	}
 	//-----------------------------------------------------------------
-	case CALIB_NAV:
+	case CALIB_HBW_NAV:
 	{
-		printState(CALIB_NAV);
+		printState(CALIB_HBW_NAV);
 		bool reqmove = true;
 		while(true)
 		{
@@ -275,21 +278,21 @@ void TxtHighBayWarehouse::fsmStep()
 				setStatus(SM_CALIB);
 				assert(mqttclient);
 				mqttclient->publishHBW_Ack(HBW_CALIB_NAV, 0, TIMEOUT_MS_PUBLISH);
-				FSM_TRANSITION( CALIB_MOVE, color=orange, label='calib pos' );
+				FSM_TRANSITION( CALIB_HBW_MOVE, color=orange, label='calib pos' );
 				reqmove = false;
 				break;
 			}
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 #ifdef __DOCFSM__
-		FSM_TRANSITION( CALIB_NAV, color=orange, label='select pos' );
+		FSM_TRANSITION( CALIB_HBW_NAV, color=orange, label='select pos' );
 #endif
 		break;
 	}
 	//-----------------------------------------------------------------
-	case CALIB_MOVE:
+	case CALIB_HBW_MOVE:
 	{
-		printState(CALIB_MOVE);
+		printState(CALIB_HBW_MOVE);
 		//reset();
 		while(true)
 		{
@@ -333,7 +336,7 @@ void TxtHighBayWarehouse::fsmStep()
 #endif
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
-		FSM_TRANSITION( CALIB_NAV, color=green, label='ok' );
+		FSM_TRANSITION( CALIB_HBW_NAV, color=green, label='ok' );
 		break;
 	}
 	//-----------------------------------------------------------------

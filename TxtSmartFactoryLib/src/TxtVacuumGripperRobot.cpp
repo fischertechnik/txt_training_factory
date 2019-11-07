@@ -16,7 +16,7 @@ namespace ft {
 TxtVacuumGripperRobot::TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient)
 	: TxtSimulationModel(pT, mqttclient),
 	currentState(__NO_STATE), newState(__NO_STATE),
-	calibPos(VGRCALIB_DSI),
+	calibPos(VGRCALIB_DSI), calibColor(ft::WP_TYPE_NONE),
 	axisX("VGR_X", pT, 0, 0, 1500),
 	axisY("VGR_Y", pT, 1, 1, 900),
 	axisZ("VGR_Z", pT, 2, 2, 950),
@@ -27,7 +27,7 @@ TxtVacuumGripperRobot::TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactory
 	joyData(), reqJoyData(false),
 	reqMPOstarted(false), reqWP_MPO(0),
 	reqHBWstored(false), reqHBWfetched(false),
-	reqHBWcalib_nav(false), reqHBWcalib_end(false), reqWP_HBW(0),
+	reqHBWcalib_nav(false), reqHBWcalib_end(false), reqSLDcalib_end(false), reqWP_HBW(0),
 	reqSLDsorted(false), reqWP_SLD(),
 	obs_vgr(0), obs_nfc(0)
 {
@@ -35,6 +35,8 @@ TxtVacuumGripperRobot::TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactory
 	if (!calibData.existCalibFilename()) calibData.saveDefault();
 	calibData.load();
     configInputs();
+	ord_state.type = WP_TYPE_NONE;
+	ord_state.state = WAITING_FOR_ORDER;
 }
 
 TxtVacuumGripperRobot::~TxtVacuumGripperRobot()
@@ -283,11 +285,13 @@ void TxtVacuumGripperRobot::moveDeliveryOutAndRelease()
 	moveRef();
 }
 
-void TxtVacuumGripperRobot::moveColorSensor()
+void TxtVacuumGripperRobot::moveColorSensor(bool half)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveColorSensor", 0);
 	move("DCS0", ft::VGRMOV_PTP);
-	move("DCS", ft::VGRMOV_PTP);
+	if (!half) {
+		move("DCS", ft::VGRMOV_PTP);
+	}
 }
 
 void TxtVacuumGripperRobot::moveRefYNFC()

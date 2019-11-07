@@ -20,6 +20,9 @@
 namespace ft {
 
 
+long time_offset();
+bool trycheckTimestampTTL(const std::string& str, double diff_max = 10.0);
+
 void gettimestampstr(int64_t timestamp, char* sts);
 void gettimestr(time_t rawtime, int ms, char* sts);
 void getnowstr(char* sts);

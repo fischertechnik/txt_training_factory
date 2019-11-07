@@ -28,7 +28,7 @@ extern bool reqUpdateDOUT;
 class TxtDeliveryPickupStationCalibData : public ft::TxtCalibData {
 public:
 	TxtDeliveryPickupStationCalibData()
-		: TxtCalibData(("Data/Calib.DPS.json")) {};
+		: TxtCalibData("Data/Calib.DPS.json") {};
 	virtual ~TxtDeliveryPickupStationCalibData() {}
 
 	bool load();
@@ -42,6 +42,8 @@ public:
 
 class TxtDeliveryPickupStation : public ft::TxtSimulationModel {
 public:
+	TxtDeliveryPickupStationCalibData calibData;
+
 	TxtDeliveryPickupStation(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient = 0);
 	virtual ~TxtDeliveryPickupStation();
 
@@ -93,7 +95,6 @@ protected:
 
 	TxtNfcDevice nfc;
 	int lastColorValue;
-	TxtDeliveryPickupStationCalibData calibData;
 
 	bool activeDSI;
 	bool activeDSO;

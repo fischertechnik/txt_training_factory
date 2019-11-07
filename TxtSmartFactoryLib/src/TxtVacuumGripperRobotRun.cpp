@@ -61,8 +61,8 @@ void TxtVacuumGripperRobot::fsmStep()
 		{
 			printEntryState(FAULT);
 			setStatus(SM_ERROR);
+			sound.error();
 			release();
-			initDashboard();
 			break;
 		}
 		//-----------------------------------------------------------------
@@ -82,6 +82,7 @@ void TxtVacuumGripperRobot::fsmStep()
 		case CALIB_VGR:
 		{
 			printEntryState(CALIB_VGR);
+			sound.info2();
 			moveRef();
 			break;
 		}
@@ -192,20 +193,10 @@ void TxtVacuumGripperRobot::fsmStep()
 		{
 			FSM_TRANSITION( START_DELIVERY, color=blue, label='dsi' );
 		}
-		else if (joyData.b1) {
-			//assert(mqttclient);
-			//mqttclient->publishVGR_Do(VGR_MPO_PRODUCE, 0, TIMEOUT_MS_PUBLISH);
-			//std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-		}
-		else if (joyData.b2) {
-			//assert(mqttclient);
-			//mqttclient->publishVGR_Do(VGR_SLD_START, 0, TIMEOUT_MS_PUBLISH);
-			//std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-		}
-		else if (joyData.aY2 < -500)
+		/*else if (joyData.aY2 < -500)
 		{
 			//TODO local demo mode
-		}
+		}*/
 		else if (joyData.aX2 > 500)
 		{
 			if (ord_state.state == WAITING_FOR_ORDER)
@@ -460,6 +451,7 @@ void TxtVacuumGripperRobot::fsmStep()
 		printState(WRONG_COLOR);
 		dps.setErrorDSI(true);
 		moveWrongRelease();
+		sound.warn();
 		FSM_TRANSITION( IDLE, color=green, label='next' );
 		break;
 	}
@@ -527,6 +519,7 @@ void TxtVacuumGripperRobot::fsmStep()
 		ord_state.state = WAITING_FOR_ORDER;
 		assert(mqttclient);
 		mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
+		mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH); //2x workaround if message is lost
 		FSM_TRANSITION( IDLE, color=blue, label='next' );
 		break;
 	}
@@ -593,7 +586,16 @@ void TxtVacuumGripperRobot::fsmStep()
 				break;
 			} else if (joyData.aX2 < -500) {
 				calibPos = (TxtVgrCalibPos_t)-1;
-				FSM_TRANSITION( CALIB_NAV, color=orange, label='init' );
+				FSM_TRANSITION( CALIB_VGR_NAV, color=orange, label='init' );
+				break;
+			} else if (joyData.aY2 < -500) {
+				FSM_TRANSITION( CALIB_DPS, color=orange, label='init' );
+				break;
+			} else if (joyData.aY2 > 500) {
+				assert(mqttclient);
+				mqttclient->publishVGR_Do(VGR_SLD_CALIB, 0, TIMEOUT_MS_PUBLISH);
+				mqttclient->publishStateVGR(ft::LEDS_READY, "", TIMEOUT_MS_PUBLISH, 0, "");
+				FSM_TRANSITION( CALIB_SLD, color=orange, label='init' );
 				break;
 			} else if (joyData.b1) {
 				FSM_TRANSITION( IDLE, color=green, label='cancel' );
@@ -605,7 +607,7 @@ void TxtVacuumGripperRobot::fsmStep()
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 #ifdef __DOCFSM__
-		FSM_TRANSITION( CALIB_VGR, color=blue, label='wait' );
+		FSM_TRANSITION( CALIB_VGR, color=orange, label='wait' );
 #endif
 		break;
 	}
@@ -620,14 +622,117 @@ void TxtVacuumGripperRobot::fsmStep()
 			break;
 		}
 #ifdef __DOCFSM__
-		FSM_TRANSITION( CALIB_HBW, color=blue, label='wait' );
+		FSM_TRANSITION( CALIB_HBW, color=orange, label='wait' );
 #endif
 		break;
 	}
 	//-----------------------------------------------------------------
-	case CALIB_NAV:
+	case CALIB_SLD:
 	{
-		printState(CALIB_NAV);
+		printState(CALIB_SLD);
+		if (reqSLDcalib_end)
+		{
+			FSM_TRANSITION( IDLE, color=green, label='SLD calibrated' );
+			reqSLDcalib_end = true;
+			break;
+		}
+#ifdef __DOCFSM__
+		FSM_TRANSITION( CALIB_SLD, color=orange, label='wait' );
+#endif
+		break;
+	}
+	//-----------------------------------------------------------------
+	case CALIB_DPS:
+	{
+		printState(CALIB_DPS);
+		setStatus(SM_CALIB);
+		moveRef();
+		moveColorSensor(true);
+		calibColorValues[0] = -1;
+		calibColorValues[1] = -1;
+		calibColorValues[2] = -1;
+		calibColor=ft::TxtWPType_t::WP_TYPE_WHITE;
+		FSM_TRANSITION( CALIB_DPS_NEXT, color=orange, label='next' );
+		break;
+	}
+	//-----------------------------------------------------------------
+	case CALIB_DPS_NEXT:
+	{
+		printState(CALIB_DPS_NEXT);
+		bool exit_next = false;
+		while(!exit_next)
+		{
+			setStatus(SM_CALIB);
+			if (joyData.b1) {
+				sound.info1();
+				switch(calibColor)
+				{
+				case ft::TxtWPType_t::WP_TYPE_WHITE:
+					calibColorValues[0] = dps.readColorValue();
+					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "value white: {}",calibColorValues[0]);
+
+					std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+					calibColor=ft::TxtWPType_t::WP_TYPE_RED;
+
+					break;
+				case ft::TxtWPType_t::WP_TYPE_RED:
+					calibColorValues[1] = dps.readColorValue();
+					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "value red: {}",calibColorValues[1]);
+
+					std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+					calibColor=ft::TxtWPType_t::WP_TYPE_BLUE;
+
+					break;
+				case ft::TxtWPType_t::WP_TYPE_BLUE:
+					calibColorValues[2] = dps.readColorValue();
+					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "value blue: {}",calibColorValues[2]);
+
+					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "w:{} r:{} b:{}",calibColorValues[0],calibColorValues[1],calibColorValues[2]);
+					if ((calibColorValues[0] > 0)&&
+						(calibColorValues[1] > 0)&&
+						(calibColorValues[2] > 0))
+					{
+						dps.calibData.color_th[0] = (calibColorValues[0] + calibColorValues[1]) / 2;
+						dps.calibData.color_th[1] = (calibColorValues[1] + calibColorValues[2]) / 2;
+						SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "th1:{} th2:{}",dps.calibData.color_th[0],dps.calibData.color_th[1]);
+
+						//check
+						if ((calibColorValues[0] < calibColorValues[1])&&
+							(calibColorValues[1] < calibColorValues[2])&&
+							(calibColorValues[0] < calibColorValues[2])&&
+							(dps.calibData.color_th[0] >= 200)&&
+							(dps.calibData.color_th[1] < 2000))
+						{
+							dps.calibData.save();
+						} else {
+							sound.error();
+						}
+					} else {
+						sound.error();
+					}
+					FSM_TRANSITION( IDLE, color=green, label='DPS calibrated' );
+					exit_next = true;
+
+					break;
+				default:
+					break;
+				}
+			} else if (joyData.b2) {
+				sound.warn();
+				FSM_TRANSITION( IDLE, color=green, label='cancel' );
+				exit_next = true;
+			}
+			std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		}
+#ifdef __DOCFSM__
+		FSM_TRANSITION( CALIB_DPS_NEXT, color=orange, label='next color' );
+#endif
+		break;
+	}
+	//-----------------------------------------------------------------
+	case CALIB_VGR_NAV:
+	{
+		printState(CALIB_VGR_NAV);
 		bool reqmove = true;
 		while(true)
 		{
@@ -658,21 +763,21 @@ void TxtVacuumGripperRobot::fsmStep()
 			{
 				moveCalibPos();
 				setStatus(SM_CALIB);
-				FSM_TRANSITION( CALIB_MOVE, color=orange, label='calib pos' );
+				FSM_TRANSITION( CALIB_VGR_MOVE, color=orange, label='calib pos' );
 				reqmove = false;
 				break;
 			}
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
 #ifdef __DOCFSM__
-		FSM_TRANSITION( CALIB_NAV, color=orange, label='select pos' );
+		FSM_TRANSITION( CALIB_VGR_NAV, color=orange, label='select pos' );
 #endif
 		break;
 	}
 	//-----------------------------------------------------------------
-	case CALIB_MOVE:
+	case CALIB_VGR_MOVE:
 	{
-		printState(CALIB_MOVE);
+		printState(CALIB_VGR_MOVE);
 		while(true)
 		{
 			if (joyData.b2) {
@@ -747,11 +852,11 @@ void TxtVacuumGripperRobot::fsmStep()
 			}
 			moveJoystick();
 #ifdef __DOCFSM__
-			FSM_TRANSITION( CALIB_MOVE, color=orange, label='move' );
+			FSM_TRANSITION( CALIB_VGR_MOVE, color=orange, label='move' );
 #endif
 			std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		}
-		FSM_TRANSITION( CALIB_NAV, color=green, label='ok' );
+		FSM_TRANSITION( CALIB_VGR_NAV, color=orange, label='ok' );
 		break;
 	}
 	//-----------------------------------------------------------------
@@ -844,8 +949,6 @@ void TxtVacuumGripperRobot::initDashboard()
 	mqttclient->publishStateVGR(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "dso");
 	mqttclient->publishStateDSI(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
 	mqttclient->publishStateDSO(ft::LEDS_OFF, "", TIMEOUT_MS_PUBLISH, 0, "");
-	ord_state.type = WP_TYPE_NONE;
-	ord_state.state = WAITING_FOR_ORDER;
 	mqttclient->publishStateOrder(ord_state, TIMEOUT_MS_PUBLISH);
 	TxtWorkpiece wp_empty("",WP_TYPE_NONE,WP_STATE_RAW);
 	History_map_t map_hist;
@@ -868,6 +971,7 @@ void TxtVacuumGripperRobot::run()
 	std::cout << (suc?"OK":"FAILED") << std::endl;
 	if (!suc) {
 		std::cout << "exit NFC failed" << std::endl;
+		spdlog::get("file_logger")->error("exit NFC failed",0);
 		exit(1);
 	}
 

@@ -63,6 +63,7 @@ bool TxtHighBayWarehouseCalibData::load()
 		std::cout << "conv : "
 				<< conv.x << ", "
 				<< conv.y << std::endl;
+
 		valid = true;
     	return true;
     }
@@ -82,6 +83,7 @@ bool TxtHighBayWarehouseCalibData::saveDefault()
 	hby[2] = 855;
 
 	conv = EncPos2(20, 720);
+
 	return save();
 }
 
@@ -89,7 +91,8 @@ bool TxtHighBayWarehouseCalibData::save()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "save",0);
 	Json::Value event;
-    event["HBW"]["hbx"]["1"] = hbx[0];
+
+	event["HBW"]["hbx"]["1"] = hbx[0];
     event["HBW"]["hbx"]["2"] = hbx[1];
     event["HBW"]["hbx"]["3"] = hbx[2];
     event["HBW"]["hby"]["1"] = hby[0];

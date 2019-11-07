@@ -48,7 +48,8 @@ TxtSortingLine::TxtSortingLine(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttcl
 	: TxtSimulationModel(pT, mqttclient),
 	currentState(__NO_STATE), newState(__NO_STATE),
 	convBelt(pT, 0), chEW(4), chER(5), chEB(6), chComp(7),
-	lastColorValue(-1), reqQuit(false), reqMPOproduced(false), reqVGRstart(false),
+	lastColorValue(-1), calibColor(ft::WP_TYPE_NONE), reqQuit(false), reqMPOproduced(false), reqVGRstart(false), reqVGRcalib(false),
+	joyData(), reqJoyData(false),
 	obs_sld(0)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtSortingLine",0);

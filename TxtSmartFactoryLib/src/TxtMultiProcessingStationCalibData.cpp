@@ -1,11 +1,11 @@
 /*
- * TxtSortingLineCalibData.cpp
+ * TxtMultiProcessingStationCalibData.cpp
  *
- *  Created on: 03.04.2019
+ *  Created on: 23.10.2019
  *      Author: steiger-a
  */
 
-#include "TxtSortingLine.h"
+#include "TxtMultiProcessingStation.h"
 
 #include "TxtMqttFactoryClient.h"
 #include "Utils.h"
@@ -23,7 +23,7 @@
 namespace ft {
 
 
-bool TxtSortingLineCalibData::load()
+bool TxtMultiProcessingStationCalibData::load()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "load",0);
 
@@ -44,16 +44,7 @@ bool TxtSortingLineCalibData::load()
                 return false;
             }
         }
-        const Json::Value colorsens = root["SLD"]["colorsens"];
-
-    	color_th[0] = colorsens["th1"].asInt();
-    	color_th[1] = colorsens["th2"].asInt();
-		std::cout <<  "colorsens th: " << color_th[0] << ", " << color_th[1] << std::endl;
-
-		count_white = root["SLD"]["count"]["white"].asInt();
-		count_red = root["SLD"]["count"]["red"].asInt();
-		count_blue = root["SLD"]["count"]["blue"].asInt();
-		std::cout <<  "count w,r,b: " << count_white << ", " << count_red  << ", " << count_blue << std::endl;
+        const Json::Value colorsens = root["MPO"]["colorsens"];
 
 		valid = true;
     	return true;
@@ -61,32 +52,16 @@ bool TxtSortingLineCalibData::load()
 	return false;
 }
 
-bool TxtSortingLineCalibData::saveDefault()
+bool TxtMultiProcessingStationCalibData::saveDefault()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "saveDefault",0);
-
-    //white=564, red=1320, blue=1540
-	color_th[0] = 940;
-	color_th[1] = 1430;
-
-	count_white = 5;
-	count_red = 15;
-	count_blue = 26;
-
 	return save();
 }
 
-bool TxtSortingLineCalibData::save()
+bool TxtMultiProcessingStationCalibData::save()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "save",0);
 	Json::Value event;
-
-	event["SLD"]["colorsens"]["th1"] = color_th[0];
-    event["SLD"]["colorsens"]["th2"] = color_th[1];
-
-    event["SLD"]["count"]["white"] = count_white;
-    event["SLD"]["count"]["red"] = count_red;
-    event["SLD"]["count"]["blue"] = count_blue;
 
     Json::StreamWriterBuilder builder;
     builder["commentStyle"] = "None";

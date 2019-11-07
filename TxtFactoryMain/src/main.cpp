@@ -1,10 +1,3 @@
-#include <TxtMqttFactoryClient.h>
-
-#include <stdio.h>          // for printf()
-#include <string.h>         // for memset()
-#include <unistd.h>         // for sleep()
-#include <cmath>			// for pow()
-
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
 
@@ -18,9 +11,18 @@
 #include "TxtPanTiltUnit.h"
 #include "TxtFactoryTypes.h"
 #include "TxtJoystickXYBController.h"
+#include "TxtMqttFactoryClient.h"
+#include "TxtSound.h"
+
+#include <stdio.h>          // for printf()
+#include <string.h>         // for memset()
+#include <unistd.h>         // for sleep()
+#include <cmath>			// for pow()
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/sinks/basic_file_sink.h"
+#include "spdlog/async.h"
 
 bool first_message_arrived = false;
 bool first_message_subscribe = false;
@@ -32,8 +34,13 @@ int sld_lastCode = -1;
 int dsi_lastCode = -1;
 int dso_lastCode = -1;
 
+std::string sts_mpo;
+std::string sts_hbw;
+std::string sts_vgr;
+std::string sts_sld;
+
 // Version info
-#define VERSION_HEX ((0<<16)|(7<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(8<<8)|(0<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;
@@ -359,6 +366,56 @@ class callback : public virtual mqtt::callback
 			} catch (const Json::RuntimeError& exc) {
 				std::cout << "Error: " << exc.what() << std::endl;
 			}
+		} else if (msg->get_topic() == TOPIC_LOCAL_BROADCAST) {
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED local broadcast:{}", msg->get_topic());
+			std::stringstream ssin(msg->to_string());
+			Json::Value root;
+			try {
+				ssin >> root;
+				std::string sts = root["ts"].asString();
+				std::string station = root["station"].asString();
+				std::string hardwareId = root["hardwareId"].asString();
+				std::string softwareName = root["softwareName"].asString();
+				std::string softwareVersion = root["softwareVersion"].asString();
+				std::string message = root["message"].asString();
+				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  station:{} ts:{}", station, sts);
+				if (station=="MPO") {
+					sts_mpo = sts;
+					std::cout << "ts_mpo: " << sts_mpo << std::endl;
+				} else if (station=="HBW") {
+					sts_hbw = sts;
+					std::cout << "ts_hbw: " << sts_hbw << std::endl;
+				} else if (station=="VGR") {
+					sts_vgr = sts;
+					std::cout << "ts_vgr: " << sts_vgr << std::endl;
+				} else if (station=="SLD") {
+					sts_sld = sts;
+					std::cout << "ts_sld: " << sts_sld << std::endl;
+				} else {
+					std::cout << "Unknown station: " << station << std::endl;
+					spdlog::get("file_logger")->error("Unknown station: {}",station);
+					exit(1);
+				}
+				//check time sync
+				if (!ft::trycheckTimestampTTL(sts))
+				{
+					std::cout << "Please sync time!" << station << ", " << sts << std::endl;
+					spdlog::get("file_logger")->error("Please sync time! {} ({})",station,sts);
+					ft::TxtSound::play(pTArea,2);
+					exit(1);
+				}
+				//check SW version
+				if (TxtAppVer != softwareVersion)
+				{
+					std::cout << "Wrong SW Version!" << station << " " << TxtAppVer << "!=" << softwareVersion << std::endl;
+					spdlog::get("file_logger")->error("Wrong SW Version! {} {}!={}",station,TxtAppVer,softwareVersion);
+					ft::TxtSound::play(pTArea,3);
+					exit(1);
+				}
+			} catch (const Json::RuntimeError& exc) {
+				std::cout << "Error: " << exc.what() << std::endl;
+			}
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else if (msg->get_topic() == TOPIC_CONFIG_BME680) {
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED bme680 config: {}", msg->get_topic());
 			if (force_max_rate) {
@@ -501,6 +558,7 @@ class callback : public virtual mqtt::callback
 			updateLEDs(msg, "dso");
 		} else {
 			std::cout << "Unknown topic: " << msg->get_topic() << std::endl;
+			spdlog::get("file_logger")->error("Unknown topic: {}",msg->get_topic());
 			exit(1);
 		}
 	}
@@ -596,23 +654,32 @@ int main(int argc, char* argv[])
 	            (VERSION_HEX >> 8) & 0xff, (VERSION_HEX >> 0) & 0xff);
 	fprintf( stdout, "TxtFactoryMain V%d.%d.%d\n", (VERSION_HEX >> 16) & 0xff,
 	            (VERSION_HEX >> 8) & 0xff, (VERSION_HEX >> 0) & 0xff);
+	try
+	{
+		//can be set globaly or per logger(logger->set_error_handler(..))
+		spdlog::set_error_handler([](const std::string& msg)
+	    {
+			std::cout << "err handler spdlog:" << msg << std::endl;
+			spdlog::get("file_logger")->error("err handler spdlog: {}",msg);
+			exit(1);
+	    });
 
-	// Console logger with color
-	auto console = spdlog::stdout_color_mt("console");
-	auto console_axes = spdlog::stdout_color_mt("console_axes");
-	//spdlog::set_formatter();
-	spdlog::set_pattern("[%t][%Y-%m-%d %T.%e][%L] %v");
-	spdlog::set_level(spdlog::level::trace);
-	console_axes->set_level(spdlog::level::off);//trace);
+		auto file_logger = spdlog::basic_logger_mt<spdlog::async_factory>("file_logger", "Data/TxtFactoryMain.log", true);
+		spdlog::get("file_logger")->set_level(spdlog::level::trace);
+		spdlog::get("file_logger")->info("TxtFactoryMain {}", TxtAppVer);
 
-#ifdef DEBUG
-	//can be set globaly or per logger(logger->set_error_handler(..))
-	spdlog::set_error_handler([](const std::string& msg)
-    {
-		std::cout << "err handler spdlog:" << msg << std::endl;
-		exit(1);
-    });
-#endif
+		// Console logger with color
+		auto console = spdlog::stdout_color_mt("console");
+		auto console_axes = spdlog::stdout_color_mt("console_axes");
+		//spdlog::set_formatter();
+		spdlog::set_pattern("[%t][%Y-%m-%d %T.%e][%L] %v");
+		spdlog::set_level(spdlog::level::trace);
+		console_axes->set_level(spdlog::level::off);//trace);
+	}
+	catch (const spdlog::spdlog_ex& ex)
+	{
+		std::cout << "Log initialization failed: " << ex.what() << std::endl;
+	}
 
 	//load config
     Json::Value root;
@@ -627,7 +694,7 @@ int main(int argc, char* argv[])
             std::cout  << errs << "\n";
         }
     }
-
+    bool sound_enable = root.get("sound", true ).asBool();
     std::string host = root.get("host", "localhost" ).asString();
     int port = root.get("port", 1883 ).asInt();
     std::string mqtt_user = root.get("mqtt_user", "txt" ).asString();
@@ -639,7 +706,8 @@ int main(int argc, char* argv[])
     double broadcast_retry_delay = root.get("broadcast_retry_delay", 5.0).asDouble();
     int mcontrol = root.get("controlmode", 10).asInt();
     mleds = root.get("ledsmode", 1).asInt();
-    std::cout << "host:" << host
+    std::cout << "sound:" << sound_enable
+    	<< " host:" << host
 		<< " port:" << port
 		<< " mqtt_user:" << mqtt_user
 		<< " mqtt_pass:" << mqtt_pass << std::endl
@@ -658,7 +726,6 @@ int main(int argc, char* argv[])
         if (pTArea)
         {
             //SetTransferAreaCompleteCallback(JoysticksTransferAreaCallbackFunction);
-
 		    try {
 				std::cout << "Init MQTTClient" << std::endl;
 				std::stringstream sout_port;
@@ -766,13 +833,6 @@ int main(int argc, char* argv[])
 				setLEDs(ft::LEDS_WAIT_ERROR);
 #endif
 
-				//TODO wait till all stations are online
-				/*while((vgr_lastCode==-1) ||
-						(hbw_lastCode==-1) ||
-						(mpo_lastCode==-1) ||
-						(sld_lastCode==-1));
-				*/
-
 				//start observers
 				std::cout << "Init TxtPTUPosObserver" << std::endl;
 				TxtPTUPosObserver ptu_obs(&ptu);
@@ -848,20 +908,33 @@ int main(int argc, char* argv[])
 					}
 				}
 
+			} catch (const std::invalid_argument& exc) {
+				std::cerr << "invalid_argument Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("invalid_argument Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
+				return 1;
 			} catch (const Json::RuntimeError& exc) {
-				std::cout << "Error: " << exc.what() << std::endl;
+				std::cerr << "Json Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("Json Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
 		        return 1;
 		    } catch (const mqtt::exception& exc) {
-		        std::cout << "Error: " << exc.what() << " [" << exc.get_reason_code() << "]" << std::endl;
+		        std::cerr << "MQTT Error: " << exc.what() << " [" << exc.get_reason_code() << "]" << std::endl;
+				spdlog::get("file_logger")->error("MQTT Error: {} [{}]", exc.what(), exc.get_reason_code());
+				ft::TxtSound::play(pTArea,2);
 		        return 1;
 			} catch (const cv::Exception& exc) {
-				std::cout << "OpenCV Error: " << exc.what() << std::endl;
+				std::cerr << "OpenCV Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("OpenCV Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
 				return 1;
-			} catch (const spdlog::spdlog_ex& ex) {
-			    std::cout << "Log initialization failed: " << ex.what() << std::endl;
+			} catch (const spdlog::spdlog_ex& exc) {
+			    std::cerr << "Spdlog Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("Spdlog Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
+				return 1;
 			}
         }
-        spdlog::drop_all();
         StopTxtDownloadProg();
     }
 	return 0;

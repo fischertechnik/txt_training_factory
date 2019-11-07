@@ -48,10 +48,9 @@ int main(int argc, char* argv[])
         if (pTArea)
         {
 				ft::TxtTransfer T(pTArea);
-				ft::TxtTransfer* pT = &T;
 #ifdef CLIENT_MPO
 				spdlog::info("MPO {}", TxtAppVer);
-		    	ft::TxtMultiProcessingStation mpo(pT);
+		    	ft::TxtMultiProcessingStation mpo(&T);
 				//printf("setCompressor on\n");
 		    	mpo.setCompressor(true);
 				//printf("setValveOvenDoor open\n");
@@ -99,7 +98,7 @@ int main(int argc, char* argv[])
 			    int posx = root.get("x", 170 ).asInt();
 			    int posy = root.get("y", 900 ).asInt();
 
-		    	ft::TxtHighBayWarehouse hbw(pT);
+		    	ft::TxtHighBayWarehouse hbw(&T);
 		    	hbw.moveRef();
 		    	hbw.axisX.moveAbs(posx);
 		    	hbw.axisY.moveAbs(posy);
@@ -123,7 +122,7 @@ int main(int argc, char* argv[])
 			    int posy = root.get("y", 865 ).asInt();
 			    int posz = root.get("z", 10 ).asInt();
 
-		    	ft::TxtVacuumGripperRobot vgr(pT);
+		    	ft::TxtVacuumGripperRobot vgr(&T);
 		    	vgr.moveYRef();
 		    	vgr.moveZRef();
 		    	vgr.moveXRef();
@@ -132,7 +131,7 @@ int main(int argc, char* argv[])
 		    	vgr.axisZ.moveAbs(posz);
 #elif MAIN_SSC
 		    	spdlog::info("SSC {}", TxtAppVer);
-		    	ft::TxtPanTiltUnit ptu(pT);
+		    	ft::TxtPanTiltUnit ptu(&T);
 		    	ptu.init();
 		    	ptu.moveHome();
 #else

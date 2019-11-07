@@ -56,6 +56,7 @@ void TxtSortingLine::fsmStep()
 		{
 			printEntryState(FAULT);
 			setStatus(SM_ERROR);
+			sound.error();
 			break;
 		}
 		//-------------------------------------------------------------
@@ -136,6 +137,11 @@ void TxtSortingLine::fsmStep()
 		{
 			FSM_TRANSITION( START, color=blue, label='start' );
 		}
+		else if (reqVGRcalib)
+		{
+			FSM_TRANSITION( CALIB_SLD, color=orange, label='req\ncalib'  );
+			reqVGRcalib = false;
+		}
 
 
 #ifdef __DOCFSM__
@@ -191,21 +197,21 @@ void TxtSortingLine::fsmStep()
 		{
 		case WP_TYPE_WHITE:
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "WHITE",0);
-			if (u16Counter >= COUNT_WHITE)
+			if (u16Counter >= calibData.count_white)
 			{
 				FSM_TRANSITION( EJECTION_WHITE, color=blue, label='counter\nw' );
 			}
 			break;
 		case WP_TYPE_RED:
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "RED",0);
-			if (u16Counter >= COUNT_RED)
+			if (u16Counter >= calibData.count_red)
 			{
 				FSM_TRANSITION( EJECTION_RED, color=blue, label='counter\nr' );
 			}
 			break;
 		case WP_TYPE_BLUE:
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "BLUE",0);
-			if (u16Counter >= COUNT_BLUE)
+			if (u16Counter >= calibData.count_blue)
 			{
 				FSM_TRANSITION( EJECTION_BLUE, color=blue, label='counter\nb' );
 			}
@@ -304,6 +310,121 @@ void TxtSortingLine::fsmStep()
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
 		FSM_TRANSITION( IDLE, color=green, label='next' );
+		break;
+	}
+	//-----------------------------------------------------------------
+	case CALIB_SLD:
+	{
+		printState(CALIB_SLD);
+		setStatus(SM_CALIB);
+		calibColorValues[0] = -1;
+		calibColorValues[1] = -1;
+		calibColorValues[2] = -1;
+		detectedColorValue = 3000;
+		convBelt.moveRight();
+		calibColor = ft::TxtWPType_t::WP_TYPE_WHITE;
+		FSM_TRANSITION( CALIB_SLD_DETECTION, color=orange, label='next' );
+		break;
+	}
+	//-----------------------------------------------------------------
+	case CALIB_SLD_DETECTION:
+	{
+		printState(CALIB_SLD_DETECTION);
+		//check exit
+		if (joyData.b2) {
+			assert(mqttclient);
+			mqttclient->publishSLD_Ack(SLD_CALIB_END, TxtWPType_t::WP_TYPE_NONE, 0, TIMEOUT_MS_PUBLISH);
+			convBelt.stop();
+			FSM_TRANSITION( IDLE, color=green, label='cancel' );
+			break;
+		}
+
+		if (readColorValue() < detectedColorValue)
+		{
+			detectedColorValue = lastColorValue;
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "color value [min]: {} [{}]", lastColorValue, detectedColorValue);
+		}
+		if (isEjectionTriggered())
+		{
+			sound.info1();
+			//min color is final color
+			std::cout << "color final value: " << detectedColorValue << std::endl;
+
+			switch(calibColor)
+			{
+			case ft::TxtWPType_t::WP_TYPE_WHITE:
+				calibColorValues[0] = detectedColorValue;
+				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "value white: {}",calibColorValues[0]);
+
+				calibColor = ft::TxtWPType_t::WP_TYPE_RED;
+				break;
+			case ft::TxtWPType_t::WP_TYPE_RED:
+				calibColorValues[1] = detectedColorValue;
+				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "value red: {}",calibColorValues[1]);
+
+				calibColor = ft::TxtWPType_t::WP_TYPE_BLUE;
+				break;
+			case ft::TxtWPType_t::WP_TYPE_BLUE:
+				calibColorValues[2] = detectedColorValue;
+				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "value blue: {}",calibColorValues[2]);
+				break;
+			default: assert( 0 ); break;
+			}
+
+			std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+			FSM_TRANSITION( CALIB_SLD_NEXT, color=orange, label='next\ncolor' );
+			break;
+		}
+#ifdef __DOCFSM__
+		FSM_TRANSITION( CALIB_SLD_DETECTION, color=orange, label='next' );
+#endif
+		break;
+	}
+	//-----------------------------------------------------------------
+	case CALIB_SLD_NEXT:
+	{
+		printState(CALIB_SLD_NEXT);
+		setStatus(SM_CALIB);
+
+		//check finish
+		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "w:{} r:{} b:{}",calibColorValues[0],calibColorValues[1],calibColorValues[2]);
+		if ((calibColorValues[0] > 0)&&
+			(calibColorValues[1] > 0)&&
+			(calibColorValues[2] > 0))
+		{
+			calibData.color_th[0] = (calibColorValues[0] + calibColorValues[1]) / 2;
+			calibData.color_th[1] = (calibColorValues[1] + calibColorValues[2]) / 2;
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "th1:{} th2:{}",calibData.color_th[0],calibData.color_th[1]);
+			//check
+			if ((calibColorValues[0] < calibColorValues[1])&&
+				(calibColorValues[1] < calibColorValues[2])&&
+				(calibColorValues[0] < calibColorValues[2])&&
+				(calibData.color_th[0] >= 200)&&
+				(calibData.color_th[1] < 2000))
+			{
+				calibData.save();
+			} else {
+				sound.error();
+			}
+			assert(mqttclient);
+			mqttclient->publishSLD_Ack(SLD_CALIB_END, TxtWPType_t::WP_TYPE_NONE, 0, TIMEOUT_MS_PUBLISH);
+			convBelt.stop();
+			FSM_TRANSITION( IDLE, color=green, label='SLD calibrated' );
+			break;
+		}
+
+		//check exit
+		if (joyData.b2) {
+			assert(mqttclient);
+			mqttclient->publishSLD_Ack(SLD_CALIB_END, TxtWPType_t::WP_TYPE_NONE, 0, TIMEOUT_MS_PUBLISH);
+			convBelt.stop();
+			FSM_TRANSITION( IDLE, color=green, label='cancel' );
+			break;
+		}
+
+		detectedColorValue = 3000;
+		FSM_TRANSITION( CALIB_SLD_DETECTION, color=orange, label='next\ncolor' );
 		break;
 	}
 	//-----------------------------------------------------------------

@@ -17,7 +17,7 @@ namespace ft {
 
 
 TxtSimulationModel::TxtSimulationModel(TxtTransfer* pT, ft::TxtMqttFactoryClient* mqttclient)
-	: mqttclient(mqttclient), status(SM_NONE), active(false), pT(pT),
+	: pT(pT), mqttclient(mqttclient), sound(pT), status(SM_NONE), active(false),
 	  m_stoprequested(false), m_running(false), m_mutex(), m_thread()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtSimulationModel",0);

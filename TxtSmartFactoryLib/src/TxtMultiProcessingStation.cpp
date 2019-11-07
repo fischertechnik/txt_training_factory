@@ -28,6 +28,8 @@ TxtMultiProcessingStation::TxtMultiProcessingStation(TxtTransfer* pT, ft::TxtMqt
 	  reqQuit(false), reqVGRwp(0), reqVGRproduce(false), reqSLDstarted(false)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtMultiProcessingStation",0);
+	if (!calibData.existCalibFilename()) calibData.saveDefault();
+	calibData.load();
     configInputs();
 }
 
@@ -39,109 +41,86 @@ TxtMultiProcessingStation::~TxtMultiProcessingStation()
 bool TxtMultiProcessingStation::isEndConveyorBeltTriggered()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "isEndConveyorBeltTriggered", 0);
-	pT->lock();
 	assert(pT->pTArea);
 	bool ret = (pT->pTArea->ftX1in.uni[3] != 1);
-	pT->unlock();
 	return ret;
 }
 
 void TxtMultiProcessingStation::setSawOff() {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setSawLeft",0);
-	pT->lock();
 	assert(pT->pTArea);
 	pT->pTArea->ftX1out.duty[chMsaw*2] = 0;
 	pT->pTArea->ftX1out.duty[chMsaw*2+1] = 0;
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setSawLeft() {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setSawLeft",0);
-	pT->lock();
 	assert(pT->pTArea);
 	pT->pTArea->ftX1out.duty[chMsaw*2] = 512;
 	pT->pTArea->ftX1out.duty[chMsaw*2+1] = 0;
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setSawRight()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setSawRight",0);
-	pT->lock();
 	assert(pT->pTArea);
 	pT->pTArea->ftX1out.duty[chMsaw*2] = 0;
 	pT->pTArea->ftX1out.duty[chMsaw*2+1] = 512;
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setValveEjection(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setValveEjection {}", on);
-	pT->lock();
 	assert(pT->pTArea);
 	pT->pTArea->ftX1out.duty[6] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setCompressor(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setCompressor {}", on);
-	pT->lock();
 	assert(pT->pTArea);
 	pT->pTArea->ftX1out.duty[7] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
-	pT->unlock();
 }
 
 bool TxtMultiProcessingStation::isOvenTriggered()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "isOvenTriggered", 0);
-	pT->lock();
 	assert(pT->pTArea+1);
 	bool ret = ((pT->pTArea+1)->ftX1in.uni[4] != 1);
-	pT->unlock();
 	return ret;
 }
 
 void TxtMultiProcessingStation::setValveVacuum(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setValveVacuum {}", on);
-	pT->lock();
 	assert(pT->pTArea+1);
 	(pT->pTArea+1)->ftX1out.duty[4] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setValveLowering(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setValveLowering {}", on);
-	pT->lock();
 	assert(pT->pTArea+1);
 	(pT->pTArea+1)->ftX1out.duty[5] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setValveOvenDoor(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setValveOvenDoor {}", on);
-	pT->lock();
 	assert(pT->pTArea+1);
 	(pT->pTArea+1)->ftX1out.duty[6] = on ? 512 : 0; // Switch on with PWM Value 512 (= max speed)
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::setLightOven(bool on)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "setLightOven {}", on);
-	pT->lock();
 	assert(pT->pTArea+1);
 	(pT->pTArea+1)->ftX1out.duty[7] = on ? 512 : 0;
-	pT->unlock();
 }
 
 void TxtMultiProcessingStation::configInputs()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "configInputs", 0);
-	pT->lock();
 	//master
 	assert(pT->pTArea);
 	//End Conveyor Belt
@@ -157,7 +136,6 @@ void TxtMultiProcessingStation::configInputs()
 	(pT->pTArea+1)->ftX1config.uni[4].digital = 1;
 	//save
 	(pT->pTArea+1)->ftX1state.config_id ++; // Save the new Setup
-	pT->unlock();
 }
 
 

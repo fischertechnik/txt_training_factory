@@ -53,6 +53,7 @@ TxtDeliveryPickupStation::TxtDeliveryPickupStation(TxtTransfer* pT, ft::TxtMqttF
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "TxtDeliveryPickupStation",0);
 	if (!calibData.existCalibFilename()) calibData.saveDefault();
 	calibData.load();
+    //sound.enable(calibData.sound_enable); //see VGR
     configInputs();
     SetTransferAreaCompleteCallback(DPSTransferAreaCallbackFunction);
 }
@@ -68,7 +69,8 @@ std::string TxtDeliveryPickupStation::nfcDeviceDeleteWriteRawRead(ft::TxtWPType_
 	nfcDelete();
 	TxtWorkpiece wp("", c, WP_STATE_RAW);
 	nfcWrite(wp, vts, mask_ts);
-	return nfcRead();
+	std::string sid = nfcRead();
+	return sid;
 }
 
 std::string TxtDeliveryPickupStation::nfcDeviceWriteProducedRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts)
@@ -76,7 +78,8 @@ std::string TxtDeliveryPickupStation::nfcDeviceWriteProducedRead(ft::TxtWPType_t
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "moveNFCDeviceWriteProducedRead", 0);
 	TxtWorkpiece wp("", c, WP_STATE_PROCESSED);
 	nfcWrite(wp, vts, mask_ts);
-	return nfcRead();
+	std::string sid = nfcRead();
+	return sid;
 }
 
 std::string TxtDeliveryPickupStation::nfcDeviceWriteRejectedRead(ft::TxtWPType_t c, std::vector<int64_t> vts, uint8_t mask_ts)
@@ -85,7 +88,8 @@ std::string TxtDeliveryPickupStation::nfcDeviceWriteRejectedRead(ft::TxtWPType_t
 	nfcDelete();
 	TxtWorkpiece wp("", c, WP_STATE_REJECTED);
 	nfcWrite(wp, vts, mask_ts);
-	return nfcRead();
+	std::string sid = nfcRead();
+	return sid;
 }
 
 void TxtDeliveryPickupStation::configInputs()
@@ -156,18 +160,21 @@ bool TxtDeliveryPickupStation::nfcDelete()
 	bool suc = nfc.eraseTags();
 	if (!suc) return false;
 	std::string tag_uid = nfc.readTags();
+	sound.info1();
 	return !tag_uid.empty();
 }
 
 std::string TxtDeliveryPickupStation::nfcRead()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "nfcRead", 0);
+	sound.info1();
 	return nfc.readTags();
 }
 
 std::string TxtDeliveryPickupStation::nfcReadUID()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "nfcReadUID", 0);
+	//sound.info1();
 	return nfc.readTagsGetUID();
 }
 
@@ -181,6 +188,7 @@ bool TxtDeliveryPickupStation::nfcWrite(TxtWorkpiece wp, std::vector<int64_t> vt
 		uts.s64 = vts[i];
 		vuTS.push_back(uts);
 	}
+	sound.info1();
 	return nfc.writeTags(wp, vuTS, mask_ts);
 }
 

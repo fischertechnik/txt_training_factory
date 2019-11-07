@@ -41,7 +41,7 @@ extern uint16_t u16Counter;
 class TxtSortingLineCalibData : public ft::TxtCalibData {
 public:
 	TxtSortingLineCalibData()
-		: TxtCalibData(("Data/Calib.SLD.json")) {};
+		: TxtCalibData("Data/Calib.SLD.json") {};
 	virtual ~TxtSortingLineCalibData() {}
 
 	bool load();
@@ -49,14 +49,15 @@ public:
 	bool save();
 
 	int color_th[2];
+
+	int count_white;
+	int count_red;
+	int count_blue;
 };
 
 
 class TxtSortingLine : public ft::TxtSimulationModel {
 public:
-	const uint16_t COUNT_WHITE = 5;
-	const uint16_t COUNT_RED = 15;
-	const uint16_t COUNT_BLUE = 26;
 	const uint16_t COUNT_WRONG = 29;
 
 	enum State_t
@@ -72,7 +73,10 @@ public:
 		FSM_DECLARE_STATE_XE( EJECTION_WHITE, color=blue ),
 		FSM_DECLARE_STATE_XE( EJECTION_RED, color=blue ),
 		FSM_DECLARE_STATE_XE( EJECTION_BLUE, color=blue ),
-		FSM_DECLARE_STATE_XE( SORTED, color=blue )
+		FSM_DECLARE_STATE_XE( SORTED, color=blue ),
+		FSM_DECLARE_STATE_XE( CALIB_SLD, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_SLD_DETECTION, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_SLD_NEXT, color=orange ),
 	};
 
 	inline const char * toString(State_t state)
@@ -91,6 +95,9 @@ public:
 		   _CASE_ITEM( EJECTION_RED )
 		   _CASE_ITEM( EJECTION_BLUE )
 		   _CASE_ITEM( SORTED )
+		   _CASE_ITEM( CALIB_SLD )
+		   _CASE_ITEM( CALIB_SLD_DETECTION )
+		   _CASE_ITEM( CALIB_SLD_NEXT )
 		   default: break;
 		}
 		return "[TxtSortingLine::State_t] Unknown State";
@@ -122,6 +129,7 @@ public:
 	/* local */
 	void requestExit(const std::string name) {
 		std::cout << "program terminated by " << name << std::endl;
+		spdlog::get("file_logger")->error("program terminated by {}",name);
 		exit(1);
 	}
 	void requestMPOproduced() {
@@ -131,6 +139,15 @@ public:
 	void requestVGRstart() {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestVGRstart",0);
 		reqVGRstart= true;
+	}
+	void requestVGRcalib() {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestVGRcalib",0);
+		reqVGRcalib= true;
+	}
+	void requestJoyBut(TxtJoysticksData jd) {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestJoyBut",0);
+		joyData = jd;
+		reqJoyData = true;
 	}
 
 	bool isColorSensorTriggered();
@@ -166,11 +183,16 @@ protected:
 	uint8_t chComp;
 	int lastColorValue;
 	int detectedColorValue;
+	TxtWPType_t calibColor;
+	int calibColorValues[3];
 	TxtSortingLineCalibData calibData;
 
 	bool reqQuit;
 	bool reqMPOproduced;
 	bool reqVGRstart;
+	bool reqVGRcalib;
+	TxtJoysticksData joyData;
+	bool reqJoyData;
 
 	TxtSortingLineObserver* obs_sld;
 
@@ -204,6 +226,8 @@ public:
 				code = 2;
 			} else if (st == SM_ERROR) {
 				code = 4;
+			} else if (st == SM_CALIB) {
+				code = 7;
 			}
 			_mqttclient->publishStateSLD((ft::TxtLEDSCode_t)code,"",TIMEOUT_MS_PUBLISH,_subject->isActive()?1:0,"");
 

@@ -42,9 +42,9 @@ void TxtAxis::configInputs(uint8_t chS)
 	if ((chS<0) || (chS>15))
 	{
 		std::cout << "chS out of range master:[0-7] extension:[8-15]!" << std::endl;
+		spdlog::get("file_logger")->error("chS out of range master:[0-7] extension:[8-15]!",0);
 		exit(1);
 	}
-	pT->lock();
 	if (chS < 8)
 	{
 		assert(pT->pTArea);
@@ -59,15 +59,12 @@ void TxtAxis::configInputs(uint8_t chS)
 		(pT->pTArea+1)->ftX1config.uni[chS-8].digital = 1;
 		(pT->pTArea+1)->ftX1state.config_id ++; // Save the new Setup
 	}
-	pT->unlock();
 }
 
 bool TxtAxis::isSwitchPressed(uint8_t chS)
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "{} isSwitchPressed chS:{}", name, chS);
-	pT->lock();
 	bool ret = (chS<8?pT->pTArea->ftX1in.uni[chS]:(pT->pTArea+1)->ftX1in.uni[chS-8]) == 1;
-	pT->unlock();
 	return ret;
 }
 
@@ -81,7 +78,6 @@ void TxtAxis::setStatus(TxtAxis_status_t st) {
 void TxtAxis::setMotorOff()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console_axes"), "{}({}) setMotorOff",name,status);
-	pT->lock();
 	if (chM < 8)
 	{
 		assert(pT->pTArea);
@@ -94,13 +90,11 @@ void TxtAxis::setMotorOff()
 		(pT->pTArea+1)->ftX1out.duty[(chM-8)*2] = 0;
 		(pT->pTArea+1)->ftX1out.duty[(chM-8)*2+1] = 0;
 	}
-	pT->unlock();
 }
 
 void TxtAxis::setMotorLeft()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console_axes"), "{}({}) setMotorLeft",name,status);
-	pT->lock();
 	assert(chS1<8?pT->pTArea:pT->pTArea+1);
 	if (chS1<8?pT->pTArea->ftX1in.uni[chS1]:(pT->pTArea+1)->ftX1in.uni[chS1-8] == 1)
 	{
@@ -121,13 +115,11 @@ void TxtAxis::setMotorLeft()
 			(pT->pTArea+1)->ftX1out.duty[(chM-8)*2+1] = 0;
 		}
 	}
-	pT->unlock();
 }
 
 void TxtAxis::setMotorRight()
 {
 	SPDLOG_LOGGER_TRACE(spdlog::get("console_axes"), "{}({}) setMotorRight",name,status);
-	pT->lock();
 	if (chM < 8)
 	{
 		assert(pT->pTArea);
@@ -140,7 +132,6 @@ void TxtAxis::setMotorRight()
 		(pT->pTArea+1)->ftX1out.duty[(chM-8)*2] = 0;
 		(pT->pTArea+1)->ftX1out.duty[(chM-8)*2+1] = speed;
 	}
-	pT->unlock();
 }
 
 

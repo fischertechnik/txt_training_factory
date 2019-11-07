@@ -40,38 +40,40 @@ namespace ft {
 
 typedef enum
 {
-	MPO_EXIT,
-	MPO_STARTED,
-	MPO_PRODUCED
+	MPO_EXIT=0,
+	MPO_STARTED=1,
+	MPO_PRODUCED=2
 } TxtMpoAckCode_t;
 
 typedef enum
 {
-	VGR_EXIT,
-	VGR_HBW_FETCHCONTAINER,
-	VGR_HBW_STORE_WP,
-	VGR_HBW_FETCH_WP,
-	VGR_HBW_STORECONTAINER,
-	VGR_HBW_RESETSTORAGE,
-	VGR_HBW_CALIB,
-	VGR_MPO_PRODUCE,
-	VGR_SLD_START
+	VGR_EXIT=0,
+	VGR_HBW_FETCHCONTAINER=1,
+	VGR_HBW_STORE_WP=2,
+	VGR_HBW_FETCH_WP=3,
+	VGR_HBW_STORECONTAINER=4,
+	VGR_HBW_RESETSTORAGE=5,
+	VGR_HBW_CALIB=6,
+	VGR_MPO_PRODUCE=7,
+	VGR_SLD_START=8,
+	VGR_SLD_CALIB=9
 } TxtVgrDoCode_t;
 
 typedef enum
 {
-	HBW_EXIT,
-	HBW_FETCHED,
-	HBW_STORED,
-	HBW_CALIB_NAV,
-	HBW_CALIB_END
+	HBW_EXIT=0,
+	HBW_FETCHED=1,
+	HBW_STORED=2,
+	HBW_CALIB_NAV=3,
+	HBW_CALIB_END=4
 } TxtHbwAckCode_t;
 
 typedef enum
 {
-	SLD_EXIT,
-	SLD_STARTED,
-	SLD_SORTED
+	SLD_EXIT=0,
+	SLD_STARTED=1,
+	SLD_SORTED=2,
+	SLD_CALIB_END=3
 } TxtSldAckCode_t;
 
 
@@ -159,6 +161,7 @@ public:
 #define TOPIC_OUTPUT_NFC_DS      "f/o/nfc/ds"
 
 //factory local
+#define TOPIC_LOCAL_BROADCAST    "fl/broadcast"
 #define TOPIC_LOCAL_SSC_JOY      "fl/ssc/joy"
 #define TOPIC_LOCAL_MPO_ACK      "fl/mpo/ack"
 #define TOPIC_LOCAL_VGR_DO       "fl/vgr/do"
@@ -203,6 +206,7 @@ public:
 	void publishNfcDS(TxtWorkpiece wp, History_map_t map_hist, long timeout);
 
 	//Factory local
+	void publishStationBroadcast(const std::string station, double timestamp_s, const std::string sw, const std::string ver, const std::string message, long timeout);
 	void publishSSC_Joy(TxtJoysticksData jd, long timeout);
 	void publishMPO_Ack(TxtMpoAckCode_t code, long timeout);
 	void publishVGR_Do(TxtVgrDoCode_t code, TxtWorkpiece* wp, long timeout);

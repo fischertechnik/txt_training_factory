@@ -70,32 +70,12 @@ inline const char * toString(TxtAxis_status_t st)
 #define CYCLE_MS_AXIS 10
 #endif
 
+
 class TxtTransfer {
 public:
 	FISH_X1_TRANSFER* pTArea;
-
-	TxtTransfer(FISH_X1_TRANSFER* pTArea)
-		: pTArea(pTArea), m_mutex()
-	{
-		pthread_mutexattr_t attr;
-		pthread_mutexattr_init(&attr);
-		//pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-		pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_ERRORCHECK);
-		pthread_mutex_init(&m_mutex, &attr);
-	}
-	virtual ~TxtTransfer()
-	{
-		pthread_mutex_destroy(&m_mutex);
-	}
-	void lock() {
-		pthread_mutex_lock(&m_mutex);
-	}
-	void unlock() {
-		pthread_mutex_unlock(&m_mutex);
-	}
-
-private:
-	pthread_mutex_t m_mutex;
+	TxtTransfer(FISH_X1_TRANSFER* pTArea) : pTArea(pTArea) {}
+	virtual ~TxtTransfer() {}
 };
 
 

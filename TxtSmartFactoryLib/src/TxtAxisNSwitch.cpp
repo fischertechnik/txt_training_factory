@@ -49,6 +49,7 @@ void TxtAxisNSwitch::moveS2X(int idx)
 	{
 		spdlog::get("console_axes")->error("{} Error: index {} for S2X is out of bounds!",name,idx);
 		std::cout << "exit moveS2X" << std::endl;
+		spdlog::get("file_logger")->error("exit moveS2X",0);
 		exit(1);
 	}
 	uint8_t chS = chS2X[idx];
@@ -107,6 +108,7 @@ void TxtAxisNSwitch::moveS2X(int idx)
 		std::string sst = toString(status);
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} setStatus:{}",name,sst);
 		std::cout << "exit moveS2X 3" << std::endl;
+		spdlog::get("file_logger")->error("exit moveS2X 3",0);
 		exit(1);
 	}
 }

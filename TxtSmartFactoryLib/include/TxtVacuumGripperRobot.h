@@ -87,7 +87,7 @@ inline const char * toString(TxtVgrCalibPos_t v)
 class TxtVacuumGripperRobotCalibData : public ft::TxtCalibData {
 public:
 	TxtVacuumGripperRobotCalibData()
-		: TxtCalibData(("Data/Calib.VGR.json")) {};
+		: TxtCalibData("Data/Calib.VGR.json") {};
 	virtual ~TxtVacuumGripperRobotCalibData() {}
 
 	bool load();
@@ -98,6 +98,7 @@ public:
 		auto search = map_pos3.find(key);
 		if (search == map_pos3.end()) {
 			std::cout << "Error: key unknown " << key << std::endl;
+			spdlog::get("file_logger")->error("Error: key unknown {}",key);
 			exit(1);
 		}
 	}
@@ -150,9 +151,12 @@ public:
 		FSM_DECLARE_STATE_XE( STORE_WP_VGR, color=blue ),
 		FSM_DECLARE_STATE_XE( STORE_WP, color=blue ),
 		FSM_DECLARE_STATE_XE( CALIB_HBW, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_SLD, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_DPS, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_DPS_NEXT, color=orange ),
 		FSM_DECLARE_STATE_XE( CALIB_VGR, color=orange ),
-		FSM_DECLARE_STATE_XE( CALIB_NAV, color=orange ),
-		FSM_DECLARE_STATE_XE( CALIB_MOVE, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_VGR_NAV, color=orange ),
+		FSM_DECLARE_STATE_XE( CALIB_VGR_MOVE, color=orange ),
 	};
 
 	inline const char * toString(State_t state)
@@ -178,9 +182,12 @@ public:
 		   _CASE_ITEM( STORE_WP_VGR )
 		   _CASE_ITEM( STORE_WP )
 		   _CASE_ITEM( CALIB_HBW )
+		   _CASE_ITEM( CALIB_SLD )
+		   _CASE_ITEM( CALIB_DPS )
+		   _CASE_ITEM( CALIB_DPS_NEXT )
 		   _CASE_ITEM( CALIB_VGR )
-		   _CASE_ITEM( CALIB_NAV )
-		   _CASE_ITEM( CALIB_MOVE )
+		   _CASE_ITEM( CALIB_VGR_NAV )
+		   _CASE_ITEM( CALIB_VGR_MOVE )
 		   default: break;
 		}
 		return "[TxtVacuumGripperRobot::State_t] Unknown State";
@@ -225,6 +232,7 @@ public:
 	/* local */
 	void requestExit(const std::string name) {
 		std::cout << "program terminated by " << name << std::endl;
+		spdlog::get("file_logger")->error("program terminated by {}",name);
 		exit(1);
 	}
 	void requestJoyBut(TxtJoysticksData jd) {
@@ -244,6 +252,10 @@ public:
 	void requestHBWcalib_end() {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestHBWcalib_end",0);
 		reqHBWcalib_end = true;
+	}
+	void requestSLDcalib_end() {
+		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestSLDcalib_end",0);
+		reqSLDcalib_end = true;
 	}
 	void requestHBWstored(TxtWorkpiece* wp) {
 		SPDLOG_LOGGER_TRACE(spdlog::get("console"),"requestHBWstored",0);
@@ -287,7 +299,7 @@ public:
 
 	void moveDeliveryInAndGrip();
 	void moveDeliveryOutAndRelease();
-	void moveColorSensor();
+	void moveColorSensor(bool half = false);
 	void moveRefYNFC();
 	void moveNFC();
 	std::string nfcDeviceDeleteWriteRawRead(std::vector<int64_t> vts, uint8_t mask_ts);
@@ -315,6 +327,8 @@ protected:
 	State_t currentState;
 	State_t newState;
 	TxtVgrCalibPos_t calibPos;
+	TxtWPType_t calibColor;
+	int calibColorValues[3];
 	EncPos3 lastPos3;
 
 	void configInputs();
@@ -353,6 +367,7 @@ protected:
 	bool reqHBWfetched;
 	bool reqHBWcalib_nav;
 	bool reqHBWcalib_end;
+	bool reqSLDcalib_end;
 	TxtWorkpiece* reqWP_HBW;
 	bool reqSLDsorted;
 	TxtWorkpiece reqWP_SLD;

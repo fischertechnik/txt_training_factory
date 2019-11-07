@@ -10,6 +10,7 @@
 
 #ifndef __DOCFSM__
 #include "TxtSimulationModel.h"
+#include "TxtCalibData.h"
 #include "TxtVacuumGripper.h"
 #include "TxtAxisNSwitch.h"
 #include "TxtConveyorBelt.h"
@@ -30,6 +31,19 @@ namespace ft {
 
 
 class TxtMultiProcessingStationObserver;
+
+
+class TxtMultiProcessingStationCalibData : public ft::TxtCalibData {
+public:
+	TxtMultiProcessingStationCalibData()
+		: TxtCalibData("Data/Calib.MPO.json") {};
+	virtual ~TxtMultiProcessingStationCalibData() {}
+
+	bool load();
+	bool saveDefault();
+	bool save();
+};
+
 
 class TxtMultiProcessingStation : public ft::TxtSimulationModel {
 public:
@@ -93,6 +107,7 @@ public:
 	/* local */
 	void requestExit(const std::string name) {
 		std::cout << "program terminated by " << name << std::endl;
+		spdlog::get("file_logger")->error("program terminated by {}",name);
 		exit(1);
 	}
 	void requestVGRproduce(TxtWorkpiece* wp) {
@@ -140,6 +155,7 @@ protected:
 	uint8_t chMsaw;
 	TxtVacuumGripper vgripper;
 	TxtConveyorBelt convBelt;
+	TxtMultiProcessingStationCalibData calibData;
 
 	bool reqQuit;
 	TxtWorkpiece* reqVGRwp;

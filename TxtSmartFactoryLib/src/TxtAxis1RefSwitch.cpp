@@ -32,7 +32,6 @@ void TxtAxis1RefSwitch::moveRef()
 
 	resetCounter();
 
-	pT->lock();
 	if (chM < 8)
 	{
 		assert(pT->pTArea);
@@ -45,19 +44,17 @@ void TxtAxis1RefSwitch::moveRef()
 		(pT->pTArea+1)->ftX1out.distance[chM-8] = 0;
 		(pT->pTArea+1)->ftX1out.motor_ex_cmd_id[chM-8]++;
 	}
-	pT->unlock();
 
 	if ((status != AXIS_READY)&&(status != AXIS_NOREF)) {
 		spdlog::get("console_axes")->error("{} Error: status != AXIS_READY. Exit function.",name);
 		std::cout << "exit moveRef" << std::endl;
+		spdlog::get("file_logger")->error("exit moveRef",0);
 		exit(1);
 	}
 	setMotorLeft();
-	pT->lock();
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} set motor chM[{}] {} {}",name,chM,
 			chM<8?pT->pTArea->ftX1out.duty[chM*2]:(pT->pTArea+1)->ftX1out.duty[(chM-8)*2],
 			chM<8?pT->pTArea->ftX1out.duty[chM*2+1]:(pT->pTArea+1)->ftX1out.duty[(chM-8)*2+1]);
-	pT->unlock();
 
 	setStatus(AXIS_MOVING_REF);
 
@@ -99,6 +96,7 @@ void TxtAxis1RefSwitch::moveRef()
 		std::string sst = toString(status);
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} setStatus:{}",name,sst);
 		std::cout << "exit moveRef 2" << std::endl;
+		spdlog::get("file_logger")->error("exit moveRef 2",0);
 		exit(1);
 	}
 	Notify();
@@ -156,7 +154,6 @@ void TxtAxis1RefSwitch::setMotorRight()
 	}
 	else
 	{
-		pT->lock();
 		if (chM < 8)
 		{
 			assert(pT->pTArea);
@@ -169,13 +166,12 @@ void TxtAxis1RefSwitch::setMotorRight()
 			(pT->pTArea+1)->ftX1out.duty[(chM-8)*2] = 0;
 			(pT->pTArea+1)->ftX1out.duty[(chM-8)*2+1] = speed;
 		}
-		pT->unlock();
 	}
 }
 
-void TxtAxis1RefSwitch::reset() {
+void TxtAxis1RefSwitch::reset()
+{
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} reset",name);
-	pT->lock();
 	if (chM < 8)
 	{
 		assert(pT->pTArea);
@@ -190,21 +186,20 @@ void TxtAxis1RefSwitch::reset() {
 		(pT->pTArea+1)->ftX1out.distance[chM-8] = 0;
 		(pT->pTArea+1)->ftX1out.motor_ex_cmd_id[chM-8]++;
 	}
-	pT->unlock();
 }
 
-void TxtAxis1RefSwitch::resetCounter() {
-	pT->lock();
+void TxtAxis1RefSwitch::resetCounter()
+{
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} cnt {}",
 			name,chM<8?pT->pTArea->ftX1in.counter[chM]:(pT->pTArea+1)->ftX1in.counter[chM-8]);
 	chM<8?pT->pTArea->ftX1out.cnt_reset_cmd_id[chM]++:(pT->pTArea+1)->ftX1out.cnt_reset_cmd_id[chM-8]++;
 	//while(chM<8?pT->pTArea->ftX1in.cnt_resetted[chM]:(pT->pTArea+1)->ftX1in.cnt_resetted[chM-8] != 1);
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} cnt_reset {}",
 			name,chM<8?pT->pTArea->ftX1in.counter[chM]:(pT->pTArea+1)->ftX1in.counter[chM-8]);
-	pT->unlock();
 }
 
-void TxtAxis1RefSwitch::moveLeft(uint16_t steps, uint16_t* p) {
+void TxtAxis1RefSwitch::moveLeft(uint16_t steps, uint16_t* p)
+{
 	assert(p!=NULL);
 	SPDLOG_LOGGER_TRACE(spdlog::get("console_axes"), "{} moveLeft chM:{} chS1:{} steps:{} p:{}",name,chM,chS1,steps,*p);
 	if (steps <= 0) {
@@ -223,7 +218,6 @@ void TxtAxis1RefSwitch::moveLeft(uint16_t steps, uint16_t* p) {
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} posa: {}",name,posa);
 
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} setup distance:{}",name,steps);
-	pT->lock();
 	if (chM < 8)
 	{
 		pT->pTArea->ftX1out.distance[chM] = steps; // Distance to drive Motor 1 [0]
@@ -234,7 +228,6 @@ void TxtAxis1RefSwitch::moveLeft(uint16_t steps, uint16_t* p) {
 		(pT->pTArea+1)->ftX1out.distance[chM-8] = steps; // Distance to drive Motor 1 [0]
 		(pT->pTArea+1)->ftX1out.motor_ex_cmd_id[chM-8]++; // Set new Distance Value for Motor 1 [0]
 	}
-	pT->unlock();
 	setMotorLeft();
 
 	setStatus(AXIS_MOVING_LEFT);
@@ -272,23 +265,19 @@ void TxtAxis1RefSwitch::moveLeft(uint16_t steps, uint16_t* p) {
 			spdlog::get("console_axes")->warn("{} diff_s > diff_max: diff_s:{} diff_max:{}",name,diff_s,diff_max);
 			break;
 		}
-		pT->lock();
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} OutExCmd:{} InExCmd:{} Counter:{} reach:{}",
 			name,
 			chM<8?pT->pTArea->ftX1out.motor_ex_cmd_id[chM] :(pT->pTArea+1)->ftX1out.motor_ex_cmd_id[chM-8],
 			chM<8?pT->pTArea->ftX1in.motor_ex_cmd_id[chM]  :(pT->pTArea+1)->ftX1in.motor_ex_cmd_id[chM-8],
 			chM<8?pT->pTArea->ftX1in.counter[chM]          :(pT->pTArea+1)->ftX1in.counter[chM-8],
 			chM<8?pT->pTArea->ftX1in.motor_ex_reached[chM] :(pT->pTArea+1)->ftX1in.motor_ex_reached[chM-8]);
-		pT->unlock();
 		std::this_thread::sleep_for(std::chrono::milliseconds(CYCLE_MS_AXIS));
 	}
 	if (status == AXIS_MOVING_LEFT)
 	{
 		//set new pos
-		pT->lock();
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} posa >= pT->pTArea->ftX1in.counter[ch:{}]",name,chM);
 		INT16 chMcounter = chM<8?pT->pTArea->ftX1in.counter[chM]:(pT->pTArea+1)->ftX1in.counter[chM-8];
-		pT->unlock();
 		if (posa >= chMcounter) {
 			*p = posa - chMcounter;
 		} else {
@@ -300,6 +289,7 @@ void TxtAxis1RefSwitch::moveLeft(uint16_t steps, uint16_t* p) {
 		std::string sst = toString(status);
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} setStatus:{}",name,sst);
 		std::cout << "wrong status" << std::endl;
+		spdlog::get("file_logger")->error("wrong status",0);
 		exit(1);
 	}
 }
@@ -322,7 +312,6 @@ void TxtAxis1RefSwitch::moveRight(uint16_t steps, uint16_t* p) {
 	int16_t posa = *p;
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "posa: {}", posa);
 
-	pT->lock();
 	if (chM < 8)
 	{
 		assert(pT->pTArea);
@@ -335,7 +324,6 @@ void TxtAxis1RefSwitch::moveRight(uint16_t steps, uint16_t* p) {
 		(pT->pTArea+1)->ftX1out.distance[chM-8] = steps; // Distance to go back
 		(pT->pTArea+1)->ftX1out.motor_ex_cmd_id[chM-8]++; // Set new Distance Value for Motor 1 [0]
 	}
-	pT->unlock();
 
 	SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} setup distance:{}",name,steps);
 	setMotorRight();
@@ -371,26 +359,23 @@ void TxtAxis1RefSwitch::moveRight(uint16_t steps, uint16_t* p) {
 			spdlog::get("console_axes")->warn("{} diff_s > diff_max: diff_s:{} diff_max:{}",name,diff_s,diff_max);
 			break;
 		}
-		pT->lock();
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} OutExCmd:{} InExCmd:{} Counter:{} reach:{}",
 			name,
 			chM<8?pT->pTArea->ftX1out.motor_ex_cmd_id[chM] :(pT->pTArea+1)->ftX1out.motor_ex_cmd_id[chM-8],
 			chM<8?pT->pTArea->ftX1in.motor_ex_cmd_id[chM]  :(pT->pTArea+1)->ftX1in.motor_ex_cmd_id[chM-8],
 			chM<8?pT->pTArea->ftX1in.counter[chM]          :(pT->pTArea+1)->ftX1in.counter[chM-8],
 			chM<8?pT->pTArea->ftX1in.motor_ex_reached[chM] :(pT->pTArea+1)->ftX1in.motor_ex_reached[chM-8]);
-		pT->unlock();
 		std::this_thread::sleep_for(std::chrono::milliseconds(CYCLE_MS_AXIS));
 	}
 	if (status == AXIS_MOVING_RIGHT)
 	{
 		//set new pos
-		pT->lock();
 		INT16 chMcounter = chM<8?pT->pTArea->ftX1in.counter[chM]:(pT->pTArea+1)->ftX1in.counter[chM-8];
-		pT->unlock();
 		if ((posa + chMcounter) >= posEnd) {
 			setStatus(AXIS_ERROR);
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} AXIS_ERROR: *p:{} posa:{} pT->pTArea->ftX1in.counter[ch]:{}",name,*p,posa,chMcounter);
 			std::cout << "exit moveRight" << std::endl;
+			spdlog::get("file_logger")->error("exit moveRight",0);
 			exit(1);
 		} else {
 			*p = posa + chMcounter;
@@ -400,6 +385,7 @@ void TxtAxis1RefSwitch::moveRight(uint16_t steps, uint16_t* p) {
 		std::string sst = toString(status);
 		SPDLOG_LOGGER_DEBUG(spdlog::get("console_axes"), "{} setStatus:{}",name,sst);
 		std::cout << "exit moveRight 2" << std::endl;
+		spdlog::get("file_logger")->error("exit moveRight 2",0);
 		exit(1);
 	}
 }

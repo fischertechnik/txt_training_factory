@@ -6,6 +6,7 @@
 #include "TxtJoystickXYBController.h"
 #include "Utils.h"
 #include "TxtAxis.h"
+#include "TxtSound.h"
 
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
@@ -18,9 +19,11 @@
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/sinks/basic_file_sink.h"
+#include "spdlog/async.h"
 
 // Version info
-#define VERSION_HEX ((0<<16)|(7<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(8<<8)|(0<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;
@@ -45,27 +48,6 @@ ft::TxtMqttFactoryClient* pcli = NULL;
 
 bool first_message_arrived = false;
 bool first_message_subscribe = false;
-
-
-bool trycheckTimestampTTL(const std::string& str, double diff_max = 10.0)
-{
-	SPDLOG_LOGGER_TRACE(spdlog::get("console"), "checkTimestamp",str);
-	char sts[25];
-	auto start = ft::trygettimepoint(str);
-	auto end = std::chrono::system_clock::now();
-	ft::getnowstr(sts);
-	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "now: {}",sts);
-	auto dur = end-start;
-
-	//TODO offset -3600=1h timezone!?
-	//auto t = make_zoned(current_zone(), system_clock::now());
-	//auto offset = t.get_info().offset;
-	//std::cout << offset << '\n';
-
-	auto diff_s = -3600.0 + std::chrono::duration_cast< std::chrono::duration<float> >(dur).count();
-	SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "diff_s:{} diff_max:{}",diff_s,diff_max);
-	return (diff_s < diff_max);
-}
 
 class callback : public virtual mqtt::callback
 {
@@ -115,7 +97,8 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+
+				if (!ft::trycheckTimestampTTL(sts))
 				{
 					mpo_.requestQuit();
 				}
@@ -133,7 +116,7 @@ class callback : public virtual mqtt::callback
 				ft::TxtVgrDoCode_t code = (ft::TxtVgrDoCode_t)root["code"].asInt();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
 
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtWorkpiece* wp = NULL;
 					if (root["workpiece"] != Json::Value::null) {
@@ -185,7 +168,7 @@ class callback : public virtual mqtt::callback
 				ft::TxtSldAckCode_t code = (ft::TxtSldAckCode_t)root["code"].asInt();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
 
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					switch (code)
 					{
@@ -204,7 +187,8 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			std::cout << "Unknown topic ???: " << msg->get_topic() << std::endl;
+			std::cout << "Unknown topic: " << msg->get_topic() << std::endl;
+			spdlog::get("file_logger")->error("Unknown topic: {}",msg->get_topic());
 			exit(1);
 		}
 #elif CLIENT_HBW
@@ -216,7 +200,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (!ft::trycheckTimestampTTL(sts))
 				{
 					hbw_.requestQuit();
 				}
@@ -232,7 +216,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtJoysticksData jd;
 					jd.aX1 = root["aX1"].asInt();
@@ -258,7 +242,7 @@ class callback : public virtual mqtt::callback
 				ft::TxtVgrDoCode_t code = (ft::TxtVgrDoCode_t)root["code"].asInt();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
 
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtWorkpiece* wp = NULL;
 					if (root["workpiece"] != Json::Value::null) {
@@ -316,7 +300,8 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			std::cout << "Unknown topic ???" << msg->get_topic() << std::endl;
+			std::cout << "Unknown topic: " << msg->get_topic() << std::endl;
+			spdlog::get("file_logger")->error("Unknown topic: {}",msg->get_topic());
 			exit(1);
 		}
 #elif CLIENT_VGR
@@ -328,7 +313,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (!ft::trycheckTimestampTTL(sts))
 				{
 					vgr_.requestQuit();
 				}
@@ -344,7 +329,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					std::string stype = root["type"].asString();
 					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  type:{}", stype);
@@ -371,7 +356,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					std::string scmd = root["cmd"].asString();
 					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  cmd:{}", scmd);
@@ -394,7 +379,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtJoysticksData jd;
 					jd.aX1 = root["aX1"].asInt();
@@ -420,7 +405,7 @@ class callback : public virtual mqtt::callback
 				ft::TxtMpoAckCode_t code = (ft::TxtMpoAckCode_t)root["code"].asInt();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
 
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtWorkpiece* wp = NULL;
 					if (root["workpiece"] != Json::Value::null) {
@@ -469,7 +454,7 @@ class callback : public virtual mqtt::callback
 			try {
 				ssin >> root;
 				std::string sts = root["ts"].asString();
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtHbwAckCode_t code = (ft::TxtHbwAckCode_t)root["code"].asInt();
 					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
@@ -529,7 +514,7 @@ class callback : public virtual mqtt::callback
 			try {
 				ssin >> root;
 				std::string sts = root["ts"].asString();
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtSldAckCode_t code = (ft::TxtSldAckCode_t)root["code"].asInt();
 					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
@@ -552,6 +537,9 @@ class callback : public virtual mqtt::callback
 					case ft::SLD_SORTED:
 						vgr_.requestSLDsorted(type);
 						break;
+					case ft::SLD_CALIB_END:
+						vgr_.requestSLDcalib_end();
+						break;
 					default:
 						break;
 					}
@@ -561,7 +549,8 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			std::cout << "Unknown topic ???" << msg->get_topic() << std::endl;
+			std::cout << "Unknown topic: " << msg->get_topic() << std::endl;
+			spdlog::get("file_logger")->error("Unknown topic: {}",msg->get_topic());
 			exit(1);
 		}
 #elif CLIENT_SLD
@@ -573,9 +562,33 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (trycheckTimestampTTL(sts))
+				if (!ft::trycheckTimestampTTL(sts))
 				{
 					sld_.requestQuit();
+				}
+			} catch (const Json::RuntimeError& exc) {
+				std::cout << "Error: " << exc.what() << std::endl;
+			}
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
+		} else if (msg->get_topic() == TOPIC_LOCAL_SSC_JOY) {
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "DETECTED joy:{}", msg->get_topic());
+			std::stringstream ssin(msg->to_string());
+			Json::Value root;
+			try {
+				ssin >> root;
+				std::string sts = root["ts"].asString();
+				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
+				if (ft::trycheckTimestampTTL(sts))
+				{
+					ft::TxtJoysticksData jd;
+					jd.aX1 = root["aX1"].asInt();
+					jd.aY1 = root["aY1"].asInt();
+					jd.b1 = root["b1"].asBool();
+					jd.aX2 = root["aX2"].asInt();
+					jd.aY2 = root["aY2"].asInt();
+					jd.b2 = root["b2"].asBool();
+					sld_.requestJoyBut(jd);
+					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  1:{} {} {} 2:{} {} {}", jd.aX1, jd.aY1, jd.b1, jd.aX2, jd.aY2, jd.b2);
 				}
 			} catch (const Json::RuntimeError& exc) {
 				std::cout << "Error: " << exc.what() << std::endl;
@@ -588,7 +601,7 @@ class callback : public virtual mqtt::callback
 			try {
 				ssin >> root;
 				std::string sts = root["ts"].asString();
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					ft::TxtMpoAckCode_t code = (ft::TxtMpoAckCode_t)root["code"].asInt();
 					SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
@@ -614,7 +627,7 @@ class callback : public virtual mqtt::callback
 				std::string sts = root["ts"].asString();
 				ft::TxtVgrDoCode_t code = (ft::TxtVgrDoCode_t)root["code"].asInt();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{} code:{}", sts, (int)code);
-				if (trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					switch(code)
 					{
@@ -623,6 +636,9 @@ class callback : public virtual mqtt::callback
 						break;
 					case ft::VGR_SLD_START:
 						sld_.requestVGRstart();
+						break;
+					case ft::VGR_SLD_CALIB:
+						sld_.requestVGRcalib();
 						break;
 					default:
 						break;
@@ -633,7 +649,8 @@ class callback : public virtual mqtt::callback
 			}
 			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "OK.", 0);
 		} else {
-			std::cout << "Unknown topic ???" << msg->get_topic() << std::endl;
+			std::cout << "Unknown topic: " << msg->get_topic() << std::endl;
+			spdlog::get("file_logger")->error("Unknown topic: {}",msg->get_topic());
 			exit(1);
 		}
 #else
@@ -683,21 +700,30 @@ int main(int argc, char* argv[])
 	fprintf(stdout,"%s V%d.%d.%d\n",clientName.c_str(),
 			(VERSION_HEX>>16)&0xff,(VERSION_HEX>>8)&0xff,(VERSION_HEX>>0)&0xff);
 
-	// Console logger with color
-	auto console = spdlog::stdout_color_mt("console");
-	auto console_axes = spdlog::stdout_color_mt("console_axes");
-	//spdlog::set_formatter();
-	spdlog::set_pattern("[%t][%Y-%m-%d %T.%e][%L] %v");
-	spdlog::set_level(spdlog::level::trace);
-	console_axes->set_level(spdlog::level::trace);//trace);
+	try
+	{
+		//can be set globaly or per logger(logger->set_error_handler(..))
+		spdlog::set_error_handler([](const std::string& msg)
+	    {
+			SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "err handler spdlog:{}", msg);
+	    });
 
-#ifdef DEBUG
-	//can be set globaly or per logger(logger->set_error_handler(..))
-	spdlog::set_error_handler([](const std::string& msg)
-    {
-		SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "err handler spdlog:{}", msg);
-    });
-#endif
+		auto file_logger = spdlog::basic_logger_mt<spdlog::async_factory>("file_logger", "Data/"+clientName+".log", true);
+		spdlog::get("file_logger")->set_level(spdlog::level::trace);
+		spdlog::get("file_logger")->info("{} {}", clientName.c_str(), TxtAppVer);
+
+		// Console logger with color
+		auto console = spdlog::stdout_color_mt("console");
+		auto console_axes = spdlog::stdout_color_mt("console_axes");
+		//spdlog::set_formatter();
+		spdlog::set_pattern("[%t][%Y-%m-%d %T.%e][%L] %v");
+		spdlog::set_level(spdlog::level::trace);
+		console_axes->set_level(spdlog::level::trace);//trace);
+	}
+	catch (const spdlog::spdlog_ex& ex)
+	{
+		std::cout << "Log initialization failed: " << ex.what() << std::endl;
+	}
 
 	//load config
     Json::Value root;
@@ -713,11 +739,13 @@ int main(int argc, char* argv[])
             std::cout  << errs << "\n";
         }
     }
+    bool sound_enable = root.get("sound", true ).asBool();
     std::string host = root.get("host", "192.168.0.10" ).asString();
     int port = root.get("port", 1883 ).asInt();
     std::string mqtt_user = root.get("mqtt_user", "txt" ).asString();
     mqtt::binary_ref mqtt_pass = root.get("mqtt_pass", "xtx" ).asString();
-    std::cout << "host:" << host
+    std::cout << "sound:" << sound_enable
+    	<< " host:" << host
 		<< " port:" << port
 		<< " mqtt_user:" << mqtt_user
 		<< " mqtt_pass:" << mqtt_pass << std::endl
@@ -738,24 +766,27 @@ int main(int argc, char* argv[])
 				pcli = &mqttclient;
 
 				ft::TxtTransfer T(pTArea);
-				ft::TxtTransfer* pT = &T;
 #ifdef CLIENT_MPO
-		    	ft::TxtMultiProcessingStation mpo(pT, pcli);
+		    	ft::TxtMultiProcessingStation mpo(&T, pcli);
+		    	mpo.sound.enable(sound_enable);
 		    	pMPO = &mpo;
 				callback cb(mqttclient, mpo);
 				mqttclient.set_callback(cb); //set callback first!
 #elif CLIENT_HBW
-		    	ft::TxtHighBayWarehouse hbw(pT, pcli);
+		    	ft::TxtHighBayWarehouse hbw(&T, pcli);
+		    	hbw.sound.enable(sound_enable);
 		    	pHBW = &hbw;
 				callback cb(mqttclient, hbw);
 				mqttclient.set_callback(cb); //set callback first!
 #elif CLIENT_VGR
-		    	ft::TxtVacuumGripperRobot vgr(pT, pcli);
+		    	ft::TxtVacuumGripperRobot vgr(&T, pcli);
+		    	vgr.sound.enable(sound_enable);
 		    	pVGR = &vgr;
 				callback cb(mqttclient, vgr);
 				mqttclient.set_callback(cb); //set callback first!
 #elif CLIENT_SLD
-		    	ft::TxtSortingLine sld(pT, pcli);
+		    	ft::TxtSortingLine sld(&T, pcli);
+		    	sld.sound.enable(sound_enable);
 		    	pSLD = &sld;
 				callback cb(mqttclient, sld);
 				mqttclient.set_callback(cb); //set callback first!
@@ -768,6 +799,7 @@ int main(int argc, char* argv[])
 		    	bool ret = pcli->connect(TIMEOUT_CONNECTION_MS);
 		    	if (!ret) {
 			        std::cerr << "Error: timeout connecting to MQTT broker: " << TIMEOUT_CONNECTION_MS << "s" << std::endl;
+					spdlog::get("file_logger")->error("Error: timeout connecting to MQTT broker: {}s", TIMEOUT_CONNECTION_MS);
 			        return 1;
 		    	}
 
@@ -778,6 +810,23 @@ int main(int argc, char* argv[])
 				std::cout << "Waiting first_message_subscribe ... ";
 				while(!first_message_subscribe);
 				std::cout << "OK" << std::endl;
+
+				std::cout << "Broadcast MQTTClient" << std::endl;
+				//Broadcast: to trigger config messages
+				long timeout_ms = TIMEOUT_CONNECTION_MS;
+				double timestamp_s = ft::getnowtimestamp_s();
+#ifdef CLIENT_MPO
+				pcli->publishStationBroadcast("MPO",
+#elif CLIENT_HBW
+				pcli->publishStationBroadcast("HBW",
+#elif CLIENT_VGR
+				pcli->publishStationBroadcast("VGR",
+#elif CLIENT_SLD
+				pcli->publishStationBroadcast("SLD",
+#else
+				#error Set CLIENT_XXX define first!
+#endif
+						timestamp_s, clientName, TxtAppVer, "init", timeout_ms);
 
 				//std::cout << "Waiting first_message_arrived ... ";
 				//while(!first_message_arrived);
@@ -815,17 +864,28 @@ int main(int argc, char* argv[])
 #endif
 				}
 
+			} catch (const std::invalid_argument& exc) {
+				std::cerr << "invalid_argument Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("invalid_argument Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
+				return 1;
 			} catch (const Json::RuntimeError& exc) {
-				std::cout << "Error: " << exc.what() << std::endl;
+				std::cerr << "Json Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("Json Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
 		        return 1;
 		    } catch (const mqtt::exception& exc) {
-		        std::cout << "Error: " << exc.what() << " [" << exc.get_reason_code() << "]" << std::endl;
+		        std::cerr << "MQTT Error: " << exc.what() << " [" << exc.get_reason_code() << "]" << std::endl;
+				spdlog::get("file_logger")->error("MQTT Error: {} [{}]", exc.what(), exc.get_reason_code());
+				ft::TxtSound::play(pTArea,2);
 		        return 1;
-			} catch (const spdlog::spdlog_ex& ex) {
-			    std::cout << "Log initialization failed: " << ex.what() << std::endl;
+			} catch (const spdlog::spdlog_ex& exc) {
+			    std::cerr << "Spdlog Error: " << exc.what() << std::endl;
+				spdlog::get("file_logger")->error("Spdlog Error: {}", exc.what());
+				ft::TxtSound::play(pTArea,1);
+		        return 1;
 			}
         }
-        spdlog::drop_all();
         StopTxtDownloadProg();
     }
 	return 0;
