@@ -36,14 +36,16 @@ The programs can be copied to the TXT controllers using the [WEB server](doc/WEB
 You can import the projects in this workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php). Please read the instructions bellow. 
 
 ### Linux
-1. Download the TXT Tool Chain
-
-Coming soon...
+1. Download the [TXT Tool Chain for Linux](https://github.com/fischertechnik/txt_training_factory/releases/download/v0.7.0/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf.tar.xz)
+2. Download [txt_traning_factory](https://github.com/fischertechnik/txt_training_factory/archive/master.zip) and import the workspace in eclipse
+3. Change the paths to the tool chain
+4. Build all projects
 
 ### Windows
-1. Download the TXT Tool Chain
-
-Coming soon...
+1. Download the [TXT Tool Chain Windows](https://github.com/fischertechnik/txt_training_factory/releases/download/v0.7.0/gcc-linaro-7.2.1-2017.11-i686-mingw32_arm-linux-gnueabihf.tar.xz)
+2. Download [txt_traning_factory](https://github.com/fischertechnik/txt_training_factory/archive/master.zip) and import the workspace in eclipse
+3. Change the paths to the tool chain
+4. Build all projects
 
 ## Network
 The next picture shows the [network](doc/Network_Config.md) overview with the TXT controllers.
