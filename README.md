@@ -1,3 +1,5 @@
+> If you have any questions, please contact fischertechnik-technik@fischer.de
+
 > DEUTSCH: [**fischertechnik Lernfabrik 4.0 (de)**](README_de.md)
 
 # fischertechnik Training Factory Industry 4.0 (en)
@@ -11,6 +13,8 @@ The factory consists of the following stations:
 * **DPS**: Delivery and Pickup Station
 * **MPO**: Multi-Processing Station with Oven
 * **SLD**: Sorting Line with Color Detection
+
+![SW Layer](doc/SW_Layer.PNG "SW Layer")
 
 ## Programs
 The default user programs implement the standard demo scenario with the [www.fischertechnik-cloud.com](https://www.fischertechnik-cloud.com). These programs you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
@@ -27,6 +31,9 @@ The programs for the parking position you will find in the [bin](https://github.
 * **TxtParkPosVGR**
 
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
+
+## IDE Setup
+Coming soon...
 
 ## Network
 The next picture shows the [network](doc/Network_Config.md) overview with the TXT controllers.
