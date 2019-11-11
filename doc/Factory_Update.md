@@ -29,6 +29,6 @@ Switch off and on all the TXT controllers in the training model.
 Start the factory. Please check if the calibration of the training model is correct.
 
 
-*Hints*:
+# Hints
 - The version of the TXT firmware can be found on the TXT controller in the menue `Settings -> info`
 - The version of the ROBO Pro can be found in menue `Help -> About...`
