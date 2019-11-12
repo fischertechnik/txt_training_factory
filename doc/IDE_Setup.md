@@ -6,4 +6,4 @@
 4. Build all projects
 
 The following diagram shows the structure of the eclipse workspace.
-![SW Layer](doc/SW_Layer.PNG "SW Layer")
+![SW Layer](SW_Layer.PNG "SW Layer")
