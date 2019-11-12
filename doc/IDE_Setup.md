@@ -13,7 +13,9 @@ Download [txt_traning_factory](https://github.com/fischertechnik/txt_training_fa
 ![IDE_Setup_Import3](IDE_Setup_Import3.PNG "IDE Setup Import3")
 
 ## 3. Config txt_traning_factory
-Change the paths in the properties for all projects in `Properties -> C/C++ Build -> Settings -> Cross Settings -> Path` to the TXT Tool Chain path
+Change the paths in the properties for all projects in `Properties -> C/C++ Build -> Settings -> Cross Settings -> Path` to the TXT Tool Chain path. Select `[All configurations]` and repeat for all subprojects.
+![IDE_Setup_Config](IDE_Setup_Import.PNG "IDE Setup Config")
+![IDE_Setup_Config2](IDE_Setup_Import2.PNG "IDE Setup Config2")
 
 ## 4. Build
 Build all projects
