@@ -5,7 +5,7 @@
 # fischertechnik Training Factory Industry 4.0 (en)
 This project contains the C/C++ library *TxtSmartFactoryLib* and the main and client programs for the fischertechnik [**Training Factory Industry 4.0**](https://www.fischertechnik.de/en/service/elearning/teaching/lernfabrik-4). The library requires at least the [TXT firmware version 4.5.1](https://github.com/fischertechnik/FT-TXT/releases).
 
-The current txt_training_factory version v0.8.0 requires at least TXT firmware 4.6.6. See [HowTo](doc/Factory_Update.md) for more details. An upgrade takes some time and should best be done by an experienced user, because all the data on the TXT controllers will be overwritten.
+The current txt_training_factory version v0.8.0 ([Release Notes](https://github.com/fischertechnik/txt_training_factory/releases)) requires at least TXT firmware 4.6.6 ([Release Notes](https://github.com/fischertechnik/FT-TXT/releases)). See [HowTo](doc/Factory_Update.md) for more details. An upgrade takes some time and should best be done by an experienced user, because all the data on the TXT controllers will be overwritten.
 
 ## Overview
 The factory consists of the following stations:
