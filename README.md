@@ -30,7 +30,7 @@ The programs for the parking position you will find in the [bin](https://github.
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## Build
-You can import the git repository as a workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php) or with *make*. Please read the [instructions](doc/IDE_Setup.md). 
+You can import the git repository as a workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php) or build the programs with *make*. Please read the [building instructions](doc/IDE_Setup.md). 
 
 ## Network
 The next picture shows the [network](doc/Network_Config.md) overview with the TXT controllers.
