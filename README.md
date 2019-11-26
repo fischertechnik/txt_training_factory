@@ -25,15 +25,12 @@ The default user programs implement the standard demo scenario with the [www.fis
 * **TxtFactorySLD** [[Finite State Machine SLD](https://fischertechnik.github.io/txt_training_factory_doc/html/dot_TxtSortingLineRun.png)]
 
 The programs for the parking position you will find in the [bin](https://github.com/fischertechnik/txt_training_factory/tree/master/bin) folder:
-* **TxtParkPosSSC**
-* **TxtParkPosMPO**
-* **TxtParkPosHBW**
-* **TxtParkPosVGR**
+* **TxtParkPosSSC**, **TxtParkPosMPO**, **TxtParkPosHBW**, **TxtParkPosVGR**
 
 The programs can be copied to the TXT controllers using the [WEB server](doc/WEBServer.md).
 
 ## Build
-You can import the git repository as a workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php) or with **make**. Please read the [instructions](doc/IDE_Setup.md). 
+You can import the git repository as a workspace in [eclipse CDT](https://www.eclipse.org/cdt/downloads.php) or with *make*. Please read the [instructions](doc/IDE_Setup.md). 
 
 ## Network
 The next picture shows the [network](doc/Network_Config.md) overview with the TXT controllers.
