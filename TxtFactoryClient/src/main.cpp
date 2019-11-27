@@ -98,7 +98,7 @@ class callback : public virtual mqtt::callback
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
 
-				if (!ft::trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					mpo_.requestQuit();
 				}
@@ -200,7 +200,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (!ft::trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					hbw_.requestQuit();
 				}
@@ -313,7 +313,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (!ft::trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					vgr_.requestQuit();
 				}
@@ -562,7 +562,7 @@ class callback : public virtual mqtt::callback
 				ssin >> root;
 				std::string sts = root["ts"].asString();
 				SPDLOG_LOGGER_DEBUG(spdlog::get("console"), "  ts:{}", sts);
-				if (!ft::trycheckTimestampTTL(sts))
+				if (ft::trycheckTimestampTTL(sts))
 				{
 					sld_.requestQuit();
 				}
