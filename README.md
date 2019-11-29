@@ -39,5 +39,8 @@ The next picture shows the [network](doc/Network_Config.md) overview with the TX
 ## MQTT Interface
 The [MQTT Interface](TxtSmartFactoryLib/doc/MqttInterface.md) describes the topics and the payload of the MQTT clients and the configuration of the mosquitto MQTT bridge. 
 
+## Node-RED
+The [Node-RED example](Node-RED/flows.json) shows how the Training Factory Industry 4.0 can be connected with Node-RED. You can import the flows file in Node-RED (see [HowTo](https://nodered.org/docs/user-guide/editor/workspace/import-export).
+
 ## API Reference C/C++ Library
 The Doxygen documentation of the C/C ++ library classes can be found in the [API Reference](https://fischertechnik.github.io/txt_training_factory_doc/html/index.html).
