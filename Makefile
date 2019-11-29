@@ -1,5 +1,11 @@
 #TOOLCHAIN_BIN_PATH = toolchain/gcc-linaro-7.2.1-2017.11-x86_64_arm-linux-gnueabihf/bin
 #set env var, e.g. "export TOOLCHAIN_BIN_PATH=/opt/FT/TXT/opt/ext-toolchain/bin"
+
+#check if TOOLCHAIN_BIN_PATH environment variable is set:
+ifndef TOOLCHAIN_BIN_PATH
+$(error TOOLCHAIN_BIN_PATH is undefined! Set with 'export TOOLCHAIN_BIN_PATH=/path/to/toolchain/bin')
+endif
+
 TOOLCHAIN_PREFIX = arm-linux-gnueabihf-
 COMPILER = g++
 AR = ar
