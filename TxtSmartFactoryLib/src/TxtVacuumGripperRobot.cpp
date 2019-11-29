@@ -19,7 +19,7 @@ TxtVacuumGripperRobot::TxtVacuumGripperRobot(TxtTransfer* pT, ft::TxtMqttFactory
 	calibPos(VGRCALIB_DSI), calibColor(ft::WP_TYPE_NONE),
 	axisX("VGR_X", pT, 0, 0, 1500),
 	axisY("VGR_Y", pT, 1, 1, 900),
-	axisZ("VGR_Z", pT, 2, 2, 950),
+	axisZ("VGR_Z", pT, 2, 2, 1100),
 	vgripper(pT, 6, 7), target(""), dps(pT, mqttclient),
 	reqQuit(false),
 	reqOrder(false), reqWP_order(),

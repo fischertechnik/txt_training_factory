@@ -23,7 +23,7 @@
 #include "spdlog/async.h"
 
 // Version info
-#define VERSION_HEX ((0<<16)|(8<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(8<<8)|(1<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;

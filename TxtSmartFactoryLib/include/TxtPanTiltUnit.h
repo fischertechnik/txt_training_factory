@@ -134,6 +134,9 @@ public:
 	void moveStepTiltUp();
 	void moveStepTiltDown();
 
+	bool movePanPos(uint16_t pPan);
+	bool moveTiltPos(uint16_t pTilt);
+
 protected:
 	void configInputs(uint8_t ch);
 
@@ -148,9 +151,6 @@ protected:
 	void movePanRight(uint16_t steps);
 	void moveTiltUp(uint16_t steps);
 	void moveTiltDown(uint16_t steps);
-
-	bool movePanPos(uint16_t pPan);
-	bool moveTiltPos(uint16_t pTilt);
 
 	TxtTransfer* pT;
 	bool stopAllReq;

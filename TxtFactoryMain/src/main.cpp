@@ -40,7 +40,7 @@ std::string sts_vgr;
 std::string sts_sld;
 
 // Version info
-#define VERSION_HEX ((0<<16)|(8<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(8<<8)|(1<<0))
 char TxtAppVer[32];
 
 unsigned int DebugFlags;

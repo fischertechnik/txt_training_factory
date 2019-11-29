@@ -10,6 +10,7 @@
 #else
 	#error Set CLIENT_XXX define first!
 #endif
+#include "TxtSound.h"
 
 #include "KeLibTxtDl.h"     // TXT Lib
 #include "FtShmem.h"        // TXT Transfer Area
@@ -27,7 +28,7 @@ unsigned int DebugFlags;
 FILE *DebugFile;
 
 // Version info
-#define VERSION_HEX ((0<<16)|(2<<8)|(0<<0))
+#define VERSION_HEX ((0<<16)|(8<<8)|(1<<0))
 char TxtAppVer[32];
 
 FISH_X1_TRANSFER* pTArea = NULL;
@@ -134,10 +135,12 @@ int main(int argc, char* argv[])
 		    	ft::TxtPanTiltUnit ptu(&T);
 		    	ptu.init();
 		    	ptu.moveHome();
+		    	ptu.movePanCenter();
+		    	ptu.moveTiltPos(100);
 #else
 				#error Set CLIENT_XXX define first!
 #endif
-
+				ft::TxtSound::play(pTArea,1);
         }
         StopTxtDownloadProg();
     }
