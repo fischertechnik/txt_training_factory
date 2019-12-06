@@ -2,9 +2,9 @@
 
 [Node-RED](https://nodered.org/) is a powerful tool for connecting various hardware and APIs. In addition, you can implement a local dashboard for *Training Factory Industry 4.0* using MQTT nodes in Node-RED.
 
-This example contains simple [Node-RED Flows](Node-RED/flows.json), which shows how the *Training Factory Industry 4.0* can be connected to Node-RED.
+This example contains simple Node-RED flows, which shows how the *Training Factory Industry 4.0* can be connected to Node-RED.
 
-You can import the example [flows.json](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows.json) file in the Node-RED environment (see [HowTo](https://nodered.org/docs/user-guide/editor/workspace/import-export)).
+You can import the [example flows.json file](flows.json) in the Node-RED environment (see [HowTo](https://nodered.org/docs/user-guide/editor/workspace/import-export)).
 
 ### Flows
 ![Flows-Pub](flows-pub.png)
