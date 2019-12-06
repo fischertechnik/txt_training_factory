@@ -6,8 +6,12 @@ This example contains simple [Node-RED Flows](Node-RED/flows.json), which shows 
 
 You can import the example `flows.json` file in the Node-RED environment (see [HowTo](https://nodered.org/docs/user-guide/editor/workspace/import-export)).
 
-[[Flows-Pub](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows-pub)]
+[[Flows-Pub](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows-pub.png)]
 
-[[Flows-Sub](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows-sub)]
+[[Flows-Sub](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows-sub.png)]
 
-[[Flows-Conf](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows-conf)]
+[[Flows-Conf](https://fischertechnik.github.io/txt_training_factory/Node-RED/flows-conf.png)]
+
+[[Dashboard-Overview](https://fischertechnik.github.io/txt_training_factory/Node-RED/dashboard-overview.png)]
+
+[[Dashboard--Graph](https://fischertechnik.github.io/txt_training_factory/Node-RED/dashboard-graph.png)]
