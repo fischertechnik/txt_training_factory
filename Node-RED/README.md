@@ -6,6 +6,10 @@ This example contains simple Node-RED flows, which shows how the *Training Facto
 
 You can import the [example flows.json file](flows.json) in the Node-RED environment (see [HowTo](https://nodered.org/docs/user-guide/editor/workspace/import-export)).
 
+Node-RED dependencies:
+  * [node-red-dashboard](https://flows.nodered.org/node/node-red-dashboard)
+
+
 ### Flows
 ![Flows-Pub](flows-pub.png)
 
