@@ -124,14 +124,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.debug.1044973461" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartHomeLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Debug"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartHomeLib/Debug"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Debug"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLibd" srcPrefixMapping="" srcRootPath=""/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartHomeLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -250,11 +244,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Release"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLib" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -383,14 +374,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.debug.1044973461" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartHomeLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Debug"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartHomeLib/Debug"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Debug"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLibd" srcPrefixMapping="" srcRootPath=""/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartHomeLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -509,11 +494,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Release"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLib" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -642,14 +624,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.debug.1044973461" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartHomeLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Debug"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartHomeLib/Debug"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Debug"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLibd" srcPrefixMapping="" srcRootPath=""/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartHomeLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -768,11 +744,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Release"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLib" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -901,14 +874,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.debug.1044973461" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartHomeLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Debug"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartHomeLib/Debug"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Debug"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLibd" srcPrefixMapping="" srcRootPath=""/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartHomeLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib_Debug" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
@@ -1027,11 +994,8 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings">
 				<externalSettings containerId="TxtSmartFactoryLib;cdt.managedbuild.config.gnu.cross.exe.release.345746666" factoryId="org.eclipse.cdt.core.cfg.export.settings.sipplier">
 					<externalSetting>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtBME680BSECLib"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/TxtSmartFactoryLib"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtBME680BSECLib/Release"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/TxtSmartFactoryLib/Posix_Release"/>
-						<entry flags="RESOLVED" kind="libraryFile" name="TxtBME680BSECLib" srcPrefixMapping="" srcRootPath=""/>
 						<entry flags="RESOLVED" kind="libraryFile" name="TxtSmartFactoryLib" srcPrefixMapping="" srcRootPath=""/>
 					</externalSetting>
 				</externalSettings>
